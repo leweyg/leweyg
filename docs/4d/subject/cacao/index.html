@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<title>Lewcid 4D Process</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+a:hover { 
+    color: green;
+}
+.evxOverlayBevel {
+  background-color:#6d6e2c94; 
+  border:1px solid #A9F3B3; 
+  border-radius:6px; 
+  color:white;
+
+}
+.evxOverlayBevel:hover {
+  background-color:#316e2cf3; 
+}
+.evxOverlayData {
+  background-color:#316e2c54; 
+}
+
+.evnMetaExtra {
+  display:none;
+}
+
+.evxInfoPanel {
+  display:block;
+}
+
+.evxBgColor {
+  color: #353f2f!important;
+  background-color: #353f2f!important;
+}
+
+
+</style>
+<body class="w3-grey evxBgColor" onresize="updateGraphWindowSize()">
+<!--
+/* Copyright (C) Lewcid Systems LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Lewey Geselowitz <LeweyGeselowitz@gmail.com>, March 2018
+ */
+-->
+    
+    <script src="js/evx_core.js" ></script>
+<script src="js/ecoweb.js"></script>
+<script>
+</script>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Right Column -->
+    <div class="">
+
+	  
+      <div class="w3-container w3-card w3-grey w3-margin-bottom evxBgColor" id="view3d_div">
+        <!-- <h2 class="w3-text-grey">
+            <img src="images/tree_icon_roots.jpg" width="30" />
+		Lewcid 4d Process
+	  </h2> -->
+      
+  
+
+	<!-- MAIN MENU -->
+  <div style="max-height:40px;z-index:200;position:relative; ">
+    <font color="white">
+
+      
+                        <!-- TABLE VIEW BUTTON  -->
+                        <table class="evxOverlayBevel" id="mainTableViewToggleButton" style="float:right;">
+                            <tr><td onclick="partnerToggleDataView()">
+                              TABLE
+                            </td></tr>
+                          </table>
+                          <table class="evxOverlayBevel" id="mainInfoToggleButton" style="float:right;">
+                              <tr><td onclick="partnerToggleInfoView()">
+                                INFO
+                              </td></tr>
+                            </table>
+
+        <table id="main_menu">
+          <tr><td style="vertical-align:top;">
+
+              <table id="view_menu"   class="evxOverlayBevel">
+                <tr><td onclick="evn_GoBack()">BACK</td></tr>
+                </table>
+
+
+              </td><td style="vertical-align:top;">
+
+                  <table id="view_menu"   class="evxOverlayBevel">
+                      <tr><td onclick="mainViewsListToggle()">VIEWS</td></tr>
+                      <tr id="mainJumpNavList" style="display:none;"><td>
+
+                        <u style="color:rgb(56, 40, 94);">One</u><br/>
+                        <a onclick="mainViewListSlide(0)">Person</a><br/>
+                        <a onclick="mainViewListSlide(2)">Mission</a><br/>
+                        <a onclick="mainViewListSlide(7)">Blockchain</a><br/>
+
+                        <u style="color:rgb(56, 40, 94);">Harvests</u><br/>
+                        <a onclick="mainViewListSlide(3)">Flow Map</a><br/>
+                        <a onclick="mainViewListSlide(9)">Process</a><br/>
+                        <a onclick="mainViewListSlide(8)">Gantt</a><br/>
+                        <!-- 
+                        <a onclick="mainViewsListHide();partnerCalcLatestMission();">Latest</a><br/>
+                          <a href="#" onclick="mainViewListSlide(4)">Mission Progressions</a><br/> 
+                        <a onclick="mainViewListSlide(5)">Types</a><br/>
+                      -->
+                        
+
+                        <u style="color:rgb(56, 40, 94);">Social</u><br/>
+                        <a onclick="mainViewListSlide(6)">Network Graph</a><br/>
+                        <a onclick="mainViewListSlide(1)">Flocking</a><br/>
+
+                        
+                        
+                        
+                        
+                        <u style="color:rgb(56, 40, 94);">EVX</u><br/>
+                        <span id="mainPartnerLinks" style="display:none;">links</span>
+                        <a onclick="mainViewsListHide();partnerTempSlideOverride='ecoSlide0';evn_ChangeMainElement(ecoSlide0,false)">evx-nature</a><br/>
+                        <a onclick="mainViewsListHide();evn_ChangeMainElement(evxExampleDatabaseView,true)">evx-data</a><br/>
+                        
+                      </td></tr>
+                      </table>
+                      <script>
+                         function mainViewsListHide() {
+                          mainJumpNavList.style.display = ('none');
+                        }
+                        function mainViewsListToggle() {
+                          mainJumpNavList.style.display = ((mainJumpNavList.style.display == 'none') ? 'inline' : 'none');
+                        }
+                        function mainViewListSlide(ndx) {
+                          mainViewsListHide();
+                          evn_GotoSlide(ndx);
+                        }
+                      </script>
+
+          
+
+            </td><td style="vertical-align:top;">
+
+              <table id="main_introduction"  class="evxOverlayBevel">
+                </table>
+
+              </td><td style="vertical-align:top;">
+
+                <!--
+                <table id="view_menu"   class="evxOverlayBevel">
+                    <tr><td onclick="evn_AnimationToggle()" id="mainAnimateButton">ANIMATE</td></tr>
+                    </table>
+                  -->
+
+              
+              </td><td style="vertical-align:top;">
+
+                    <table id="view_menu"   class="evxOverlayBevel">
+                        <tr><td onclick="evn_NextSlide()">NEXT</td></tr>
+                        </table>
+
+                </td><td style="vertical-align:top;">
+                  
+          </td></tr>
+          </table>
+
+       
+        <script>
+          var instructions = [
+            { name:"Rotate 3d View", cursor:"Move Cursor", touch:"Drag Background" },
+            { name:"Control Timeline", cursor:"Scroll", touch:"Drag Points" },
+            { name:"See Details", cursor:"Hover Point", touch:"Tap Point" },
+            { name:"Expand", cursor:"Click Point", touch:"Tap Point again" },
+            { name:"Lock 3d View", cursor:"Right-Click", touch:"" },
+          ];
+          var instructionsExpanded = false;
+          var instructionsMode = "cursor";
+
+          function buildInstructions() {
+            if (instructionsExpanded) {
+              var rows = "";
+              rows += "<tr>";
+              rows += "<td onclick='buildInstrictionToggleShow()'><b >CONTROLS</b></td>";
+              rows += "<td onclick='buildInstrictionToggleMode()'>";
+              rows += "<u>" + ((instructionsMode=="cursor")?("<b>CURSOR</b>/TOUCH"):("<b>TOUCH</b>/CURSOR")) + "</u>";
+              rows += "</td>";
+              rows += "</tr>";
+              for (var ii in instructions) {
+                var ins = instructions[ii];
+                if (ins[instructionsMode] == "") {
+                  continue;
+                }
+                rows += "<tr onclick='buildInstrictionToggleShow()'>";
+                rows += "<td>" + ins.name + "</td>";
+                if (instructionsMode == "cursor") {
+                  rows += "<td>" + ins["cursor"] + "</td>";
+                }
+                if (instructionsMode == "touch") {
+                  rows += "<td>" + ins["touch"] + "</td>";
+                }
+                rows += "</tr>";
+              }
+              main_introduction.innerHTML = rows;
+            } else {
+              rows = "<tr><td ontouchstart='buildInstructionsTouch(event);' onclick='buildInstructionsCursor(event)'>CONTROLS</td></tr>";
+              main_introduction.innerHTML = rows;
+            }
+
+          }
+
+    function buildInstructionsTouch(e) {
+    e.preventDefault();
+    instructionsMode='touch';
+    instructionsExpanded = true;
+    buildInstructions();
+    }
+
+    function buildInstructionsCursor(e) {
+    e.preventDefault();
+    instructionsMode='cursor';
+    instructionsExpanded = true;
+    buildInstructions();
+    }
+
+          function buildInstrictionToggleShow() {
+            instructionsExpanded = !instructionsExpanded;
+            buildInstructions();
+          }
+
+          function buildInstrictionToggleMode() {
+            instructionsMode = ((instructionsMode=="cursor")?"touch":"cursor");
+            instructionsExpanded = true;
+            buildInstructions();
+          }
+
+          buildInstructions();
+        </script>
+      </font>
+</div>
+
+
+	<!-- MAIN 3D CANVAS AND OVERLAYS -->
+	<div id="mainCanvasOverlay"  style="position:relative;overflow: hidden;" >
+
+ 
+    <canvas id="view3d_canvas" height="400" width="711" >
+      </canvas>
+
+      		<!-- WebGL Loading message -->
+    <div id="compat_result_holder" style="overflow-y: auto; position:absolute; left:12px; top:12px; bottom:12px; z-index:100;">
+      <p id="main_compat_results" color='green'>3d graphics initializing...</p>
+    </div>
+
+		<!-- TABLE VIEW DISPLAY -->
+    <div id="partner_detail_table2d_holder" style="overflow-y: auto; position:absolute; right:12px; top:12px; bottom:12px; z-index:100;">
+		
+              <table id="partner_detail_table2d"  class="evxOverlayBevel evxOverlayData">
+                <tr><td>Column 1</td><td>Column 2</td></tr>
+                <tr><td>Stuff 1</td><td>Stuff 2</td></tr>
+              </table>
+    </div>
+
+    <!-- VIEW INFO -->
+    <div id="partner_view_info_holder" style="overflow-y: auto; position:absolute; left:12px; top:12px; bottom:120px; z-index:100; max-width:200px;">
+        
+      <div id="partner_view_info"  >
+              <table class="evxOverlayBevel evxOverlayData evxInfoPanel" onclick="partnerToggleInfoView()">
+                <tr><td><h6 id="partner_info_title">Loading...</h6></td></tr>
+                <tr><td id="partner_info_desc">...</td></tr>
+                <tr><td><br/></td></tr>
+              </table>
+              <table class="evxOverlayBevel evxOverlayData evxInfoPanel" onclick="partnerToggleInfoView()">
+                <tr><td>COMMANDS</td></tr>
+                <tr><td id="partner_info_commands">Click on points to view corresponding mission/person.</td></tr>
+              </table>
+              <table class="evxOverlayBevel evxOverlayData evxInfoPanel">
+                <tr><td>SOURCE</td></tr>
+                <tr><td>&bull;Data from social collaberation tool.</td></tr>
+                <tr><td id="partner_info_filter">&bull;Filted to one person from <a href="#">all events</a>.</td></tr>
+                <tr><td  id="partner_info_graph">&bull;Graphed onto local map and scaled time coordinates.</td></tr>
+              </table>
+        </div>
+    </div>
+
+    <!-- META-DATA OVERLAY -->
+    <div id="partner_metadata_overlay" style="position:absolute; left:12px; bottom:12px;">
+  	  <!-- META DATA VISUALIZATION -->
+      <div id="partner_meta_popup" style="padding: 3px;" >
+	
+        <font color="#ccCCcc">
+          <img id="partner_detail_user_image" src="" height="30" ></img>
+          <font color="#ccCCcc"><a id="partner_detail_user_name" href="#" onclick="evn_GotoSlide(0)">User Name</a></font>
+          <font color="#555577"><a id="partner_detail_user_social" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(6)">(social)</a></font>
+          <font color="#555577"><a id="partner_detail_user_similar" class="evnMetaExtra"  href="#" onclick="evn_GotoSlide(1)">(similar)</a></font>
+        <br/>
+        <table><tr><td>
+          <a href="#" onclick="evn_GotoSlide(2)">
+          <img id="partner_detail_mission_image" src="" height="60"></img>
+          </a>
+        </td><td>
+        <a id="partner_detail_event_type" href="#" onclick="evn_GotoSlide(4)">Event Type</a>
+        <font color="#555577"><a id="partner_detail_event_cycle" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(9)">Ecocycle</a>
+        <a id="partner_detail_event_time" onclick="evn_GotoSlide(7)">@Time</a></font>
+        <br/>
+        <i ><a id="partner_detail_mission_name" href="#" onclick="evn_GotoSlide(2)">Mission Name</a></i>
+        <font color="#555577"><a id="partner_detail_mission_type" class="evnMetaExtra"  href="#" onclick="evn_GotoSlide(5)">(mission type)</a></font>
+        <font color="#555577"><a id="partner_detail_mission_similar" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(3)">(similar)</a></font>
+        <br/>
+        <font color="#555577"><a id="partner_detail_app_all" href="#" class="evnMetaExtra" onclick="evn_GotoSlide(8)">(app)</a></font>
+        <font color="#555577"><a id="partner_detail_app_latest" href="#" onclick="partnerCalcLatestMission()">(latest mission)</a></font>
+        <font color="#555577"><a id="partner_detail_app_update" href="#" onclick="parterUpdateLatest()">(update)</a></font>
+        </td></tr></table>
+        </font>
+      </div>	
+    </div>
+
+  </div>
+  
+  <div>
+    <div id="mainAltLocationMeta">
+    </div>
+  </div>
+
+	<p style="color:grey;">
+    <span style="display: none;">
+    [ <input id="mainDeepCamera" type="checkbox" checked onclick="onDeepCameraChanged()"></input> deep-camera ]
+    </span>
+    <span >
+        [ <a href="http://4dprocess.com/">Lewcid 4D-Process: Mission Control</a> ]
+        </span>
+    [    
+    <!-- CONNECTION STATUS -->
+     <span id="mainConnectionStatus"><font color="dark-yellow">connecting...</font></span>
+     ]
+     <span style="display: none;">
+      [ <a id="mainDebugOutput">debug output</a> ]
+    </span>
+    [ 	<span onclick="toggleShowDevTools()">ops</span> 
+        <span id="mainDevTools" style="display:none;" >
+        <a id="mainLinkToServer" href="">finding...</a>
+        <a href="#" onclick="remoteServerReboot()">server reboot</a>
+        
+        </span> ]
+	<script>
+	function toggleShowDevTools() {
+		mainDevTools.style.display = ((mainDevTools.style.display != 'none') ? 'none' : 'inline');
+	}
+	</script>
+  </p>
+
+  <div>
+    <div id="mainAltLocationTableView">
+      
+    </div>
+  </div>
+
+  <script>
+    function onDeepCameraChanged() {
+      var isOn = mainDeepCamera.checked;
+      evnCameraDynamic = isOn;
+      requestUpdate();
+    }
+  </script>
+
+   <!-- which client to showcase: -->
+   <!--  <script src="lion/lion.js"></script> -->
+   <script src="subject/cacao/cacao.js"></script>
+   <script src="js/partner.js"></script>
+	 
+	  
+
+		<script src="js/three.js/three.js"></script>
+    <script src="js/evn_3d.js"></script>
+
+   <script>
+    var evxPanelSlide0=null;
+		var evxPanelSlide1=null;
+		var evxPanelSlide2=null;
+		var evxPanelSlide3=null;
+		var evxPanelSlide4=null;
+		var evxPanelSlide5=null;
+		var evxPanelSlide6=null;
+		var evxPanelSlide7=null;
+		var evxPanelSlide8=null;
+		var evxPanelSlide9=null;
+   </script>
+   <script src="js/slides/slide0.js" ></script>
+   
+   <script src="js/slides/slide2.js" defer async ></script>
+   <script src="js/slides/slide3.js" defer async ></script>
+   <script src="js/slides/slide4.js" defer async ></script>
+   <script src="js/slides/slide5.js" defer async ></script>
+   <script src="js/slides/slide6.js" defer async ></script>
+   <script src="js/slides/slide7.js" defer async ></script>
+   <script src="js/slides/slide8.js" ></script>
+   <script src="js/slides/slide9.js"  defer async  ></script>
+
+   <script src="js/slides/slide1.js" defer async ></script> 
+
+   <script src="js/ecovoxel_examples/whole_ui.js" defer async ></script>
+   <script src="js/slides/ecoSlide0.js" ></script>
+   
+
+		  <script>
+		  var isFirstResize = true;
+		  updateGraphWindowSize();
+
+      var e3 = evn3d_init(view3d_canvas); 
+      //evn3d_addGridCubes();
+      //evn_SetupShapeTest();
+    evn_updateMetaData = partnerSetupMetaData;
+    evn_updateAllMetaData = partnerSetupAllMetaData;
+	  partnerGetCurrentSlideIndex = function() { return (__evn_slide_current - (__evn_slide_filtered?1:0)); };
+      evn_SetupShape(null);
+      evxTextLabelsSetupOverlay( mainCanvasOverlay );
+      evn_outputString = function(str) {mainDebugOutput.innerHTML = str;};
+
+			e3.userRequestedUpdate = function() {
+				e3.requestUpdate();
+			};
+
+			function updateGraphWindowSize() {
+				var fw = getComputedStyle(view3d_div).width;// view3d_div.cientWidth;
+				if (fw != undefined) {
+					if (("" + fw).includes("px")) {
+						fw = "" + fw;
+						fw = 1.0*(fw.substring(0,fw.length-2));
+					}
+					fw = Math.max( 100, fw - 30 );
+					var idealAspect = (8.0 / 16.0);// (7.0 / 16.0);
+					view3d_canvas.width = Math.floor( fw );
+					view3d_canvas.height = Math.floor( fw * idealAspect );
+					if (isFirstResize && (view3d_canvas.height < 180)) {
+            //__partnerLatestDataHidden = true;
+            //partnerUpdateMetaShowing();
+            mainTableViewToggleButton.style.display = 'none';
+            mainInfoToggleButton.style.display = 'none';
+            mainAltLocationMeta.appendChild(partner_meta_popup);
+            mainAltLocationMeta.appendChild(partner_view_info);
+            mainAltLocationTableView.appendChild(partner_detail_table2d);
+            
+					}
+					isFirstResize = false;
+					//alert("New size = " + view3d_canvas.width);
+					if (evxToolsNotNull(e3)) {
+						e3.requestUpdate();
+					}
+					
+				}
+			}
+
+			function doToggleWideWindow() {
+				updateGraphWindowSize();
+			}
+
+			window.oncontextmenu = function ()
+				{
+					return false;     // cancel default menu
+				};
+
+				mainPartnerLinks.innerHTML = partnerMetaLinksString();
+
+
+      </script>
+      <script>
+      
+
+      function setConnectionStatus(str, isOn) {
+          var clr = ((isOn==undefined) ? "yellow" : (isOn ? "green" : "red"));
+          var cnt = "<font color='" + clr + "'>" + str + "</font>";
+          mainConnectionStatus.innerHTML = cnt;
+        }
+
+        function startConnectionAutoConfigure() {
+			    mainLinkToServer.innerHTML = "@" + evxToolsWebStdServerPath;
+			    mainLinkToServer.href = evxToolsWebStdServerPath;
+          evxToolsWebServiceConfigure(function(didWork) {
+            if (didWork) {
+              setConnectionStatus("connected", true);
+			  	    mainLinkToServer.innerHTML = "goto " + evxToolsWebStdServerPath;
+				      mainLinkToServer.href = evxToolsWebStdServerPath;
+              evn_ServerBeginConnection(true);
+            } else {
+              setConnectionStatus("support service offline", false);
+            }
+          });
+        }
+
+		function remoteServerReboot() {
+			evxToolsWebServiceRestart();
+		}
+
+        startConnectionAutoConfigure();
+      
+      </script>
+      </div>
+
+	  
+    
+    <!--
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16">
+            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+            Work Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+        </div>
+      </div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+          <p>Web Development! All I need to know in one place</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>London Business School</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
+          <p>Master Degree</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>School of Coding</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
+          <p>Bachelor Degree</p><br>
+        </div>
+      </div>
+    -->
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<script>
+updateGraphWindowSize();
+</script>
+
+    
+<footer class="w3-container w3-teal w3-center w3-margin-top evxBgColor">
+  <font color="white">
+  <p>Find us on social media.</p>
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+</font>
+</footer>
+
+</body>
+</html>
