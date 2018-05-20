@@ -130,7 +130,7 @@ function evxToolsJsonFromString(str) {
 }
 
 
-var evxToolsWebStdServerPathsPossible = [ "/", "http://ec2-54-176-185-23.us-west-1.compute.amazonaws.com/", "http://localhost:8080/" ];
+var evxToolsWebStdServerPathsPossible = [ "http://ec2-54-176-185-23.us-west-1.compute.amazonaws.com/", "http://localhost:8080/" ];
 var evxToolsWebStdServerPath = evxToolsWebStdServerPathsPossible[0];
 
 
