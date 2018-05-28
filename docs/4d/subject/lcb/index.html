@@ -98,8 +98,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <script src="three.js"></script>
       <script src="evx_core.js"></script>
       <script src="evn_3d.js"></script>
+      <script src="polyhedra.js"></script>
       <script>
         var e3 = evn3d_init(view3d_canvas); 
+
         e3.userRequestedUpdate = function() {
           e3.requestUpdate();
         };
@@ -127,6 +129,64 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       }
       
           updateGraphWindowSize();
+        </script>
+        <script>
+          function packedArrayFromSubArrays(arOfArs) {
+            var ans = [];
+            for (var vi in arOfArs) {
+              var vd = arOfArs[vi];
+              for (var di in vd) {
+                ans.push(vd[di]);
+              }
+            }
+            return ans;
+          }
+          function facesToTriIndicies(arOfArs) {
+            var ans = [];
+            for (var vi in arOfArs) {
+              var vd = arOfArs[vi];
+              for (var di in vd) {
+                if (di < 3) {
+                  ans.push(vd[di]);
+                } else {
+                  ans.push(vd[0]);
+                  ans.push(vd[di-1]);
+                  ans.push(vd[di]);
+                }
+              }
+            }
+            return ans;
+          }
+          function obj3FromPoly(poly) {
+            var group = new THREE.Group();
+
+            if (true) {
+              // custom poly:
+              var positions = packedArrayFromSubArrays(poly.vertex);
+              var posData = new THREE.Float32BufferAttribute( positions, 3 );
+              var bufferGeo = new THREE.BufferGeometry();
+              bufferGeo.addAttribute( 'position', posData );
+              bufferGeo.setIndex( facesToTriIndicies(poly.face) );
+              bufferGeo.computeBoundingSphere();
+
+              //var mat = new THREE.MeshNormalMaterial();
+              var defColor = new THREE.Color( 0xA9F3B3 );
+              var mat = evxShaderMaterialCreateForLitTriangles(defColor);
+              mat.side = THREE.DoubleSide;
+              var mesh = new THREE.Mesh( bufferGeo, mat );
+              group.add( mesh );
+            } else {
+              // pre-made cube:
+              var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+              var mat = new THREE.MeshNormalMaterial();
+              var mesh = new THREE.Mesh( geometry, mat );
+              group.add( mesh );
+            }
+
+            evn3d_root.scene.add( group );
+          }
+
+          obj3FromPoly(POLYHEDRA.TruncatedTetrahedron);
         </script>
 
       <div class="w3-container w3-card w3-white">
