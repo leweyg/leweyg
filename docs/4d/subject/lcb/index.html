@@ -261,7 +261,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             }
             mainLatestTransition = AllTransitions[0];
             mainLatestTransition.mesh.visible = true;
-            mainRangeSlider.max = AllTransitions.length - 1.05;
+            mainRangeSlider.max = AllTransitions.length - 0;
           }
           buildAllTransitions();
 
@@ -279,7 +279,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
             let ft = t - Math.floor(t);
             mainLatestTransition.mesh.visible = false;
-            mainLatestTransition = AllTransitions[Math.floor(t)];
+            mainLatestTransition = AllTransitions[Math.min(Math.floor(t),AllTransitions.length-1)];
             mainLatestTransition.mesh.visible = true;
 
             mainLatestTransition.buffer = mainLatestTransition.threeBuffer.array;
