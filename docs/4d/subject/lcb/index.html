@@ -138,15 +138,43 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             evn3d_root.scene.add( group );
           }
 
+          function vertexDist(va, vb) {
+            let dist = 0;
+            for (var i in va) {
+              let d = va[i] - vb[i];
+              dist += (d * d);
+            }
+            return Math.sqrt(dist);
+          }
+
+          function closestVertexIndex(verts, v, vi, list) {
+            //return (vi % verts.length);
+            let bestDist = vertexDist(verts[0], v);
+            let bestIndex = 0;
+            for (let vi in verts) {
+              if ((list) && (vi in list)) {
+                continue;
+              }
+              let d = vertexDist(verts[vi], v);
+              if (d < bestDist) {
+                bestDist = d;
+                bestIndex = vi;
+              }
+            }
+            return bestIndex;
+          }
+
           function indexMappingFromPolySmToLg(polySm, polyLg) {
             var mapping = {};
             evxToolsAssert(polyLg.vertex.length >= polySm.vertex.length);
+            for (let vii in polySm.vertex) {
+              var bli = closestVertexIndex(polyLg.vertex, polySm.vertex[vii], vii, mapping);
+              mapping[bli] = vii;
+            }
             for (let vii in polyLg.vertex) {
               let vi = vii;
-              if (vi < polySm.vertex.length) {
-                mapping[vi] = vi;
-              } else {
-                mapping[vi] = (vi % polySm.vertex.length);
+              if (!(vi in mapping)) {
+                mapping[vi] = closestVertexIndex(polySm.vertex, polyLg.vertex[vi], vi);
               }
             }
             var buffer = [];
