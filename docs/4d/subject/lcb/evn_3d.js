@@ -17,7 +17,7 @@ function evn3d_init(targetCanvas) {
 	evn3d_root.init();
 	evn3d_root.animate();
 
-	evn3d_addGridCubes();
+	//evn3d_addGridCubes();
 
 	return evn3d_root;
 }

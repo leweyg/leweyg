@@ -26,9 +26,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Demo</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Geometry Transitions</h2>
         <div class="w3-container">
-          <p>Before Canvas</p>
+          
           <div id="view3d_div">
           <canvas id="view3d_canvas" height="400" width="711" >
             </canvas>
@@ -42,7 +42,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 }
               </script>
           </div>
-          <p><span id="mainNameFrom">Name from</span> <span id="mainNameTo">Name to</span></p>
+          <p><span id="mainNameFrom">Name from</span> <span id="mainNamePct">%</span> <span id="mainNameTo">Name to</span></p>
         </div>
       
       </div>
@@ -246,11 +246,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               if (!mat) {
                 mat = evxShaderMaterialCreateForLitTriangles(defColor);
                 mat.side = THREE.DoubleSide;
+                //mat.wireframe = true;
+
                 mainSharedMaterial = mat;
               }
               var mesh = new THREE.Mesh( bufferGeo, mat );
+
+
               map.mesh = mesh;
               //group.add( mesh );
+
+
+
               evn3d_root.scene.add( mesh );
             }
             
@@ -271,7 +278,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                   list.push(p);
                 } else {
                   if (!(p.vertex.length in secondary)){
-                    secondary[p.vertex.length] = p;
+                    //secondary[p.vertex.length] = p;
                   }
                 }
               }
@@ -324,10 +331,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             if (!mainLatestTransition) {
               return;
             }
+            var et = Math.min(t, AllTransitions.length-0.0001);
 
-            let ft = t - Math.floor(t);
+            let ft = et - Math.floor(et);
             mainLatestTransition.mesh.visible = false;
-            mainLatestTransition = AllTransitions[Math.min(Math.floor(t),AllTransitions.length-1)];
+            mainLatestTransition = AllTransitions[Math.min(Math.floor(et),AllTransitions.length-1)];
             mainLatestTransition.mesh.visible = true;
 
             mainLatestTransition.buffer = mainLatestTransition.threeBuffer.array;
@@ -337,6 +345,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
             mainNameFrom.innerHTML = mainLatestTransition.polySm.name;
             mainNameTo.innerHTML = mainLatestTransition.polyLg.name;
+            mainNamePct.innerHTML = Math.floor(ft * 100) + "%";
           }
 
         </script>
