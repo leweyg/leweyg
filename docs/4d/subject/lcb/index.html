@@ -350,15 +350,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
           var mainLatestPolyInterp = 0.5;
           function updateMapInerp(t) {
-            mainLatestPolyInterp = t;
-            if (!mainLatestTransition) {
-              return;
-            }
-            var et = Math.min(t, AllTransitions.length-0.0001);
+            mainLatestPolyInterp = 1 * t;
+            var et = Math.min(1 * t, AllTransitions.length-0.0001);
 
             let ft = et - Math.floor(et);
-            mainLatestTransition.mesh.visible = false;
+            if (mainLatestTransition) {
+              mainLatestTransition.mesh.visible = false;
+            }
             mainLatestTransition = AllTransitions[Math.min(Math.floor(et),AllTransitions.length-1)];
+            if (!mainLatestTransition) {
+              mainLatestTransition = null;
+            }
             mainLatestTransition.mesh.visible = true;
 
             mainLatestTransition.buffer = mainLatestTransition.threeBuffer.array;
@@ -380,6 +382,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           function polyToggleAutoTransition() {
             mainIsAutoTransition = !mainIsAutoTransition;
             evn_AnimationEnable( mainIsAutoRoll || mainIsAutoTransition );
+            if (!mainIsAutoTransition) {
+              mainRangeSlider.value = mainLatestPolyInterp;
+            }
+          }
+          function slowInOutUnit(ut) {
+            return (1 - Math.cos( ut * Math.PI ))*0.5;
           }
           var totalRoll = 0.0;
           function polyAnimCallback(dt,tt,isReset=false) {
@@ -387,14 +395,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               var ut = mainLatestPolyInterp * Math.PI * 1.0;
               var dr = Math.abs(Math.sin(ut)) * dt;
               if (!mainIsAutoTransition) {
-                dr = dt;
+                dr = dt * 0.5;
               }
               mainPolyAnim.rotation.x += dr;
               mainPolyAnim.rotation.y += dr;
               if (mainIsAutoTransition) {
-                mainPolyAnim.position.y = Math.cos(ut);
+                mainPolyAnim.position.x = Math.cos(ut) * 0.61;
               } else {
-                mainPolyAnim.position.y = 0;
+                mainPolyAnim.position.x = 0;
               }
             }
             if (mainIsAutoTransition) {
@@ -403,7 +411,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               while (mainLatestPolyInterp >= mt) {
                 mainLatestPolyInterp -= mt;
               }
+              var realVal = mainLatestPolyInterp;
+              if (true) {
+                var bs = Math.floor(realVal);
+                var et = realVal - Math.floor(realVal);
+                et = slowInOutUnit(slowInOutUnit(et));
+                bs += et;
+                mainLatestPolyInterp = bs;
+              }
               updateMapInerp(mainLatestPolyInterp);
+              mainLatestPolyInterp = realVal;
             }
           }
           evn_AnimationCallback = polyAnimCallback;
