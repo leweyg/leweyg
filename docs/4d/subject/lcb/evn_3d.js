@@ -9,7 +9,7 @@ var evn3d_root = null;
 
 var evnCameraSetting_ZPos = 10;
 var evnCameraSetting_FOV = 25;
-var evnCameraSetting_MotionScale = 3.2;
+var evnCameraSetting_MotionScale = 5.2;
 var evnCameraDynamic = false;
 
 function evn3d_init(targetCanvas) {

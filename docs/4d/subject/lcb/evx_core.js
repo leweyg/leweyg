@@ -1091,6 +1091,9 @@ function evxShapeIndexedAddMetaData(mesh, resNdx) {
 }
 
 function evxToolsJsWalkChildrenUntil(el, testFunc) {
+	if (!evxToolsNotNull(el)) {
+		return undefined;
+	}
     if (true) // test element
     {
         var t = testFunc(el);
