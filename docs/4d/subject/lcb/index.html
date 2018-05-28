@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Polyhedral Transitions</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -90,6 +90,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <div id="view3d_div">
           <canvas id="view3d_canvas" height="400" width="711" >
             </canvas>
+          </div>
+          <div>
+              <input type="range" min="0" max="1" value="0.5" step="0.05" class="slider" 
+              id="mainRangeSlider">
+              <script>
+                mainRangeSlider.oninput = function() {
+                  updateMapInerp(mainRangeSlider.value);
+                }
+              </script>
           </div>
           <p>After Canvas</p>
         </div>
@@ -186,27 +195,118 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             evn3d_root.scene.add( group );
           }
 
-          obj3FromPoly(POLYHEDRA.TruncatedTetrahedron);
+          function indexMappingFromPolySmToLg(polySm, polyLg) {
+            var mapping = {};
+            evxToolsAssert(polyLg.vertex.length >= polySm.vertex.length);
+            for (let vii in polyLg.vertex) {
+              let vi = vii;
+              if (vi < polySm.vertex.length) {
+                mapping[vi] = vi;
+              } else {
+                mapping[vi] = (vi % polySm.vertex.length);
+              }
+            }
+            var buffer = [];
+            while (buffer.length < polyLg.vertex.length * 3) {
+              buffer.push(0);
+            }
+            return {
+              'mapping' : mapping,
+              'polySm' : polySm,
+              'polyLg' : polyLg,
+              'buffer' : buffer,
+            };
+          }
+
+          function interpolatePositions(map, t) {
+            var oi = 0;
+            for (var vi in map.polyLg.vertex) {
+              var lv = map.polyLg.vertex[vi];
+              var sv = map.polySm.vertex[ map.mapping[vi] ];
+              for (var di in lv) {
+                map.buffer[oi++] = evxToolsLerp(sv[di], lv[di], t);
+              }
+            }
+            return map.buffer;
+          }
+
+          function createInterpolatedPoly(polyA, polyB) {
+            var group = new THREE.Group();
+
+            var polySm = polyA;
+            var polyLg = polyB;
+            if (polyA.vertex.length > polyB.vertex.length) {
+              polyLg = polyA; polySm = polyB;
+            }
+            var map = indexMappingFromPolySmToLg(polySm, polyLg);
+            var poses = interpolatePositions(map, 0.75);
+
+            if (true)
+            {
+              // custom poly:
+              var positions = packedArrayFromSubArrays(polyLg.vertex);
+              var posData = new THREE.Float32BufferAttribute( poses, 3 );
+              posData.dynamic = true;
+              map.threeBuffer = posData;
+              //map.buffer = posData.array;
+              var bufferGeo = new THREE.BufferGeometry();
+              bufferGeo.addAttribute( 'position', posData );
+              bufferGeo.setIndex( facesToTriIndicies(polyLg.face).concat(facesToTriIndicies(polySm.face)) );
+              bufferGeo.computeBoundingSphere();
+
+              //var mat = new THREE.MeshNormalMaterial();
+              var defColor = new THREE.Color( 0xA9F3B3 );
+              var mat = evxShaderMaterialCreateForLitTriangles(defColor);
+              mat.side = THREE.DoubleSide;
+              var mesh = new THREE.Mesh( bufferGeo, mat );
+              group.add( mesh );
+            }
+            evn3d_root.scene.add( group );
+
+            return map;
+          }
+
+          function sortPolysByFaces() {
+            var ans = {};
+            for (var name in POLYHEDRA) {
+                var p = POLYHEDRA[name];
+                ans += "" + name + " has " + p.face.length + "<br/>";
+              }
+          }
+
+          var mainLatestTransition = null;
+
+          function updateMapInerp(t) {
+            if (!mainLatestTransition) {
+              return;
+            }
+            mainLatestTransition.buffer = mainLatestTransition.threeBuffer.array;
+            interpolatePositions(mainLatestTransition,t);
+            mainLatestTransition.threeBuffer.needsUpdate = true;
+            e3.requestUpdate();
+          }
+
+          //obj3FromPoly(POLYHEDRA.Tetrahedron);
+          //obj3FromPoly(POLYHEDRA.TriangularPrism);
+          //mainLatestTransition = createInterpolatedPoly(POLYHEDRA.Tetrahedron, POLYHEDRA.TriangularPrism);
+          mainLatestTransition = createInterpolatedPoly(POLYHEDRA.TriangularPrism, POLYHEDRA.Cube);
         </script>
 
       <div class="w3-container w3-card w3-white">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
-          <p>Web Development! All I need to know in one place</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>London Business School</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
-          <p>Master Degree</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>School of Coding</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
-          <p>Bachelor Degree</p><br>
+          <p id="mainGeoDescriptions">Geometric shapes: loading...</p>
+          <script>
+            function infoAboutPolys() {
+              var ans = "";
+              for (var name in POLYHEDRA) {
+                var p = POLYHEDRA[name];
+                ans += "" + name + " has " + p.face.length + "<br/>";
+              }
+              mainGeoDescriptions.innerHTML = ans;
+            }
+            infoAboutPolys();
+          </script>
         </div>
       </div>
 
