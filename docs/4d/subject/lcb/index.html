@@ -42,7 +42,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 }
               </script>
           </div>
-          <p><span id="mainNameFrom">Name from</span> <span id="mainNamePct">%</span> <span id="mainNameTo">Name to</span></p>
+          <p style="text-align: center;">
+            <input type="checkbox" checked="true" onclick="polyToggleAutoRoll();"> roll </input>
+            <input type="checkbox" checked="true" onclick="polyToggleAutoTransition();"> transition </input>
+          </p>
+          <p>
+            <span id="mainNameFrom">Name from</span> <span id="mainNamePct">%</span> <span id="mainNameTo">Name to</span></p>
         </div>
       
       </div>
@@ -52,6 +57,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <script src="polyhedra.js"></script>
       <script>
         var e3 = evn3d_init(view3d_canvas); 
+        var mainPolyRoot = new THREE.Group();
+        var mainPolyAnim = new THREE.Group();
+        mainPolyAnim.add(mainPolyRoot);
+        evn3d_root.scene.add( mainPolyAnim );
 
         e3.userRequestedUpdate = function() {
           e3.requestUpdate();
@@ -135,7 +144,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               group.add( mesh );
             }
 
-            evn3d_root.scene.add( group );
+            mainPolyRoot.add( group );
           }
 
           function vertexDist(va, vb) {
@@ -200,6 +209,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
           function interpolatePositions(map, t) {
             var oi = 0;
+            if (map.isFlip) {
+              t = 1.0 - t;
+            }
             for (var vi in map.polyLg.vertex) {
               var lv = map.polyLg.vertex[vi];
               var sv = map.polySm.vertex[ map.mapping[vi] ];
@@ -217,11 +229,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
             var polySm = polyA;
             var polyLg = polyB;
+            var isFlip = false;
             if (polyA.vertex.length > polyB.vertex.length) {
               polyLg = polyA; polySm = polyB;
+              isFlip = true;
             }
             var map = indexMappingFromPolySmToLg(polySm, polyLg);
             var poses = interpolatePositions(map, 0.75);
+            map.isFlip = isFlip;
 
             if (true)
             {
@@ -252,13 +267,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               }
               var mesh = new THREE.Mesh( bufferGeo, mat );
 
+              if (false) {
+                var gp = new THREE.Group();
+                gp.add(mesh);
+                var m2 = new THREE.Mesh( bufferGeo, mat );
+                var m2scale = 100;
+                m2.scale.set(m2scale,m2scale,m2scale);
+                gp.add(m2);
+                mesh = gp;
+              }
 
               map.mesh = mesh;
-              //group.add( mesh );
-
-
-
-              evn3d_root.scene.add( mesh );
+              mainPolyRoot.add( mesh );
             }
             
 
@@ -308,8 +328,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           function buildAllTransitions() {
             for (let iii in AllPolysForTransitions) {
               let ii = 1 * iii;
-              if (ii+1 < AllPolysForTransitions.length) {
-                let tr = createInterpolatedPoly(AllPolysForTransitions[ii], AllPolysForTransitions[ii+1]);
+              if (true) { //ii+1 < AllPolysForTransitions.length) {
+                let tr = createInterpolatedPoly(
+                  AllPolysForTransitions[ii], 
+                  AllPolysForTransitions[(ii+1)%AllPolysForTransitions.length]);
                 tr.mesh.visible = false;
                 AllTransitions.push(tr);
               }
@@ -326,8 +348,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           //mainLatestTransition = createInterpolatedPoly(POLYHEDRA.Tetrahedron, POLYHEDRA.TriangularPrism);
           //mainLatestTransition = createInterpolatedPoly(POLYHEDRA.TriangularPrism, POLYHEDRA.Cube);
 
-
+          var mainLatestPolyInterp = 0.5;
           function updateMapInerp(t) {
+            mainLatestPolyInterp = t;
             if (!mainLatestTransition) {
               return;
             }
@@ -348,6 +371,43 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             mainNamePct.innerHTML = Math.floor(ft * 100) + "%";
           }
 
+          var mainIsAutoTransition = true;
+          var mainIsAutoRoll = true;
+          function polyToggleAutoRoll() {
+            mainIsAutoRoll = !mainIsAutoRoll;
+            evn_AnimationEnable( mainIsAutoRoll || mainIsAutoTransition );
+          }
+          function polyToggleAutoTransition() {
+            mainIsAutoTransition = !mainIsAutoTransition;
+            evn_AnimationEnable( mainIsAutoRoll || mainIsAutoTransition );
+          }
+          var totalRoll = 0.0;
+          function polyAnimCallback(dt,tt,isReset=false) {
+            if (mainIsAutoRoll) {
+              var ut = mainLatestPolyInterp * Math.PI * 1.0;
+              var dr = Math.abs(Math.sin(ut)) * dt;
+              if (!mainIsAutoTransition) {
+                dr = dt;
+              }
+              mainPolyAnim.rotation.x += dr;
+              mainPolyAnim.rotation.y += dr;
+              if (mainIsAutoTransition) {
+                mainPolyAnim.position.y = Math.cos(ut);
+              } else {
+                mainPolyAnim.position.y = 0;
+              }
+            }
+            if (mainIsAutoTransition) {
+              mainLatestPolyInterp += dt * 0.33;
+              var mt = AllTransitions.length;
+              while (mainLatestPolyInterp >= mt) {
+                mainLatestPolyInterp -= mt;
+              }
+              updateMapInerp(mainLatestPolyInterp);
+            }
+          }
+          evn_AnimationCallback = polyAnimCallback;
+          evn_AnimationToggle();
         </script>
 
       <div class="w3-container w3-card w3-white">

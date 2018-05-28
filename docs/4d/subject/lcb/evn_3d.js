@@ -805,6 +805,7 @@ var __evnAnimTimeScalar = 0.2;
 var __evnAnimTimeInitial = (Math.PI * 0.5) / __evnAnimTimeScalar;
 var __evnAnimTimeTotal = __evnAnimTimeInitial;
 var __evnIsFirstTransition = true;
+var evn_AnimationCallback = undefined; //function(dt,totalTime) {};
 
 function __evnAnimTimeUnitCircle() {
 	return ( ( __evnAnimTimeTotal * __evnAnimTimeScalar ) / ( Math.PI * 2.0 ) ) - 0.5;
@@ -814,27 +815,35 @@ function evn_AnimationTick() {
 
 	if (evnIsAnimating) {
 		let timeNow = new Date();
-		var dt = (timeNow.getTime() - __evnAnimTimePrevious.getTime()) / 1000;
+		var curT = (timeNow.getTime() - __evnAnimTimePrevious.getTime()) / 1000;
 		//__evnAnimTimePrevious = timeNow;
 		//dt = Math.min( dt, 0.1 );
+		var dt = curT - (__evnAnimTimeTotal - __evnAnimTimeInitial);
 		var prevSlide = Math.floor(__evnAnimTimeUnitCircle());
 
-		__evnAnimTimeTotal = __evnAnimTimeInitial + dt;
+		__evnAnimTimeTotal = __evnAnimTimeInitial + curT;
 
-		if (Math.floor(__evnAnimTimeUnitCircle()) != prevSlide) {
-			if (__evnIsFirstTransition) {
-				__evnIsFirstTransition = false;
-				evn_GotoSlide(3);
-			} else {
-				evn_NextSlide();
-			}
+		if (evn_AnimationCallback) {
+			evn_AnimationCallback(dt, __evnAnimTimeTotal, false);
 		} else {
-			evn3d_root.innerScroll1d(Math.cos(3.0 * __evnAnimTimeTotal * __evnAnimTimeScalar) * 0.001 );
+			if (Math.floor(__evnAnimTimeUnitCircle()) != prevSlide) {
+				if (__evnIsFirstTransition) {
+					__evnIsFirstTransition = false;
+					evn_GotoSlide(3);
+				} else {
+					evn_NextSlide();
+				}
+			} else {
+				evn3d_root.innerScroll1d(Math.cos(3.0 * __evnAnimTimeTotal * __evnAnimTimeScalar) * 0.001 );
+			}
+			__evn_content_anim.rotation.y = Math.cos(__evnAnimTimeTotal * __evnAnimTimeScalar) * 1.61;
 		}
-
-		__evn_content_anim.rotation.y = Math.cos(__evnAnimTimeTotal * __evnAnimTimeScalar) * 1.61;
 	} else {
-		__evn_content_anim.rotation.y = 0.00;
+		if (evn_AnimationCallback) {
+			evn_AnimationCallback(0, __evnAnimTimeTotal, true);
+		} else {
+			__evn_content_anim.rotation.y = 0.00;
+		}
 		__evnAnimTimeTotal = __evnAnimTimeInitial;
 	}
 	
@@ -848,8 +857,16 @@ function evn_AnimationTick() {
 function evn_AnimationToggle() {
 	evnIsAnimating = !evnIsAnimating;
 	__evnAnimTimePrevious = new Date();
-	mainAnimateButton.innerHTML = (evnIsAnimating ? "PAUSE" : "ANIMATE");
+	if ((!evn_AnimationCallback) && (undefined != mainAnimateButton)) {
+		mainAnimateButton.innerHTML = (evnIsAnimating ? "PAUSE" : "ANIMATE");
+	}
 	evn_AnimationTick();
+}
+
+function evn_AnimationEnable(isOn = true) {
+	if (isOn != evnIsAnimating) {
+		evn_AnimationToggle();
+	}
 }
 
 // -------------- SERVER MANAGEMENT STUFF -------------
