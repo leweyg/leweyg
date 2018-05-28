@@ -177,12 +177,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 mapping[vi] = closestVertexIndex(polySm.vertex, polyLg.vertex[vi], vi);
               }
             }
+            var smToLgMap = {};
+            for (let li in mapping) {
+              var si = mapping[li];
+              if (true || !(si in smToLgMap)) {
+                smToLgMap[si] = li;
+              }
+
+            }
             var buffer = [];
             while (buffer.length < polyLg.vertex.length * 3) {
               buffer.push(0);
             }
             return {
               'mapping' : mapping,
+              'smToLgMap': smToLgMap,
               'polySm' : polySm,
               'polyLg' : polyLg,
               'buffer' : buffer,
@@ -201,8 +210,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             return map.buffer;
           }
 
+          var mainSharedMaterial = undefined;
+
           function createInterpolatedPoly(polyA, polyB) {
-            var group = new THREE.Group();
+            //var group = new THREE.Group();
 
             var polySm = polyA;
             var polyLg = polyB;
@@ -222,18 +233,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               //map.buffer = posData.array;
               var bufferGeo = new THREE.BufferGeometry();
               bufferGeo.addAttribute( 'position', posData );
-              bufferGeo.setIndex( facesToTriIndicies(polyLg.face).concat(facesToTriIndicies(polySm.face)) );
+              var smIndices = facesToTriIndicies(polySm.face);
+              for (let ii in smIndices) {
+                smIndices[ii] = map.smToLgMap[ smIndices[ii] ];
+              }
+              bufferGeo.setIndex( facesToTriIndicies(polyLg.face).concat(smIndices) );
               bufferGeo.computeBoundingSphere();
 
               //var mat = new THREE.MeshNormalMaterial();
               var defColor = new THREE.Color( 0xA9F3B3 );
-              var mat = evxShaderMaterialCreateForLitTriangles(defColor);
-              mat.side = THREE.DoubleSide;
+              var mat = mainSharedMaterial;
+              if (!mat) {
+                mat = evxShaderMaterialCreateForLitTriangles(defColor);
+                mat.side = THREE.DoubleSide;
+                mainSharedMaterial = mat;
+              }
               var mesh = new THREE.Mesh( bufferGeo, mat );
               map.mesh = mesh;
-              group.add( mesh );
+              //group.add( mesh );
+              evn3d_root.scene.add( mesh );
             }
-            evn3d_root.scene.add( group );
+            
 
             return map;
           }
