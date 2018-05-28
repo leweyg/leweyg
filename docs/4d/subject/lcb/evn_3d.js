@@ -345,7 +345,7 @@ function evn3d_initcore(targetCanvas) {
 				renderer.context.getShaderInfoLog = function () { return '' };
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x556655 );
+				scene.background = new THREE.Color( 0x2d0b58 );
 
 				camera = new THREE.PerspectiveCamera( evnCameraSetting_FOV, targetCanvas.width / targetCanvas.height, 1, 1000 );
 				camera.position.set( 0, 0, evnCameraSetting_ZPos );

@@ -2075,6 +2075,41 @@ function evxShaderPixelLitTexture() {
 	return evxShaderPixelLit(decls, shading,final);
 }
 
+function evxShaderFuncXyzToLatLng() {
+	return ""
+		+ "vec2 xyzToLatLng(vec3 dir) {"
+			+ "float pi = 3.14159;"
+		
+	+ "float lat = acos(dir.y / 1.0) / (pi); "
+		+ "float lon = atan(dir.x, dir.y) / (pi*2.0);"
+		+ "float y = 1.0 - lat;"
+		+ "float _ScaleUpDown = 1.0;"
+		+ "float _RotationOffset = 0.0;"
+		+ "float _FlipLeftRight = 1.0;"
+		+ "float sy = (((y - 0.5) / _ScaleUpDown) + 0.5);"
+		+ "return vec2(_FlipLeftRight*(lon + _RotationOffset), sy);"
+		//+ " return dir.xy;"
+		+ "}"
+		;
+
+}
+
+function evxShaderPixelLitReflection() {
+	var decls = ""
+	+ "uniform sampler2D texture;"
+	+ evxShaderFuncXyzToLatLng();
+	var shading = ""
+	+ "		vec3 reflectDir = reflect( cameraDir, norm );"
+	+ "     vec2 latLng = xyzToLatLng( reflectDir );"
+	+ "		vec3 texVal = texture2D( texture, latLng ).rgb;"
+	+ " baseCol = texVal;"
+	;
+	var final = ""
+	//+ " gl_FragColor = vec4(texVal.rgb,1); "
+	;
+	return evxShaderPixelLit(decls, shading,final);
+}
+
 
 function evxShaderPixelForFancyLine(before="",during="") {
 
@@ -2151,6 +2186,25 @@ function evxShaderMaterialCreateForLitTriangles(defColor) {
 		},
 		vertexShader:   evxShaderBasicVertexWithUnitColor(),
 		fragmentShader: evxShaderPixelLit(),
+		//blending:       THREE.AdditiveBlending,
+		depthTest:      true,
+		transparent:    false,
+		
+	});
+	material.extensions.derivatives = true;
+	return material;
+}
+
+function evxShaderMaterialCreateForLitReflectiveTriangles(defColor) {
+	var material = new THREE.ShaderMaterial( {
+		uniforms: {
+			//amplitude: { value: 1.0 },
+            color:     { value: ( defColor ) },
+            clipFromWorldMat : { value: evxShaderGetClipMatrix() },
+			texture:   { value: new THREE.TextureLoader().load( "sunset_360.jpg" ) }
+		},
+		vertexShader:   evxShaderBasicVertexWithUnitColor(),
+		fragmentShader: evxShaderPixelLitReflection(),
 		//blending:       THREE.AdditiveBlending,
 		depthTest:      true,
 		transparent:    false,

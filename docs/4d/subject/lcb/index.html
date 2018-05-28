@@ -26,15 +26,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Geometry Transitions</h2>
         <div class="w3-container">
-          
-          <div id="view3d_div">
+          <br/>
+          <div id="view3d_div" style="color:#2d0b58">
           <canvas id="view3d_canvas" height="400" width="711" >
             </canvas>
           </div>
           <div>
-              <input type="range" min="0" max="3" value="0.5" step="0.05" class="slider" 
+              <input type="range" min="0" max="3" value="0.5" step="0.01" class="slider" 
               id="mainRangeSlider">
               <script>
                 var mainRangeSliderIsUpdating = false;
@@ -48,6 +47,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <p style="text-align: center;">
             <input type="checkbox" checked="true" onclick="polyToggleAutoRoll();"> roll </input>
             <input type="checkbox" checked="true" onclick="polyToggleAutoTransition();"> transition </input>
+            <input type="checkbox" onclick="polyToggleAutoSlow();"> slow </input>
             <input type="checkbox" onclick="polyToggleAutoFast();"> fast </input>
           </p>
           <p>
@@ -65,6 +65,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         var mainPolyRoot = new THREE.Group();
         var mainPolyAnim = new THREE.Group();
         function sceneSetup() {
+          var objScl = 1.61 * 0.85;
+          mainPolyRoot.scale.set(objScl,objScl,objScl);
           mainPolyAnim.add(mainPolyRoot);
           evn3d_root.scene.add( mainPolyAnim );
           //mainPolyAnim.position.z = 1.5;
@@ -234,7 +236,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
           var mainSharedMaterial = undefined;
 
-          function createInterpolatedPoly(polyA, polyB) {
+          function createInterpolatedPoly(polyA, polyB, overrideMat) {
             //var group = new THREE.Group();
 
             var polySm = polyA;
@@ -267,9 +269,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
               //var mat = new THREE.MeshNormalMaterial();
               var defColor = new THREE.Color( 0xA9F3B3 );
-              var mat = mainSharedMaterial;
+              var mat = (overrideMat ? overrideMat : mainSharedMaterial);
               if (!mat) {
-                mat = evxShaderMaterialCreateForLitTriangles(defColor);
+                mat = evxShaderMaterialCreateForLitReflectiveTriangles(defColor);
                 mat.side = THREE.DoubleSide;
                 //mat.wireframe = true;
 
@@ -366,6 +368,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           //obj3FromPoly(POLYHEDRA.TriangularPrism);
           //mainLatestTransition = createInterpolatedPoly(POLYHEDRA.Tetrahedron, POLYHEDRA.TriangularPrism);
           //mainLatestTransition = createInterpolatedPoly(POLYHEDRA.TriangularPrism, POLYHEDRA.Cube);
+          function buildBackground() {
+            var defColor = new THREE.Color( 0x114a94 );
+            var bgMat = evxShaderMaterialCreateForLitTriangles(defColor);
+            bgMat.side = THREE.DoubleSide;
+            var bgObj = createInterpolatedPoly(POLYHEDRA.Dodecahedron, POLYHEDRA.Dodecahedron, bgMat);
+            var bgScale = 13;
+            bgObj.mesh.visible = true;
+            bgObj.mesh.scale.set(bgScale,bgScale,bgScale);
+            evn3d_root.scene.add( bgObj.mesh );
+          }
+          buildBackground();
 
           var mainLatestPolyInterp = 0.5;
           function updateMapInerp(t) {
@@ -395,6 +408,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           var mainIsAutoTransition = true;
           var mainIsAutoRoll = true;
           var mainIsAutoFast = false;
+          var mainIsAutoSlow = false;
           function polyToggleAutoRoll() {
             mainIsAutoRoll = !mainIsAutoRoll;
             evn_AnimationEnable( mainIsAutoRoll || mainIsAutoTransition );
@@ -408,6 +422,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           }
           function polyToggleAutoFast() {
             mainIsAutoFast = !mainIsAutoFast;
+          }
+          function polyToggleAutoSlow() {
+            mainIsAutoSlow = !mainIsAutoSlow;
           }
           function slowInOutUnit(ut) {
             return (1 - Math.cos( ut * Math.PI ))*0.5;
@@ -423,7 +440,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               mainPolyAnim.rotation.x += dr;
               mainPolyAnim.rotation.y += dr;
               if (mainIsAutoTransition) {
-                mainPolyAnim.position.x = Math.cos(ut) * 0.61;
+                mainPolyAnim.position.x = Math.cos(ut) * 0.61 * 2.0;
               } else {
                 mainPolyAnim.position.x = 0;
               }
@@ -431,7 +448,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               mainPolyAnim.position.x = 0;
             }
             if (mainIsAutoTransition) {
-              mainLatestPolyInterp += dt * (mainIsAutoFast ? (1.5 * 1.618) : 0.33);
+              var speed = (mainIsAutoFast ? (1.5 * 1.618) : 0.33);
+              if (mainIsAutoSlow) {
+                speed = 0.1;
+              }
+              mainLatestPolyInterp += dt * speed;
               var mt = AllTransitions.length;
               while (mainLatestPolyInterp >= mt) {
                 mainLatestPolyInterp -= mt;
@@ -453,12 +474,20 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           }
           evn_AnimationCallback = polyAnimCallback;
           evn_AnimationToggle();
+
+          function customStarting() {
+            mainLatestPolyInterp = AllTransitions.length - 2;
+            updateMapInerp(mainLatestPolyInterp);
+          }
+          customStarting();
         </script>
 
       <div class="w3-container w3-card w3-white">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
         <div class="w3-container">
+
           <p id="mainGeoDescriptions">Geometric shapes: loading...</p>
+          <p style="color:#114a94">test</p>
           <script>
             function infoAboutPolys() {
               var ans = "";
