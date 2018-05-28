@@ -37,14 +37,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               <input type="range" min="0" max="3" value="0.5" step="0.05" class="slider" 
               id="mainRangeSlider">
               <script>
+                var mainRangeSliderIsUpdating = false;
                 mainRangeSlider.oninput = function() {
-                  updateMapInerp(mainRangeSlider.value);
+                  if (!mainRangeSliderIsUpdating) {
+                    updateMapInerp(mainRangeSlider.value);
+                  }
                 }
               </script>
           </div>
           <p style="text-align: center;">
             <input type="checkbox" checked="true" onclick="polyToggleAutoRoll();"> roll </input>
             <input type="checkbox" checked="true" onclick="polyToggleAutoTransition();"> transition </input>
+            <input type="checkbox" onclick="polyToggleAutoFast();"> fast </input>
           </p>
           <p>
             <span id="mainNameFrom">Name from</span> <span id="mainNamePct">%</span> <span id="mainNameTo">Name to</span></p>
@@ -57,10 +61,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <script src="polyhedra.js"></script>
       <script>
         var e3 = evn3d_init(view3d_canvas); 
+
         var mainPolyRoot = new THREE.Group();
         var mainPolyAnim = new THREE.Group();
-        mainPolyAnim.add(mainPolyRoot);
-        evn3d_root.scene.add( mainPolyAnim );
+        function sceneSetup() {
+          mainPolyAnim.add(mainPolyRoot);
+          evn3d_root.scene.add( mainPolyAnim );
+          //mainPolyAnim.position.z = 1.5;
+        }
+        sceneSetup();
+
 
         e3.userRequestedUpdate = function() {
           e3.requestUpdate();
@@ -291,6 +301,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           function sortPolysByFaces() {
             var list = [];
             var secondary = {};
+            var backList = [];
             for (var name in POLYHEDRA) {
                 var p = POLYHEDRA[name];
                 p.name = name;
@@ -298,7 +309,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                   list.push(p);
                 } else {
                   if (!(p.vertex.length in secondary)){
-                    //secondary[p.vertex.length] = p;
+                    secondary[p.vertex.length] = p;
+                    backList.push(p);
                   }
                 }
               }
@@ -311,7 +323,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 let clen = ((!cur) ? p.vertex.length : cur.vertex.length ) + 1;
                 while (clen < p.vertex.length) {
                   if (clen in secondary) {
-                    ans.push(secondary[clen]);
+                    //ans.push(secondary[clen]);
                   }
                   clen++;
                 }
@@ -320,6 +332,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 ans.push(cur);
               }
             }
+            backList.sort(function(a,b) { return b.vertex.length - a.vertex.length; });
+            if (((ans.length + backList.length) % 2 ) == 1) {
+              // ensure an even number at end for smooth looping:
+              backList = backList.splice(1);
+            }
+            ans = ans.concat(backList);
+            
             return ans;
           }
           var AllPolysForTransitions = sortPolysByFaces();
@@ -375,6 +394,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
           var mainIsAutoTransition = true;
           var mainIsAutoRoll = true;
+          var mainIsAutoFast = false;
           function polyToggleAutoRoll() {
             mainIsAutoRoll = !mainIsAutoRoll;
             evn_AnimationEnable( mainIsAutoRoll || mainIsAutoTransition );
@@ -385,6 +405,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             if (!mainIsAutoTransition) {
               mainRangeSlider.value = mainLatestPolyInterp;
             }
+          }
+          function polyToggleAutoFast() {
+            mainIsAutoFast = !mainIsAutoFast;
           }
           function slowInOutUnit(ut) {
             return (1 - Math.cos( ut * Math.PI ))*0.5;
@@ -404,9 +427,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               } else {
                 mainPolyAnim.position.x = 0;
               }
+            } else {
+              mainPolyAnim.position.x = 0;
             }
             if (mainIsAutoTransition) {
-              mainLatestPolyInterp += dt * 0.33;
+              mainLatestPolyInterp += dt * (mainIsAutoFast ? (1.5 * 1.618) : 0.33);
               var mt = AllTransitions.length;
               while (mainLatestPolyInterp >= mt) {
                 mainLatestPolyInterp -= mt;
@@ -421,6 +446,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
               }
               updateMapInerp(mainLatestPolyInterp);
               mainLatestPolyInterp = realVal;
+              mainRangeSliderIsUpdating = true;
+              mainRangeSlider.value = mainLatestPolyInterp;
+              mainRangeSliderIsUpdating = false;
             }
           }
           evn_AnimationCallback = polyAnimCallback;
