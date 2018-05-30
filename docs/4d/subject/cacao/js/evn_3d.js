@@ -180,10 +180,45 @@ function evn3d_initcore(targetCanvas) {
 			
 			};
 
+			var hackyScrollUpdate = function(el, scrollPos) {
+				var validRanges = [
+					{from:0.4, name:"LifeBasic"},
+					{from:0.64, name:"LifeAgriculture"},
+					{from:1.2, name:"LifePlants"},
+					{from:1.55, name:"Land"},
+				];
+				var name = validRanges[0].name;
+				for (var ii in validRanges) {
+					if (validRanges[ii].from < scrollPos) {
+						name = validRanges[ii].name;
+					}
+				}
+				var isShow = (el.Options.Strings.HackyVizTest == name);
+				var wasShow = el.evxTagEl.objThree.visible;
+				el.evxTagEl.objThree.visible = isShow;
+				if (isShow && (!wasShow)) {
+					
+					evxElementFindFirstMetaData(el, evn_updateMetaData, evn_updateAllMetaData);
+				}
+				//evn_outputString(scrollPos + " " + name);
+			};
+
 			this.innerScroll1d = function(delta) {
 				var scrollItem = evxElementFindScrollChild(__evn_currentJsRoot);
 				if (evxToolsNotNull(scrollItem)) {
-					evxElementApplyInputScroll1D(scrollItem, delta );
+					var res = evxElementApplyInputScroll1D(scrollItem, delta );
+					evxToolsJsWalkChildrenUntil(__evn_currentJsRoot, function(el) {
+						if (evxToolsNotNull(el.Options)) {
+							if (evxToolsNotNull(el.Options.Strings.HackyVizTest)) {
+								//alert("Found it!");
+								//evn_outputString(res);
+								hackyScrollUpdate(el, res);
+								return undefined; // let it continue...
+								//return el.Options.Strings.HackyVizTest;
+							}
+						}
+						return undefined;
+					});
 					requestUpdate();
 				}
 			}
@@ -290,6 +325,7 @@ function evn3d_initcore(targetCanvas) {
 			var latestLookAtPos = null;
 			var latestLookAtGoal = null;
 			var lookAtOriginal = null;
+			var wasdCamera = null;
 			this.innerMoveCamera = function(mouseX, mouseY,isSnap=false) {
 
 				var extraXScale = 2.2;
@@ -328,8 +364,12 @@ function evn3d_initcore(targetCanvas) {
 					latestLookAtPos.copy( latestLookAtGoal );
 				}
 
-				_this.camera.position.copy( latestCameraPos );
-				_this.camera.lookAt( latestLookAtPos );
+				if (wasdCamera && wasdCamera.enabled) {
+					wasdCamera.updateAndApplyToObjThree( _this.camera );
+				} else {
+					_this.camera.position.copy( latestCameraPos );
+					_this.camera.lookAt( latestLookAtPos );
+				}
 			};
 
 			this.init = function() {
@@ -369,6 +409,9 @@ function evn3d_initcore(targetCanvas) {
 				targetCanvas.addEventListener( 'mousedown', _this.innerMouseDown, false );
 				targetCanvas.parentElement.addEventListener( 'mousemove', _this.innerMouseMove, false );
 				targetCanvas.addEventListener( 'mouseup', _this.innerMouseUp, false );
+			
+				wasdCamera = evxWASDCreateAndSetup(targetCanvas);
+				wasdCamera.enabled = false;
 			};
 
 			
@@ -399,6 +442,12 @@ function evn3d_initcore(targetCanvas) {
 					throw ex;
 				}
 				this.isRequestInQueue = false;
+
+				if (evxToolsNotNull(__evn_CallOnceAfterRender)) {
+					var cb = __evn_CallOnceAfterRender;
+					__evn_CallOnceAfterRender = undefined;
+					cb();
+				}
 			};
 
 			return this;
@@ -506,13 +555,14 @@ function evn_ExampleMultipleElements() {
 
 /* ------------ HELPERS FOR ECOVOXEL (EVX) API ------------------------- */
 
+
 var __evn_currentMain = null;
 var __evn_currentJsRoot = null;
 var __evn_content_fixed = null;
 var __evn_content_anim = null;
 var __evn_evx_root = null;
 
-var __evn_slide_current = (("" + location.href).includes("lion_app") ? 8 : 0);
+var __evn_slide_current = (evxToolsUrlHasArg("lion_app") ? 8 : 0);
 var __evn_slide_filtered = false;
 var __evn_slide_filter_key = "";
 
@@ -521,8 +571,20 @@ var __evn_ServerRequestId = "";
 
 var evnMetaFilterCallback = null;
 var __env_MainHistory = [];
+var __env_IsOnEcoSlide = undefined;
+var __evn_CallOnceAfterRender = undefined;
+
+function evn_GotoEcoSlide() {
+	var ecoSlideId = 'ecoSlide0'
+	partnerTempSlideOverride = ecoSlideId;
+	__env_IsOnEcoSlide = ecoSlideId;
+	evn_ChangeMainElement(ecoSlide0,false); // this resets __env_IsOnEcoSlide
+	__env_IsOnEcoSlide = ecoSlideId;
+}
 
 function evn_ChangeMainElement(rootEl,skipScaling=false) {
+
+	__env_IsOnEcoSlide = undefined;
 
 	var oldScrollItem = ((evxToolsNotNull(__evn_currentJsRoot)) ? evxElementFindScrollChild(__evn_currentJsRoot) : null);
 
@@ -578,6 +640,12 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 		//evxElementInputScopeUpdate(newScrollItem); // helps ensure the tracks and such are correctly aligned
 		//evn3d_root.requestUpdate();
 	}
+
+	__env_IsOnEcoSlide = undefined;
+
+	__evn_CallOnceAfterRender = function() {
+		evn3d_root.innerScroll1d(0);
+	};
 }
 
 function evn_PopOneHistory() {
@@ -702,7 +770,13 @@ function evn_SetupShape() {
 	var elData = evn_ExampleWithMediumAmountOfElements(); //evn_ExampleMultipleElements(); //evn_ExampleElementWithTextLinesPoints();
 	var res = evxElementCreateFromJsonElement(elData);
 
-	evn_ChangeMainElement(elData);
+	if (!evxToolsUrlHasArg("lion_app")) {
+		evn_GotoEcoSlide();
+	} else {
+		evn_ChangeMainElement(elData);
+	}
+
+	
 
 	evn_Setup3DModelNearby();
 }
@@ -780,6 +854,9 @@ function evn_ClickedOnSpecificItem(indexA=0, indexB=2) {
 	if (evxToolsNotNull( __evn_latestMetaData)) {
 		var data = __evn_latestMetaData;
 		var filterTo = (isPersonFilter ? data.Person : data.Mission);
+		if (!evxToolsNotNull(filterTo)) {
+			return; // no mission or person
+		}
 
 		var isGo = true;
 		if (evxToolsNotNull(partnerTryFilterInto)) {
@@ -798,6 +875,9 @@ function evn_ClickedOnSpecificItem(indexA=0, indexB=2) {
 
 function evn_NextSlide() {
 	__evn_slide_current++;
+	if (evxToolsNotNull(__env_IsOnEcoSlide)) {
+		__evn_slide_current = 0;
+	}
 	evn_GotoSlide(__evn_slide_current);
 }
 
