@@ -846,7 +846,7 @@ function evxShapeCreateFromJsonShape(shape) {
 				mesh = new THREE.LineSegments( geometry, mat );
 			} else {
 				var isAnts = false;
-				if (evxToolsHasOption(ss,'FollowablePath') || evxToolsHasOption(ss,'dataContent')) {
+				if (evxToolsHasOption(ss,'FollowablePath') || evxToolsHasOption(ss,'dataContent') || evxToolsHasOption(ss,'fade')) {
 					isAnts = true;
 				}
 				mesh = evxShapeIndexedLineCreateFancyLines(shape, ss, null, isAnts);
@@ -908,6 +908,11 @@ function evxToolsAny(ar,testFunc) {
 		}
 	}
 	return false;
+}
+
+
+function evxToolsUrlHasArg(name) {
+	return ("" + location.href).includes(name);
 }
 
 function evxShapeIndexedLineCreateFancyLines(shape,ns,group=null,curvyCorners=false) {
@@ -1042,11 +1047,13 @@ function evxShapeFollowCharacterAdd(group,shape,ss) {
 	if (true) {
 		sphere = new THREE.Group();
 		evx_3dPack_LoadModelGeneric("models/poly_people.json", function (packOfPeople) {
+			if (packOfPeople) {
 			var person = evx_3dPack_CreateItemInstance( evx_3dPack_FindItem(packOfPeople, 0, 4) );
 			//evx_3dPack_SetScale(person, 0.41);
 			evx_3dPack_SetMaterialColorFromHex(person, "#eabd07");
 			sphere.add(person);
 			evxRequestUpdate();
+			}
 		});
 	} else {
 		var geometry = new THREE.SphereGeometry( 1.0, 32, 32 );
@@ -1293,7 +1300,8 @@ function evxElementApplyInputScroll1D(el,unitDelta) {
  
     var zAxis = axs;
     var offset = zAxis.Inputs[1];
-    var scl = zAxis.Inputs[0];
+	var scl = zAxis.Inputs[0];
+	var result = undefined;
 
 	if (isXYZZoom) {
 		if (!evxToolsNotNull(axs.evxScroll)) {
@@ -1307,6 +1315,7 @@ function evxElementApplyInputScroll1D(el,unitDelta) {
 		var sunit = evxToolsClamp01( evxToolsUnitTo010( 
 			evxToolsInvLerp( 0, 0.5, offsetXY )));
 		var offsetY = evxToolsLerp( 0, -1.35, sunit );
+		result = w2;
 
 		axs.evxScroll = w2;
 
@@ -1342,6 +1351,7 @@ function evxElementApplyInputScroll1D(el,unitDelta) {
 			fm = mxFrom;
 		}
 		var to = fm + w;
+		result = ((fm + to) * 0.5);
 
 		axs.Scope.To = to;
 		axs.Scope.From = fm;
@@ -1349,14 +1359,103 @@ function evxElementApplyInputScroll1D(el,unitDelta) {
 		var m = 1.0 / (to - fm);
         var a = -m * fm;
         scl.Weight = m;
-        offset.Weight = a;
+		offset.Weight = a;
 		//offset.Weight += (scl.Weight * -unitDelta );
 	}
 
 
-    evxElementInputScopeUpdate(el);
+	evxElementInputScopeUpdate(el);
+	return result;
 }
 
+/* ------------ ECOVOXEL (EVX) CAMEREA HELPER API ------------------------ */
+
+function evxWASDCreateAndSetup(control) {
+
+	var targetCanvas = control;
+	var _this = { 
+		'control':control,
+		enabled:true,
+		isMouseDown:false,
+		keysDown:{}
+	};
+
+	_this.innerMouseDown = function() {
+		if (!_this.enabled) return;
+		event.preventDefault();
+		_this.isMouseDown = false;
+	};
+	_this.innerMouseUp = function() {
+		_this.isMouseDown = true;
+	}
+	_this.innerKeyDown = function() {
+		var kc = event.key.toLowerCase();
+		_this.keysDown[kc] = true;
+	}
+	_this.innerKeyUp = function() {
+		var kc = event.key.toLowerCase();
+		_this.keysDown[kc] = false;
+	}
+	_this.isKey = function(k) {
+		if (k in _this.keysDown) {
+			return _this.keysDown[k];
+		} else {
+			return false;
+		}
+	}
+
+	var tv = new THREE.Vector3();
+	var tv1= new THREE.Vector3();
+	_this.updateAndApplyToObjThree = function(cam,dt) {
+		_this.camera = cam;
+		if (!evxToolsNotNull(dt)) {
+			dt = 0.1;
+		}
+		tv.set(0,0,0);
+		if (_this.isKey('w')) {
+			tv.z = -1;
+		}
+		if (_this.isKey('s')) {
+			tv.z = 1;
+		}
+		if (_this.isKey('a')) {
+			tv.x = -1;
+		}
+		if (_this.isKey('d')) {
+			tv.x = 1;
+		}
+		if (tv.lengthSq() == 0) {
+			// return if not moving
+			return;
+		}
+		tv.applyMatrix4(cam.matrixWorld);
+
+		// Subtract origin vector:
+		tv1.set(0,0,0);
+		tv1.applyMatrix4(cam.matrixWorld);
+		tv.sub(tv1);
+
+		// Scale:
+		tv.multiplyScalar(dt * 1.0);
+
+		tv.add(_this.camera.position);		
+		_this.camera.position.copy( tv );
+		//_this.camera.lookAt( latestLookAtPos );
+	}
+
+	//targetCanvas.addEventListener( 'touchstart', _this.innerTouchStart, false );
+	//targetCanvas.parentElement.addEventListener( 'touchmove', _this.innerTouchMove, false );
+	//targetCanvas.addEventListener( 'touchend', _this.innerTouchEnd, false );
+	//targetCanvas.addEventListener( 'touchcancel', _this.innerTouchCancel, false );
+	//targetCanvas.addEventListener( 'mousewheel', _this.innerMouseWheel, false );
+	targetCanvas.addEventListener( 'mousedown', _this.innerMouseDown, false );
+	targetCanvas.parentElement.addEventListener( 'mousemove', _this.innerMouseMove, false );
+	targetCanvas.addEventListener( 'mouseup', _this.innerMouseUp, false );
+	document.addEventListener( 'keydown', _this.innerKeyDown, false );
+	document.addEventListener( 'keyup', _this.innerKeyUp, false );
+
+	return _this;
+}
 
 
 /* ------------ ECOVOXEL (EVX) TOUCHER HELPER API ------------------------- */
@@ -1457,7 +1556,11 @@ function __evxToucherInternalRecursiveTouch(toucher, group, metaCallback) {
     if (justDoItAll) {
         toucher.intersects = toucher.raycaster.intersectObjects( group.children, true );
         return toucher.intersects.length;
-    }
+	}
+	
+	if (group.visible == false) {
+		return;
+	}
 
     var touchCount = 0;
     if (("children" in group) && (group.children.length > 0)) {

@@ -177,12 +177,16 @@ function partnerSetupInfoPanel(slide) {
 		slide = partnerTempSlideOverride;
 		partnerTempSlideOverride = undefined;
 	}
+	if (__env_IsOnEcoSlide) {
+		slide = __env_IsOnEcoSlide;
+	}
 	if (slide in partnerSlideInfo) {
 		info = partnerSlideInfo[slide];
 	}
 	partner_info_title.innerHTML = info.title;// + " (" + slide + ")";
 	partner_info_desc .innerHTML = (info.desc ? info.desc : baseInfo.desc);
 	partner_info_commands.innerHTML = (info.commands ? info.commands : baseInfo.commands);
+	partner_info_source.innerHTML = "&bull;" + (info.source ? info.source : baseInfo.source);
 	partner_info_filter.innerHTML = "&bull;" + (info.filter ? info.filter : baseInfo.filter);
 	partner_info_graph.innerHTML = "&bull;" + (info.graph ? info.graph : baseInfo.graph);
 }
@@ -214,9 +218,17 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 
 	var toggleCode = " onclick='partnerToggleDataView()' ";
 
+	var leftTitle = (isPersonFirst ? "USER" : "USER ACTION");
+	var rghtTitle = (isMissionFocus?"MISSION":"USER");
+
+	if ((metaArray.length > 0) && evxToolsNotNull(metaArray[0].Property)) {
+		leftTitle = "STATE";
+		rghtTitle = "REFS"
+	}
+
 	var title = "<tr>" 
-		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + (isPersonFirst ? "USER" : "USER ACTION") + "</font></td>"
-		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + (isMissionFocus?"MISSION":"USER") + ""
+		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + leftTitle + "</font></td>"
+		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + rghtTitle + ""
 		//+ "<b style='float: right;border:1px solid #A9F3B3; border-radius:5px; '>  2D </b>"
 		+ "</font></td>"
 		+ "</tr>";
@@ -225,14 +237,36 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 		return " onclick=\"evn_GotoSpecificView(" + (!isMissionFocus) 
 			+ ",'" + (isMissionFocus ? row.Mission : row.Person) + "')\" ";
 	};
+	var tdHide = "<td onclick='partnerToggleDataView()' >";
+	var countCommas = function(str) {
+		var ans = 0;
+		for (var ii=0; ii<str.length; ii++) {
+			if (str[ii] == ',') ans++;
+		}
+		return ans;
+	}
 
 	var newRows = "";
 	var prevRow = "";
 	var rowCount = 0;
 	var maxRows = 40;
+	var knownProperties = {};
 	for (var ii in metaArray) {
 		var data = null;
 		data = metaArray[ii];
+
+		if (evxToolsNotNull(data.Property)) {
+			if (data.Property in knownProperties) {
+				continue;
+			}
+			knownProperties[data.Property] = data;
+			var curRow = "<tr>";
+			curRow += tdHide + partnerUserString(data.Property) + "</td>";
+			curRow += tdHide + countCommas(data.Inputs) + "&rarr;" + countCommas(data.Outputs) + "</td>";
+			curRow += "</tr>";
+			newRows += curRow;
+			continue;
+		}
 
 		var colorPrefix = "", colorPostfix = "";
 		var hasColor = ((shape.Scope.Vector.length >= 4) && (shape.Scope.Vector[3].Id == "color_unit"));
@@ -303,6 +337,16 @@ function partnerSingleMetaReset(item, idealSlide, etc) {
 
 var __partner_latestMetaData = null;
 
+function partnerUserString(str) {
+	if (str.startsWith(",")) {
+		str = str.substr(1);
+	}
+	str = str.replace("Water_Density", "Water_Saturation");
+	str = str.replace(/_/g," ");
+	str = str.replace(/,/g,", ");
+	return str;
+}
+
 function  partnerSetupMetaData(metaData) {
 	var data = null;
 	data = metaData; //eval("data="+metaString);
@@ -310,6 +354,27 @@ function  partnerSetupMetaData(metaData) {
 		return;
 	}
 	if ((!evxToolsNotNull(metaData.Person)) || (!evxToolsNotNull(metaData.Mission))) {
+
+		if (evxToolsNotNull(metaData.Property)) {
+			var str = partnerUserString(metaData.Property);
+			var title = str;
+			var mname = "Affects: " + partnerUserString(metaData.Outputs);
+			if (title.length > 30) {
+				title = title.substr(0,30);
+			}
+			partner_detail_user_name.innerHTML = title;
+			partner_detail_mission_name.innerHTML = mname;
+			partner_detail_event_type.innerHTML = "Affected By: " + partnerUserString( metaData.Inputs );
+
+			//partnerSingleMetaReset( partner_detail_event_type,  4,  splitWordByCapitals( data.EventType ) );
+			partnerSingleMetaReset( partner_detail_event_time,  7,  "@" + time );
+			partnerSingleMetaReset( partner_detail_event_cycle,  9,  "[" + lionEventTypeInCycle( data.EventType ) + "]" );
+			partnerSingleMetaReset( partner_detail_user_social, 6, "(social)");
+			partnerSingleMetaReset( partner_detail_user_similar, 1, "(similar)");
+			partnerSingleMetaReset( partner_detail_mission_type, 5, "(mission type)");
+			partnerSingleMetaReset( partner_detail_mission_similar, 3, "(similar)");
+			return;
+		}
 
 		if (evxToolsNotNull(metaData.string)) {
 			var str = metaData.string;
@@ -376,24 +441,26 @@ function  partnerSetupMetaData(metaData) {
 function partnerMetaLinksString() {
 	//evn_Update3dModel("models/person.json");
 	var modelPath = "models/poly_people.json"; // "models/plant_succession.json"; 
-	evx_3dPack_LoadModelGeneric(modelPath, function(packOfPeople) {
+	if (evxToolsUrlHasArg("lion_app")) {	
+		evx_3dPack_LoadModelGeneric(modelPath, function(packOfPeople) {
 
-		var placeInfo = {
-			PackIndex: 1, // 4
-			Rotation: Math.PI // 0
-		};
-		var person = evx_3dPack_CreateItemInstance( evx_3dPack_FindItem(packOfPeople, 0, placeInfo.PackIndex ) );
-		evx_3dPack_SetScale(person, 0.41);
-		if (placeInfo.Rotation != 0) {
-			person.rotation.x = 0; //placeInfo.Rotation;
-			person.rotation.y = Math.PI * 1.5; //placeInfo.Rotation;
-			person.rotation.z = Math.PI * 1.5;
-			evx_3dPack_SetScale(person, 0.21);
-		}
-		evx_3dPack_SetMaterialColorFromHex(person, "#eabd07");
-		evn_Update3dModel(modelPath, function(){return person;}, function(){ });
-		return;
-	});
+			var placeInfo = {
+				PackIndex: 1, // 4
+				Rotation: Math.PI // 0
+			};
+			var person = evx_3dPack_CreateItemInstance( evx_3dPack_FindItem(packOfPeople, 0, placeInfo.PackIndex ) );
+			evx_3dPack_SetScale(person, 0.41);
+			if (placeInfo.Rotation != 0) {
+				person.rotation.x = 0; //placeInfo.Rotation;
+				person.rotation.y = Math.PI * 1.5; //placeInfo.Rotation;
+				person.rotation.z = Math.PI * 1.5;
+				evx_3dPack_SetScale(person, 0.21);
+			}
+			evx_3dPack_SetMaterialColorFromHex(person, "#eabd07");
+			evn_Update3dModel(modelPath, function(){return person;}, function(){ });
+			return;
+		});
+	}
 
 	return partnerInfoLink;
 }

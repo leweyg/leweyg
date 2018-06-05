@@ -81,16 +81,18 @@ var partnerRandomData_UserName = [
 	
 	var partnerSlideInfo = {
 		'ecoSlide0':{
-			title : "Farm Health Simulation",
-			desc : "This graph shows a zoom-able farming simulation, comparing macrobiotic to chemical fertilizers.",
-			commands : "Click on points to view corresponding mission/person.",
-			filter : "Filted to one focus from <a href='#' onclick='evn_GotoSlide(1);'>all events</a>.",
-			graph : "Graphed onto local map and scaled time coordinates.",
+			title : "Ecological State Protocols",
+			desc : "Here is a zoom-able ecological model, with the related state relationships shown on the side.",
+			commands : "Scroll to adjust zoom level.",
+			source : "Data from relational model behind protocols.",
+			filter : "Filtered to current zoom level (scroll to change).",
+			graph : "Graphed to show how properties relate."
 		},
 		0:{
 			title : "Person travelling over time",
 			desc : "This graph maps out how a person has moved over time, based on recorded social network events.",
 			commands : "Click on points to view corresponding mission/person.",
+			source : "Data from social collaberation tool.",
 			filter : "Filted to one focus from <a href='#' onclick='evn_GotoSlide(1);'>all events</a>.",
 			graph : "Graphed onto local map and scaled time coordinates.",
 		},
