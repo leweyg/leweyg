@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<title>MapTopia Mobile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>MapTopia</b> Mobile</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#projects" class="w3-bar-item w3-button">Map</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>MT</b></span> <span class="w3-hide-small w3-text-light-grey">Architects</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Map</h3>
+
+    <a id="mainIsPrivateButton" class="w3-bar-item w3-button" onclick="togglePublicView()">[PAID]</a>
+    <a class="w3-bar-item w3-button" onclick="togglePOVView()">POV</a>
+    <a class="w3-bar-item w3-button" onclick="toggleVideo()">3D</a>
+    <br/>
+
+    <div id="videoShower" style="display:none;"><center>
+        <iframe id="videoPlayer" width="711" height="400" src="https://www.youtube.com/embed/sRfPLfThSMw?rel=0&mute=1" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </center></div>
+
+    <div id="allMapStuff">
+    <div id="mapShower" style="height:400px; width:100%;"Loading map...</div>
+    <script>
+      var map;
+      var defaultMapLoc = {lat: 37.780895, lng: -122.411907 }; //{lat: 37.781113, lng: -122.411926 };
+      var defaultDx = 0.00003;
+      var mainListOfMarkers = [];
+      var defaultMarkerLocs = [
+      {lat:37.78084199271942,lng:-122.41192599978103},
+      {lat:37.780901855732374,lng:-122.41185028334547},
+      {lat:37.780938666888105,lng:-122.41174262815525},
+      {lat:37.78096314279854,lng:-122.41177347086597},
+        ];
+      var defaultPanoMarkers = [
+        {lat:37.78085285725974,lng:-122.41192365284815},
+        {lat:37.78091378021814,lng:-122.4118469305842},
+        {lat:37.780949001437385,lng:-122.41174363398363},
+        {lat:37.780974537297745,lng:-122.41177447669435}
+      ];
+      var defaultMarkerOnScreen = {};
+      var overlayPrivate = null;
+      var overlayPublic = null;
+      var mainIsPrivateView = false;
+
+      function initMap() {
+        var styles = [
+          {
+            featureType: "poi",
+            stylers: [
+              { visibility: "off" }
+            ]   
+            }
+        ];
+
+        map = new google.maps.Map(document.getElementById('mapShower'), {
+          center: defaultMapLoc, // 37.781068, -122.411797
+          zoom: 20,
+          styles: styles,
+        });
+        
+        for (var mi in defaultMarkerLocs) {
+            addUserMarkers(defaultMarkerLocs[mi]);
+        }
+        updateUserMarkerPositions();
+
+        addImageOverlays();
+
+        updateIsPublicView(false);
+        //setStreetViewUsage(true);
+
+        map.addListener('center_changed', function() {
+          updateStreetViewLines();
+        });
+        map.getStreetView().addListener('pov_changed', function() {
+          updateStreetViewLines();
+        });
+
+      }
+      function setStreetViewUsage(isOn) {
+        var panorama = map.getStreetView();
+        //var toggle = panorama.getVisible();
+        if (isOn == true) {
+            panorama.setPosition(defaultMapLoc);
+            panorama.setPov(/** @type {google.maps.StreetViewPov} */({
+                heading: 45,
+                pitch: 0
+            }));
+            panorama.setVisible(true);
+        } else {
+            panorama.setVisible(false);
+        }
+        moveMarkerPositions();
+      }
+
+      function moveMarkerPositions() {
+        var panorama = map.getStreetView();
+        var tos = ((panorama.visible) ? defaultPanoMarkers : defaultMarkerLocs);
+        for (var mi in tos) {
+          var m = mainListOfMarkers[mi];
+          var t = tos[mi];
+          m.setPosition(t);
+        }
+      }
+
+      function fromLatLngToPoint(latLng) {
+        var ans = null;
+        var panorama = map.getStreetView();
+        if (panorama.visible) {
+
+          var dx = latLng.lat() - panorama.position.lat();
+          var dy = latLng.lng() - panorama.position.lng();
+          var dir = Math.atan2(dy, dx) * (180 / Math.PI);
+          var heading = panorama.pov.heading;
+          var pitch = panorama.pov.pitch;
+
+          //dir = heading + (45); // just testing
+          var dd = dir - heading;
+          mainDebugOutput.innerHTML = "H=" + heading + " D=" + dir + " Delta="+dd;
+
+          var fov1 = 90 * 0.5;
+          var rect = mapShower.getBoundingClientRect();
+          var fovX = fov1 * Math.max(1, rect.width / rect.height);
+          var fovY = fov1 * Math.max(1, rect.height / rect.width);
+
+          var sx = (((dd) / fovX) * (rect.width)) + (rect.width * 0.5);
+          
+          ans = { x: (sx), y: (rect.height / 2.0) };
+
+        } else {
+      
+
+          // Calc 2d unit coord:
+          var topRight = map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast());
+          var bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest());
+          var worldPoint = map.getProjection().fromLatLngToPoint(latLng);         
+          var scaleX = (topRight.x - bottomLeft.x);
+          var scaleY = (bottomLeft.y - topRight.y);
+          ans = new google.maps.Point((worldPoint.x - bottomLeft.x) / scaleX, (worldPoint.y - topRight.y) / scaleY);
+          
+          // Scale to screen:
+          var rect = mapShower.getBoundingClientRect();
+          ans.x *= rect.width;// * 0.5 * (2.0/3.0);
+          ans.y *= rect.height;// * 0.5 * (2.0/3.0);
+        }
+
+
+        return ans;
+      }
+
+      function updateMarkersOnScreen() {
+        var proj = map.getProjection();
+        for (var mi in mainListOfMarkers) {
+          defaultMarkerOnScreen[mi] = fromLatLngToPoint(mainListOfMarkers[mi].position);
+
+          //defaultMarkerOnScreen[mi].x *= 0.5;
+          //defaultMarkerOnScreen[mi].y *= 0.5;
+        }
+      }
+
+      function updateStreetViewLines() {
+        return;
+
+        // ensure correct size:
+        var rect = mapShower.getBoundingClientRect();
+        mainOverlayDiv.style.left = rect.left + 'px';
+        mainOverlayDiv.style.top = rect.top + 'px';
+        mainOverlayCanvas.style.width = rect.width + 'px';
+        mainOverlayCanvas.style.height = rect.height  + 'px';
+        mainOverlayCanvas.width = rect.width;
+        mainOverlayCanvas.height = rect.height;
+
+        // update projections:
+        updateMarkersOnScreen();
+
+        // do the drawing:
+        var context = mainOverlayCanvas.getContext('2d');
+
+        context.clearRect(0, 0, rect.width, rect.height);
+
+        context.beginPath();
+        context.moveTo(0, 0);
+        context.lineTo(defaultMarkerOnScreen[0].x, defaultMarkerOnScreen[0].y);
+        context.lineTo(defaultMarkerOnScreen[1].x, defaultMarkerOnScreen[1].y);
+        context.lineTo(rect.width-20, rect.height-20);
+        context.closePath();
+        context.lineWidth = 1;
+        context.strokeStyle = 'blue';
+        context.stroke();
+      }
+
+
+      function addUserMarkers(loc) {
+        //var loc = {lat:defaultMapLoc.lat+dx, lng:defaultMapLoc.lng };
+        var marker = new google.maps.Marker({
+            position: loc,
+            draggable: true,
+            map: map,
+            title:"Map Center"
+        });
+        marker.addListener('click',function() {
+            //updateStreetViewLines();
+            updateUserMarkerPositions();
+        });
+        mainListOfMarkers.push(marker);
+      }
+
+      function updateUserMarkerPositions() {
+          var ans = "";
+          for (var ii in mainListOfMarkers) {
+              var m = mainListOfMarkers[ii];
+              var p = m.position;
+              ans += "{lat:" + p.lat() + ",lng:" + p.lng() + "},";
+          }
+        mainDebugOutput.innerHTML = ans;
+      }
+
+      function addImageOverlays() {
+          var dx = 0.0003;
+          var dy = dx * 2;
+        var bounds = {
+          north: defaultMapLoc.lat + dx,
+          south: defaultMapLoc.lat - dx,
+          east: defaultMapLoc.lng + dy,
+          west: defaultMapLoc.lng - dy
+        };
+
+        // Define a rectangle and set its editable property to true.
+        var rectangle = new google.maps.Rectangle({
+          bounds: bounds,
+          editable: true,
+          //map:map,
+        });
+        //rectangle.setMap(map);
+
+        var historicalOverlay = new google.maps.GroundOverlay(
+            'MapOverlay.png',
+            bounds);
+        historicalOverlay.setMap(map);
+        overlayPrivate = historicalOverlay;
+
+        var publicOverlay = new google.maps.GroundOverlay(
+            'PublicOverlay2.png',
+            bounds);
+            publicOverlay.setMap(map);
+            overlayPublic = publicOverlay;
+            publicOverlay.setOpacity(0.0);
+      }
+
+      function togglePOVView() {
+        showOrHideVideo(false);
+        mainIsPrivateView = true;
+        updateIsPublicView();
+        setStreetViewUsage(true);
+      }
+
+      function togglePublicView() {
+        showOrHideVideo(false);
+        mainIsPrivateView = !mainIsPrivateView;
+        updateIsPublicView();
+      }
+
+      function showOrHideVideo(isShow) {
+        if (isShow) {
+          videoShower.style.display = "inline";
+          allMapStuff.style.display = "none";
+        } else {
+          videoShower.style.display = "none";
+          allMapStuff.style.display = "block";
+        }
+      }
+
+      var hasStartedVideo = undefined;
+      function toggleVideo() {
+        showOrHideVideo( videoShower.style.display == 'none' );
+        
+        if (!(hasStartedVideo)) {
+          hasStartedVideo = true;
+          videoPlayer.src += "&autoplay=1";
+          //videoPlayer.mute();
+        }
+      }
+
+      function updateIsPublicView() {
+        setStreetViewUsage(false);
+        if (mainIsPrivateView) {
+          overlayPrivate.setOpacity(1.0);
+          overlayPublic.setOpacity(0.0);
+          mainIsPrivateButton.innerHTML = "[PRIVATE/public]";
+        } else {
+          overlayPrivate.setOpacity(0.0);
+          overlayPublic.setOpacity(1.0);
+          mainIsPrivateButton.innerHTML = "[PUBLIC/private]";
+        }
+        for (var mi in mainListOfMarkers) {
+          var m = mainListOfMarkers[mi];
+          m.setVisible(mainIsPrivateView);
+        }
+        
+      }
+      
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_cwVVsEcINcWQfPuqtUjzCyvoNx-Ffy0&callback=initMap"
+    async defer></script>
+    
+    
+  </div>
+
+  <div id="mainOverlayDiv" style="position:absolute;top:0px;left:0px;z-index:1000;pointer-events: none;">
+      <img src="MapOverlay.png" style="width:100px;height:100px; display:none;" />
+    <canvas id="mainOverlayCanvas" style="width:1px;height:1px;">
+    
+  </div>
+
+  </div>
+
+  <div class="w3-container w3-padding-32" id="debug" style="display: block;">
+        <p id="mainDebugOutput">Loading...</p>
+  </div>
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+    <p>Provides securly tracked dig information, from anonymized estimates, to detailed records, and on-line order systems all in a simple online/mobile/XR experience.</p> 
+    <p>Options that scale with your project:</p>
+    <p>&bull; Public (free):  general dig danger, # of reported shapes, etc.</p>
+    <p>&bull; Private (discounted): exact recording details, shape and owner information, GPR images, visually integrated, etc.</p>
+    <p>&bull; Online Ordering: create tickets and compare scan results simply and easily, measured in consistent format by previously experienced providers.</p>
+    
+  </div>
+
+  <div class="w3-row-padding w3-grayscale" id="contact">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <!--<img src="/w3images/team2.jpg" alt="John" style="width:100%"> -->
+      <h3>John Bader</h3>
+      <p class="w3-opacity">CEO, MapTopia</p>
+      <p>Leading the integration of utility mapping providers, bridging free data hosting, premium scan hosting, and on-demand deployment.</p>
+      <p><a href="https://www.linkedin.com/in/johnbader/"><button class="w3-button w3-light-grey w3-block">Contact</button></a></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <!--<img src="/w3images/team1.jpg" alt="Jane" style="width:100%">-->
+      <h3>Lewey Geselowitz</h3>
+      <p class="w3-opacity">CTO, Lewcid Systems</p>
+      <p>Developing <a href="http://www.4dprocess.com/">4d Process.com</a>, online geo-temporal data visualization product.</p>
+      <p><a href="http://www.lewcid.com/#services"><button class="w3-button w3-light-grey w3-block">Contact</button></a></p>
+    </div>
+
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Powered by <a href="http://www.4dprocess.com/" title="Lewcid 4d" target="_blank" class="w3-hover-text-green">Lewcid 4d</a></p>
+</footer>
+
+</body>
+</html>
