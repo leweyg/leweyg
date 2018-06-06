@@ -441,7 +441,7 @@ function  partnerSetupMetaData(metaData) {
 function partnerMetaLinksString() {
 	//evn_Update3dModel("models/person.json");
 	var modelPath = "models/poly_people.json"; // "models/plant_succession.json"; 
-	if (evxToolsUrlHasArg("lion_app")) {	
+	if (evxToolsUrlHasArg("lion_app") || evxToolsUrlHasArg("business")) {	
 		evx_3dPack_LoadModelGeneric(modelPath, function(packOfPeople) {
 
 			var placeInfo = {

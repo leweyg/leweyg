@@ -770,7 +770,7 @@ function evn_SetupShape() {
 	var elData = evn_ExampleWithMediumAmountOfElements(); //evn_ExampleMultipleElements(); //evn_ExampleElementWithTextLinesPoints();
 	var res = evxElementCreateFromJsonElement(elData);
 
-	if (!evxToolsUrlHasArg("lion_app")) {
+	if ((!evxToolsUrlHasArg("lion_app")) && (!evxToolsUrlHasArg("business"))) {
 		evn_GotoEcoSlide();
 	} else {
 		evn_ChangeMainElement(elData);
