@@ -13,24 +13,55 @@
     </script>
   </head>
   <style>
+    body {
+      font-family:Helvetica, Arial, Sans-Serif;
+    }
  .wsite-title {
-    font-family: "Georgia", Times, serif;
     letter-spacing: 4px !important;
 }
 </style>
-  <body>
+  <body onresize="doWindowResize()">
     <div>
         <center>
-          <div class="title wsite-title">CAP SCIENCE LABS</div><br/>
-          <div class="title wsite-title">lewcid 4d interface</div>
+          <table><tr><td>
+            <img src="TemplateData/progressLogo.Light.png" height="30" /> &nbsp;
+            </td><td>
+              <div class="title wsite-title">CAP SCIENCE LABS</div><br/>
+              <div class="title wsite-title">lewcid 4d interface</div>
+          </td></tr></table>
+          
         </center>
     </div>
-    <div class="webgl-content">
+    <div class="webgl-content" id="gameParentDiv">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
+        awareness + communication = safety
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
         
       </div>
     </div>
+    <script>
+      function doWindowResize() {
+        return; 
+
+        // skipping all this:
+        var fw = getComputedStyle(gameParentDiv).width;// view3d_div.cientWidth;
+				if (fw != undefined) {
+					if (("" + fw).includes("px")) {
+						fw = "" + fw;
+						fw = 1.0*(fw.substring(0,fw.length-2));
+					}
+					fw = Math.max( 100, fw - 30 );
+					var idealAspect = (8.0 / 16.0);// (7.0 / 16.0);
+          gameContainer.width = Math.floor( fw );
+          gameContainer.style.width = Math.floor( fw ) + "px";
+          var fh = Math.floor( fw * idealAspect );
+          gameContainer.height = fh;
+          gameContainer.style.height = fh + "px";
+        }
+      }
+
+      doWindowResize();
+    </script>
   </body>
 </html>
