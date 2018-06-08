@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CAP SCIENCE LABS</title>
+    <title>Unity WebGL Player | CapModelProcessor</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>  
@@ -12,24 +12,13 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/CapWeb.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <style>
- .wsite-title {
-    font-family: "Georgia", Times, serif;
-    letter-spacing: 4px !important;
-}
-</style>
   <body>
-    <div>
-        <center>
-          <div class="title wsite-title">CAP SCIENCE LABS</div><br/>
-          <div class="title wsite-title">lewcid 4d interface</div>
-        </center>
-    </div>
     <div class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
+        <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        
+        <div class="title">CapModelProcessor</div>
       </div>
     </div>
   </body>
