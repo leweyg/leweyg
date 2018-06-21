@@ -8,45 +8,42 @@ var partnerInfoLink = "<a href='" + partnerRemoteServerBase + "'>CAP Science Lab
 
 function partnerGeneralInfo() {
 	return {
-		bgImagePath : "subject/stadium/bali_evening_village.jpg", //"images/sunset_360.jpg",
+		bgImagePath : "subject/stadium/olympic_360.jpg", //"images/sunset_360.jpg",
 		scrollImagePath : "subject/stadium/Stadium_Cleaned.png",
 	};
 }
 
 var partnerRandomData_UserName = [
-	"Al Jones",
-	"Benedita Vaz Ferreira",
-	"Judite Hashimoto Nakata",
-	"Carina Pedroso Moreira",
-	"Kelly Miranda Tavares",
-	"Sofia Ito Aguiar",
-	"Iara Jardim Melo",
-	"Sara Rosa Furtado",
-	"Regina Aguiar Caetano",
-	"Lucielle Vieira Hamamura",
-	"Matilde Alves Cavalcanti",
-	"Edna Menezes Fernandes",
-	"Elisandra Assuncao Camargo",
-	"Franciane Leitao Carmo",
-	"Marlene Linhares Kanashiro",
-	"Jaqueline Vieira Rocha",
-	"Ester Siqueira Justino",
-	"Valentina Castilho Hamamura",
-	"Carolina Ventura Ambrosio",
-	"Shirlei Couto Cabral",
-	"Clarissa Santana de Jesus",
+	'Jack Gibson',
+	'Leo Graham',
+	'Ewan Francis',
+	'Jamie Reynolds',
+	'Jude Richards',
+	'Adan Phillips',
+	'Cooper Webb',
+	'Cody Contreras',
+	'Joel Berg',
+	'Mathew Lawson',
+	'Mell Russell',
+	'Harley Scott',
+	'Jude Watson',
+	'Lane Chapman',
+	'Ash Atkinson',
+	'Haiden Tucker',
+	'Charlie Perez',
+	'Cameron Hardy',
+	'Jess Molina',
+	'Bennie Whitfield',	
 	];
 	
 	var partnerRandomData_UserImagePaths = [
-		"download (10).jpg",
-		"download (11).jpg",
-		"download (5).jpg",
-		"download (6).jpg",
-		"download (7).jpg",
-		"download (8).jpg",
-		"download (9).jpg",
-		"images (7).jpg",
-		"images (8).jpg",
+		'images (1).jpeg',
+		'images (2).jpeg',
+		'images (3).jpeg',
+		'images (4).jpeg',
+		'images (5).jpeg',
+		'images.jpeg',
+	
 	];
 	
 	var partnerRandomData_MissionName = [
@@ -55,18 +52,13 @@ var partnerRandomData_UserName = [
 	];
 	
 	var partnerRandomData_MissionImagePaths = [
-		"download (1).jpg",
-		"download (2).jpg",
-		"download (3).jpg",
-		"download (4).jpg",
-		"download.jpg",
-		"images (1).jpg",
-		"images (2).jpg",
-		"images (3).jpg",
-		"images (4).jpg",
-		"images (5).jpg",
-		"images (6).jpg",
-		"images.jpg",
+		'download (1).jpeg',
+		'download.jpeg',
+		'images (1).jpeg',
+		'images (2).jpeg',
+		'images (3).jpeg',
+		'images (6).jpeg',
+		'images.jpeg',
 	];
 	
 	

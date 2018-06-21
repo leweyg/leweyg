@@ -577,7 +577,7 @@ var __evn_CallOnceAfterRender = undefined;
 function evn_GotoEcoSlide(isFirst) {
 
 	var isStadium = isFirst && (!evxToolsUrlHasArg("eco_app"));
-	var ecoSlideId = isStadium ? 'ecoSlide0' : 'ecoSlide1'
+	var ecoSlideId = isStadium ? 'ecoSlide0' : 'ecoSlide1';
 	var ecoSlideData = isStadium ? ecoSlide0 : ecoSlide1;
 	partnerTempSlideOverride = ecoSlideId;
 	__env_IsOnEcoSlide = ecoSlideId;

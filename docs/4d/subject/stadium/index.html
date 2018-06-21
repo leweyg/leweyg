@@ -13,17 +13,17 @@ a:hover {
     color: green;
 }
 .evxOverlayBevel {
-  background-color:#6d6e2c94; 
-  border:1px solid #A9F3B3; 
+  background-color:#614f0160; 
+  border:1px solid #866e00f3; 
   border-radius:6px; 
   color:white;
 
 }
 .evxOverlayBevel:hover {
-  background-color:#316e2cf3; 
+  background-color:#866e00f3; 
 }
 .evxOverlayData {
-  background-color:#316e2c54; 
+  background-color:#614f0160; 
 }
 
 .evnMetaExtra {
@@ -34,9 +34,14 @@ a:hover {
   display:block;
 }
 
-.evxBgColor {
+.evxBgColorOlder {
   color: #353f2f!important;
   background-color: #353f2f!important;
+}
+
+.evxBgColor {
+  color: #ffffff!important;
+  background-color: #ffffff!important;
 }
 
 
@@ -387,6 +392,7 @@ a:hover {
 	  
 
     <script src="js/three.js/three.js"></script>
+    <script src="js/three.js/MTLLoader.js"></script>
     <script src="js/three.js/LoaderSupport.js"></script>
     <script src="js/three.js/OBJLoader2.js"></script>
     <script src="js/evn_3d.js"></script>
@@ -403,7 +409,7 @@ a:hover {
 		var evxPanelSlide8=null;
 		var evxPanelSlide9=null;
    </script>
-   <script src="js/slides/slide0.js" ></script>
+   <script src="js/slides/slide0.js"  ></script>
    
    <script src="js/slides/slide2.js" defer async ></script>
    <script src="js/slides/slide3.js" defer async ></script>
@@ -417,8 +423,8 @@ a:hover {
    <script src="js/slides/slide1.js" defer async ></script> 
 
    <script src="js/ecovoxel_examples/whole_ui.js" defer async ></script>
-   <script src="js/slides/ecoSlide0.js" ></script>
-   <script src="js/slides/ecoSlide1.js" ></script>
+   <script src="js/slides/ecoSlide0.js"  ></script>
+   <script src="js/slides/ecoSlide1.js"  defer async ></script>
    
 
 		  <script>
@@ -449,8 +455,10 @@ a:hover {
 					fw = Math.max( 100, fw - 30 );
 					var idealAspect = (8.0 / 16.0);// (7.0 / 16.0);
 					view3d_canvas.width = Math.floor( fw );
-					view3d_canvas.height = Math.floor( fw * idealAspect );
-					if (isFirstResize && (view3d_canvas.height < 180)) {
+          view3d_canvas.height = Math.floor( fw * idealAspect );
+          var isSmallMode = (view3d_canvas.height < 180);
+          isSmallMode = true; // HACK 
+					if (isFirstResize && isSmallMode) {
             //__partnerLatestDataHidden = true;
             //partnerUpdateMetaShowing();
             mainTableViewToggleButton.style.display = 'none';

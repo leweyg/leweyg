@@ -439,7 +439,7 @@ function evxObjThreeCorrectLocalScale(objThree, scl) {
 }
 
 function evxObjectThreeCreateBackgroundSphere(path) {
-	var geometry = new THREE.SphereGeometry( 10, 12, 12 );
+	var geometry = new THREE.SphereGeometry( 20, 24, 12 );
 	var texture = evxObjThreeCreateTexture( path );
 
 	var scale360 = 1.45;
@@ -2001,34 +2001,59 @@ function evx_3dPack_LoadModelGeneric(src, sceneCallback) {
 	);
 }
 
-function evx_3dPack_LoadModelObj(srcPath, sceneCallback) {
+function evx_3dPack_LoadModelObj(dirPath, modelPath, sceneCallback) {
+
+	var objPath = dirPath + modelPath + ".obj";
+	var mtlPath = dirPath + modelPath + ".mtl";
+
+	if (evxToolsNotNull(modelPath) || (modelPath == "")) {
+		objPath = dirPath;
+		mtlPath = undefined;
+	}
 
 	try {
 
 	var loader = new THREE.OBJLoader2();
 	loader.logging.enabled = false;
 
-	loader.load(
-		// resource URL
-		srcPath, //'models/something.obj',
-		// called when resource is loaded
-		function ( object ) {
-	
-			sceneCallback(object.detail.loaderRootNode);
-	
-		},
-		// called when loading is in progresses
-		function ( xhr ) {
-	
-			//console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	
-		},
-		// called when loading has errors
-		function ( error ) {
-			console.log( 'Error loading: ' + srcPath );
-			sceneCallback(null);
-		}
-	);
+	var loadModel = function() {
+
+		loader.load(
+			// resource URL
+			objPath, //'models/something.obj',
+			// called when resource is loaded
+			function ( object ) {
+		
+				sceneCallback(object.detail.loaderRootNode);
+		
+			},
+			// called when loading is in progresses
+			function ( xhr ) {
+		
+				//console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		
+			},
+			// called when loading has errors
+			function ( error ) {
+				console.log( 'Error loading: ' + srcPath );
+				sceneCallback(null);
+			}
+		);
+
+	};
+
+
+	if (evxToolsNotNull(mtlPath)) {
+		var onLoadMtl = function(materials) {
+			loader.setMaterials( materials );
+			loadModel();
+		};
+		loader.setPath(dirPath);
+		loader.loadMtl( mtlPath, null, onLoadMtl );
+	} else {
+		loadModel();
+	}
+
 
 	}  catch(ex) {
 		console.log("" + ex);
