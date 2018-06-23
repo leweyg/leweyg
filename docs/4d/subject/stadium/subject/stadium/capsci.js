@@ -13,10 +13,15 @@ function capSciState() {
 		focusName:"Stevens",
 		focusObj:undefined,
 		objThreeRoot:undefined,
+		objThreeTrackerRoot:undefined,
 		sharedGeo:new THREE.SphereGeometry( 1.0, 32, 32 ),
-		sharedMat:new THREE.MeshBasicMaterial( {color: 0xffff00} ),
+		sharedMat:new THREE.MeshBasicMaterial( {color: 0xffff00 } ),
 		latestZoomWidth:1.0,
 	};
+	var state = __capSciState;
+	//state.sharedMat.depthTest = false;
+	//state.sharedMat.depthWrite = true;
+	//state.sharedMat.depthFunc = THREE.AlwaysDepth;
 	return __capSciState;
 }
 
@@ -32,7 +37,9 @@ function capSciMarkerInfoUpdate(trackerInfo) {
 			Id:trackerInfo.Id,
 			latestData:trackerInfo,
 			objThree:undefined,
+			latestHoverMarker:undefined,
 			unitPos:(new THREE.Vector3()),
+			metadata:{IdName:trackerInfo.Id, TaskName:trackerInfo.Task},
 		};
 		markers[trackerInfo.Id] = obj;
 	}
@@ -46,7 +53,7 @@ function capSciMarkerInfoUpdate(trackerInfo) {
 	} else {
 		var sphere = new THREE.Mesh( state.sharedGeo, state.sharedMat );
 		obj.objThree = sphere;
-		state.objThreeRoot.add( sphere );
+		state.objThreeTrackerRoot.add( sphere );
 	}
 	var p = trackerInfo.Location;
 	obj.objThree.position.set(-p.x/capSciBasicScale, p.y/capSciBasicScale, -p.z/capSciBasicScale);
@@ -65,9 +72,59 @@ function capSciMarkerZoomUpdate(unitWidth) {
 	}
 }
 
+function capSciMarkerHitTesterBuilder() {
+	var state = capSciState();
+	var v0 = new THREE.Vector3();
+	var v1 = new THREE.Vector3();
+	var dx, dy;
+	var bestd, countTouches, m;
+	var bestMarker;
+
+	var cb = function (toucher) {
+		bestd = 1000000;
+		countTouches = 0;
+		bestMarker = undefined;
+		// see reference in evxToucherIntersectPoints
+		for (var mi in state.knownMarkers) {
+			m = state.knownMarkers[mi];
+			v0.copy(m.unitPos);
+			v0.applyMatrix4(m.objThree.matrixWorld);
+			evxProjectorProjectWorld(toucher.projection, v0);
+			dx = v0.x - toucher.projX;
+			dy = v0.y - toucher.projY;
+			dp = ((dx*dx) + (dy*dy));
+			if ((dp < toucher.projMinDistSquare) && (dp < bestd)) {
+				bestd = dp;
+				evxToucherPushHit(toucher, state.objThreeTrackerRoot, Math.sqrt(dp), mi);
+				bestMarker = m;
+				countTouches++;
+			}
+			m = null;
+		}
+		state.latestHoverMarker = bestMarker;
+		if (countTouches > 0) {
+			toucher.intersects.sort(__evxToucherIntersectsComparer);
+		}
+		return (countTouches > 0);
+	}
+	return cb;
+}
+
+function capSciMarkerTouched(hitInfo, metadataCallback) {
+	var state = capSciState();
+	var marker = state.knownMarkers[hitInfo.index];
+	metadataCallback(marker.metadata);
+}
+
 function capSciAddTrackers(objThree, frameInfo) {
 	var state = capSciState();
-	state.objThreeRoot = objThree;
+	if (!evxToolsNotNull(state.objThreeRoot)) {
+		state.objThreeTrackerRoot = new THREE.Group();
+		state.objThreeRoot = objThree;
+		state.objThreeRoot.add( state.objThreeTrackerRoot );
+		state.objThreeTrackerRoot.customHitTestToucher = capSciMarkerHitTesterBuilder();
+		state.objThreeTrackerRoot.customOnTouch = capSciMarkerTouched;
+	}
 
 	for (var ti in frameInfo.Trackers) {
 		var tr = frameInfo.Trackers[ti];
@@ -115,6 +172,46 @@ function capSciAddBgModel(name,objPath) {
 		//var person = evx_3dPack_CreateItemInstance(stadiumModel);
 	});
 }
+
+
+function capSciBuildCameraCallback() {
+	var initialCamPos = undefined;
+	var initialScenePos = undefined;
+	var state = undefined;
+
+	var cb = function(camera, sceneObj, mouseX, mouseY, isSnap) {
+
+		if (!evxToolsNotNull(state)) {
+			state = capSciState();// call this after system initializes.
+			
+			initialCamPos = camera.position.clone();
+			initialScenePos = sceneObj.position.clone();
+		}
+
+		camera.position.copy( initialCamPos );
+		camera.position.x += mouseX * -2.0;
+		camera.position.y += (mouseY * -2.0) + 6.0;
+		camera.position.z += 2.0;
+
+		camera.lookAt( initialScenePos );
+
+		return true;
+	}
+	return cb;
+}
+
+function capSciClickedCallback(isOverObj) {
+	var state = capSciState();
+	if (true) {
+		state.focusObj = state.latestHoverMarker;
+	}
+}
+
+function capSciPostIncludeCallback() {
+	ecoSlide0.customCameraCallback = capSciBuildCameraCallback();
+	ecoSlide0.customClickCallback = capSciClickedCallback;
+}
+
 
 function partnerSetupExtension_UnitScroller(res) {
 

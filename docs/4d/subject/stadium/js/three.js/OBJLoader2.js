@@ -21,11 +21,11 @@ THREE.OBJLoader2 = (function () {
 	var Validator = THREE.LoaderSupport.Validator;
 
 	function OBJLoader2( manager ) {
-		console.info( 'Using THREE.OBJLoader2 version: ' + OBJLOADER2_VERSION );
+		//console.info( 'Using THREE.OBJLoader2 version: ' + OBJLOADER2_VERSION );
 
 		this.manager = Validator.verifyInput( manager, THREE.DefaultLoadingManager );
 		this.logging = {
-			enabled: true,
+			enabled: false, // TODO: leweyg: changed from default of "true"
 			debug: false
 		};
 

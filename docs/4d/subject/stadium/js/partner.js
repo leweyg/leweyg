@@ -5,7 +5,7 @@ var lionPsuedoRandomValue = 0;
 
 function lionRandomInArray(items) {
 	var v = lionPsuedoRandomValue;
-	lionPsuedoRandomValue += 3;
+	lionPsuedoRandomValue += items.length + 1;
 	return items[(v % items.length)];
 	//return items[Math.floor(Math.random()*items.length) % items.length];
 }
@@ -65,7 +65,7 @@ function partnerResetEnsuredInfo() {
 	lionCachedInfo = { };
 }
 
-
+var __partnerUniqueKeyIndex = 1023;
 function partnerEnsureInfo(uniqueId,isUser,metaData) {
 	var key = "" + uniqueId + (isUser ? "USER" : "MSN");
 	if (key in lionCachedInfo) {
@@ -81,6 +81,9 @@ function partnerEnsureInfo(uniqueId,isUser,metaData) {
 	};
 	if (res.Name.endsWith("#")) {
 		res.Name += "" + ( uniqueId ? uniqueId : "S" );
+	}
+	if (res.Name.endsWith("'")) {
+		res.Name += "" + (__partnerUniqueKeyIndex++);
 	}
 	var remoteImagePrefix = "https:";
 	if (isUser && evxToolsNotNull(metaData) && evxToolsNotNull(metaData.PersonName)) {
@@ -355,6 +358,30 @@ function  partnerSetupMetaData(metaData) {
 	var data = null;
 	data = metaData; //eval("data="+metaString);
 	if (!evxToolsNotNull(metaData)) {
+		return;
+	}
+	if (evxToolsNotNull(metaData.IdName)) {
+		var personInfo = partnerEnsureInfo(data.IdName, true, data);
+		var missionInfo = partnerEnsureInfo(data.TaskName, false, data);
+
+		partner_detail_mission_image.src = missionInfo.Image;
+		partner_detail_user_image.src = personInfo.Image;
+
+		var useMarkerInfo = false;
+		var displayName = useMarkerInfo ? data.IdName : personInfo.Name;
+		var displayTask = useMarkerInfo ? data.TaskName : missionInfo.Name;
+
+		partner_detail_user_name.innerHTML = displayName;
+		partner_detail_mission_name.innerHTML = displayTask;
+		partner_detail_event_type.innerHTML = "Main Hall, 2nd Floor";
+
+		//partnerSingleMetaReset( partner_detail_event_type,  4,  splitWordByCapitals( data.EventType ) );
+		partnerSingleMetaReset( partner_detail_event_time,  7,  "@" + "Entrance, 2nd Floor" );
+		partnerSingleMetaReset( partner_detail_event_cycle,  9,  "[]" );
+		partnerSingleMetaReset( partner_detail_user_social, 6, "(social)");
+		partnerSingleMetaReset( partner_detail_user_similar, 1, "(similar)");
+		partnerSingleMetaReset( partner_detail_mission_type, 5, "(mission type)");
+		partnerSingleMetaReset( partner_detail_mission_similar, 3, "(similar)");
 		return;
 	}
 	if ((!evxToolsNotNull(metaData.Person)) || (!evxToolsNotNull(metaData.Mission))) {

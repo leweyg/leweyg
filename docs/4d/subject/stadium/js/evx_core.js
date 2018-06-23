@@ -1511,6 +1511,20 @@ function evxToucherConfigure(toucher, camera, unitX, unitY) {
 	evxProjectionUpdateFromCamera(toucher.projection, camera);
 }
 
+function evxToucherPushHit(toucher, objThree, dist, ndx) {
+	var hit = null;
+	if (toucher.cachedIntersects.length > 0) {
+		hit = toucher.cachedIntersects.pop();
+	} else {
+		hit = { };
+	}
+	hit.object = objThree;
+	hit.vertexIndex = ndx;
+	hit.index = ndx;
+	hit.distance = dist;
+	toucher.intersects.push(hit);
+}
+
 var __evxToucherIntersectPointsTempVec0 = null;
 var __evxToucherIntersectPointsTempVec1 = null;
 
@@ -1547,24 +1561,7 @@ function evxToucherIntersectPoints(toucher, shape, ns) {
 		dp = ((dx*dx) + (dy*dy));
 		if ((dp < toucher.projMinDistSquare) && (dp < bestd)) {
 			bestd = dp;
-			var hit = null;
-			if (toucher.cachedIntersects.length > 0) {
-				hit = toucher.cachedIntersects.pop();
-			} else {
-				hit = { };
-			}
-			hit.object = ns.evxTag.objThree;
-			hit.vertexIndex = vi,
-			hit.index = vi,
-			hit.distance = Math.sqrt(dp);
-			toucher.intersects.push(hit);
-
-			//toucher.intersects.push( {
-			//	object: ns.evxTag.objThree,
-			//	vertexIndex: vi,
-			//	index: vi,
-			//	distance: Math.sqrt(dp),
-			//});
+			evxToucherPushHit(toucher, ns.evxTag.objThree, Math.sqrt(dp), vi);
 			countTouches++;
 		}
 	}
@@ -1604,7 +1601,12 @@ function __evxToucherInternalRecursiveTouch(toucher, group, metaCallback) {
                 //toucher.intersects = toucher.raycaster.intersectObjects( [ group ], true, toucher.intersects );
                 touchCount += 1;
             }
-        }
+		}
+		if (evxToolsNotNull(group.customHitTestToucher)) {
+			if (group.customHitTestToucher(toucher)) {
+				touchCount += 1;
+			}
+		}
     }
     return touchCount;
 }
@@ -1671,7 +1673,7 @@ function evxToucherDoTouch(toucher, rootEl, metaCallback) {
         for (var ii in intersects) {
             var hitInfo = intersects[ii];
             if ('customOnTouch' in hitInfo.object) {
-                hitInfo.object.customOnTouch();
+                hitInfo.object.customOnTouch(hitInfo, metaCallback);
                 fullTouches++;
                 break;
             }

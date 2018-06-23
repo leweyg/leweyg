@@ -326,8 +326,11 @@ a:hover {
         <font color="#555577"><a id="partner_detail_mission_similar" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(3)">(similar)</a></font>
         <br/>
         <font color="#555577"><a id="partner_detail_app_all" href="#" class="evnMetaExtra" onclick="evn_GotoSlide(8)">(app)</a></font>
+
+        <span style="display:none">
         <font color="#555577"><a id="partner_detail_app_latest" href="#" onclick="partnerCalcLatestMission()">(latest mission)</a></font>
         <font color="#555577"><a id="partner_detail_app_update" href="#" onclick="parterUpdateLatest()">(update)</a></font>
+      </span>
         </td></tr></table>
         </font>
       </div>	
@@ -428,6 +431,8 @@ a:hover {
    
 
 		  <script>
+        capSciPostIncludeCallback();
+
 		  var isFirstResize = true;
 		  updateGraphWindowSize();
 

@@ -37,18 +37,17 @@ var partnerRandomData_UserName = [
 	];
 	
 	var partnerRandomData_UserImagePaths = [
+		'images.jpeg',
 		'images (1).jpeg',
 		'images (2).jpeg',
 		'images (3).jpeg',
 		'images (4).jpeg',
 		'images (5).jpeg',
-		'images.jpeg',
-	
 	];
 	
 	var partnerRandomData_MissionName = [
-		"Repair Task #",
-		"Customer Request #",
+		"Repair Task '",
+		"Customer Request '",
 	];
 	
 	var partnerRandomData_MissionImagePaths = [

@@ -71,6 +71,17 @@ function evn_updateAllMetaData(metaDataArray,ns,shape) {
 	// nothing yet;
 }
 
+function __evnNoCallback() { return undefined; }
+function evnPageCallback(name,args) {
+	if (!evxToolsNotNull(__evn_currentJsRoot)) {
+		return __evnNoCallback;
+	}
+	if (name in __evn_currentJsRoot) {
+		return __evn_currentJsRoot[name];
+	}
+	return __evnNoCallback;
+}
+
 var evnIsAnimating = false;
 
 function evn3d_initcore(targetCanvas) {
@@ -297,7 +308,9 @@ function evn3d_initcore(targetCanvas) {
 						if (true) { //cameraIsReset) {
 							//evn_NextSlide(); // if already reset, then do next slide
 						}
+						evnPageCallback('customClickCallback')(false);
 					} else if (isDownOnSameObj) {
+						evnPageCallback('customClickCallback')(true);
 						evn_ClickedOnSpecificItem();
 					}
 				}
@@ -305,9 +318,11 @@ function evn3d_initcore(targetCanvas) {
 				if (isUp && (!isTouch) && (isTapSoFar) && (!isEventRightClick())) {
 					// mouse click:
 					if (evxToucherIsOverSomething(_this.toucher)) {
+						evnPageCallback('customClickCallback')(true);
 						evn_ClickedOnSpecificItem(); // TODO: alternate 0 and 1
 					} else {
 						//evn_NextSlide();
+						evnPageCallback('customClickCallback')(false);
 					}
 				}
 				if (isUpdateCameraThisFrame) {
@@ -327,6 +342,11 @@ function evn3d_initcore(targetCanvas) {
 			var lookAtOriginal = null;
 			var wasdCamera = null;
 			this.innerMoveCamera = function(mouseX, mouseY,isSnap=false) {
+
+				var isAdjust = true;
+				if (evnPageCallback('customCameraCallback')(_this.camera, scene, mouseX, mouseY, isSnap)) {
+					return;
+				}
 
 				var extraXScale = 2.2;
 				var aroundCosX = Math.cos( mouseX * Math.PI * 0.61 );

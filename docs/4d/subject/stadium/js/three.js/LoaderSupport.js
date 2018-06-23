@@ -200,7 +200,7 @@ THREE.LoaderSupport.PrepData = (function () {
 
 	function PrepData( modelName ) {
 		this.logging = {
-			enabled: true,
+			enabled: false, // TODO: leweyg: changed from default of "true"
 			debug: false
 		};
 		this.modelName = Validator.verifyInput( modelName, '' );
@@ -354,7 +354,7 @@ THREE.LoaderSupport.MeshBuilder = (function () {
 	var Validator = THREE.LoaderSupport.Validator;
 
 	function MeshBuilder() {
-		console.info( 'Using THREE.LoaderSupport.MeshBuilder version: ' + LOADER_MESH_BUILDER_VERSION );
+		//console.info( 'Using THREE.LoaderSupport.MeshBuilder version: ' + LOADER_MESH_BUILDER_VERSION );
 		this.logging = {
 			enabled: true,
 			debug: false
@@ -678,7 +678,7 @@ THREE.LoaderSupport.MeshBuilder = (function () {
 			for ( materialName in materials ) {
 
 				material = materials[ materialName ];
-				if ( this.logging.enabled ) console.info( 'Material with name "' + materialName + '" will be added.' );
+				//if ( this.logging.enabled ) console.info( 'Material with name "' + materialName + '" will be added.' );
 				this.materials[ materialName ] = material;
 
 			}
@@ -983,7 +983,7 @@ THREE.LoaderSupport.WorkerSupport = (function () {
 	})();
 
 	function WorkerSupport() {
-		console.info( 'Using THREE.LoaderSupport.WorkerSupport version: ' + WORKER_SUPPORT_VERSION );
+		//console.info( 'Using THREE.LoaderSupport.WorkerSupport version: ' + WORKER_SUPPORT_VERSION );
 		this.logging = {
 			enabled: true,
 			debug: false
