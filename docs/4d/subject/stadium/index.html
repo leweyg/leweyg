@@ -42,6 +42,9 @@ a:hover {
   color: #ffffff!important;
   background-color: #ffffff!important;
 }
+.meshColor {
+  color:#ecc101;
+}
 
 
 </style>
@@ -524,7 +527,7 @@ a:hover {
 				      mainLinkToServer.href = evxToolsWebStdServerPath;
               evn_ServerBeginConnection(true);
             } else {
-              setConnectionStatus("support service offline", false);
+              setConnectionStatus("", false); // "no support server"
             }
           });
         }

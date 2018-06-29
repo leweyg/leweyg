@@ -290,13 +290,21 @@ function capSciAddBgModel(name,objPath) {
 			clip.onClipUpdate = capSciCustomClipUpdateBuilder();
 		}
 		//var mat = evxShaderMaterialCreateForLitTriangles(new THREE.Color( 0x866e00 ));
-		var mat = evxShaderMaterialCreateForLitTrianglesTransparent(new THREE.Color( 0x866e00 ));
+		var mat = evxShaderMaterialCreateForLitTrianglesTransparent(new THREE.Color( 0xecc101 ));
 		mat.side = THREE.DoubleSide;
+		var matTex = evxShaderMaterialCreateForLitTexturePath(
+			new THREE.Color( 0xecc101 ), 
+			"subject/stadium/Stadium_Better.png" );
+		matTex.side = THREE.DoubleSide;
+		matTex.depthWrite = false;
 		evxShaderStateRestore(sysClip);
 
 		stadiumModel.traverse(function(mesh) {
 			if (evxToolsNotNull(mesh.material)) {
 				mesh.material = mat;
+				if (mesh.name == "Mesh4 Model") {
+					mesh.material = matTex;
+				}
 			}
 		});
 		var scl = 1.0 / capSciBasicScale;

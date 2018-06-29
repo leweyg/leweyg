@@ -2280,7 +2280,7 @@ function evxShaderPixelLit(prefixes="",middleBit="",final="") {
 	+ " vec3 norm = normalize( cross( dFdx( wPos.xyz ), dFdy( wPos.xyz ) ) );"
 	+ " float NdotC = abs( dot( norm, cameraDir ) );"
 	+ " float lightScale = NdotC;"
-    + " lightScale = ((1.0*lightScale) + (0.61*(1.0 - lightScale)));"
+    + " lightScale = (0.15 + ((1.0 - 0.15)*lightScale));"
     + " vec3 baseCol = ( color * vevxcolor );"
 	+ middleBit
 	+ "		gl_FragColor = vec4( baseCol * lightScale, finalAlpha );"
@@ -2432,7 +2432,7 @@ function evxShaderMaterialCreateForLitTrianglesTransparent(defColor) {
 			//texture:   { value: new THREE.TextureLoader().load( "textures/sprites/spark1.png" ) }
 		},
 		vertexShader:   evxShaderBasicVertexWithUnitColor(),
-		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,2.0);",""),
+		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,1.0);",""),
 		blending:       THREE.NormalBlending,
 		depthTest:      true,
 		depthWrite:		false,
