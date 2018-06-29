@@ -290,7 +290,10 @@ function capSciAddBgModel(name,objPath) {
 			clip.onClipUpdate = capSciCustomClipUpdateBuilder();
 		}
 		//var mat = evxShaderMaterialCreateForLitTriangles(new THREE.Color( 0x866e00 ));
-		var mat = evxShaderMaterialCreateForLitTrianglesTransparent(new THREE.Color( 0xecc101 ));
+		var mat = evxShaderMaterialCreateForLitTrianglesTransparent(
+				new THREE.Color( 0xecc101 ),
+					"vec3 grid = saturate(fract(wPos.xyz * 3.0)/(2.0/10.0));"
+					+ "finalAlpha *= min(grid.x,min(grid.y,grid.z));"); //float3 grid = wPos.xyz - floor(wPos.xyz); finalAlpha *= min(grid.x,min(grid.y,grid.z));");
 		mat.side = THREE.DoubleSide;
 		var matTex = evxShaderMaterialCreateForLitTexturePath(
 			new THREE.Color( 0xecc101 ), 
@@ -348,7 +351,7 @@ function capSciBuildCameraCallback() {
 	return cb;
 }
 
-function capSciClickedCallback(isOverObj) {
+function capSciClickedCallback(isOverObj,isTouch) {
 	var state = capSciState();
 	if (true) {
 		if (state.focusObj != state.latestHoverMarker)  {

@@ -322,9 +322,9 @@ function evn3d_initcore(targetCanvas) {
 						if (true) { //cameraIsReset) {
 							//evn_NextSlide(); // if already reset, then do next slide
 						}
-						evnPageCallback('customClickCallback')(false);
+						evnPageCallback('customClickCallback')(false, isTouch);
 					} else if (isDownOnSameObj) {
-						evnPageCallback('customClickCallback')(true);
+						evnPageCallback('customClickCallback')(true, isTouch);
 						evn_ClickedOnSpecificItem();
 					}
 				}
@@ -332,11 +332,11 @@ function evn3d_initcore(targetCanvas) {
 				if (isUp && (!isTouch) && (isTapSoFar) && (!isEventRightClick())) {
 					// mouse click:
 					if (evxToucherIsOverSomething(_this.toucher)) {
-						evnPageCallback('customClickCallback')(true);
+						evnPageCallback('customClickCallback')(true, isTouch);
 						evn_ClickedOnSpecificItem(); // TODO: alternate 0 and 1
 					} else {
 						//evn_NextSlide();
-						evnPageCallback('customClickCallback')(false);
+						evnPageCallback('customClickCallback')(false, isTouch);
 					}
 				}
 
@@ -695,6 +695,7 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 
 	__evn_CallOnceAfterRender = function() {
 		evn3d_root.innerScroll1d(0);
+		evn3d_root.innerMoveCamera(0,0);
 	};
 }
 

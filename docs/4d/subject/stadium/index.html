@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Stadium - CAP Science Labs - Lewcid 4D</title>
+<title>Stadium Team - CapSci / Lewcid 4D</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css">
@@ -39,7 +39,7 @@ a:hover {
 }
 
 .evxBgColor {
-  color: #ffffff!important;
+  color: #cacaca!important;
   background-color: #ffffff!important;
 }
 .meshColor {
@@ -111,6 +111,7 @@ a:hover {
                       <tr><td onclick="mainViewsListToggle()">VIEWS</td></tr>
                       <tr id="mainJumpNavList" style="display:none;"><td>
 
+                        <a onclick="mainViewListSlide(0);evn_GotoEcoSlide(true);">Stadium</a><br/>
                         <u style="color:rgb(56, 40, 94);">One</u><br/>
                         <a onclick="mainViewListSlide(0)">Person</a><br/>
                         <a onclick="mainViewListSlide(2)">Mission</a><br/>
@@ -181,6 +182,7 @@ a:hover {
                   
           </td></tr>
           </table>
+
 
        
         <script>
@@ -257,7 +259,12 @@ a:hover {
 </div>
 
 
-	<!-- MAIN 3D CANVAS AND OVERLAYS -->
+<div>
+    <div id="mainAltLocationPersonMeta">
+    </div>
+  </div>
+
+  <!-- MAIN 3D CANVAS AND OVERLAYS -->
 	<div id="mainCanvasOverlay"  style="position:relative;overflow: hidden;" >
 
  
@@ -280,7 +287,7 @@ a:hover {
     </div>
 
     <!-- VIEW INFO -->
-    <div id="partner_view_info_holder" style="overflow-y: auto; position:absolute; left:12px; top:12px; bottom:120px; z-index:100; max-width:200px;">
+    <div id="partner_view_info_holder" style="overflow-y: auto; position:absolute; left:12px; top:120px; bottom:12px; z-index:100; max-width:160px;">
         
       <div id="partner_view_info"  >
         <small>
@@ -304,12 +311,13 @@ a:hover {
     </div>
 
     <!-- META-DATA OVERLAY -->
-    <div id="partner_metadata_overlay" style="position:absolute; left:12px; bottom:12px;">
+    <div id="partner_metadata_overlay" style="position:absolute; left:12px; top:12px;">
   	  <!-- META DATA VISUALIZATION -->
       <div id="partner_meta_popup" style="padding: 3px;" >
 	
         <font color="#ccCCcc">
           
+          <span id="partner_meta_justperson">
             <table><tr><td rowspan="2">
 <img id="partner_detail_user_image" src="" height="60" ></img>
 </td><td>
@@ -320,6 +328,7 @@ a:hover {
         <a id="partner_detail_event_type" href="#" onclick="evn_GotoSlide(4)">Event Type</a>
 
           </td></tr></table>
+        </span>
           
         <table><tr><td>
           <a href="#" onclick="evn_GotoSlide(2)">
@@ -483,6 +492,7 @@ a:hover {
             mainInfoToggleButton.style.display = 'none';
             mainAltLocationMeta.appendChild(partner_meta_popup);
             mainAltLocationMeta.appendChild(partner_view_info);
+            mainAltLocationPersonMeta.appendChild(partner_meta_justperson);
             mainAltLocationTableView.appendChild(partner_detail_table2d);
             
 					}

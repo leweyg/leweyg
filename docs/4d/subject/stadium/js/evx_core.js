@@ -2423,7 +2423,7 @@ function evxShaderMaterialCreateForLitTriangles(defColor) {
 	return material;
 }
 
-function evxShaderMaterialCreateForLitTrianglesTransparent(defColor) {
+function evxShaderMaterialCreateForLitTrianglesTransparent(defColor, shaderCode="") {
 	var material = new THREE.ShaderMaterial( {
 		uniforms: {
 			//amplitude: { value: 1.0 },
@@ -2432,7 +2432,7 @@ function evxShaderMaterialCreateForLitTrianglesTransparent(defColor) {
 			//texture:   { value: new THREE.TextureLoader().load( "textures/sprites/spark1.png" ) }
 		},
 		vertexShader:   evxShaderBasicVertexWithUnitColor(),
-		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,1.0);",""),
+		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,1.0);" + shaderCode,""),
 		blending:       THREE.NormalBlending,
 		depthTest:      true,
 		depthWrite:		false,

@@ -73,12 +73,12 @@ var partnerRandomData_UserName = [
 	
 	var partnerSlideInfo = {
 		'ecoSlide0':{
-			title : "Stadium",
+			title : "Stadium Team",
 			desc : "Spatial model with live tracked team and inventory.",
 			commands : "&bull; Tap to zoom in/out.<br/>&bull; Drag to move around.",
 			source : "Based on CAP Science Labs data model.",
-			filter : "Filtered to current zoom level (scroll to change).",
-			graph : "Graphed to show how properties relate."
+			filter : "Filtered to current time.",
+			graph : "Graphed on physical space."
 		},
 		'ecoSlide1':{
 			title : "Ecological Process Model",
