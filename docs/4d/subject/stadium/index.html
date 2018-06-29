@@ -14,7 +14,6 @@ a:hover {
 }
 .evxOverlayBevel {
   background-color:#614f0160; 
-  border:1px solid #866e00f3; 
   border-radius:6px; 
   color:white;
 
@@ -307,20 +306,27 @@ a:hover {
       <div id="partner_meta_popup" style="padding: 3px;" >
 	
         <font color="#ccCCcc">
-          <img id="partner_detail_user_image" src="" height="30" ></img>
+          
+            <table><tr><td rowspan="2">
+<img id="partner_detail_user_image" src="" height="60" ></img>
+</td><td>
           <font color="#ccCCcc"><a id="partner_detail_user_name" href="#" onclick="evn_GotoSlide(0)">User Name</a></font>
           <font color="#555577"><a id="partner_detail_user_social" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(6)">(social)</a></font>
           <font color="#555577"><a id="partner_detail_user_similar" class="evnMetaExtra"  href="#" onclick="evn_GotoSlide(1)">(similar)</a></font>
-        <br/>
+        </td></tr><tr><td>
+        <a id="partner_detail_event_type" href="#" onclick="evn_GotoSlide(4)">Event Type</a>
+
+          </td></tr></table>
+          
         <table><tr><td>
           <a href="#" onclick="evn_GotoSlide(2)">
-          <img id="partner_detail_mission_image" src="" height="60"></img>
+          <img id="partner_detail_mission_image" src="" height="30"></img>
           </a>
-        </td><td>
-        <a id="partner_detail_event_type" href="#" onclick="evn_GotoSlide(4)">Event Type</a>
+        </td><td valign="center">
+        
         <font color="#555577"><a id="partner_detail_event_cycle" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(9)">Ecocycle</a>
         <a id="partner_detail_event_time" onclick="evn_GotoSlide(7)">@Time</a></font>
-        <br/>
+        
         <i ><a id="partner_detail_mission_name" href="#" onclick="evn_GotoSlide(2)">Mission Name</a></i>
         <font color="#555577"><a id="partner_detail_mission_type" class="evnMetaExtra"  href="#" onclick="evn_GotoSlide(5)">(mission type)</a></font>
         <font color="#555577"><a id="partner_detail_mission_similar" class="evnMetaExtra" href="#" onclick="evn_GotoSlide(3)">(similar)</a></font>
@@ -459,10 +465,14 @@ a:hover {
 					}
 					fw = Math.max( 100, fw - 30 );
 					var idealAspect = (8.0 / 16.0);// (7.0 / 16.0);
-					view3d_canvas.width = Math.floor( fw );
+          view3d_canvas.width = Math.floor( fw );
+          var isSmallMode = (view3d_canvas.width < 580);
+          if (isSmallMode) {
+            idealAspect = 1.0;
+          }
           view3d_canvas.height = Math.floor( fw * idealAspect );
-          var isSmallMode = (view3d_canvas.height < 180);
-          isSmallMode = true; // HACK 
+          
+          //isSmallMode = true; // HACK 
 					if (isFirstResize && isSmallMode) {
             //__partnerLatestDataHidden = true;
             //partnerUpdateMetaShowing();

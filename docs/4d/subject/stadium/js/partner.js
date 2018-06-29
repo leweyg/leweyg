@@ -5,7 +5,7 @@ var lionPsuedoRandomValue = 0;
 
 function lionRandomInArray(items) {
 	var v = lionPsuedoRandomValue;
-	lionPsuedoRandomValue += items.length + 1;
+	lionPsuedoRandomValue += 1; //items.length + 1;
 	return items[(v % items.length)];
 	//return items[Math.floor(Math.random()*items.length) % items.length];
 }
@@ -196,7 +196,9 @@ function partnerSetupInfoPanel(slide) {
 
 function partnerSetupAllMetaData(metaArray,ns,shape) {
 
+	var isReallyNoArray = false;
 	if (!evxToolsNotNull(metaArray)) {
+		isReallyNoArray = true;
 		metaArray = [];
 	}
 
@@ -333,6 +335,14 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 		}
 	}
 	__partnerLatestDataContent = title + newRows;
+	if (isReallyNoArray) {
+		__partnerLatestDataContent = ""
+		 + "<input type='button' value='CALL'></input><br/>"
+		 + "<input type='button' value='TEXT'></input><br/>"
+		 + "<input type='button' value='TASK'></input><br/>"
+		 ;
+	}
+	
 	if (!__partnerLatestDataHidden) {
 		partner_detail_table2d.innerHTML = __partnerLatestDataContent;
 	}

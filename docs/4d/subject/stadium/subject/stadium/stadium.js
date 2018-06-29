@@ -74,9 +74,9 @@ var partnerRandomData_UserName = [
 	var partnerSlideInfo = {
 		'ecoSlide0':{
 			title : "Stadium",
-			desc : "Here is a zoom-able stadium model, with the related state relationships shown on the side.",
-			commands : "Scroll to adjust zoom level.",
-			source : "Data from relational model behind protocols.",
+			desc : "Spatial model with live tracked team and inventory.",
+			commands : "&bull; Tap to zoom in/out.<br/>&bull; Drag to move around.",
+			source : "Based on CAP Science Labs data model.",
 			filter : "Filtered to current zoom level (scroll to change).",
 			graph : "Graphed to show how properties relate."
 		},

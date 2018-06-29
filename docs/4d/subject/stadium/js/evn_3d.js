@@ -153,6 +153,15 @@ function evn3d_initcore(targetCanvas) {
 				_this.innerCursorUpdate( event, false, true );
 			};
 
+			this.innerMouseOut = function() {
+				event.preventDefault();
+				enableDragCamera = true;
+				if (isEventRightClick()) {
+					enableMouseMotion = !enableMouseMotion;
+				} 
+				_this.innerCursorUpdate( event, false, false, true );
+			};
+
 			this.innerMouseDown = function() {
 				event.preventDefault();
 				dragDistanceTravelled = 0;
@@ -183,7 +192,7 @@ function evn3d_initcore(targetCanvas) {
 			this.innerTouchCancel = function() {
 				event.preventDefault();
 				var me = event.changedTouches[0];
-				innerCursorUpdate(me, false, true, true );
+				innerCursorUpdate(me, false, false, true );
 			};
 
 			this.innerMouseMove = function() {
@@ -253,6 +262,7 @@ function evn3d_initcore(targetCanvas) {
 			var tempHitArray  = [];
 			var cameraIsReset = true;
 			var isDownOnSameObj = false;
+			var isCursorDragging = false;
 
 			this.innerCursorUpdate = function (eventSrc,isDown=false,isUp=false,isCancel=false) {
 
@@ -269,8 +279,12 @@ function evn3d_initcore(targetCanvas) {
 				if (isDown) {
 					dragDistanceTravelled = 0;
 					startMousePos.set(_this.latest_mouse.x, _this.latest_mouse.y);
+					isCursorDragging = (true && !isTouch);
 				} else {
 					dragDistanceTravelled += Math.sqrt( Math.pow(tempMousePos.x - _this.latest_mouse.x,2) + Math.pow(tempMousePos.y - _this.latest_mouse.y,2) );
+				}
+				if (isUp || isCancel) {
+					isCursorDragging = false;
 				}
 				tempMousePos.set(_this.latest_mouse.x, _this.latest_mouse.y);
 				//_this.latest_mouse = getMouseOnScreen(eventSrc.pageX, eventSrc.pageY);
@@ -292,7 +306,7 @@ function evn3d_initcore(targetCanvas) {
 				if (isDown) {
 					enableDragCamera = !evxToucherIsOverSomething(_this.toucher);
 				}
-				isUpdateCameraThisFrame = isUpdateCameraThisFrame && enableDragCamera;
+				isUpdateCameraThisFrame = isUpdateCameraThisFrame && enableDragCamera && (!isCursorDragging);
 
 				if ((!enableDragCamera) && (!(isUp || isDown)) && (!isTapSoFar)) {
 					// then drag/scroll the items
@@ -325,6 +339,14 @@ function evn3d_initcore(targetCanvas) {
 						evnPageCallback('customClickCallback')(false);
 					}
 				}
+
+				if ((isCursorDragging) && (!isTapSoFar) && (!isDown) && (!isUp) && (!isCancel)) {
+					var cb = evnPageCallback('customDragCallback');
+					if (evxToolsNotNull(cb)) {
+						cb(deltaX, deltaY);
+					}
+				}
+
 				if (isUpdateCameraThisFrame) {
 					cameraIsReset = (cameraOffsetScale == 0.0);
 					_this.innerMoveCamera( 
@@ -427,6 +449,7 @@ function evn3d_initcore(targetCanvas) {
 
 				targetCanvas.addEventListener( 'mousewheel', _this.innerMouseWheel, false );
 				targetCanvas.addEventListener( 'mousedown', _this.innerMouseDown, false );
+				targetCanvas.addEventListener( 'mouseout', _this.innerMouseOut, false );
 				targetCanvas.parentElement.addEventListener( 'mousemove', _this.innerMouseMove, false );
 				targetCanvas.addEventListener( 'mouseup', _this.innerMouseUp, false );
 			
@@ -913,6 +936,8 @@ var __evnAnimTimeScalar = 0.2;
 var __evnAnimTimeInitial = (Math.PI * 0.5) / __evnAnimTimeScalar;
 var __evnAnimTimeTotal = __evnAnimTimeInitial;
 var __evnIsFirstTransition = true;
+var evn_AnimationCallback = undefined;
+var __evnAnimIsInTick = false;
 
 function __evnAnimTimeUnitCircle() {
 	return ( ( __evnAnimTimeTotal * __evnAnimTimeScalar ) / ( Math.PI * 2.0 ) ) - 0.5;
@@ -920,44 +945,63 @@ function __evnAnimTimeUnitCircle() {
 
 function evn_AnimationTick() {
 
+	if (!__evnAnimIsInTick) {
+		__evnAnimIsInTick = true;
+
 	if (evnIsAnimating) {
 		let timeNow = new Date();
 		var dt = (timeNow.getTime() - __evnAnimTimePrevious.getTime()) / 1000;
 		//__evnAnimTimePrevious = timeNow;
 		//dt = Math.min( dt, 0.1 );
-		var prevSlide = Math.floor(__evnAnimTimeUnitCircle());
 
 		__evnAnimTimeTotal = __evnAnimTimeInitial + dt;
 
-		if (Math.floor(__evnAnimTimeUnitCircle()) != prevSlide) {
-			if (__evnIsFirstTransition) {
-				__evnIsFirstTransition = false;
-				evn_GotoSlide(3);
-			} else {
-				evn_NextSlide();
-			}
+		if (evn_AnimationCallback) {
+			__evnAnimTimePrevious = timeNow;
+			evn_AnimationCallback(dt, __evnAnimTimeTotal, false);
 		} else {
-			evn3d_root.innerScroll1d(Math.cos(3.0 * __evnAnimTimeTotal * __evnAnimTimeScalar) * 0.001 );
+			var prevSlide = Math.floor(__evnAnimTimeUnitCircle());
+			// old hacky animated slide system:
+			if (Math.floor(__evnAnimTimeUnitCircle()) != prevSlide) {
+				if (__evnIsFirstTransition) {
+					__evnIsFirstTransition = false;
+					evn_GotoSlide(3);
+				} else {
+					evn_NextSlide();
+				}
+			} else {
+				evn3d_root.innerScroll1d(Math.cos(3.0 * __evnAnimTimeTotal * __evnAnimTimeScalar) * 0.001 );
+			}
+			__evn_content_anim.rotation.y = Math.cos(__evnAnimTimeTotal * __evnAnimTimeScalar) * 1.61;
 		}
 
-		__evn_content_anim.rotation.y = Math.cos(__evnAnimTimeTotal * __evnAnimTimeScalar) * 1.61;
 	} else {
-		__evn_content_anim.rotation.y = 0.00;
-		__evnAnimTimeTotal = __evnAnimTimeInitial;
+		if (evn_AnimationCallback) {
+			evn_AnimationCallback(0, __evnAnimTimeTotal, true);
+		} else {
+			__evn_content_anim.rotation.y = 0.00;
+			__evnAnimTimeTotal = __evnAnimTimeInitial;
+		}
 	}
-	
-	evn3d_root.requestUpdate();
+		
+		evn3d_root.requestUpdate();
+		__evnAnimIsInTick = false;
+	}
 
 	if (evnIsAnimating) {
 		setTimeout(evn_AnimationTick, 1000/60 );
 	}
 }
 
-function evn_AnimationToggle() {
-	evnIsAnimating = !evnIsAnimating;
+function evn_AnimationEnable(isOn) {
+	evnIsAnimating = isOn;
 	__evnAnimTimePrevious = new Date();
-	mainAnimateButton.innerHTML = (evnIsAnimating ? "PAUSE" : "ANIMATE");
+	//mainAnimateButton.innerHTML = (evnIsAnimating ? "PAUSE" : "ANIMATE");
 	evn_AnimationTick();
+}
+
+function evn_AnimationToggle() {
+	evn_AnimationEnable( ! evnIsAnimating );
 }
 
 // -------------- SERVER MANAGEMENT STUFF -------------

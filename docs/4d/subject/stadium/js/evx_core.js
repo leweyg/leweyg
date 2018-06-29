@@ -31,12 +31,35 @@ function evxToolsNotNull(obj) {
     return ((obj != undefined) && (obj != null));
 }
 
+function evxToolsIsNull(obj) {
+    return !evxToolsNotNull(obj);
+}
+
 function evxToolsHasOption(obj,name) {
 	if (evxToolsNotNull(name)) {
 		return (evxToolsNotNull(obj.Options) && evxToolsNotNull(obj.Options.Strings[name]));
 	} else {
 		return evxToolsNotNull(obj.Options);
 	}
+}
+
+function evxToolsArrayLength(list) {
+	if (list.length != undefined) {
+		return list.length;
+	}
+	var ans = 0;
+	for (var i in list) {
+		ans++;
+	}
+	return ans;
+}
+
+var __evxPsuedoRandomValue = 0;
+function evxToolsRandomInArray(items) {
+	var v = __evxPsuedoRandomValue;
+	__evxPsuedoRandomValue += items.length + 1;
+	return items[(v % items.length)];
+	//return items[Math.floor(Math.random()*items.length) % items.length];
 }
 
 function evxToolsLerp(a, b, t) {
@@ -85,6 +108,12 @@ function evxToolsVectorSubtract(a, b, into) {
 	into.y = (a.y - b.y);
 	into.z = (a.z - b.z);
 	return into;
+}
+
+function evxToolsVectorScale(v, scl) {
+	v.x *= scl;
+	v.y *= scl;
+	v.z *= scl;
 }
 
 function evxToolsVectorDistance(a, b) {
@@ -627,7 +656,9 @@ function evxElementCreateFromJsonElement(el) {
         
 		group = viewGroup; // this is what the children will be added to
 	}
-	res.clipMatrix = __evx_RecursiveCurrentClip;
+	if (evxToolsNotNull(__evx_RecursiveCurrentClip)) {
+		res.clipMatrix = __evx_RecursiveCurrentClip.matrix;
+	}
 
     if ('Shape' in el) {
         var sh = evxShapeCreateFromJsonShape( el.Shape );
@@ -1203,6 +1234,9 @@ function evxToolsThreeUpdateMatricesRecursive(el) {
 					nrml.sub(pnt);
 					//nrml.multiplyScalar(-1.0);
 					pl.setFromNormalAndCoplanarPoint(nrml,pnt);
+				}
+				if (evxToolsNotNull(res.clipMatrixSrc.onClipUpdate)) {
+					res.clipMatrixSrc.onClipUpdate(res);
 				}
             }
         }
@@ -2232,8 +2266,9 @@ function evxShaderBasicPixel(prefixes,middleBit) {
     + prefixes
     + clipFunction
     + "void main() {"
-    +   "testClip(wPos);"
-	+ " gl_FragColor = vec4(color * vevxcolor, 1.0 );"
+	+   "testClip(wPos);"
+	+   "float finalAlpha = 1.0;"
+	+ " gl_FragColor = vec4(color * vevxcolor, finalAlpha );"
 	+ middleBit
 	+ "	}";
 };
@@ -2243,11 +2278,12 @@ function evxShaderPixelLit(prefixes="",middleBit="",final="") {
 	var shading = ""
 	+ "	vec3 cameraDir = normalize(wPos.xyz - cameraPosition);"
 	+ " vec3 norm = normalize( cross( dFdx( wPos.xyz ), dFdy( wPos.xyz ) ) );"
-	+ " float lightScale = abs( dot( norm, cameraDir ) );"
+	+ " float NdotC = abs( dot( norm, cameraDir ) );"
+	+ " float lightScale = NdotC;"
     + " lightScale = ((1.0*lightScale) + (0.61*(1.0 - lightScale)));"
     + " vec3 baseCol = ( color * vevxcolor );"
 	+ middleBit
-	+ "		gl_FragColor = vec4( baseCol * lightScale, 1.0 );"
+	+ "		gl_FragColor = vec4( baseCol * lightScale, finalAlpha );"
 	;
 	return evxShaderBasicPixel( prefixes, shading );
 }
@@ -2381,6 +2417,26 @@ function evxShaderMaterialCreateForLitTriangles(defColor) {
 		//blending:       THREE.AdditiveBlending,
 		depthTest:      true,
 		transparent:    false,
+		
+	});
+	material.extensions.derivatives = true;
+	return material;
+}
+
+function evxShaderMaterialCreateForLitTrianglesTransparent(defColor) {
+	var material = new THREE.ShaderMaterial( {
+		uniforms: {
+			//amplitude: { value: 1.0 },
+            color:     { value: ( defColor ) },
+            clipFromWorldMat : { value: evxShaderGetClipMatrix() },
+			//texture:   { value: new THREE.TextureLoader().load( "textures/sprites/spark1.png" ) }
+		},
+		vertexShader:   evxShaderBasicVertexWithUnitColor(),
+		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,2.0);",""),
+		blending:       THREE.NormalBlending,
+		depthTest:      true,
+		depthWrite:		false,
+		transparent:    true,
 		
 	});
 	material.extensions.derivatives = true;
