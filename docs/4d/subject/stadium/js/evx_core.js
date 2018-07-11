@@ -123,6 +123,16 @@ function evxToolsVectorDistance(a, b) {
 	return Math.sqrt((dx*dx)+(dy*dy)+(dz*dz));
 }
 
+function evxToolsVectorLerp(a, b, t, into) {
+	if (evxToolsIsNull(into)) {
+		into = {x:0, y:0, z:0};
+	}
+	into.x = evxToolsLerp(a.x, b.x, t);
+	into.y = evxToolsLerp(a.y, b.y, t);
+	into.z = evxToolsLerp(a.z, b.z, t);
+	return into;
+}
+
 function evxToolsIsWebGLSupported(canvas) {
 	return (window.WebGLRenderingContext && 
 		( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) )
@@ -1829,7 +1839,8 @@ function evxTagLabelsUpdateLocation(all, label, objThree, pos ) {
     __evxTextLabelTempVector0.applyMatrix4( objThree.matrixWorld );
 	evxToolsAssert(objThree.evxTagEl);
 	var inClip = true;
-	if (evxToolsNotNull(objThree.evxTagEl.clipMatrix)) {
+	if (evxToolsNotNull(objThree.evxTagEl.clipMatrix)
+			&& evxToolsNotNull(objThree.evxTagEl.clipMatrix.matrix)) {
 		var tv = __evxTextLabelTempVector1;
 		tv.copy( __evxTextLabelTempVector0 );
 		tv.applyMatrix4(objThree.evxTagEl.clipMatrix.matrix);
@@ -2251,12 +2262,12 @@ function evxShaderBasicVertexForFancyLine() {
 
 function evxShaderBasicPixel(prefixes,middleBit) {
 
-    var clipFunction = "float testClip(vec4 wpos) {"
+    var clipFunction = "vec3 testClip(vec4 wpos) {"
     + "vec4 cpos = clipFromWorldMat * vec4(wpos.xyz,1);"
     + "vec4 tpos = abs( (cpos - vec4(0.5,0.5,0.5,0.5)) * 2.0 );"
     + "float md = max( max( tpos.x, tpos.y ), tpos.z );"
     + "if (md > 1.0) {discard;}"
-    + "return md; }";
+    + "return cpos.xyz; }";
 
 	return ""
     + "uniform vec3 color;"
@@ -2266,7 +2277,7 @@ function evxShaderBasicPixel(prefixes,middleBit) {
     + prefixes
     + clipFunction
     + "void main() {"
-	+   "testClip(wPos);"
+	+   "vec3 cPos = testClip(wPos);"
 	+   "float finalAlpha = 1.0;"
 	+ " gl_FragColor = vec4(color * vevxcolor, finalAlpha );"
 	+ middleBit
@@ -2423,7 +2434,7 @@ function evxShaderMaterialCreateForLitTriangles(defColor) {
 	return material;
 }
 
-function evxShaderMaterialCreateForLitTrianglesTransparent(defColor, shaderCode="") {
+function evxShaderMaterialCreateForLitTrianglesTransparent(defColor, shaderCode="",shaderPrefix="") {
 	var material = new THREE.ShaderMaterial( {
 		uniforms: {
 			//amplitude: { value: 1.0 },
@@ -2432,7 +2443,7 @@ function evxShaderMaterialCreateForLitTrianglesTransparent(defColor, shaderCode=
 			//texture:   { value: new THREE.TextureLoader().load( "textures/sprites/spark1.png" ) }
 		},
 		vertexShader:   evxShaderBasicVertexWithUnitColor(),
-		fragmentShader: evxShaderPixelLit("","finalAlpha = pow(1.0-NdotC,1.0);" + shaderCode,""),
+		fragmentShader: evxShaderPixelLit(shaderPrefix,"finalAlpha = pow(1.0-NdotC,1.0);" + shaderCode,""),
 		blending:       THREE.NormalBlending,
 		depthTest:      true,
 		depthWrite:		false,

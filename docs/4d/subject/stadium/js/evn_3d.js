@@ -634,6 +634,8 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 
 	var oldScrollItem = ((evxToolsNotNull(__evn_currentJsRoot)) ? evxElementFindScrollChild(__evn_currentJsRoot) : null);
 
+	evnPageCallback('customSlideExitCallback')();
+
 	evxTextLabelsClear();
 	__evn_currentJsRoot = rootEl;
 	var isFirstTime = (!evxToolsNotNull(rootEl.evxTagEl));
@@ -675,7 +677,13 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 	var mu = evxElementFindFirstMetaData(rootEl, evn_updateMetaData, evn_updateAllMetaData);
 	if (mu == false) {
 		// no meta-data to show...
-		evn_updateAllMetaData();
+		var tryMeta = evnPageCallback('customSlideMetadataCallback')();
+		if (evxToolsNotNull(tryMeta)) {
+			evn_updateAllMetaData(tryMeta);
+		} else {
+			evn_updateAllMetaData();
+		}
+		
 	}
 
 	// request final update:
@@ -697,6 +705,8 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 		evn3d_root.innerScroll1d(0);
 		evn3d_root.innerMoveCamera(0,0);
 	};
+
+	evnPageCallback('customSlideEnterCallback')();
 }
 
 function evn_PopOneHistory() {

@@ -2,12 +2,21 @@
 
 var lionCachedInfo = {};
 var lionPsuedoRandomValue = 0;
+var lionPsuedoRandomNameValue = 0;
 
 function lionRandomInArray(items) {
 	var v = lionPsuedoRandomValue;
 	lionPsuedoRandomValue += 1; //items.length + 1;
 	return items[(v % items.length)];
 	//return items[Math.floor(Math.random()*items.length) % items.length];
+}
+
+function lionRandomNameInArray(items) {
+	var v = lionPsuedoRandomNameValue;
+	lionPsuedoRandomNameValue += 1; //items.length + 1;
+	return items[(v % items.length)];
+	//return items[Math.floor(Math.random()*items.length) % items.length];
+
 }
 
 
@@ -76,7 +85,7 @@ function partnerEnsureInfo(uniqueId,isUser,metaData) {
 
 	var res = {
 		Id:uniqueId,
-		Name:lionRandomInArray(isUser ? partnerRandomData_UserName : partnerRandomData_MissionName).trim(),
+		Name:lionRandomNameInArray(isUser ? partnerRandomData_UserName : partnerRandomData_MissionName).trim(),
 		Image:srcPrefix + lionRandomInArray(isUser ? partnerRandomData_UserImagePaths : partnerRandomData_MissionImagePaths),
 	};
 	if (res.Name.endsWith("#")) {
@@ -206,6 +215,7 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 	partnerSetupInfoPanel(slide);
 	var isMissionFocus = (partnerGetCurrentSlideIndex() < 2);
 	var isPersonFirst = (partnerGetCurrentSlideIndex()%2 != 0);
+	var isZoneFocus = false;
 	if (isPersonFirst) { isMissionFocus = true; }
 	var isUseCreator = false;
 
@@ -235,7 +245,20 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 		rghtTitle = "REFS"
 	}
 
-	var title = "<tr>" 
+	var titlePrefix = "";
+	if ((metaArray.length > 0) && evxToolsNotNull(metaArray[0].Zone)) {
+		leftTitle = "USER";
+		rghtTitle = "ZONE";
+		isZoneFocus = true;
+
+		titlePrefix = "<tr><td colspan='2' align='right'>"
+			+ "<input type='button' value='CALL'></input> "
+		 + "<input type='button' value='TEXT'></input> "
+		 + "<input type='button' value='TASK'></input>"
+		 + "</td></tr>";
+	}
+
+	var title = titlePrefix + "<tr>" 
 		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + leftTitle + "</font></td>"
 		+ "<td onclick='partnerToggleDataView()' ><font color='#999999'>" + rghtTitle + ""
 		//+ "<b style='float: right;border:1px solid #A9F3B3; border-radius:5px; '>  2D </b>"
@@ -246,6 +269,7 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 		return " onclick=\"evn_GotoSpecificView(" + (!isMissionFocus) 
 			+ ",'" + (isMissionFocus ? row.Mission : row.Person) + "')\" ";
 	};
+	var tdSlide0 = "<td onclick='evn_GotoSlide(0)'>";
 	var tdHide = "<td onclick='partnerToggleDataView()' >";
 	var countCommas = function(str) {
 		var ans = 0;
@@ -278,7 +302,7 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 		}
 
 		var colorPrefix = "", colorPostfix = "";
-		var hasColor = ((shape.Scope.Vector.length >= 4) && (shape.Scope.Vector[3].Id == "color_unit"));
+		var hasColor = (shape && (shape.Scope.Vector.length >= 4) && (shape.Scope.Vector[3].Id == "color_unit"));
 		if (hasColor) {
 			var vi = (ns.Indices[ii] * shape.Scope.Packing.VertexWidth) + 3;
 			var f = evxToolsLerp( 0.0, 1.0, 1.0 - shape.PackedUnitVertices[vi] );
@@ -289,6 +313,17 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 
 		var personInfo = partnerEnsureInfo(data.Person, true, data);
 		var missionInfo = partnerEnsureInfo(data.Mission, false, data);
+
+		if (evxToolsNotNull(data.Zone)) {
+			knownProperties[data.Property] = data;
+			var curRow = "<tr>";
+			curRow += tdSlide0 + "<u>" + (personInfo.Name) + "</u></td>";
+			curRow += tdHide + (data.Zone.toUpperCase()) + "</td>";
+			curRow += "</tr>";
+			newRows += curRow;
+			continue;
+		}
+
 		if (ii == 0) {
 			var titleBar = "";
 			if ((slide==0) || (__evn_slide_filtered && (slide==1))) {
@@ -380,10 +415,12 @@ function  partnerSetupMetaData(metaData) {
 		var useMarkerInfo = false;
 		var displayName = useMarkerInfo ? data.IdName : personInfo.Name;
 		var displayTask = useMarkerInfo ? data.TaskName : missionInfo.Name;
+		var displayFloor = (data.FloorName && data.FloorName != "") ? (", Floor " + data.FloorName) : "";
+		var displayZone = (data.ZoneName != "") ? (data.ZoneName + displayFloor) : "";
 
 		partner_detail_user_name.innerHTML = displayName;
 		partner_detail_mission_name.innerHTML = displayTask;
-		partner_detail_event_type.innerHTML = "Main Hall, 2nd Floor";
+		partner_detail_event_type.innerHTML = displayZone;
 
 		//partnerSingleMetaReset( partner_detail_event_type,  4,  splitWordByCapitals( data.EventType ) );
 		partnerSingleMetaReset( partner_detail_event_time,  7,  "@" + "Entrance, 2nd Floor" );
