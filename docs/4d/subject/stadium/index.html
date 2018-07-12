@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Stadium View - Lewcid 4D</title>
+<title>Stadium - Lewcid 4D</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css">
@@ -13,9 +13,13 @@ a:hover {
     color: green;
 }
 .evxOverlayBevel {
-  background-color:#614f0160; 
+  background-color:#614f011a; 
   border-radius:6px; 
   color:white;
+
+}
+.evxOverlayBevelMain {
+  background-color:#614f0173; 
 
 }
 .evxOverlayBevel:hover {
@@ -107,7 +111,7 @@ a:hover {
 
               </td><td style="vertical-align:top;">
 
-                  <table id="view_menu"   class="evxOverlayBevel">
+                  <table id="view_menu"   class="evxOverlayBevel evxOverlayBevelMain">
                       <tr><td onclick="mainViewsListToggle()">VIEWS</td></tr>
                       <tr id="mainJumpNavList" style="display:none;"><td>
 
@@ -359,8 +363,12 @@ a:hover {
   </div>
   
   <div>
-    <div id="mainAltLocationMeta">
-    </div>
+      <center>
+          <div id="mainAltLocationBelowView">
+      </div></center>
+    <center>
+        <div id="mainAltLocationTableView">
+    </div></center>
   </div>
 
 	<p style="color:grey;">
@@ -392,7 +400,7 @@ a:hover {
   </p>
 
   <div>
-    <div id="mainAltLocationTableView">
+      <div id="mainAltLocationMeta">
       
     </div>
   </div>
@@ -499,10 +507,11 @@ a:hover {
             //partnerUpdateMetaShowing();
             mainTableViewToggleButton.style.display = 'none';
             mainInfoToggleButton.style.display = 'none';
-            mainAltLocationMeta.appendChild(partner_meta_popup);
+            mainAltLocationBelowView.appendChild(partner_meta_popup);
             mainAltLocationMeta.appendChild(partner_view_info);
             mainAltLocationPersonMeta.appendChild(partner_meta_justperson);
             mainAltLocationTableView.appendChild(partner_detail_table2d);
+            
             
 					}
 					isFirstResize = false;

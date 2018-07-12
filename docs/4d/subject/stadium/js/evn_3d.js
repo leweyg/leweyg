@@ -201,10 +201,18 @@ function evn3d_initcore(targetCanvas) {
 				innerCursorUpdate(me, false, false, true );
 			};
 
+			var latestGestureScale = 1.0;
+			this.innerGestureStart = function() {
+				latestGestureScale = 1.0;
+				event.preventDefault();
+			};
+
 			this.innerGestureChange = function() {
-				if (event.scale != 1.0) {
+				if (event.scale != latestGestureScale) {
+					var scaleDelta = (event.scale - latestGestureScale);
+					latestGestureScale = event.scale;
 					event.preventDefault();
-					innerScroll1d( (0.25 * event.scale) - 1.0 );
+					innerScroll1d( scaleDelta * 0.001 );
 					return false;
 				}
 			};
@@ -462,6 +470,7 @@ function evn3d_initcore(targetCanvas) {
 				targetCanvas.parentElement.addEventListener( 'touchmove', _this.innerTouchMove, false );
 				targetCanvas.addEventListener( 'touchend', _this.innerTouchEnd, false );
 				targetCanvas.addEventListener( 'touchcancel', _this.innerTouchCancel, false );
+				targetCanvas.addEventListener( 'gesturestart', _this.innerGestureStart, false );
 				targetCanvas.addEventListener( 'gesturechange', _this.innerGestureChange, false );
 
 				targetCanvas.addEventListener( 'mousewheel', _this.innerMouseWheel, false );
