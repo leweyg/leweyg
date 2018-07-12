@@ -689,6 +689,7 @@ function evxElementCreateFromJsonElement(el) {
 }
 
 var evxExtensions = { };
+var evxPostScriptCallbacks = [];
 
 function evxExtensionCheckCreate(res) {
 	if (evxToolsHasOption(res.objJs, 'extension')) {
@@ -1524,6 +1525,27 @@ function evxWASDCreateAndSetup(control) {
 	return _this;
 }
 
+/* ------------ ECOVOXEL (EVX) SEDECA HELPER API ------------------------- */
+
+
+function evxSedecaSingleHex(si) {
+	if (si < 10) {
+		return String.fromCharCode( ("0".charCodeAt(0)) + si );
+	} else {
+		return String.fromCharCode( ("A".charCodeAt(0)) + (si-10) );
+	}
+}
+
+function evxSedecaIndexToHex(ndx) {
+	var ans = "";
+	var ti = ndx;
+	for (var ii=0; ii<3; ii++) {
+		var si = (ti % 16);
+		ti = (Math.floor(ti / 16));
+		ans += evxSedecaSingleHex(si);
+	}
+	return ans;
+}
 
 /* ------------ ECOVOXEL (EVX) TOUCHER HELPER API ------------------------- */
 
@@ -1725,7 +1747,10 @@ function evxToucherDoTouch(toucher, rootEl, metaCallback) {
 				touchInfo.objThree = hitInfo.object;
                 currentOver = touchInfo;
                 toucher.latestMetaData = touchInfo.metadata;
-                metaCallback(touchInfo.metadata);
+				metaCallback(touchInfo.metadata);
+				if ('customPostTouch' in hitInfo.object) {
+					hitInfo.object.customPostTouch(hitInfo);
+				}
                 fullTouches++;
                 break;
             }
@@ -2207,9 +2232,19 @@ function evxShaderBasicVertex(prefixes="",middleBits="") {
 	+ "}";
 };
 
-function evxShaderBasicVertexWithUVs() {
-    var pre = "varying vec2 vUv;";
-    var during = " vUv = uv;";
+function evxShaderBasicVertexWithUVs(prefixes="",middleBits="") {
+    var pre = "varying vec2 vUv;" + prefixes;
+    var during = " vUv = uv;" + middleBits;
+    return evxShaderBasicVertex(pre, during);
+};
+
+function evxShaderBasicVertexWithLocalCoords(prefixes="",middleBits="") {
+	var pre = "varying vec2 vUv;" 
+	 + "varying vec3 localPos;"
+	 + prefixes;
+	var during = " vUv = uv;" 
+	 + "localPos = position.xyz;"
+	 + middleBits;
     return evxShaderBasicVertex(pre, during);
 };
 
@@ -2405,11 +2440,84 @@ function evxShaderPixelUnlitMonoTexture() {
     //+ "uniform vec4 uvTransform;"
 	+ "varying vec2 vUv;";
 	var shading = ""
-	+ "		float baseVal = texture2D( map, vUv ).b;"
+	+ "		vec4 texVal = texture2D( map, vUv ).rgba;"
+	+ "		float baseVal = texVal.b;"
     //+ "		float scld = pow(abs(1.0 - (baseVal)),0.25);"
     + "		float scld = (1.0-pow(baseVal,2.0));"
     + "     scld = ((scld * 0.8) + 0.2);"
 	+ "		gl_FragColor = vec4( color.rgb,  scld );"
+	//+ "		gl_FragColor = vec4( color,  1 );"
+	;
+	return evxShaderBasicPixel( decls, shading );
+}
+
+function evxShaderPixelVolumeTexture(isYDir) {
+	var decls = ""
+    + "uniform sampler2D map;"
+    //+ "uniform vec4 uvTransform;"
+	+ "varying vec2 vUv;"
+	+ "varying vec3 localPos;"
+	+ "uniform mat4 modelMatrix;" // added by the engine
+	+ "vec3 customWorldToLocal(vec3 wpos) {" +
+		"	vec4 wOffset = (modelMatrix * vec4(0,0,0,1));" +
+		"	vec4 wScale = (modelMatrix * vec4(1,1,1,0));" +
+		"vec3 lPos = (wpos.xyz - wOffset.xyz) / wScale.xyz;" +
+		" return lPos;"
+	+ "}"
+	+ "vec4 blendOver(vec4 dst, vec4 src){" +
+		"float sAlpha = src.a;" +
+		"vec4 comb = mix( dst, src, sAlpha );" +
+		"comb.a = max( dst.a, sAlpha );" +
+		"return comb;"
+	+ "}"	
+	+ "float customRand3(vec3 seed) {" +
+		"return fract(sin(dot(seed.xyz,vec3(12.9898,78.233,45.5432))) * 43758.5453);"
+	+ "}"
+	+ "vec4 customVolumeSample(vec3 uvw){" +
+		"vec3 unitPos = (uvw + vec3(0.5,0.5,0.5));" +
+		//"if (dot(unitPos-saturate(unitPos),vec3(1,1,1)) != 0) {return vec4(0,0,0,0);}" +
+		"float z = float( int( unitPos.z * 16.0 ) ) / 16.0;" +
+		(isYDir ? "vec2 finalUV = ( unitPos.xy * vec2(1,1.0/16.0) ) + vec2( 0, z );" : "") +
+		(!isYDir? "vec2 finalUV = ( unitPos.xy * vec2(1.0/16.0,1) ) + vec2( z, 0 );" : "") +
+		"vec4 texVal = texture2D( map, finalUV ).rgba;" +
+		"float opac = mix(texVal.r, texVal.g, 0.75 );" +
+		"opac = pow( opac, 2.0 );" +
+		"vec4 resVal = vec4( texVal.rgb, opac );" +
+		"return resVal;"
+	+ "}"
+	+ "vec4 customVolumeTrace(){" +
+		"const int maxSteps = 10;" +
+		"const float maxUnitDepth = 1.2;" + // should really be 1.7ish
+		"float rndVal = customRand3(wPos.xyz);" +
+		"vec3 startPos = customWorldToLocal(wPos.xyz);" +
+		"vec3 lCamPos = customWorldToLocal(cameraPosition.xyz);" +
+		"vec3 stepDelta = normalize(startPos - lCamPos) * (1.0/16.0);" +
+		"vec3 endPos = startPos + (normalize(startPos - lCamPos) * maxUnitDepth);" +
+		"vec4 curRes = vec4(1,1,1,0.3);" + // should end in 0.0
+		
+		"for (int i=0; i<maxSteps; i++){float fi=(float(i))/(float(maxSteps-1));" +
+			"vec3 curPos = mix( endPos, startPos, fi + (rndVal*(1.0/16.0)) );" +
+			"curRes = blendOver( curRes, customVolumeSample(curPos) );" +
+		"}" +
+		//"return customVolumeSample(startPos + stepDelta);"
+		"return curRes;"
+	+ "}"
+	//+ "uniform vec3 cameraPosition;" // automatic
+	+ "/*ending*/";
+	if (!decls.includes("/*ending*/")) {
+		evxToolsAssert(false);
+	}
+	var shading = ""
+	+ "		vec4 texVal = texture2D( map, vUv * vec2(1.0/16.0,1) ).rgba;"
+	+ "		float baseVal = texVal.b;"
+    //+ "		float scld = pow(abs(1.0 - (baseVal)),0.25);"
+    + "		float scld = (1.0-pow(baseVal,2.0));"
+    + "     scld = ((scld * 0.8) + 0.2);"
+	+ "		gl_FragColor = vec4( color.rgb,  scld );"
+	+ "		gl_FragColor = texVal;"
+	+ "     vec3 startPos = customWorldToLocal(wPos.xyz);"
+	+ "		gl_FragColor = abs(vec4(startPos.xyz + (vec3(0.5,0.5,0.5)),1));"
+	+ "		gl_FragColor = customVolumeTrace();"
 	//+ "		gl_FragColor = vec4( color,  1 );"
 	;
 	return evxShaderBasicPixel( decls, shading );
@@ -2554,6 +2662,25 @@ function evxShaderMaterialCreateForLines(defColor) {
 		transparent:    false,
 	});
 	//material.extensions.derivatives = true;
+	return material;
+}
+
+function evxShaderMaterialCreateForVolumeTexture(defColor,txLoader,isYDir=true,uvTransform) {
+	var material = new THREE.ShaderMaterial( {
+		uniforms: {
+			//amplitude: { value: 1.0 },
+			color:     { value: ( defColor ) },
+            map:   { value: txLoader },
+            uvTransform: { value: uvTransform },
+			side:		THREE.DoubleSide,
+		},
+		vertexShader:   evxShaderBasicVertexWithLocalCoords(),
+		fragmentShader: evxShaderPixelVolumeTexture(isYDir),
+		blending:       THREE.NormalBlending,
+		depthTest:      false,
+		transparent:    true,
+	});
+	material.extensions.derivatives = true;
 	return material;
 }
 

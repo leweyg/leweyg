@@ -111,7 +111,9 @@ a:hover {
                       <tr><td onclick="mainViewsListToggle()">VIEWS</td></tr>
                       <tr id="mainJumpNavList" style="display:none;"><td>
 
-                        <a onclick="mainViewListSlide(0);evn_GotoEcoSlide(true);">Stadium</a><br/>
+                        <a onclick="mainViewListSlide(0);evn_GotoEcoSlide(0);">Stadium</a><br/>
+                        <a onclick="mainViewListSlide(0);evn_GotoEcoSlide(3);">Bus Routes</a><br/>
+                        <a onclick="mainViewListSlide(0);evn_GotoEcoSlide(2);">GPR Scan</a><br/>
                         <u style="color:rgb(56, 40, 94);">One</u><br/>
                         <a onclick="mainViewListSlide(0)">Person</a><br/>
                         <a onclick="mainViewListSlide(2)">Mission</a><br/>
@@ -138,7 +140,7 @@ a:hover {
                         
                         <u style="color:rgb(56, 40, 94);">EVX</u><br/>
                         <span id="mainPartnerLinks" style="display:none;">links</span>
-                        <a onclick="mainViewsListHide();evn_GotoEcoSlide();">evx-nature</a><br/>
+                        <a onclick="mainViewsListHide();evn_GotoEcoSlide(1);">evx-nature</a><br/>
                         <a onclick="mainViewsListHide();evn_ChangeMainElement(evxExampleDatabaseView,true)">evx-data</a><br/>
                         
                       </td></tr>
@@ -408,6 +410,7 @@ a:hover {
    <!-- <script src="subject/cacao/cacao.js"></script> -->
    <script src="subject/stadium/stadium.js"></script> 
    <script src="subject/stadium/capsci.js"></script> 
+   <script src="subject/sf/sfmta/sfmta.js"></script> 
    <script src="js/partner.js"></script>
 	 
 	  
@@ -446,10 +449,16 @@ a:hover {
    <script src="js/ecovoxel_examples/whole_ui.js" defer async ></script>
    <script src="js/slides/ecoSlide0.js"  ></script>
    <script src="js/slides/ecoSlide1.js"  defer async ></script>
+   <script src="js/slides/ecoSlide2.js"  ></script>
+   <script src="js/slides/ecoSlide3.js"  ></script>
    
 
 		  <script>
         capSciPostIncludeCallback();
+        for (var picb in evxPostScriptCallbacks) {
+          evxPostScriptCallbacks[picb]();
+        }
+        evxPostScriptCallbacks = [];
 
 		  var isFirstResize = true;
 		  updateGraphWindowSize();

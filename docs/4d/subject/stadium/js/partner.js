@@ -405,6 +405,24 @@ function  partnerSetupMetaData(metaData) {
 	if (!evxToolsNotNull(metaData)) {
 		return;
 	}
+	if (evxToolsNotNull(metaData.ROWCOUNT)) {
+		partner_detail_user_name.innerHTML = metaData.ROWCOUNT + " records";
+		return;
+	}
+	if (evxToolsNotNull(metaData.cs)) {
+
+		var parts = metaData.cs.split(',');
+		var predictable = parts[0];
+		var speed = parts[1];
+		var tm = parts[2];
+		var tag = parts[3];
+
+		//var msg = "Vehicle " + tag + " at " + tm + " (ontime=" + predictable + ")";
+		partner_detail_user_name.innerHTML = "Vehicle " + tag;
+		partner_detail_mission_name.innerHTML = "OnTime=" + predictable;
+		partner_detail_event_time.innerHTML = tm;
+		return;
+	}
 	if (evxToolsNotNull(metaData.IdName)) {
 		var personInfo = partnerEnsureInfo(data.IdName, true, data);
 		var missionInfo = partnerEnsureInfo(data.TaskName, false, data);

@@ -617,11 +617,21 @@ var __env_MainHistory = [];
 var __env_IsOnEcoSlide = undefined;
 var __evn_CallOnceAfterRender = undefined;
 
-function evn_GotoEcoSlide(isFirst) {
+function evn_GotoEcoSlide(ecoNdx) {
 
-	var isStadium = isFirst && (!evxToolsUrlHasArg("eco_app"));
-	var ecoSlideId = isStadium ? 'ecoSlide0' : 'ecoSlide1';
-	var ecoSlideData = isStadium ? ecoSlide0 : ecoSlide1;
+	var ecoSlideId = 'ecoSlide' + ecoNdx;
+	var ecoSlideData;
+	if (ecoNdx == 0) {
+		ecoSlideData = ecoSlide0;
+	} else if (ecoNdx == 1) {
+		ecoSlideData = ecoSlide1;
+	} else if (ecoNdx == 2) {
+		ecoSlideData = ecoSlide2;
+	} else if (ecoNdx == 3) {
+		ecoSlideData = ecoSlide3;
+	} else {
+		evxToolsAssert(false);
+	}
 	partnerTempSlideOverride = ecoSlideId;
 	__env_IsOnEcoSlide = ecoSlideId;
 	evn_ChangeMainElement(ecoSlideData,false); // this resets __env_IsOnEcoSlide
@@ -638,6 +648,7 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 
 	evxTextLabelsClear();
 	__evn_currentJsRoot = rootEl;
+	evnPageCallback('customSlidePreEnterCallback')(); // just after change
 	var isFirstTime = (!evxToolsNotNull(rootEl.evxTagEl));
 	var res = evxElementCreateFromJsonElement(rootEl);
 	
@@ -832,7 +843,7 @@ function evn_SetupShape() {
 	var res = evxElementCreateFromJsonElement(elData);
 
 	if ((!evxToolsUrlHasArg("lion_app")) && (!evxToolsUrlHasArg("business"))) {
-		evn_GotoEcoSlide(true);
+		evn_GotoEcoSlide(0); // SHOULD BE 0 for STADIUM DEMO
 	} else {
 		evn_ChangeMainElement(elData);
 	}

@@ -47,7 +47,7 @@ var ecoSlide0 = {
         "Weight":1.46743},{
         "Id":"one",
         "Weight":-1.22}]}]},
-  "Version":4,
+  "ContentRevision":4,
   "Elements":[{
     "Name":"LayEl='lewcid 4d'",
     "OutputScope":{
@@ -70,7 +70,7 @@ var ecoSlide0 = {
           "Weight":0},{
           "Id":"z",
           "Weight":0.06666667}]}]},
-    "Version":3,
+    "ContentRevision":3,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -97,7 +97,7 @@ var ecoSlide0 = {
         "Weight":1,
         "Indices":[]}]},
     "Elements":[{
-      "Version":0,
+      "ContentRevision":0,
       "Shape":{
         "Scope":{
           "Vector":[{
@@ -145,7 +145,7 @@ var ecoSlide0 = {
           "Weight":0},{
           "Id":"z",
           "Weight":1}]}]},
-    "Version":2,
+    "ContentRevision":2,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -193,7 +193,7 @@ var ecoSlide0 = {
           "Weight":0},{
           "Id":"z",
           "Weight":1}]}]},
-    "Version":3,
+    "ContentRevision":3,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -234,7 +234,7 @@ var ecoSlide0 = {
           "Inputs":[{
             "Id":"z",
             "Weight":1}]}]},
-      "Version":1,
+      "ContentRevision":1,
       "Elements":[{
         "InputScope":{
           "Vector":[{
@@ -267,13 +267,13 @@ var ecoSlide0 = {
               "Weight":0}]}]},
         "Options":{
           "Strings":{"extension":"unitscroller"}},
-        "Version":2,
+        "ContentRevision":2,
         "Elements":[{
           "Options":{
             "Strings":{"extension":"unitmodel"}},
-          "Version":2,
+          "ContentRevision":2,
           "Elements":[{
-            "Version":0,
+            "ContentRevision":0,
             "Shape":{
               "Scope":{
                 "Vector":[{
@@ -315,7 +315,7 @@ var ecoSlide0 = {
           "Weight":0},{
           "Id":"z",
           "Weight":0.06666667}]}]},
-    "Version":3,
+    "ContentRevision":3,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -347,7 +347,7 @@ var ecoSlide0 = {
         "Options":{
           "Strings":{"scopeCollision":"true"}}}]},
     "Elements":[{
-      "Version":0,
+      "ContentRevision":0,
       "Shape":{
         "Scope":{
           "Vector":[{

@@ -47,7 +47,7 @@ var ecoSlide1 = {
         "Weight":1.46743},{
         "Id":"one",
         "Weight":-1.22}]}]},
-  "Version":4,
+  "ContentRevision":4,
   "Elements":[{
     "Name":"LayEl='lewcid 4d'",
     "OutputScope":{
@@ -70,7 +70,7 @@ var ecoSlide1 = {
           "Weight":0},{
           "Id":"z",
           "Weight":0.06666667}]}]},
-    "Version":3,
+    "ContentRevision":3,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -97,7 +97,7 @@ var ecoSlide1 = {
         "Weight":1,
         "Indices":[]}]},
     "Elements":[{
-      "Version":0,
+      "ContentRevision":0,
       "Shape":{
         "Scope":{
           "Vector":[{
@@ -145,7 +145,7 @@ var ecoSlide1 = {
           "Weight":0},{
           "Id":"z",
           "Weight":1}]}]},
-    "Version":2,
+    "ContentRevision":2,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -193,7 +193,7 @@ var ecoSlide1 = {
           "Weight":0},{
           "Id":"z",
           "Weight":1}]}]},
-    "Version":5,
+    "ContentRevision":5,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -220,7 +220,7 @@ var ecoSlide1 = {
         "Weight":1,
         "Indices":[]}]},
     "Elements":[{
-      "Version":2,
+      "ContentRevision":2,
       "Elements":[{
         "OutputScope":{
           "Vector":[{
@@ -254,13 +254,13 @@ var ecoSlide1 = {
               "Weight":0},{
               "Id":"one",
               "Weight":0.8}]}]},
-        "Version":1,
+        "ContentRevision":1,
         "Elements":[{
-          "Version":4,
+          "ContentRevision":4,
           "Elements":[{
             "Options":{
               "Strings":{"HackyVizTest":"LifePlants"}},
-            "Version":1,
+            "ContentRevision":1,
             "Shape":{
               "Scope":{
                 "Vector":[{
@@ -310,7 +310,7 @@ var ecoSlide1 = {
                 "Indices":[1,16,1,18,3,17,4,17,5,17,6,17,7,19,4,23,8,23,9,23,6,23,5,23,11,26,11,25,11,24,11,25,11,28,12,27,5,27,13,27,6,27,14,27,15,30,17,32,17,34,19,33,20,33,21,33,22,33,23,35,20,39,24,39,25,39,22,39,21,39,27,42,27,41,27,40,27,41,27,44,28,43,21,43,29,43,22,43,30,43,31,46]}]}},{
             "Options":{
               "Strings":{"HackyVizTest":"Land"}},
-            "Version":1,
+            "ContentRevision":1,
             "Shape":{
               "Scope":{
                 "Vector":[{
@@ -360,7 +360,7 @@ var ecoSlide1 = {
                 "Indices":[1,9,2,10,4,12,2,12,5,13,6,13,4,16,7,17,6,17,5,17,2,14,10,18,11,19,13,21,11,21,14,22,15,22,13,25,16,26,15,26,14,26,11,23]}]}},{
             "Options":{
               "Strings":{"HackyVizTest":"LifeBasic"}},
-            "Version":1,
+            "ContentRevision":1,
             "Shape":{
               "Scope":{
                 "Vector":[{
@@ -410,7 +410,7 @@ var ecoSlide1 = {
                 "Indices":[1,8,3,10,3,12,3,9,3,13,6,11,0,11,7,11,9,16,11,18,11,20,11,17,11,21,14,19,8,19,15,19]}]}},{
             "Options":{
               "Strings":{"HackyVizTest":"LifeAgriculture"}},
-            "Version":1,
+            "ContentRevision":1,
             "Shape":{
               "Scope":{
                 "Vector":[{
@@ -474,7 +474,7 @@ var ecoSlide1 = {
             "Inputs":[{
               "Id":"y",
               "Weight":1}]}]},
-        "Version":1,
+        "ContentRevision":1,
         "Elements":[{
           "InputScope":{
             "Vector":[{
@@ -505,9 +505,9 @@ var ecoSlide1 = {
                 "Weight":0.6666667},{
                 "Id":"one",
                 "Weight":0.5}]}]},
-          "Version":1,
+          "ContentRevision":1,
           "Elements":[{
-            "Version":82,
+            "ContentRevision":82,
             "Elements":[{
               "OutputScope":{
                 "Vector":[{
@@ -541,7 +541,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":3,
+              "ContentRevision":3,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -557,7 +557,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -591,9 +591,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -650,9 +650,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":2,
+                "ContentRevision":2,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -675,7 +675,7 @@ var ecoSlide1 = {
                       "Options":{
                         "Strings":{"ColorAsHex":"006800"}},
                       "Indices":[1,2,0,2,3,0,5,6,4,6,7,4,9,10,8,12,13,11,13,14,11,16,17,15,17,18,15,20,21,19,21,22,19,24,25,23,25,26,23,28,29,27,29,30,27,32,33,31,33,34,31,36,37,35,37,38,35,40,41,39,41,42,39,44,45,43,45,46,43,48,49,47,49,50,47,52,53,51,53,54,51,56,57,55,57,58,55,60,61,59,61,62,59,64,65,63,65,66,63,68,69,67,69,70,67,72,73,71,73,74,71,76,77,75,77,78,75,80,81,79,81,82,79,84,85,83,85,86,83,88,89,87,89,90,87,92,93,91,93,94,91,95,96,92,96,97,92,99,100,98,100,101,98,103,104,102,104,105,102,107,108,106,108,109,106,111,112,110,112,113,110,115,116,114,116,117,114,119,120,118,120,121,118,123,124,122,124,125,122,127,128,126,128,129,126,131,132,130,132,133,130,135,136,134,136,137,134,139,140,138,140,141,138,143,144,142,144,145,142,147,148,146,148,149,146,150,148,147,151,150,147,152,150,151,153,152,151,154,152,153,155,154,153,157,158,156,158,159,156,160,158,157,161,160,157,162,160,161,163,162,161,164,162,163,165,164,163,167,168,166,168,169,166,170,168,167,171,170,167,172,170,171,173,172,171,174,172,173,175,174,173,177,178,176,178,179,176,180,178,177,181,180,177,182,180,181,183,182,181,184,182,183,185,184,183,187,188,186,188,189,186,191,192,190,192,193,190,195,196,194,196,197,194,199,200,198,200,201,198,203,204,202,204,205,202,207,208,206,210,211,209,211,212,209,214,215,213,215,216,213,218,219,217,219,220,217,222,223,221,223,224,221,226,227,225]}]}},{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -730,9 +730,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -787,7 +787,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -821,9 +821,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -878,9 +878,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -935,7 +935,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":3,
+              "ContentRevision":3,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -951,7 +951,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -985,9 +985,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -1044,9 +1044,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1101,9 +1101,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1158,7 +1158,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1192,9 +1192,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1249,9 +1249,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1306,7 +1306,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1322,7 +1322,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -1356,9 +1356,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -1397,7 +1397,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"z",
                       "Weight":1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -1413,7 +1413,7 @@ var ecoSlide1 = {
                       "Inputs":[{
                         "Id":"y",
                         "Weight":-1}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
                     "OutputScope":{
                       "Vector":[{
@@ -1447,9 +1447,9 @@ var ecoSlide1 = {
                           "Weight":-0.4164},{
                           "Id":"one",
                           "Weight":0}]}]},
-                    "Version":1,
+                    "ContentRevision":1,
                     "Elements":[{
-                      "Version":0,
+                      "ContentRevision":0,
                       "Shape":{
                         "Scope":{
                           "Vector":[{
@@ -1506,7 +1506,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1540,9 +1540,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":2,
+                "ContentRevision":2,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1565,7 +1565,7 @@ var ecoSlide1 = {
                       "Options":{
                         "Strings":{"ColorAsHex":"431C00"}},
                       "Indices":[1,2,0,2,3,0,5,6,4,6,7,4,9,10,8,10,11,8,13,14,12,14,15,12,17,18,16,18,19,16,21,22,20,22,23,20,25,26,24,26,27,24,29,30,28,30,31,28,33,34,32,34,35,32,37,38,36,38,39,36,41,42,40,42,43,40,45,46,44,46,47,44,49,50,48,50,51,48,53,54,52,54,55,52,57,58,56,58,59,56,61,62,60,62,63,60,65,66,64,66,67,64,69,70,68,70,71,68,73,74,72,76,77,75,79,80,78,82,83,81,85,86,84,88,89,87,91,92,90,92,93,90,95,96,94,96,97,94,99,100,98,100,101,98,103,104,102,104,105,102,107,108,106,108,109,106,111,112,110,112,113,110,115,116,114,116,117,114,119,120,118,120,121,118,123,124,122,124,125,122,127,128,126,128,129,126,131,132,130,132,133,130,135,136,134,136,137,134,139,140,138,140,141,138,143,144,142,144,145,142,147,148,146,148,149,146,151,152,150,152,153,150,155,156,154,156,157,154,159,160,158,160,161,158,163,164,162,164,165,162,167,168,166,168,169,166,171,172,170,172,173,170,175,176,174,176,177,174,179,180,178,180,181,178,183,184,182,184,185,182,187,188,186,190,191,189,193,194,192,196,197,195,199,200,198,202,203,201,205,206,204,206,207,204,209,210,208,210,211,208,213,214,212,214,215,212,217,218,216,218,219,216,221,222,220,222,223,220,225,226,224,226,227,224,229,230,228,230,231,228,233,234,232,234,235,232,237,238,236,238,239,236,241,242,240,242,243,240,245,246,244,246,247,244,249,250,248,250,251,248,253,254,252,254,255,252,257,258,256,258,259,256,261,262,260,262,263,260,265,266,264,266,267,264,269,270,268,270,271,268,273,274,272,274,275,272,277,278,276,280,281,279,283,284,282,286,287,285,289,290,288,292,293,291,295,296,294,296,297,294,299,300,298,300,301,298,303,304,302,304,305,302,307,308,306,308,309,306,311,312,310,312,313,310,315,316,314,316,317,314,319,320,318,320,321,318,323,324,322,324,325,322,327,328,326,328,329,326,331,332,330,332,333,330,335,336,334,336,337,334,339,340,338,340,341,338,343,344,342,344,345,342,347,348,346,348,349,346,351,352,350,352,353,350,355,356,354,356,357,354,359,360,358,360,361,358,363,364,362,364,365,362,367,368,366,370,371,369,373,374,372,376,377,375,379,380,378,382,383,381,385,386,384,386,387,384,389,390,388,390,391,388,393,394,392,394,395,392,397,398,396,398,399,396,401,402,400,402,403,400,405,406,404,406,407,404,409,410,408,412,413,411,415,416,414,418,419,417,421,422,420,424,425,423,427,428,426,428,429,426,431,432,430,432,433,430,435,436,434,436,437,434,439,440,438,440,441,438,443,444,442,444,445,442,447,448,446,448,449,446,451,452,450,452,453,450,455,456,454,456,457,454,459,460,458,460,461,458,463,464,462,464,465,462,467,468,466,468,469,466,471,472,470,472,473,470,475,476,474,478,479,477,481,482,480,484,485,483,487,488,486,490,491,489,493,494,492,494,495,492,497,498,496,498,499,496,501,502,500,502,503,500,505,506,504,506,507,504,509,510,508,510,511,508,513,514,512,514,515,512]}]}},{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1620,9 +1620,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -1677,7 +1677,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1693,7 +1693,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -1727,9 +1727,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -1786,7 +1786,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -1819,7 +1819,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1835,7 +1835,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -1869,9 +1869,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -1928,7 +1928,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -1962,9 +1962,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2019,9 +2019,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2076,7 +2076,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -2110,9 +2110,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":2,
+                "ContentRevision":2,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2135,7 +2135,7 @@ var ecoSlide1 = {
                       "Options":{
                         "Strings":{"ColorAsHex":"F2F500"}},
                       "Indices":[1,2,0,2,3,0,5,6,4,6,7,4,9,10,8,10,11,8,13,14,12,14,15,12,17,18,16,18,19,16,21,22,20,22,23,20]}]}},{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2190,9 +2190,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2247,7 +2247,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -2281,9 +2281,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2338,9 +2338,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2395,7 +2395,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -2429,9 +2429,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":2,
+                "ContentRevision":2,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2454,7 +2454,7 @@ var ecoSlide1 = {
                       "Options":{
                         "Strings":{"ColorAsHex":"431C00"}},
                       "Indices":[1,2,0,2,3,0,5,6,4,6,7,4,9,10,8,10,11,8,13,14,12,14,15,12,17,18,16,18,19,16,21,22,20,22,23,20,25,26,24,26,27,24,29,30,28,30,31,28,33,34,32,34,35,32,37,38,36,38,39,36,41,42,40,42,43,40,45,46,44,46,47,44,49,50,48,50,51,48,53,54,52,54,55,52,57,58,56,58,59,56,61,62,60,62,63,60,65,66,64,66,67,64,69,70,68,70,71,68,73,74,72,74,75,72,77,78,76,78,79,76,81,82,80,82,83,80,85,86,84,86,87,84,89,90,88,90,91,88,93,94,92,94,95,92,97,98,96,98,99,96,101,102,100,102,103,100,104,102,101,105,104,101,107,108,106,108,109,106,111,112,110,112,113,110,115,116,114,116,117,114,119,120,118,120,121,118,123,124,122,124,125,122,127,128,126,128,129,126,131,132,130,132,133,130,135,136,134,136,137,134,139,140,138,140,141,138,143,144,142,146,147,145,149,150,148,152,153,151,155,156,154,158,159,157,161,162,160,162,163,160,165,166,164,166,167,164,169,170,168,170,171,168,173,174,172,174,175,172,177,178,176,178,179,176,181,182,180,182,183,180,185,186,184,186,187,184,189,190,188,190,191,188,193,194,192,194,195,192,197,198,196,198,199,196,201,202,200,202,203,200,205,206,204,206,207,204,209,210,208,212,213,211,215,216,214,218,219,217,221,222,220,224,225,223]}]}},{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2509,9 +2509,9 @@ var ecoSlide1 = {
                       "Weight":0},{
                       "Id":"one",
                       "Weight":0}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
-                  "Version":0,
+                  "ContentRevision":0,
                   "Shape":{
                     "Scope":{
                       "Vector":[{
@@ -2566,7 +2566,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2599,7 +2599,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2632,7 +2632,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2665,7 +2665,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2698,7 +2698,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2731,7 +2731,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -2747,7 +2747,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -2781,9 +2781,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -2840,7 +2840,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -2873,7 +2873,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -2889,7 +2889,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -2923,9 +2923,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -2964,7 +2964,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"z",
                       "Weight":1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -2980,7 +2980,7 @@ var ecoSlide1 = {
                       "Inputs":[{
                         "Id":"y",
                         "Weight":-1}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
                     "OutputScope":{
                       "Vector":[{
@@ -3014,9 +3014,9 @@ var ecoSlide1 = {
                           "Weight":0.065},{
                           "Id":"one",
                           "Weight":0}]}]},
-                    "Version":1,
+                    "ContentRevision":1,
                     "Elements":[{
-                      "Version":0,
+                      "ContentRevision":0,
                       "Shape":{
                         "Scope":{
                           "Vector":[{
@@ -3071,7 +3071,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3104,7 +3104,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -3120,7 +3120,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -3154,9 +3154,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -3213,7 +3213,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3246,7 +3246,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3279,7 +3279,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3312,7 +3312,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -3328,7 +3328,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -3362,9 +3362,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -3421,7 +3421,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3454,7 +3454,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3487,7 +3487,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3520,7 +3520,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3553,7 +3553,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3586,7 +3586,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3619,7 +3619,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3652,7 +3652,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3685,7 +3685,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3718,7 +3718,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -3734,7 +3734,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -3768,9 +3768,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -3809,7 +3809,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -3843,9 +3843,9 @@ var ecoSlide1 = {
                         "Weight":0.3879},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -3902,7 +3902,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -3935,7 +3935,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -3951,7 +3951,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -3985,9 +3985,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -4044,7 +4044,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4077,7 +4077,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -4093,7 +4093,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -4127,9 +4127,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -4186,7 +4186,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4219,7 +4219,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4252,7 +4252,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -4268,7 +4268,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -4302,9 +4302,9 @@ var ecoSlide1 = {
                         "Weight":-0.9287},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -4361,7 +4361,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -4377,7 +4377,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -4411,9 +4411,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -4470,7 +4470,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4503,7 +4503,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4536,7 +4536,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4569,7 +4569,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4602,7 +4602,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -4618,7 +4618,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"z",
                       "Weight":1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -4634,7 +4634,7 @@ var ecoSlide1 = {
                       "Inputs":[{
                         "Id":"y",
                         "Weight":-1}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
                     "OutputScope":{
                       "Vector":[{
@@ -4668,9 +4668,9 @@ var ecoSlide1 = {
                           "Weight":-0.4164},{
                           "Id":"one",
                           "Weight":0}]}]},
-                    "Version":1,
+                    "ContentRevision":1,
                     "Elements":[{
-                      "Version":0,
+                      "ContentRevision":0,
                       "Shape":{
                         "Scope":{
                           "Vector":[{
@@ -4727,7 +4727,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4760,7 +4760,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4793,7 +4793,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4826,7 +4826,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -4859,7 +4859,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -4875,7 +4875,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -4909,9 +4909,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -4968,7 +4968,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5001,7 +5001,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -5017,7 +5017,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -5051,9 +5051,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -5110,7 +5110,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5143,7 +5143,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -5159,7 +5159,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -5193,9 +5193,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -5252,7 +5252,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5285,7 +5285,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5318,7 +5318,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5351,7 +5351,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":2,
+              "ContentRevision":2,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -5367,7 +5367,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-0.34}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -5401,9 +5401,9 @@ var ecoSlide1 = {
                         "Weight":-2},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -5442,7 +5442,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"z",
                       "Weight":1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -5458,7 +5458,7 @@ var ecoSlide1 = {
                       "Inputs":[{
                         "Id":"y",
                         "Weight":-1}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
                     "OutputScope":{
                       "Vector":[{
@@ -5492,9 +5492,9 @@ var ecoSlide1 = {
                           "Weight":-0.0054},{
                           "Id":"one",
                           "Weight":0}]}]},
-                    "Version":1,
+                    "ContentRevision":1,
                     "Elements":[{
-                      "Version":0,
+                      "ContentRevision":0,
                       "Shape":{
                         "Scope":{
                           "Vector":[{
@@ -5549,7 +5549,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5582,7 +5582,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5615,7 +5615,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5648,7 +5648,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5681,7 +5681,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5714,7 +5714,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5747,7 +5747,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5780,7 +5780,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5813,7 +5813,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5846,7 +5846,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5879,7 +5879,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -5912,7 +5912,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":1,
+              "ContentRevision":1,
               "Elements":[{
                 "OutputScope":{
                   "Vector":[{
@@ -5928,7 +5928,7 @@ var ecoSlide1 = {
                     "Inputs":[{
                       "Id":"y",
                       "Weight":-1}]}]},
-                "Version":1,
+                "ContentRevision":1,
                 "Elements":[{
                   "OutputScope":{
                     "Vector":[{
@@ -5962,9 +5962,9 @@ var ecoSlide1 = {
                         "Weight":0},{
                         "Id":"one",
                         "Weight":0}]}]},
-                  "Version":1,
+                  "ContentRevision":1,
                   "Elements":[{
-                    "Version":0,
+                    "ContentRevision":0,
                     "Shape":{
                       "Scope":{
                         "Vector":[{
@@ -6021,7 +6021,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -6054,7 +6054,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -6087,7 +6087,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -6120,7 +6120,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -6153,7 +6153,7 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
+              "ContentRevision":0},{
               "OutputScope":{
                 "Vector":[{
                   "Id":"x",
@@ -6186,8 +6186,8 @@ var ecoSlide1 = {
                     "Weight":1},{
                     "Id":"one",
                     "Weight":0}]}]},
-              "Version":0},{
-              "Version":0,
+              "ContentRevision":0},{
+              "ContentRevision":0,
               "Shape":{
                 "Scope":{
                   "Vector":[{
@@ -6233,7 +6233,7 @@ var ecoSlide1 = {
           "Weight":0},{
           "Id":"z",
           "Weight":0.06666667}]}]},
-    "Version":3,
+    "ContentRevision":3,
     "Shape":{
       "Scope":{
         "Vector":[{
@@ -6265,7 +6265,7 @@ var ecoSlide1 = {
         "Options":{
           "Strings":{"scopeCollision":"true"}}}]},
     "Elements":[{
-      "Version":0,
+      "ContentRevision":0,
       "Shape":{
         "Scope":{
           "Vector":[{

@@ -1,0 +1,37 @@
+{
+  "Vector":[{
+    "Id":"REV",
+    "ScopeString":{
+      "From":"1454",
+      "To":"1454"}},{
+    "Id":"REPORT_TIME",
+    "ScopeString":{
+      "From":"4/19/2013 12:00:00 AM",
+      "To":"4/19/2013 11:27:23 AM"}},{
+    "Id":"VEHICLE_TAG",
+    "ScopeString":{
+      "From":"02",
+      "To":"T727"}},{
+    "Id":"LONGITUDE",
+    "ScopeDouble":{
+      "From":-122.5111,
+      "To":-122.38202}},{
+    "Id":"LATITUDE",
+    "ScopeDouble":{
+      "From":37.73244,
+      "To":37.80881}},{
+    "Id":"SPEED",
+    "Scope":{
+      "From":0,
+      "To":65.278}},{
+    "Id":"HEADING",
+    "Scope":{
+      "From":0,
+      "To":360}},{
+    "Id":"TRAIN_ASSIGNMENT",
+    "ScopeString":{
+      "To":"NUNSCHED"}},{
+    "Id":"PREDICTABLE",
+    "Scope":{
+      "From":0,
+      "To":1}}]}
