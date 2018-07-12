@@ -91,6 +91,7 @@ function sfmtaPostIncludeCallback() {
         //sl.customDragCallback = capSciCursorDragCallback;
         sl.customSlideExitCallback = sfmtaCustomSlideExit;
         sl.customSlideEnterCallback = sfmtaCustomSlideEnter;
+        sl.customCameraScale = function() { return 1.61; };
         //sl.customSlideMetadataCallback = capSciMetadataCallback;    
     }
 

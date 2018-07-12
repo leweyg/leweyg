@@ -386,6 +386,12 @@ function evn3d_initcore(targetCanvas) {
 					aroundCosX = 1;
 					extraXScale = 1;
 				}
+				var customScale = evnPageCallback('customCameraScale')();
+				if (customScale) {
+					extraXScale *= customScale;
+				} else {
+					customScale = 1.0;
+				}
 				var worldX = ( - mouseX - 0 ) * evnCameraSetting_MotionScale * extraXScale;
 				var worldY = ( - mouseY - 0 ) * evnCameraSetting_MotionScale;
 
@@ -400,7 +406,7 @@ function evn3d_initcore(targetCanvas) {
 
 				latestCameraGoal.x = worldX * (1 + ((1 - aroundCosX) * 0.61));
 				latestCameraGoal.y = worldY;
-				latestCameraGoal.z = evnCameraSetting_ZPos * aroundCosX;
+				latestCameraGoal.z = evnCameraSetting_ZPos * aroundCosX * customScale;
 				latestLookAtGoal.copy( lookAtOriginal );
 				latestLookAtGoal.z += (-2.0) * (1.0 - aroundCosX);
 				var dist = latestCameraPos.distanceTo(latestCameraGoal);
