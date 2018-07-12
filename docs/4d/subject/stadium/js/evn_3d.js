@@ -171,16 +171,22 @@ function evn3d_initcore(targetCanvas) {
 				}
 			};
 
+
+			this.innerMouseMove = function() {
+				_this.innerCursorUpdate( event, false, false );
+			
+			};
+
 			this.innerTouchStart = function() {
 				event.preventDefault();
 				dragDistanceTravelled = 0;
-				var me = event.changedTouches[0];
+				var me = event.touches[0];
 				innerCursorUpdate(me, true, false );
 			};
 
 			this.innerTouchMove = function() {
 				event.preventDefault();
-				var me = event.changedTouches[0];
+				var me = event.touches[0];
 				innerCursorUpdate(me, false, false );
 			};
 
@@ -195,10 +201,14 @@ function evn3d_initcore(targetCanvas) {
 				innerCursorUpdate(me, false, false, true );
 			};
 
-			this.innerMouseMove = function() {
-				_this.innerCursorUpdate( event, false, false );
-			
+			this.innerGestureChange = function() {
+				if (event.scale != 1.0) {
+					event.preventDefault();
+					innerScroll1d( (0.25 * event.scale) - 1.0 );
+					return false;
+				}
 			};
+
 
 			var hackyScrollUpdate = function(el, scrollPos) {
 				var validRanges = [
@@ -446,6 +456,7 @@ function evn3d_initcore(targetCanvas) {
 				targetCanvas.parentElement.addEventListener( 'touchmove', _this.innerTouchMove, false );
 				targetCanvas.addEventListener( 'touchend', _this.innerTouchEnd, false );
 				targetCanvas.addEventListener( 'touchcancel', _this.innerTouchCancel, false );
+				targetCanvas.addEventListener( 'gesturechange', _this.innerGestureChange, false );
 
 				targetCanvas.addEventListener( 'mousewheel', _this.innerMouseWheel, false );
 				targetCanvas.addEventListener( 'mousedown', _this.innerMouseDown, false );
