@@ -65,6 +65,7 @@ function sfmtaAnimateSedecaIn(wpos) {
         var it = 1.0 - ut;
         state.focusRoute.position.set(it*lpos.x, it*lpos.y, it*lpos.z);
         state.focusRoute.scale.set(ut,ut,ut);
+        state.volumeObj.scale.set(it,it,it);
         if (ut >= 1.0) {
             return; // done
         }
@@ -89,6 +90,7 @@ function sfmtaAnimateSedecaIn(wpos) {
             if (state.focusRoute) {
                 state.focusRoute.position.set(it*lpos.x, it*lpos.y, it*lpos.z);
                 state.focusRoute.scale.set(ut,ut,ut);
+                state.volumeObj.scale.set(it,it,it);
             }
             if (ut <= 0.0) {
                 whenDone();
@@ -121,7 +123,7 @@ function sfmtaSwitchToSedeca(sed, fromWpos) {
         state.busRootRes.objThree.add(res.objThree);
 
         state.focusRoute = res.objThree;
-        state.volumeObj.visible = false;
+        //state.volumeObj.visible = false;
         state.pointsObj.visible = false;
 
         state.focusOutCb = sfmtaAnimateSedecaIn(wpos);
