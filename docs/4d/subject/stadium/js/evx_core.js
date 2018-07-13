@@ -1560,6 +1560,7 @@ function evxToucherCreate() {
 		projX:0,
 		projY:0,
 		projMinDist: 0.2,
+		estNearestWPos:new THREE.Vector3(),
 		camera:null,
 		projection : evxProjectionCreate(),
     };
@@ -1588,7 +1589,9 @@ function evxToucherPushHit(toucher, objThree, dist, ndx) {
 	hit.vertexIndex = ndx;
 	hit.index = ndx;
 	hit.distance = dist;
+	hit.estWpos = toucher.estNearestWPos;
 	toucher.intersects.push(hit);
+	return hit;
 }
 
 var __evxToucherIntersectPointsTempVec0 = null;
@@ -1627,6 +1630,7 @@ function evxToucherIntersectPoints(toucher, shape, ns) {
 		dp = ((dx*dx) + (dy*dy));
 		if ((dp < toucher.projMinDistSquare) && (dp < bestd)) {
 			bestd = dp;
+			toucher.estNearestWPos.copy(v0);
 			evxToucherPushHit(toucher, ns.evxTag.objThree, Math.sqrt(dp), vi);
 			countTouches++;
 		}
@@ -2482,7 +2486,7 @@ function evxShaderPixelVolumeTexture(isYDir) {
 		"vec4 texVal = texture2D( map, finalUV ).rgba;" +
 		"float opac = mix(texVal.r, texVal.g, 0.75 );" +
 		"opac = pow( opac, 2.0 );" +
-		"vec4 resVal = vec4( texVal.rgb, opac );" +
+		"vec4 resVal = vec4( texVal.ggr, opac );" +
 		"return resVal;"
 	+ "}"
 	+ "vec4 customVolumeTrace(){" +

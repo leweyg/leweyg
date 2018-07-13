@@ -157,7 +157,7 @@ function evn3d_initcore(targetCanvas) {
 				event.preventDefault();
 				enableDragCamera = true;
 				if (isEventRightClick()) {
-					enableMouseMotion = !enableMouseMotion;
+					//enableMouseMotion = !enableMouseMotion;
 				} 
 				_this.innerCursorUpdate( event, false, false, true );
 			};
@@ -341,7 +341,7 @@ function evn3d_initcore(targetCanvas) {
 							//evn_NextSlide(); // if already reset, then do next slide
 						}
 						evnPageCallback('customClickCallback')(false, isTouch);
-					} else if (isDownOnSameObj) {
+					} else if (true || isDownOnSameObj) {
 						evnPageCallback('customClickCallback')(true, isTouch);
 						evn_ClickedOnSpecificItem();
 					}
@@ -674,7 +674,7 @@ function evn_ChangeMainElement(rootEl,skipScaling=false) {
 
 	evxTextLabelsClear();
 	__evn_currentJsRoot = rootEl;
-	evnPageCallback('customSlidePreEnterCallback')(); // just after change
+	evnPageCallback('customSlidePreEnterCallback')(rootEl); // just after change
 	var isFirstTime = (!evxToolsNotNull(rootEl.evxTagEl));
 	var res = evxElementCreateFromJsonElement(rootEl);
 	
@@ -986,9 +986,18 @@ var __evnAnimTimeTotal = __evnAnimTimeInitial;
 var __evnIsFirstTransition = true;
 var evn_AnimationCallback = undefined;
 var __evnAnimIsInTick = false;
+var evnAnimationThreads = [];
+var __evnAnimThreadState = {};
 
 function __evnAnimTimeUnitCircle() {
 	return ( ( __evnAnimTimeTotal * __evnAnimTimeScalar ) / ( Math.PI * 2.0 ) ) - 0.5;
+}
+
+function evnAnimationPushThread(cb) {
+	// cb = function(dt) { sum += dt; if (sum > 3.0) return undefined; }
+	// CB should be a functions that returns something other than undefined until it is done
+	evnAnimationThreads.push(cb);
+	evn_AnimationTick();
 }
 
 function evn_AnimationTick() {
@@ -996,49 +1005,64 @@ function evn_AnimationTick() {
 	if (!__evnAnimIsInTick) {
 		__evnAnimIsInTick = true;
 
-	if (evnIsAnimating) {
 		let timeNow = new Date();
 		var dt = (timeNow.getTime() - __evnAnimTimePrevious.getTime()) / 1000;
-		//__evnAnimTimePrevious = timeNow;
-		//dt = Math.min( dt, 0.1 );
-
 		__evnAnimTimeTotal = __evnAnimTimeInitial + dt;
+		__evnAnimTimePrevious = timeNow;
+		var maxStep = 1.0 / 30.0;
+		if (dt > maxStep) {
+			dt = maxStep;
+		}
 
-		if (evn_AnimationCallback) {
-			__evnAnimTimePrevious = timeNow;
-			evn_AnimationCallback(dt, __evnAnimTimeTotal, false);
-		} else {
-			var prevSlide = Math.floor(__evnAnimTimeUnitCircle());
-			// old hacky animated slide system:
-			if (Math.floor(__evnAnimTimeUnitCircle()) != prevSlide) {
-				if (__evnIsFirstTransition) {
-					__evnIsFirstTransition = false;
-					evn_GotoSlide(3);
-				} else {
-					evn_NextSlide();
-				}
-			} else {
-				evn3d_root.innerScroll1d(Math.cos(3.0 * __evnAnimTimeTotal * __evnAnimTimeScalar) * 0.001 );
+
+		// From global flag:
+		if (evnIsAnimating) {
+
+			if (evn_AnimationCallback) {
+				evn_AnimationCallback(dt, __evnAnimTimeTotal, false);
 			}
-			__evn_content_anim.rotation.y = Math.cos(__evnAnimTimeTotal * __evnAnimTimeScalar) * 1.61;
+
+		} else {
+			if (evn_AnimationCallback) {
+				evn_AnimationCallback(0, __evnAnimTimeTotal, true);
+			} else {
+				__evnAnimTimeTotal = __evnAnimTimeInitial;
+			}
 		}
 
-	} else {
-		if (evn_AnimationCallback) {
-			evn_AnimationCallback(0, __evnAnimTimeTotal, true);
-		} else {
-			__evn_content_anim.rotation.y = 0.00;
-			__evnAnimTimeTotal = __evnAnimTimeInitial;
+		// From callstack:
+		if (evnAnimationThreads.length > 0) {
+			var needCleanup = false;
+			for (var ii in evnAnimationThreads) {
+				var cb = evnAnimationThreads[ii];
+				var st = cb(dt); // call animation thread
+				__evnAnimThreadState[ii] = st;
+				if (st == undefined) {
+					needCleanup = true; // if it returns nothing, finish it
+				}
+			}
+			if (needCleanup) {
+				var na = [];
+				for (var ii in __evnAnimThreadState) {
+					if (__evnAnimThreadState[ii] != undefined) {
+						na.push(evnAnimationThreads[ii]);
+					}
+				}
+				evnAnimationThreads = na;
+				__evnAnimThreadState = {};
+			}
+
 		}
-	}
+
+		if (evnIsAnimating || (evnAnimationThreads.length > 0)) {
+			setTimeout(evn_AnimationTick, 1000/60 );
+		}
 		
 		evn3d_root.requestUpdate();
 		__evnAnimIsInTick = false;
 	}
 
-	if (evnIsAnimating) {
-		setTimeout(evn_AnimationTick, 1000/60 );
-	}
+
 }
 
 function evn_AnimationEnable(isOn) {
