@@ -197,9 +197,15 @@ evxPostScriptCallbacks.push( sfmtaPostIncludeCallback );
 
 function sfmtaExtensionBuilder(isBusRoutes,filePath,isYDir=true) {
 
+    var isConfigured = { };
+
     var cb = function(res) {
         var rootSpace = res.objThree;
         var state = sfmtaState();
+
+        if (isBusRoutes && evxToolsNotNull(state.volumeObj)) {
+            return; // already has it
+        }
 
         if (isBusRoutes) {
             state.busRootRes = res;
@@ -225,7 +231,9 @@ function sfmtaExtensionBuilder(isBusRoutes,filePath,isYDir=true) {
         var geometry = new THREE.BoxGeometry( 1, 1, 1 );
         //var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
         var cube = new THREE.Mesh( geometry, material );
-        state.volumeObj = cube;
+        if (isBusRoutes) {
+            state.volumeObj = cube;
+        }
         scene.add( cube );
     }
     return cb;
