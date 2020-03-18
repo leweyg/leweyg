@@ -382,14 +382,18 @@ a:hover {
         </span>
     [    
     <!-- CONNECTION STATUS -->
-     <span id="mainConnectionStatus"><font color="dark-yellow">connecting...</font></span>
+    
+    <!--
+     <span id="mainConnectionStatus"><font color="dark-yellow">...</font></span>
      ]
 
-    [ 	<span onclick="toggleShowDevTools()">ops</span> 
+    [ 
+    
+    	<span onclick="toggleShowDevTools()">ops</span> 
         <span id="mainDevTools" style="display:none;" >
         <a id="mainLinkToServer" href="">finding...</a>
         <a href="#" onclick="remoteServerReboot()">server reboot</a>
-        
+        -->
       </span> ]
       <span>
         [ <a id="mainDebugOutput"></a> ]
@@ -548,6 +552,11 @@ a:hover {
         }
 
         function startConnectionAutoConfigure() {
+          var hasLink = document.getElementsByName("mainLinkToServer");
+          if (hasLink.length == 0) {
+            return;
+          }
+
 			    mainLinkToServer.innerHTML = "@" + evxToolsWebStdServerPath;
 			    mainLinkToServer.href = evxToolsWebStdServerPath;
           evxToolsWebServiceConfigure(function(didWork) {
