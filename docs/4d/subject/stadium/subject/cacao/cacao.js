@@ -70,12 +70,12 @@ var partnerRandomData_UserName = [
 	
 	
 	var partnerEcosystemCycle = [
-		{"step":"request", forCreator:false, eventTypes:["CreatedMission","CreatedTask"]},
-		{"step":"safe", forCreator:true,  eventTypes:["CompletedMission"]},
-		{"step":"start", forCreator:false, eventTypes:["StartedMission","StartedTask","QuitTask"]},
-		{"step":"complete", forCreator:false, eventTypes:["CompletedTask"]},
-		{"step":"give", forCreator:false, eventTypes:["DonatedTask"]},
-		{"step":"grow", forCreator:false, eventTypes:["VouchForMission"]},
+		{"step":"request", forCreator:false, eventTypes:["Requested","Offered"]},
+		{"step":"safe", forCreator:true,  eventTypes:["Completed"]},
+		{"step":"start", forCreator:false, eventTypes:["Started","Began","QuitTask"]},
+		{"step":"complete", forCreator:false, eventTypes:["Completed"]},
+		{"step":"give", forCreator:false, eventTypes:["Supported"]},
+		{"step":"grow", forCreator:false, eventTypes:["Validated"]},
 	];
 	
 	
