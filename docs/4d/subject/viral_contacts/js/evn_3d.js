@@ -661,14 +661,14 @@ var __env_IsOnEcoSlide = undefined;
 var __evn_CallOnceAfterRender = undefined;
 
 
-function evn_GotoNodleSlide(slideNdx) {
+function evn_GotoViralSlide(slideNdx) {
 
-	var ecoSlideId = 'nodleSlide' + slideNdx;
+	var ecoSlideId = 'viralSlide' + slideNdx;
 	var ecoSlideData;
 	if (slideNdx == 0) {
-		ecoSlideData = nodleSlide0;
+		ecoSlideData = viralSlide0;
 	} else if (slideNdx == 1) {
-		ecoSlideData = nodleSlide1;
+		ecoSlideData = viralSlide1;
 	} else {
 		evxToolsAssert(false);
 	}
@@ -941,8 +941,8 @@ function evn_SetupShape() {
 		//evn_GotoEcoSlide(0); // SHOULD BE 0 for STADIUM DEMO
 		if (Browser4d_ProductClient == "verses") {
 			evn_GotoVersesSlide(0);
-		} else if (Browser4d_ProductClient == "nodle") {
-			evn_GotoNodleSlide(0);
+		} else if (Browser4d_ProductClient == "viral") {
+			evn_GotoViralSlide(0);
 		}
 	} else {
 		evn_ChangeMainElement(elData);

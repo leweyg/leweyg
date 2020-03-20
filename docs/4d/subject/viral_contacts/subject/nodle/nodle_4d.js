@@ -6,12 +6,12 @@
  * Written by Lewey Geselowitz <LeweyGeselowitz@gmail.com>, October 2018
  */
 
-var __nodleStatePtr = undefined;
-function nodleState() {
-	if (__nodleStatePtr) {
-		return __nodleStatePtr;
+var __viralStatePtr = undefined;
+function viralState() {
+	if (__viralStatePtr) {
+		return __viralStatePtr;
 	}
-	__nodleStatePtr = {
+	__viralStatePtr = {
 		ModelRootObjThree:null,
 		DataShapes:[],
 		DataBlocks:[],
@@ -22,32 +22,32 @@ function nodleState() {
 		LatestHoverItem:null,
 		FollowPersonEl:null,
 		PreviousIconPosW:null,
-		ScrollByWorldPos:nodleScrollByWorldDeltaBuilder(),
+		ScrollByWorldPos:viralScrollByWorldDeltaBuilder(),
 		TempVectors:[new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()],
 	};
-	return __nodleStatePtr;
+	return __viralStatePtr;
 }
-function nodleStateTry() {
-	return __nodleStatePtr;
+function viralStateTry() {
+	return __viralStatePtr;
 }
 
 function partnerGeneralInfo() {
 	return {
-		bgImagePath : "subject/nodle/images/360s/nodle_mirror_360.jpg", //"images/sunset_360.jpg",
-		scrollImagePath : "subject/nodle/images/360s/nodle_mirror_360.jpg",
+		bgImagePath : "subject/viral/images/360s/viral_mirror_360.jpg", //"images/sunset_360.jpg",
+		scrollImagePath : "subject/viral/images/360s/viral_mirror_360.jpg",
 		imageScale : 1.0,
 	};
 }
 
-function nodleLoadData(path, callback) {
+function viralLoadData(path, callback) {
 	evxToolsWebDownloadString(path, callback);
 }
 
-var nodleAxes = [ "x", "TIME", "z" ];
+var viralAxes = [ "x", "TIME", "z" ];
 
-function nodleMeasureInclude(scope,entry) {
-	for (var ai in nodleAxes) {
-		var ax = nodleAxes[ai];
+function viralMeasureInclude(scope,entry) {
+	for (var ai in viralAxes) {
+		var ax = viralAxes[ai];
 		var val = entry[ax];
 		var scp = scope[ax];
 		if (val < scp.MIN) {
@@ -59,28 +59,28 @@ function nodleMeasureInclude(scope,entry) {
 	}
 }
 
-function nodleMeasureData(data) {
+function viralMeasureData(data) {
 	var first = data.SIGHTINGS[0].SEER;
 	var ans = {};
-	for (var aii in nodleAxes) {
-		var ai = nodleAxes[aii];
+	for (var aii in viralAxes) {
+		var ai = viralAxes[aii];
 		ans[ai] = { MIN:first[ai], MAX:first[ai] };
 	}
 	for (var si in data.SIGHTINGS) {
 		var sight = data.SIGHTINGS[si];
 		var seer = sight.SEER;
-		nodleMeasureInclude(ans, seer);
+		viralMeasureInclude(ans, seer);
 		for (var oi in sight.SEEN) {
 			var other = sight.SEEN[oi];
-			nodleMeasureInclude(ans, other);
+			viralMeasureInclude(ans, other);
 		}
 	}
 	return ans;
 }
 
-function nodleMeasureNormalizeAndPush(scope,ar,entry) {
-	for (var ai in nodleAxes) {
-		var ax = nodleAxes[ai];
+function viralMeasureNormalizeAndPush(scope,ar,entry) {
+	for (var ai in viralAxes) {
+		var ax = viralAxes[ai];
 		var val = entry[ax];
 		var scp = scope[ax];
 		var nv = ((val - scp.MIN) / (scp.MAX - scp.MIN));
@@ -91,11 +91,11 @@ function nodleMeasureNormalizeAndPush(scope,ar,entry) {
 	}
 }
 
-function nodlePointSprites(pnts,texPath=null,defSize=35,defColor=0xaaAAFF) {
+function viralPointSprites(pnts,texPath=null,defSize=35,defColor=0xaaAAFF) {
 	// setup the points:
 	var geometry = new THREE.BufferGeometry();
 	var vertices = pnts;
-	texPath = (evxToolsIsNull(texPath)?'subject/nodle/images/icons/Bluetooth-icon.png':texPath);
+	texPath = (evxToolsIsNull(texPath)?'subject/viral/images/icons/Bluetooth-icon.png':texPath);
 	var sprite = evxObjThreeCreateTexture( texPath ); //new THREE.TextureLoader().load( 'subject/verses/particle_texture.png' );
 	
 	geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
@@ -105,10 +105,10 @@ function nodlePointSprites(pnts,texPath=null,defSize=35,defColor=0xaaAAFF) {
 	return particles;
 }
 
-function nodleCreateLines(data,scene) {
-	var state = nodleState();
+function viralCreateLines(data,scene) {
+	var state = viralState();
 	state.DataBlocks.push(data);
-	nodleApplyDataTypes();
+	viralApplyDataTypes();
 	
 
 	var packedVerts = [];
@@ -130,16 +130,16 @@ function nodleCreateLines(data,scene) {
 	var matchIndices = [];
 	var matchCount = 0;
 
-	var scope = nodleMeasureData(data);
+	var scope = viralMeasureData(data);
 	data.ALL = [];
 	for (var si in data.SIGHTINGS) {
 		var sight = data.SIGHTINGS[si];
 		var seer = sight.SEER;
 		data.ALL.push(seer);
 		var curIndex = vertexCount;
-		nodleMeasureNormalizeAndPush(scope, packedVerts, seer);
+		viralMeasureNormalizeAndPush(scope, packedVerts, seer);
 		vertexCount++;
-		nodleMeasureNormalizeAndPush(scope, pathVerts, seer);
+		viralMeasureNormalizeAndPush(scope, pathVerts, seer);
 		pathCount++;
 		if (prevVertex >= 0) {
 			//packedIndices.push(curIndex);
@@ -154,10 +154,10 @@ function nodleCreateLines(data,scene) {
 			var other = sight.SEEN[oi];
 			data.ALL.push(other);
 			var oindex = vertexCount;
-			nodleMeasureNormalizeAndPush(scope, packedVerts, other);
+			viralMeasureNormalizeAndPush(scope, packedVerts, other);
 			vertexCount++;
 			var matchId = matchCount;
-			nodleMeasureNormalizeAndPush(scope, matchVerts, other);
+			viralMeasureNormalizeAndPush(scope, matchVerts, other);
 			matchCount++;
 			packedIndices.push(curIndex);
 			packedIndices.push(oindex);
@@ -167,7 +167,7 @@ function nodleCreateLines(data,scene) {
 				matchIndices.push(matchPrevious[other.ID]);
 			} else {
 				
-				nodleMeasureNormalizeAndPush(scope, uniquePoints, other);
+				viralMeasureNormalizeAndPush(scope, uniquePoints, other);
 				uniquePoints[uniquePoints.length-2] = 0; // y = 0
 
 				var ar = typedPoints[other.FakeType];
@@ -175,7 +175,7 @@ function nodleCreateLines(data,scene) {
 					ar = [];
 					typedPoints[other.FakeType] = ar;
 				}
-				nodleMeasureNormalizeAndPush(scope, ar, other);
+				viralMeasureNormalizeAndPush(scope, ar, other);
 				ar[ar.length-2] = 0;
 				
 			}
@@ -231,7 +231,7 @@ function nodleCreateLines(data,scene) {
 			if (child.evxOnScrollChange) {
 				state.FollowPersonEl = child;
 				child.evxScrollCustomValue = function() {
-					return nodleState().UnitTimeOffset; 
+					return viralState().UnitTimeOffset; 
 				};
 
 			}
@@ -268,7 +268,7 @@ function nodleCreateLines(data,scene) {
 		var mesh = res.objThree;
 		//var mesh = evxShapeIndexedLineCreateFancyLines(shape, ns, null, true);
 		if (scene) {
-			nodleState().ModelRootThree.add(mesh);
+			viralState().ModelRootThree.add(mesh);
 		}
 	}
 
@@ -300,11 +300,11 @@ function nodleCreateLines(data,scene) {
 		
 	}
 	if (true) {
-		//nodleState().ModelRootThree.add( nodlePointSprites(uniquePoints) );
+		//viralState().ModelRootThree.add( viralPointSprites(uniquePoints) );
 		for (var ti in typedPoints) {
 			var ar = typedPoints[ti];
 			var path = undefined;
-			var basePath = 'subject/nodle/images/icons/';
+			var basePath = 'subject/viral/images/icons/';
 			switch (ti) {
 				case "PHONE":
 				path = basePath + "icon-phone.png";
@@ -316,29 +316,29 @@ function nodleCreateLines(data,scene) {
 				path = basePath + "icon-beacon.png";
 				break;
 			}
-			nodleState().ModelRootThree.add( nodlePointSprites(ar,path) );
+			viralState().ModelRootThree.add( viralPointSprites(ar,path) );
 		}
 	}
-	nodleMetadataAllUpdateUI();
+	viralMetadataAllUpdateUI();
 	return mesh;
 }
 
-function nodleSetupData(res) {
-	var scene = nodleState().TimeRootThree;
-	nodleLoadData("subject/nodle/data/ex_motion_data.json", function(dataStr) {
+function viralSetupData(res) {
+	var scene = viralState().TimeRootThree;
+	viralLoadData("subject/viral/data/ex_motion_data.json", function(dataStr) {
 		if (dataStr) {
 			if (dataStr.startsWith("\"")) {
 				dataStr = dataStr.substr(1,dataStr.length-2);
 			}
 			var data = evxToolsJsonFromString(dataStr);
 			// TODO: draw lines
-			nodleCreateLines(data,scene);
+			viralCreateLines(data,scene);
 			data = null;
 		}
 	});
 }
 
-function nodleGenerateMapTexture() {
+function viralGenerateMapTexture() {
 	var geometry = new THREE.PlaneGeometry( 1, 1, 5, 5 );
 
 	var shaderPostFix = ""
@@ -353,7 +353,7 @@ function nodleGenerateMapTexture() {
 	;
 
 	//var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-	var sprite = evxObjThreeCreateTexture( "subject/nodle/images/road_and_transport_map_san_francisco.png" );
+	var sprite = evxObjThreeCreateTexture( "subject/viral/images/road_and_transport_map_san_francisco.png" );
 	var uvTransform = new THREE.Vector4( 0, 0, 1, 1 );
 	var material = evxShaderMaterialCreateForUnlitMonoTexture(
 		new THREE.Color(0x00FF99), sprite, uvTransform, shaderPostFix);
@@ -365,12 +365,12 @@ function nodleGenerateMapTexture() {
 	var scl = 2.0;
 	plane.scale.set(scl,scl,scl);
 
-	nodleState().MapPlane = plane;
+	viralState().MapPlane = plane;
 
 	return plane;
 }
 
-function nodleGenerateBgTexture() {
+function viralGenerateBgTexture() {
 	var geometry = new THREE.PlaneGeometry( 1, 1, 5, 5 );
 
 	var shaderPostFix = "vec4 bgTex = texture2D( map, vUv * 4.0 ).rgba;"
@@ -379,7 +379,7 @@ function nodleGenerateBgTexture() {
 	;
 
 	//var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-	var sprite = evxObjThreeCreateTexture( "subject/nodle/images/flower_of_life_v2.jpg" );
+	var sprite = evxObjThreeCreateTexture( "subject/viral/images/flower_of_life_v2.jpg" );
 	sprite.wrapS = THREE.RepeatWrapping;
 	sprite.wrapT = THREE.RepeatWrapping;
 	var uvTransform = new THREE.Vector4( 0, 0, 10, 10 );
@@ -395,15 +395,15 @@ function nodleGenerateBgTexture() {
 	return plane;
 }
 
-function nodleBuildCameraModCallback() {
+function viralBuildCameraModCallback() {
 	var cb = function(latestCameraGoal, latestLookAtGoal) {
 		latestCameraGoal.y += 4.0;
 	};
 	return cb;
 }
 
-function nodleCenterOnUser() {
-	var state = nodleStateTry();
+function viralCenterOnUser() {
+	var state = viralStateTry();
 	if ((!state) || (!state.FollowPersonEl)) {
 		return;
 	}
@@ -424,8 +424,8 @@ function nodleCenterOnUser() {
 	}
 }
 
-function nodleUpdateTimeTo(goalUnitTime, isClick) {
-	var state = nodleStateTry();
+function viralUpdateTimeTo(goalUnitTime, isClick) {
+	var state = viralStateTry();
 	if (!state) {
 		return;
 	}
@@ -469,95 +469,95 @@ function nodleUpdateTimeTo(goalUnitTime, isClick) {
 	evxRequestUpdate();
 }
 
-function nodleCustomScrollXCallback_Builder() {
+function viralCustomScrollXCallback_Builder() {
 
 	var state = null;
 	var cb = function(dx) {
-		state = nodleStateTry();
+		state = viralStateTry();
 		if (!state) return;
 
 		var obj = state.TimeRootThree;
 		var curt = state.UnitTimeOffset;
 		curt += dx * 0.1;
 		curt = evxToolsClampM(curt, -0.05, 0.95);
-		nodleUpdateTimeTo(curt);
+		viralUpdateTimeTo(curt);
 	};
 	return cb;
 }
 
-function nodleCustomLabelUpdate() {
-	var state = nodleStateTry();
+function viralCustomLabelUpdate() {
+	var state = viralStateTry();
 	if (state) {
 		state.HasRendered = true;
 	}
 }
 
-function nodleClickedCallback() {
-	var state = nodleStateTry();
+function viralClickedCallback() {
+	var state = viralStateTry();
 	if (!state) {
 		return;
 	}
 	var latest = state.LatestHoverItem;
 	if (latest) {
 		if (latest.UnitTime) {
-			nodleUpdateTimeTo(latest.UnitTime, true);
-			//nodleCenterOnUser();
+			viralUpdateTimeTo(latest.UnitTime, true);
+			//viralCenterOnUser();
 		}
 	}
 }
 
-function nodlePostIncludeCallback() {
-	var slides = [ nodleSlide0, nodleSlide1 ];
+function viralPostIncludeCallback() {
+	var slides = [ viralSlide0, viralSlide1 ];
 	for (var si in slides) {
 		var slide = slides[si];
 
-		slide.customCameraModCallback = nodleBuildCameraModCallback();
-		slide.customMetaAllUpdate = nodleCustomMetaAllUpdate;
-		slide.customLabelUpdate = nodleCustomLabelUpdate;
-		slide.customScrollX = nodleCustomScrollXCallback_Builder();
-		slide.customDragCallback = nodleCursorDragCallbackBuilder();
-		slide.customClickCallback = nodleClickedCallback;
+		slide.customCameraModCallback = viralBuildCameraModCallback();
+		slide.customMetaAllUpdate = viralCustomMetaAllUpdate;
+		slide.customLabelUpdate = viralCustomLabelUpdate;
+		slide.customScrollX = viralCustomScrollXCallback_Builder();
+		slide.customDragCallback = viralCursorDragCallbackBuilder();
+		slide.customClickCallback = viralClickedCallback;
 		slide.customInfoToggle = function() { return true; };
 
 		var infoPnl = {
-			title : "Nodle.io ",
+			title : "Viral.io ",
 			desc : "Spatial model of user's motion and detected devices.",
 			commands : "&bull; Zoom in/out.<br/>&bull; Scroll time left/right",
-			source : "Based on synthetic Nodle.io data.",
+			source : "Based on synthetic Viral.io data.",
 			filter : "Filtered to current user.",
 			graph : "Graphing physical space over time."
 		};
 		slide.InfoPlaneOverride = function() { return infoPnl; };
 		/*
-		slide.customCameraCallback = nodleBuildCameraCallback();
+		slide.customCameraCallback = viralBuildCameraCallback();
 		
 		
-		slide.customSlideExitCallback = nodleSlideExitCallback;
-		slide.customSlideEnterCallback = nodleSlideEnterCallback;
-		slide.customSlideMetadataCallback = nodleMetadataCallback;
+		slide.customSlideExitCallback = viralSlideExitCallback;
+		slide.customSlideEnterCallback = viralSlideEnterCallback;
+		slide.customSlideMetadataCallback = viralMetadataCallback;
 		
-		slide.customHoverDetailsCallback = nodleCustomHoverDetailsCallback;
-		slide.customEditDetailsCallback = nodleCustomEditDetailsCallback;
+		slide.customHoverDetailsCallback = viralCustomHoverDetailsCallback;
+		slide.customEditDetailsCallback = viralCustomEditDetailsCallback;
 		
 		
 	
-		slide.customSlideEnterCallback = nodleGenericEnterCallback;
-		slide.customSlideExitCallback = nodleGenericExitCallback;
+		slide.customSlideEnterCallback = viralGenericEnterCallback;
+		slide.customSlideExitCallback = viralGenericExitCallback;
 		*/
 	}
 
 	
 }
 
-function nodleItemMetaUpdate(item) {
+function viralItemMetaUpdate(item) {
 	partner_detail_user_name.innerHTML = "ID " + item.FakeId;
 	partner_detail_mission_name.innerHTML = "Time=" + item.TIME;
 	partner_detail_event_time.innerHTML = "";
 	partner_detail_event_type.innerHTML = "" + item.FakeType; //"Asset " + item.ID;
 }
 
-function nodleApplyDataTypes() {
-	var state = nodleStateTry();
+function viralApplyDataTypes() {
+	var state = viralStateTry();
 	if (state) {
 		var typeNames = ["PHONE","BEACON","HEADPHONES"];
 		for (var di in state.DataBlocks) {
@@ -598,8 +598,8 @@ function nodleApplyDataTypes() {
 	}
 }
 
-function nodleClickedOnId(id) {
-	var state = nodleStateTry();
+function viralClickedOnId(id) {
+	var state = viralStateTry();
 	if (state) {
 		for (var di in state.DataBlocks) {
 			var dataBlock = state.DataBlocks[di];
@@ -607,8 +607,8 @@ function nodleClickedOnId(id) {
 				var data = dataBlock.ALL[ai];
 				if (data.ID == id) {
 					if (data.UnitTime) {
-						nodleUpdateTimeTo(data.UnitTime);
-						nodleCenterOnUser();
+						viralUpdateTimeTo(data.UnitTime);
+						viralCenterOnUser();
 						return;
 					}
 				}
@@ -617,21 +617,21 @@ function nodleClickedOnId(id) {
 	}
 }
 
-function nodleMetadataAllUpdateUI() {
+function viralMetadataAllUpdateUI() {
 	var newRows = "<tr><td>DEVICE</td><td>TYPE</td></tr>";
-	var state = nodleStateTry();
+	var state = viralStateTry();
 	if (state) {
-		nodleApplyDataTypes();
+		viralApplyDataTypes();
 		var found = {};
 		var typeNames = ["PHONE","BEACON","HEADPHONES"];
-		//nodleUpdateTimeTo();
+		//viralUpdateTimeTo();
 		for (var di in state.DataBlocks) {
 			var dataBlock = state.DataBlocks[di];
 			for (var ai in dataBlock.ALL) {
 				var data = dataBlock.ALL[ai];
 				var id = data.FakeId;
 				var tp = data.FakeType;
-				var clickCode = " onclick=\"nodleClickedOnId('" + data.ID + "')\" ";
+				var clickCode = " onclick=\"viralClickedOnId('" + data.ID + "')\" ";
 				if (!(data.ID in found)) {
 					newRows += "<tr " + clickCode + "><td><u>" + id + "</u></td><td>" + tp + "</td></tr>";
 					found[data.ID] = data;
@@ -645,21 +645,21 @@ function nodleMetadataAllUpdateUI() {
 	partnerSetupInfoPanel(0);
 }
 
-function nodleCustomMetaAllUpdate() {
-	nodleMetadataAllUpdateUI();
+function viralCustomMetaAllUpdate() {
+	viralMetadataAllUpdateUI();
 	return true;
 }
 
-function nodleMarkerTouched(hitInfo, metadataCallback) {
+function viralMarkerTouched(hitInfo, metadataCallback) {
 	//hitInfo = null;
 
-	var state = nodleState();
+	var state = viralState();
 	
 	var data = state.DataBlocks[0];
 	if (hitInfo.index < data.ALL.length) {
 		var item = data.ALL[hitInfo.index];
 		state.LatestHoverItem = item;
-		nodleItemMetaUpdate(item);
+		viralItemMetaUpdate(item);
 		//metadataCallback(item);
 	}
 
@@ -680,8 +680,8 @@ function nodleMarkerTouched(hitInfo, metadataCallback) {
 	
 }
 
-function nodleMarkerHitTesterBuilder() {
-	var state = nodleState();
+function viralMarkerHitTesterBuilder() {
+	var state = viralState();
 	var v0 = new THREE.Vector3();
 	var v1 = new THREE.Vector3();
 	var mapPlane = null;
@@ -710,7 +710,7 @@ function nodleMarkerHitTesterBuilder() {
 				if (true) {
 					var mapCenterW = new THREE.Vector3();
 					mapCenterW.set(0.5,0,0.5);
-					nodleState().ScrollRes.objThree.localToWorld(mapCenterW);
+					viralState().ScrollRes.objThree.localToWorld(mapCenterW);
 					state.CubeCenterWPos = mapCenterW;
 
 					/*
@@ -725,7 +725,7 @@ function nodleMarkerHitTesterBuilder() {
 
 			if (mapPlane == null) {
 				vw.set(0,0,0);
-				nodleState().MapPlane.localToWorld(vw);
+				viralState().MapPlane.localToWorld(vw);
 				mapPlane = new THREE.Plane(new THREE.Vector3(0,1,0),-vw.y);
 			}
 			
@@ -751,8 +751,8 @@ function nodleMarkerHitTesterBuilder() {
 					countHit += curHits;
 					for (var di=0; di<curHits; di++) {
 						var hit = toucher.intersects[toucher.intersects.length - di - 1];
-						hit.customTag = nodleState().ModelRootThree;
-						hit.object = nodleState().ModelRootThree;
+						hit.customTag = viralState().ModelRootThree;
+						hit.object = viralState().ModelRootThree;
 					}
 				}
 			}
@@ -766,14 +766,14 @@ function nodleMarkerHitTesterBuilder() {
 	return cb;
 }
 
-function nodleScrollByWorldDeltaBuilder() {
+function viralScrollByWorldDeltaBuilder() {
 
 	var v0 = new THREE.Vector3();
 	var v1 = new THREE.Vector3();
 	var delta = new THREE.Vector3();
 
 	var cb = function(oldWorldPos, newWorldPos) {
-		var state = nodleStateTry();
+		var state = viralStateTry();
 		if (!state) {
 			return;
 		}
@@ -795,14 +795,14 @@ function nodleScrollByWorldDeltaBuilder() {
 	return cb;
 }
 
-function nodleCursorDragCallbackBuilder() {
+function viralCursorDragCallbackBuilder() {
 
 	var v0 = new THREE.Vector3();
 	var v1 = new THREE.Vector3();
 	var delta = new THREE.Vector3();
 
 	var cb = function(deltaX, deltaY) {
-		var state = nodleStateTry();
+		var state = viralStateTry();
 		if (!state) {
 			return;
 		}
@@ -824,19 +824,19 @@ function nodleCursorDragCallbackBuilder() {
 	return cb;
 }
 
-function nodle_partnerSetupExtension_UnitScroller(res) {
+function viral_partnerSetupExtension_UnitScroller(res) {
 	var test = res;
 	test = null;
 
 	var v0 = new THREE.Vector3();
 	var v1 = new THREE.Vector3();
 
-	nodleState().ScrollRes = res;
+	viralState().ScrollRes = res;
 
 	var scrollCb = function(unitDelta) {
-		var obj = nodleState().ModelRootThree;
+		var obj = viralState().ModelRootThree;
 		var objPar = obj.parent;
-		var wcursor = nodleState().LatestCursorOnWPlane;
+		var wcursor = viralState().LatestCursorOnWPlane;
 
 		var localCursor = v0;
 		localCursor.copy(wcursor);
@@ -862,31 +862,31 @@ function nodle_partnerSetupExtension_UnitScroller(res) {
 	};
 	res.customScrollCallback = scrollCb;
 
-	res.objThree.add( nodleGenerateBgTexture() );
+	res.objThree.add( viralGenerateBgTexture() );
 }
-evxExtensions["nodle_scroll_user"] = nodle_partnerSetupExtension_UnitScroller;
+evxExtensions["viral_scroll_user"] = viral_partnerSetupExtension_UnitScroller;
 
-function nodle_partnerSetupExtension_UnitModel(res) {
+function viral_partnerSetupExtension_UnitModel(res) {
 	var test = res;
 	test = null;
 	var scene = new THREE.Group();
 	res.objThree.add(scene);
-	nodleState().ModelRootThree = scene;
+	viralState().ModelRootThree = scene;
 
 	var timeScene = new THREE.Group();
 	scene.add(timeScene);
-	nodleState().TimeRootThree = timeScene;
+	viralState().TimeRootThree = timeScene;
 
 	if (true) {
 
-		scene.customHitTestToucher = nodleMarkerHitTesterBuilder();
-		scene.customOnTouch = nodleMarkerTouched;
+		scene.customHitTestToucher = viralMarkerHitTesterBuilder();
+		scene.customOnTouch = viralMarkerTouched;
 		
-		scene.add( nodleGenerateMapTexture() );
+		scene.add( viralGenerateMapTexture() );
 
-		nodleSetupData(res);
+		viralSetupData(res);
 	}
 }
 
-evxExtensions["nodle_model_user"] = nodle_partnerSetupExtension_UnitModel;
+evxExtensions["viral_model_user"] = viral_partnerSetupExtension_UnitModel;
 

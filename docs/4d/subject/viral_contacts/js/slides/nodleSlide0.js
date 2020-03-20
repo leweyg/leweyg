@@ -1,4 +1,4 @@
-var nodleSlide0 = {
+var viralSlide0 = {
   "Name":"ElFor:PanelService",
   "OutputScope":{
     "Vector":[{
@@ -49,7 +49,7 @@ var nodleSlide0 = {
         "Weight":-1.22}]}]},
   "ContentRevision":4,
   "Elements":[{
-    "Name":"LayEl='Nodle.io'",
+    "Name":"LayEl='Viral.io'",
     "OutputScope":{
       "Vector":[{
         "Id":"x",
@@ -267,12 +267,12 @@ var nodleSlide0 = {
               "Id":"one",
               "Weight":0}]}]},
         "Options":{
-          "Strings":{"extension":"nodle_scroll_user"}},
+          "Strings":{"extension":"viral_scroll_user"}},
         "ContentRevision":2,
         "Elements":[{
           "Name":"ScrolledModel",
           "Options":{
-            "Strings":{"extension":"nodle_model_user"}},
+            "Strings":{"extension":"viral_model_user"}},
           "ContentRevision":2,
           "Elements":[{
             "ContentRevision":0,
