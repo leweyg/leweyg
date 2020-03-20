@@ -520,8 +520,8 @@ function viralPostIncludeCallback() {
 		slide.customInfoToggle = function() { return true; };
 
 		var infoPnl = {
-			title : "Viral Contacts",
-			desc : "Spatial model of user's motion and interactions.",
+			title : "Viral Contacts - Corona Donor",
+			desc : "Spatial model of user's motion and interactions. For <a href='https://coronadonor.org/'>CoronaDonor.org</a>",
 			commands : "&bull; Zoom in/out.<br/>&bull; Scroll time left/right",
 			source : "Based on synthetic self-monitoring app data.",
 			filter : "Filtered to current user.",
