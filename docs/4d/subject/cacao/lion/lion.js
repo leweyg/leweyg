@@ -1,7 +1,7 @@
 
 var partnerImageSrcBase = "lion/ref_images/";
-var partnerRemoteServerBase = "https://lion-frontend-uat.herokuapp.com/";
-var partnerRemoteBackend = "https://lion-uat.herokuapp.com/";
+var partnerRemoteServerBase = "xxx";
+var partnerRemoteBackend = "xxx";
 var partnerInfoLink = "<a href='" + partnerRemoteServerBase + "'>LION app</a> (<a href='https://leweyg.github.io/wive/storyboard/root_ads.html'>storyboard</a>) ";
 
 function partnerGeneralInfo() {
@@ -98,12 +98,12 @@ var partnerRandomData_UserName = [
 	
 	
 	var partnerEcosystemCycle = [
-		{"step":"need", forCreator:false, eventTypes:["CreatedMission","CreatedTask"]},
-		{"step":"safe", forCreator:true,  eventTypes:["CompletedMission"]},
-		{"step":"work", forCreator:false, eventTypes:["StartedMission","StartedTask","QuitTask"]},
-		{"step":"earn", forCreator:false, eventTypes:["CompletedTask"]},
-		{"step":"give", forCreator:false, eventTypes:["DonatedTask"]},
-		{"step":"grow", forCreator:false, eventTypes:["VouchForMission"]},
+		{"step":"request", forCreator:false, eventTypes:["Requested","Offered"]},
+		{"step":"safe", forCreator:true,  eventTypes:["Completed"]},
+		{"step":"start", forCreator:false, eventTypes:["Started","Began","QuitTask"]},
+		{"step":"complete", forCreator:false, eventTypes:["Completed"]},
+		{"step":"give", forCreator:false, eventTypes:["Supported"]},
+		{"step":"grow", forCreator:false, eventTypes:["Validated"]},
 	];
 	
 	
