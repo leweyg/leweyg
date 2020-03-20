@@ -520,10 +520,10 @@ function viralPostIncludeCallback() {
 		slide.customInfoToggle = function() { return true; };
 
 		var infoPnl = {
-			title : "Viral.io ",
-			desc : "Spatial model of user's motion and detected devices.",
+			title : "Viral Contacts",
+			desc : "Spatial model of user's motion and interactions.",
 			commands : "&bull; Zoom in/out.<br/>&bull; Scroll time left/right",
-			source : "Based on synthetic Viral.io data.",
+			source : "Based on synthetic self-monitoring app data.",
 			filter : "Filtered to current user.",
 			graph : "Graphing physical space over time."
 		};
