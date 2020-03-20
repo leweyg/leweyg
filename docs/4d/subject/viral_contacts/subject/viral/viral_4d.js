@@ -306,13 +306,13 @@ function viralCreateLines(data,scene) {
 			var path = undefined;
 			var basePath = 'subject/viral/images/icons/';
 			switch (ti) {
-				case "PHONE":
+				case "SPOKE":
 				path = basePath + "icon-phone.png";
 				break;
-				case "HEADPHONES":
+				case "WALKBY":
 				path = basePath + "icon-headphones.png";
 				break;
-				case "BEACON":
+				case "SAME STORE":
 				path = basePath + "icon-beacon.png";
 				break;
 			}
@@ -559,7 +559,7 @@ function viralItemMetaUpdate(item) {
 function viralApplyDataTypes() {
 	var state = viralStateTry();
 	if (state) {
-		var typeNames = ["PHONE","BEACON","HEADPHONES"];
+		var typeNames = ["SPOKE","SAME STORE","WALKBY"];
 		for (var di in state.DataBlocks) {
 			var data = state.DataBlocks[di];
 			var mall = data.ALL;
@@ -585,7 +585,7 @@ function viralApplyDataTypes() {
 				var tp = data.ID;
 				var id = data.ID;
 				if (tp == "user") {
-					tp = "USER";
+					tp = "PATIENT";
 					id = "Steven";
 				} else {
 					tp = typeNames[(7*id) % typeNames.length];
@@ -623,7 +623,7 @@ function viralMetadataAllUpdateUI() {
 	if (state) {
 		viralApplyDataTypes();
 		var found = {};
-		var typeNames = ["PHONE","BEACON","HEADPHONES"];
+		var typeNames = ["SPOKE","SAME STORE","WALKBY"];
 		//viralUpdateTimeTo();
 		for (var di in state.DataBlocks) {
 			var dataBlock = state.DataBlocks[di];

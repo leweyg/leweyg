@@ -76,7 +76,7 @@ function partnerResetEnsuredInfo() {
 
 var __partnerUniqueKeyIndex = 1023;
 function partnerEnsureInfo(uniqueId,isUser,metaData) {
-	var key = "" + uniqueId + (isUser ? "USER" : "MSN");
+	var key = "" + uniqueId + (isUser ? "PATIENT" : "MSN");
 	if (key in lionCachedInfo) {
 		return lionCachedInfo[key];
 	}
@@ -248,8 +248,8 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 
 	var toggleCode = " onclick='partnerToggleDataView()' ";
 
-	var leftTitle = (isPersonFirst ? "USER" : "USER ACTION");
-	var rghtTitle = (isMissionFocus?"MISSION":"USER");
+	var leftTitle = (isPersonFirst ? "PATIENT" : "USER ACTION");
+	var rghtTitle = (isMissionFocus?"MISSION":"PATIENT");
 
 	if ((metaArray.length > 0) && evxToolsNotNull(metaArray[0].Property)) {
 		leftTitle = "STATE";
@@ -258,7 +258,7 @@ function partnerSetupAllMetaData(metaArray,ns,shape) {
 
 	var titlePrefix = "";
 	if ((metaArray.length > 0) && evxToolsNotNull(metaArray[0].Zone)) {
-		leftTitle = "USER";
+		leftTitle = "PATIENT";
 		rghtTitle = "ZONE";
 		isZoneFocus = true;
 
