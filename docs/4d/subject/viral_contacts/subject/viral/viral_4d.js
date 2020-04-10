@@ -521,7 +521,7 @@ function viralPostIncludeCallback() {
 
 		var infoPnl = {
 			title : "Viral Contacts - Corona Donor",
-			desc : "Spatial model of user's motion and interactions. <br/>For <a href='https://mutualaid.world/'>MutualAid.world</a>'s <a href='https://coronadonor.org/'>CoronaDonor.org</a>. <br/>Design by <a href='http://lewcid.com/'>Lewcid Systems</a>.",
+			desc : "Spatial model of user's motion and interactions. <br/>For <a href='https://mutualaid.world/'>MutualAid.world</a>'s <a href='https://safetraceapi.org/'>SafeTrace API</a> and <a href='https://coronadonor.org/'>CoronaDonor.org</a>. <br/>Design by <a href='http://lewcid.com/'>Lewcid Systems</a>.",
 			commands : "&bull; Zoom in/out.<br/>&bull; Scroll time left/right",
 			source : "Based on synthetic self-monitoring app data.",
 			filter : "Filtered to current user.",
