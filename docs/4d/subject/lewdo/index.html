@@ -1,0 +1,90 @@
+<html>
+    <head><title>Lewdo</title></head>
+    <body>
+        <h1>Lewdo</h1>
+        <p>Initial graph</p>
+<code><pre id="test_output">
+    0   1
+        1
+</pre></code>
+    <p>Process from {{x, y}} -> {{z, y}, {y, x}}</p>
+    <script>
+        var x = "x";
+        var y = "y";
+        var z = "z";
+        var display = function(s) {
+            test_output.innerText = "" + s;
+        }
+        var relationToText = function(rels) {
+            var ans = "";
+            for (var relIndex in rels) {
+                ans += "[";
+                var r = rels[relIndex];
+                for (var rIndex in r) {
+                    var e = r[rIndex];
+                    ans += ((rIndex>0)?",":'') + e;
+                }
+                ans += "]";
+            }
+            return ans;
+        };
+
+        var allocIndexIn = function(ar,val) {
+            if (val in ar) {
+                return ar[val];
+            } else {
+                var index = Object.keys(ar).length;
+                ar[val] = index;
+                return index;
+            }
+        }
+
+        var drawRelation = function(rels) {
+            var indices = {};
+            var values = [];
+            for (var relI in rels) {
+                var rel = rels[relI];
+                for (var di in rel) {
+                    var d = rel[di];
+                    var x = allocIndexIn(indices, d);
+                    values[x] = d;
+                }
+            }
+            var n = values.length;
+            var ans = "";
+            for (var ni=0; ni<n; ni++) {
+                for (var xi=0; xi<n; xi++) {
+                    var bg = " ";
+                    if (xi == ni)
+                        bg = "*";
+                    var from = values[ni];
+                    var to = values[xi];
+                    
+                    for (var rii in rels) {
+                        var r = rels[rii];
+                        if ((from == r[0]) && (to == r[1]))
+                            bg = to;
+                    }
+
+                    ans += bg;
+                }
+                ans += "\n";
+            }
+            return ans;
+        }
+
+        var becomes = function(a,b) {
+            var ans = relationToText(a) + " -> " + relationToText(b);
+            ans += "\n";
+            ans += "or:\n";
+            ans += drawRelation(a);
+            ans += "---\n";
+            ans += drawRelation(b);
+            return ans;
+        };
+
+        var rule = becomes( [[x, y]] , [[z, y], [y, x]] );
+        display(rule);
+    </script>
+    </body>
+</html>
