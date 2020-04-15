@@ -7,7 +7,7 @@
     0   1
         1
 </pre></code>
-    <p>Process from {{x, y}} -> {{z, y}, {y, x}}</p>
+    <p>Process from [[x,y],[x,z]], [[x,z],[x,w],[y,w],[z,w]] as <a href="https://www.wolframphysics.org/visual-summary/">seen here</a> </p>
     <script>
 
         var display = function(s) {
@@ -80,7 +80,10 @@
             return ans;
         }
 
-        var becomes = function(a,b) {
+
+        var showBecomes = function(rule) {
+            var a = rule.from;
+            var b = rule.to;
             var ans = relationToText(a) + " -> " + relationToText(b);
             ans += "\n";
             ans += "or:\n";
@@ -92,13 +95,31 @@
             return ans;
         };
 
+
+
+        var becomes = function(a,b) {
+            return {from:a,to:b};
+        }
+        var applyRuleIntoStates = function(state,rule) {
+            return state; // TODO
+        }
+
         var x = "x";
         var y = "y";
         var z = "z";
         var w = "w";
-        var rule1 = becomes( [[x, y]] , [[z, y], [y, x]] );
-        var rule = becomes( [[x,y],[x,z]], [[x,z],[x,w],[y,w],[z,w]] );
-        display(rule);
+        var rule0 = becomes( [[x, y]] , [[z, y], [y, x]] );
+        var rule1 = becomes( [[x,y],[x,z]], [[x,z],[x,w],[y,w],[z,w]] );
+        var rule = becomes( [[x,y]], [[y,z],[z,x]] ); // https://www.wolframphysics.org/technical-introduction/basic-form-of-models/self-loops/
+
+        var final = showBecomes(rule);
+        final += "states:\n";
+        var state = [[x,x]];
+        for (var si=0; si<3; si++) {
+            final += drawRelation(state);
+            state = applyRuleIntoStates(state, rule);
+        }
+        display(final);
     </script>
     </body>
 </html>
