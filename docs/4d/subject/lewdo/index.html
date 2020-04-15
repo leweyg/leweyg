@@ -9,14 +9,12 @@
 </pre></code>
     <p>Process from {{x, y}} -> {{z, y}, {y, x}}</p>
     <script>
-        var x = "x";
-        var y = "y";
-        var z = "z";
+
         var display = function(s) {
             test_output.innerText = "" + s;
         }
         var relationToText = function(rels) {
-            var ans = "";
+            var ans = "{";
             for (var relIndex in rels) {
                 ans += "[";
                 var r = rels[relIndex];
@@ -26,6 +24,7 @@
                 }
                 ans += "]";
             }
+            ans += "}";
             return ans;
         };
 
@@ -39,9 +38,9 @@
             }
         }
 
-        var drawRelation = function(rels) {
-            var indices = {};
-            var values = [];
+        var buildGraphInfo = function(rels, info) {
+            var indices = info ? info.indices : {};
+            var values = info ? info.values : [];
             for (var relI in rels) {
                 var rel = rels[relI];
                 for (var di in rel) {
@@ -50,6 +49,14 @@
                     values[x] = d;
                 }
             }
+            return {indices:indices, values:values};
+        }
+
+        var drawRelation = function(rels, info) {
+            if (!info)
+                info = buildGraphInfo(rels);
+            var values = info.values;
+            var indices = info.indices;
             var n = values.length;
             var ans = "";
             for (var ni=0; ni<n; ni++) {
@@ -63,7 +70,7 @@
                     for (var rii in rels) {
                         var r = rels[rii];
                         if ((from == r[0]) && (to == r[1]))
-                            bg = to;
+                            bg = "+";
                     }
 
                     ans += bg;
@@ -77,13 +84,20 @@
             var ans = relationToText(a) + " -> " + relationToText(b);
             ans += "\n";
             ans += "or:\n";
-            ans += drawRelation(a);
+            var info = buildGraphInfo(a);
+            info = buildGraphInfo(b, info);
+            ans += drawRelation(a, info);
             ans += "---\n";
-            ans += drawRelation(b);
+            ans += drawRelation(b, info);
             return ans;
         };
 
-        var rule = becomes( [[x, y]] , [[z, y], [y, x]] );
+        var x = "x";
+        var y = "y";
+        var z = "z";
+        var w = "w";
+        var rule0 = becomes( [[x, y]] , [[z, y], [y, x]] );
+        var rule = becomes( [[x,y],[x,z]], [[x,w],[y,z],[z,w],[y,w]] );
         display(rule);
     </script>
     </body>
