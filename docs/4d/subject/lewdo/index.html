@@ -11,7 +11,7 @@
     <script>
 
         var display = function(s) {
-            test_output.innerText = "" + s;
+            test_output.innerText += "" + s + "\n";
         }
         var relationToText = function(rels) {
             var ans = "{";
@@ -63,7 +63,7 @@
                 for (var xi=0; xi<n; xi++) {
                     var bg = " ";
                     if (xi == ni)
-                        bg = "*";
+                        bg = ".";
                     var from = values[ni];
                     var to = values[xi];
                     
@@ -100,8 +100,11 @@
         var becomes = function(a,b) {
             return {from:a,to:b};
         }
+
         var applyRuleIntoStates = function(state,rule) {
-            return state; // TODO
+            var allstates = {};
+
+            return allstates;
         }
 
         var x = "x";
@@ -115,11 +118,21 @@
         var final = showBecomes(rule);
         final += "states:\n";
         var state = [[x,x]];
-        for (var si=0; si<3; si++) {
-            final += drawRelation(state);
+        var fullSequence = [
+            // rule: [[x,y]], [[y,z],[z,x]]
+            [[x,x]],
+            [[x,y],[y,x]],
+            [[x,y],[y,z],[z,w],[w,x]],
+        ];
+        for (var si=0; si<fullSequence.length; si++) {
+            final += drawRelation(fullSequence[si]) + "\n";
             state = applyRuleIntoStates(state, rule);
         }
         display(final);
+
+        var ruleN = becomes( [[0, 1], [0, 2], [0, 3]], [[1, 2], [3, 2], [3, 
+     4], [4, 3], [4, 4]], [[0, 0], [0, 0], [0, 0]] );
+        display(showBecomes(ruleN));
     </script>
     </body>
 </html>
