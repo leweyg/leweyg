@@ -64,8 +64,8 @@ concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
 var LEWCID_OPACITY_BUFFER = {
     "concepts":{
         "all":(8*16*12*2),
-        "X":{pack:1,mod:(8*12)},
-        "Y":{pack:(8*12),mod:(16*2)},
+        "x":{pack:1,mod:(8*12)},
+        "y":{pack:(8*12),mod:(16*2)},
         "opacity":{
             count:1,mod:1, min:0, max:1,
             value:(
@@ -108,4 +108,8 @@ function foreach_percept(idea,cb=null,into={}) {
         }
         if (cb) cb(into,index);
     }
+}
+
+function canvas_ideas_draw_percepts() {
+    
 }

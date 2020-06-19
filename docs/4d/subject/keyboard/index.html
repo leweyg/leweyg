@@ -5,6 +5,12 @@
         <pre><code><span id="main_content">Loading...</span></code></pre>
         <br/>
         <pre><code><span id="main_ending">--LG</span></code></pre>
+        <br/>
+        <canvas id="main_canvas" width=320 height=240>
+
+        </canvas>
+        </br>
+        <pre><code><span id="main_post">(Drawn)</span></code></pre>
         <script src="lewcid_keyboard.js"></script>
         <script>
             main_content.innerText = "Loaded!";
@@ -15,6 +21,14 @@
             main_content.innerText = result;
             main_ending.innerText = "Done.";
 
+        </script>
+        <script>
+            function idea_render(idea) {
+                var ctx = main_canvas.getContext("2d");
+                ctx.fillStyle = "#ccCCcc";
+                ctx.fillRect(0, 0, 320, 240);
+            }
+            idea_render(LEWCID_CONSOLE_BUFFER);
         </script>
 
     </body>
