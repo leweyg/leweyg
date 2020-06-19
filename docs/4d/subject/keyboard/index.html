@@ -1,0 +1,21 @@
+<html>
+    <head><title>Lewcid Keyboard</title></head>
+    <body>
+        <p3>Lewcid Keyboard</p3>
+        <pre><code><span id="main_content">Loading...</span></code></pre>
+        <br/>
+        <pre><code><span id="main_ending">--LG</span></code></pre>
+        <script src="lewcid_keyboard.js"></script>
+        <script>
+            main_content.innerText = "Loaded!";
+            var result = "";
+            foreach_percept(LEWCID_CONSOLE_BUFFER, (c) => {
+                result += "" + c.char;
+            });
+            main_content.innerText = result;
+            main_ending.innerText = "Done.";
+
+        </script>
+
+    </body>
+</html>

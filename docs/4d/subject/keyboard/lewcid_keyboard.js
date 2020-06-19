@@ -1,5 +1,3 @@
-import { fileURLToPath } from "url";
-
 
 var LEWCID_KEYBOARD = {
     "LOCATION":{
@@ -36,13 +34,14 @@ var LEWCID_FONT = {
 var LEWCID_CONSOLE_BUFFER = {
     "concepts":{
         "all":{count:(12*2)},
-        "char":{count:1,mod:1},
+        "char":{count:1},
         "x":{pack:1,mod:12},  // index%12
         "y":{pack:12,mod:2}, // (index/12)%2
     },
     "percepts":"Hello World.New Line."
 };
 
+/*
 LEWCID_FONT( char=LEWCID_CONSOLE_BUFFER ) == {
     "concepts":{
         "all":{count:786432},
@@ -55,9 +54,11 @@ LEWCID_FONT( char=LEWCID_CONSOLE_BUFFER ) == {
     },
 };
 
-concept_perceptions( LEWCID_KEYBOARD )
+perceptions( LEWCID_KEYBOARD )
 
 concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
+
+*/
 
 
 var LEWCID_OPACITY_BUFFER = {
@@ -68,7 +69,7 @@ var LEWCID_OPACITY_BUFFER = {
         "opacity":{
             count:1,mod:1, min:0, max:1,
             value:(
-                LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
+                0//LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
             ),
         },
     },
@@ -83,3 +84,28 @@ var LEWCID_OPACITY_BUFFER = {
 //  else
 //    return address
 
+function idea_concept_by_index(idea,concept,index) {
+    var address = index;
+    if (concept.pack)
+        address /= concept.pack;
+    if (concept.mod)
+        address %= concept.mod;
+    if (concept.count) {
+        return idea.percepts[ address ];
+    } else {
+        return address;
+    }
+}
+
+function foreach_percept(idea,cb=null,into={}) {
+    var index_max = idea.percepts.length;
+    var dims = idea.concepts;
+    for (var index=0; index<index_max; index++) {
+        for (var concept_id in dims) {
+            var concept = dims[concept_id];
+            var value = idea_concept_by_index(idea, concept, index );
+            into[concept_id] = value;
+        }
+        if (cb) cb(into,index);
+    }
+}
