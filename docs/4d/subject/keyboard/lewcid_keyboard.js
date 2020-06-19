@@ -2,17 +2,12 @@ import { fileURLToPath } from "url";
 
 
 var LEWCID_KEYBOARD = {
-
     "LOCATION":{
-        "char":{COUNT:1,MIN:0,MAX:256,PACKING:1},
-        "col":{COUNT:70,MIN:0,MAX:70,PACKING:1},
-        "line":{COUNT:5,MIN:0,MAX:5,PACKING:70},
-        "SHFT":{COUNT:2,MIN:0,MAX:2,PACKING:350},
-        "X":{"TRANSFORM":{"col" :0.02618}},
-        "Y":{"TRANSFORM":{"line":0.0714}},
-        "Z":{"TRANSFORM":{"char":0.00039,"SHFT":0.0001}},
+        "char":{count:1,mod:1},
+        "col":{pack:70,mod:1},
+        "line":{pack:5,mod:70},
+        "SHFT":{pack:140,mod:350},
     },
-    
     "CONTENT":"" +
 "       `  1  2  3  4  5  6  7  8  9  0  -  =   <              N  /  *  -    \n"+     
 "           q  w  e  r  t  y  u  i  o  p  [  ]  \              7  8  9  +    \n"+     
@@ -25,38 +20,59 @@ var LEWCID_KEYBOARD = {
 "       SHFT  Z  X  C  V  B  N  M  <  >  ?    SHFT      ↑      1  2  3       \n"+   
 "       c  o  a  ________________________  a  o  c   ←  ↓  →     0   .  _    \n"+
     " ",
-    
 };
 
 var LEWCID_FONT = {
     "concepts":{
         "all":{count:(8*16*256)},
         "opacity":{count:1,mod:1,  min:0,max:1},
-        "X":{pack:1,mod:8},
-        "Y":{pack:8,mod:16},
-        "Z":{pack:(8*16),mod:256},
-        "char":{equals:"Z"},
+        "x":{pack:1,mod:8},
+        "y":{pack:8,mod:16},
+        "char":{pack:(8*16),mod:256},
     },
     "percepts":"*(font_array_8x16x256)",
 };
 
 var LEWCID_CONSOLE_BUFFER = {
     "concepts":{
+        "all":{count:(12*2)},
         "char":{count:1,mod:1},
-        "X":{pack:1,mod:12},  // index%12
-        "Y":{pack:12,mod:2}, // (index/12)%2
+        "x":{pack:1,mod:12},  // index%12
+        "y":{pack:12,mod:2}, // (index/12)%2
     },
     "percepts":"Hello World.New Line."
 };
 
+LEWCID_FONT( char=LEWCID_CONSOLE_BUFFER ) == {
+    "concepts":{
+        "all":{count:786432},
+        "opacity":{count:1,mod:1,min:0,max:1},
+        "x":{pack:1,mod:96},
+        "y":{pack:1536,mod:512},
+    },
+    "percepts":{
+
+    },
+};
+
+concept_perceptions( LEWCID_KEYBOARD )
+
+concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
+
+
 var LEWCID_OPACITY_BUFFER = {
     "concepts":{
         "all":(8*16*12*2),
-        "opacity":{count:1,mod:1, min:0, max:1},
         "X":{pack:1,mod:(8*12)},
-        "Y":{pack:(8*12),mod:(16*2)}
+        "Y":{pack:(8*12),mod:(16*2)},
+        "opacity":{
+            count:1,mod:1, min:0, max:1,
+            value:(
+                LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
+            ),
+        },
     },
-    "percepts":[],
+    "process":{},
 };
 
 // dimension attributes:
