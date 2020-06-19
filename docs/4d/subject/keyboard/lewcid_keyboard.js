@@ -24,7 +24,7 @@ var LEWCID_FONT = {
     "concepts":{
         "all":{count:(8*16*256)},
         "opacity":{count:1,mod:1,  min:0,max:1},
-        "x":{pack:1,mod:8},
+        "x":{mod:8},
         "y":{pack:8,mod:16},
         "char":{pack:(8*16),mod:256},
     },
@@ -35,8 +35,8 @@ var LEWCID_CONSOLE_BUFFER = {
     "concepts":{
         "all":{count:(12*2)},
         "char":{count:1},
-        "x":{pack:1,mod:12},  // index%12
-        "y":{pack:12,mod:2}, // (index/12)%2
+        "x":{mod:12},  // index%12
+        "y":{pack:12}, // (index/12)
     },
     "percepts":"Hello World.New Line."
 };
@@ -64,7 +64,7 @@ concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
 var LEWCID_OPACITY_BUFFER = {
     "concepts":{
         "all":(8*16*12*2),
-        "x":{pack:1,mod:(8*12)},
+        "x":{mod:(8*12)},
         "y":{pack:(8*12),mod:(16*2)},
         "opacity":{
             count:1,mod:1, min:0, max:1,
@@ -86,8 +86,10 @@ var LEWCID_OPACITY_BUFFER = {
 
 function idea_concept_by_index(idea,concept,index) {
     var address = index;
-    if (concept.pack)
-        address /= concept.pack;
+    if (concept.pack) {
+        var offset = address % concept.pack;
+        address = ((address - offset) / concept.pack);
+    }
     if (concept.mod)
         address %= concept.mod;
     if (concept.count) {
@@ -111,5 +113,5 @@ function foreach_percept(idea,cb=null,into={}) {
 }
 
 function canvas_ideas_draw_percepts() {
-    
+
 }

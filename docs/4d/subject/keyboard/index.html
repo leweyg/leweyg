@@ -26,7 +26,17 @@
             function idea_render(idea) {
                 var ctx = main_canvas.getContext("2d");
                 ctx.fillStyle = "#ccCCcc";
+                ctx.font = "30px Arial";
+                ctx.textBaseline = "top";
                 ctx.fillRect(0, 0, 320, 240);
+                ctx.fillStyle = "#eeEEee";
+                ctx.fillText("Background", 10, 50);
+
+                foreach_percept(LEWCID_CONSOLE_BUFFER, (c) => {
+                    ctx.fillText(c.char, c.x*30, c.y*30);
+                });
+
+                ctx.fillText("Background", 10, 50);
             }
             idea_render(LEWCID_CONSOLE_BUFFER);
         </script>
