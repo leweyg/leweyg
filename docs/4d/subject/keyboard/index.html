@@ -35,14 +35,14 @@
                 ctx.textBaseline = "top";
                 ctx.fillRect(0, 0, 320, 240);
                 ctx.fillStyle = "#112233";
-                ctx.fillText("Background", 10, 50);
+                //ctx.fillText("Background", 10, 50);
 
                 foreach_percept(idea, (c) => {
                     //if (c.SHFT == 0)
                         ctx.fillText(c.char, c.col*6, (c.line + c.SHFT*5)*18);
                 });
 
-                ctx.fillText("Background", 10, 50);
+                //ctx.fillText("Background", 10, 50);
             }
             var startIndex = 0;
 
