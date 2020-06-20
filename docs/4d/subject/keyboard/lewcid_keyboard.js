@@ -1,24 +1,34 @@
 
 var LEWCID_KEYBOARD = {
-    "LOCATION":{
-        "char":{count:1,mod:1},
-        "col":{pack:70,mod:1},
-        "line":{pack:5,mod:70},
-        "SHFT":{pack:140,mod:350},
+    "concepts":{
+        "char":{count:1},
+        "col":{mod:43},
+        "line":{pack:43,mod:5},
+        "SHFT":{pack:(43*5)},
     },
-    "CONTENT":"" +
-"       `  1  2  3  4  5  6  7  8  9  0  -  =   <              N  /  *  -    \n"+     
-"           q  w  e  r  t  y  u  i  o  p  [  ]  \              7  8  9  +    \n"+     
-"       CAP  a  s  d  f  g  h  j  k  l  ;  '  #  ┘             4  5  6  _    \n"+    
-"       SHFT  z  x  c  v  b  n  m  ,  .  /    SHFT      ↑      1  2  3       \n"+    
-"       c  o  a  ________________________  a  o  c   ←  ↓  →     0   .  _    \n"+
-"       ~  !  @  #  $  %  ^  &  *  (  )  _  +   >    I  H  U                 \n"+
-"           Q  W  E  R  T  Y  U  I  O  P  {  }  |    D  E  D   7  8  9  +    \n"+    
-"       CAP  A  S  D  F  G  H  J  K  L  :  \"  #  ┘             4  5  6  _    \n"+     
-"       SHFT  Z  X  C  V  B  N  M  <  >  ?    SHFT      ↑      1  2  3       \n"+   
-"       c  o  a  ________________________  a  o  c   ←  ↓  →     0   .  _    \n"+
-    " ",
+    "percepts":"" +
+"`  1  2  3  4  5  6  7  8  9  0  -  =  DEL\n"+     
+"TAB q  w  e  r  t  y  u  i  o  p  [  ]  \\ \n"+     
+"CAP  a  s  d  f  g  h  j  k  l  ;  '  # R \n"+    
+"SFT   z  x  c  v  b  n  m  ,  .  /  ↑ SFT \n"+    
+"c  o  a  ____________________ c o ← ↓ →   \n"+
+"~  !  @  #  $  %  ^  &  *  (  )  _  +  del\n"+
+"tab Q  W  E  R  T  Y  U  I  O  P  {  }  | \n"+    
+"cap  A  S  D  F  G  H  J  K  L  :  \"  # ┘ \n"+     
+"sft   Z  X  C  V  B  N  M  <  >  ?  ↑ sft \n"+   
+"c  o  a  ____________________ c o ← ↓ →   \n"+
+"",
 };
+
+function keyboard_check(idea) {
+    var data = idea.percepts;
+    var start = 0;
+    for (var nextIndex = data.indexOf("\n",start); nextIndex >= 0; nextIndex = data.indexOf("\n",nextIndex+1)) {
+        console.log(nextIndex + " : " + ((1+nextIndex) / 50));
+    }
+    return;
+}
+keyboard_check(LEWCID_KEYBOARD);
 
 var LEWCID_FONT = {
     "concepts":{
@@ -110,6 +120,11 @@ function foreach_percept(idea,cb=null,into={}) {
         }
         if (cb) cb(into,index);
     }
+}
+
+function idea_subset(idea,subset,into={}) {
+    into.concepts = idea.concepts;
+
 }
 
 function canvas_ideas_draw_percepts() {
