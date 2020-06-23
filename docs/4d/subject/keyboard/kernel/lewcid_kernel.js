@@ -138,14 +138,8 @@ var lewcidCompiler = {
         }
         return result;
     },
-};
-
-function lewcidKernel_EnsureCompiled_Kernel() {
-    var kernel = lewcidKernel;
-    if (kernel.MicroAssembly)
-        return kernel;
-    kernel.MicroAssembly = [];
-    function stackcode_by_name(name) {
+    stackcode_by_name : function (name) {
+        var kernel = lewcidKernel;
         for (var i in kernel.StackCodes) {
             var code = kernel.StackCodes[i];
             code.index = i; // TODO: pre-store this
@@ -154,6 +148,14 @@ function lewcidKernel_EnsureCompiled_Kernel() {
         }
         throw "unknown stack code '" + name + "'";
     }
+};
+
+function lewcidKernel_EnsureCompiled_Kernel() {
+    var kernel = lewcidKernel;
+    if (kernel.MicroAssembly)
+        return kernel;
+    kernel.MicroAssembly = [];
+    var stackcode_by_name = lewcidCompiler.stackcode_by_name;
     var indexIn = lewcidCompiler.indexIn;
     var tokenize = lewcidCompiler.tokenize;
     for (var lineIndex in kernel.MicroSource) {
@@ -197,13 +199,49 @@ function lewcidKernel_EnsureCompiled_Kernel() {
 
 function lewcidKernel_Compile_StackSource(source) {
     var kernel = lewcidKernel;
-
+    var indexIn = lewcidCompiler.indexIn;
+    var tokenize = lewcidCompiler.tokenize;
+    var stackcode_by_name = lewcidCompiler.stackcode_by_name;
+    var result = {
+        assembly:[],
+        source:(source),
+        register_count:0,
+        vars:["v0"],
+    };
+    var hasAllocatedVars = false;
+    for (var lineIndex in source) {
+        var line = source[lineIndex];
+        var parts = tokenize(line);
+        if (parts[0] == "var") {
+            result.vars.push( parts[1] );
+            continue;
+        }
+        if (!hasAllocatedVars) {
+            hasAllocatedVars = true;
+            var numVars = result.vars.length;
+            result.register_count = numVars;
+        }
+        var stack_op = stackcode_by_name( parts[0] );
+        result.assembly.push( stack_op.index );
+        if (parts.length >= 1) {
+            var val = parts[1];
+            if (isNaN(val)) {
+                var regIndex = indexIn( val, result.vars );
+                val = regIndex;
+            } else {
+                val = 1 * val;
+            }
+            result.assembly.push( val );
+        }
+    }
+    return result;
 }
 
 function lewcidKernel_EnsureCompiled() {
     var kernel = lewcidKernel_EnsureCompiled_Kernel();
-    lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
+    var method = lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
     console.log(JSON.stringify(kernel));
+    console.log(JSON.stringify(method));
 }
 
 lewcidKernel_EnsureCompiled();
