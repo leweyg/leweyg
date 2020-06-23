@@ -130,14 +130,13 @@ function idea_index_by_value(idea,values) {
 
 function idea_max_indices(idea) {
     var dims = idea.axes;
-    var count = 1;
     for (var concept_id in dims) {
         var concept = dims[concept_id];
         if (concept.array) {
             return concept.array.length;
         }
     }
-    return count;
+    throw "TODO";
 }
 
 function foreach_percept(idea,cb=null,into={}) {
