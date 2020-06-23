@@ -30,20 +30,22 @@ function keyboard_check(idea) {
 }
 keyboard_check(LEWCID_KEYBOARD);
 
-var LEWCID_FONT = {
+var LEWCID_FONT = LEWCID_FONT_BASIC;
+/*
     "concepts":{
-        "all":{count:(8*16*256)},
-        "opacity":{count:1,mod:1,  min:0,max:1},
+        "opacity":{count:1,min:0,max:1},
         "x":{mod:8},
         "y":{pack:8,mod:16},
-        "char":{pack:(8*16),mod:256},
+        "char":{pack:(8*16)},
     },
-    "percepts":"*(font_array_8x16x256)",
+*/
+
+var LEWCID_KEYBOARD_IMAGE = {
+
 };
 
 var LEWCID_CONSOLE_BUFFER = {
     "concepts":{
-        "all":{count:(12*2)},
         "char":{count:1},
         "x":{mod:12},  // index%12
         "y":{pack:12}, // (index/12)
