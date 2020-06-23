@@ -43,24 +43,27 @@
                         ctx.fillText(c.char, c.col*6, (c.line + c.SHFT*5)*18);
                 });
 
-                var pixelData = {};
-                foreach_percept(idea, (c) => {
-                    c.char = c.char.charCodeAt(0);
-                    foreach_percept(LEWCID_FONT_BASIC, (p) => {
-                        if (c.SHFT != 0) return;
-                        if (p.char == c.char) {
-                            if (p.opacity != 0) {
-                                ctx.fillRect( p.x + (c.col*8), p.y + (c.line*16), 1, 1);
+                var drawPixelData = false;
+                if (drawPixelData) {
+                    var pixelData = {};
+                    foreach_percept(idea, (c) => {
+                        c.char = c.char.charCodeAt(0);
+                        foreach_percept(LEWCID_FONT_BASIC, (p) => {
+                            if (c.SHFT != 0) return;
+                            if (p.char == c.char) {
+                                if (p.opacity != 0) {
+                                    ctx.fillRect( p.x + (c.col*8), p.y + (c.line*16), 1, 1);
+                                }
                             }
-                        }
-                    }, pixelData);
-                });
+                        }, pixelData);
+                    });
+                }
 
                 //ctx.fillText("Background", 10, 50);
             }
             var startIndex = 0;
 
-            console.log(LEWCID_KEYBOARD.percepts.indexOf("\n",));
+            //console.log(LEWCID_KEYBOARD.percepts.indexOf("\n",));
             idea_render(LEWCID_KEYBOARD);
         </script>
 

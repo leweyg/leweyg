@@ -1,12 +1,10 @@
 
 var LEWCID_KEYBOARD = {
-    "concepts":{
-        "char":{count:1},
-        "col":{mod:42},
-        "line":{pack:42,mod:5},
-        "SHFT":{pack:(42*5)},
-    },
-    "percepts":"" +
+    "axes":{
+        "col":{mod:42,count:42},
+        "line":{pack:42,mod:5,count:5},
+        "SHFT":{pack:(42*5),count:2},
+        "char":{array:"" +
 "`  1  2  3  4  5  6  7  8  9  0  -  = DEL\n"+     
 "TAB q  w  e  r  t  y  u  i  o  p  [  ]  \\\n"+     
 "CAP  a  s  d  f  g  h  j  k  l  ;  '  # R\n"+    
@@ -17,11 +15,11 @@ var LEWCID_KEYBOARD = {
 "cap  A  S  D  F  G  H  J  K  L  :  \"  # ┘\n"+     
 "sft   Z  X  C  V  B  N  M  <  >  ?  ↑ sft\n"+   
 "c  o  a  ____________________ c o ← ↓ →  \n"+
-"",
+""}},
 };
 
 function keyboard_check(idea) {
-    var data = idea.percepts;
+    var data = idea.axes.char.array;
     var start = 0;
     for (var nextIndex = data.indexOf("\n",start); nextIndex >= 0; nextIndex = data.indexOf("\n",nextIndex+1)) {
         console.log(nextIndex + " : " + ((1+nextIndex) / 50));
@@ -45,12 +43,11 @@ var LEWCID_KEYBOARD_IMAGE = {
 };
 
 var LEWCID_CONSOLE_BUFFER = {
-    "concepts":{
-        "char":{count:1},
+    "axes":{
         "x":{mod:12},  // index%12
         "y":{pack:12}, // (index/12)
+        "char":{array:"Hello World.New Line."}
     },
-    "percepts":"Hello World.New Line."
 };
 
 /*
@@ -75,17 +72,17 @@ concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
 
 var LEWCID_OPACITY_BUFFER = {
     "concepts":{
-        "all":(8*16*12*2),
         "x":{mod:(8*12)},
         "y":{pack:(8*12),mod:(16*2)},
         "opacity":{
-            count:1,mod:1, min:0, max:1,
+            count:(8*16*12*2),
+            mod:1, 
+            min:0, max:1,
             value:(
-                0//LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
+                0 //LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
             ),
         },
     },
-    "process":{},
 };
 
 // dimension attributes:
@@ -96,7 +93,7 @@ var LEWCID_OPACITY_BUFFER = {
 //  else
 //    return address
 
-function idea_concept_by_index(idea,concept,index) {
+function concept_value_by_index(concept,index) {
     var address = index;
     if (concept.pack) {
         var offset = address % concept.pack;
@@ -104,23 +101,61 @@ function idea_concept_by_index(idea,concept,index) {
     }
     if (concept.mod)
         address %= concept.mod;
-    if (concept.count) {
-        return idea.percepts[ address ];
+    if (concept.array) {
+        return concept.array[ address ];
     } else {
         return address;
     }
 }
 
+function idea_index_by_value(idea,values) {
+    var index = 0;
+    for (var vi in values) {
+        var concept = idea.axes[vi];
+        if (concept) {
+            if (concept.array) {
+                //throw "This is tricky.";
+            } else {
+                var val = values[vi];
+                if (concept.mod)
+                    val = val % concept.mod;
+                if (concept.pack)
+                    val = val * concept.pack;
+                index += val;
+            }
+        }
+    }
+    return index;
+}
+
+function idea_max_indices(idea) {
+    var dims = idea.axes;
+    var count = 1;
+    for (var concept_id in dims) {
+        var concept = dims[concept_id];
+        if (concept.array) {
+            return concept.array.length;
+        }
+    }
+    return count;
+}
+
 function foreach_percept(idea,cb=null,into={}) {
-    var index_max = idea.percepts.length;
-    var dims = idea.concepts;
+    var dims = idea.axes;
+    var index_max = idea_max_indices(idea);
     for (var index=0; index<index_max; index++) {
         for (var concept_id in dims) {
             var concept = dims[concept_id];
-            var value = idea_concept_by_index(idea, concept, index );
+            var value = concept_value_by_index(concept, index );
             into[concept_id] = value;
         }
         if (cb) cb(into,index);
+
+        // if testing:
+        var testIndex = idea_index_by_value(idea, into);
+        if (testIndex != index) {
+            console.log("[" + index + "]");
+        }
     }
 }
 

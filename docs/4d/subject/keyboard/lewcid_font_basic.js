@@ -1,11 +1,10 @@
 var LEWCID_FONT_BASIC = {
-    "concepts":{
-        "opacity":{count:1,min:0,max:1},
+    "axes":{
+        //"opacity":{count:1,min:0,max:1},
         "x":{mod:8},
         "y":{pack:8,mod:16},
         "char":{pack:(8*16)},
-    },
-    "percepts":[
+        "opacity":{array:[
 
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
@@ -4359,5 +4358,5 @@ var LEWCID_FONT_BASIC = {
 0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,
 
-    ]
+    ] } }
 };
