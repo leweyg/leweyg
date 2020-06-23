@@ -1,5 +1,11 @@
 
 var LEWCID_KEYBOARD = {
+    packing:{
+        length:(42*5*2),
+        width:1,
+        order:["char","col","line","SHFT"],
+        index_mult:[0,1,42,(5*42)],
+    },
     "axes":{
         "col":{mod:42,count:42},
         "line":{pack:42,mod:5,count:5},
@@ -28,59 +34,29 @@ function keyboard_check(idea) {
 }
 keyboard_check(LEWCID_KEYBOARD);
 
-var LEWCID_FONT = LEWCID_FONT_BASIC;
+var LEWCID_FONT = LEWCID_FONT_BASIC; // !!! EXTERNAL !!!!
 /*
-    "concepts":{
-        "opacity":{count:1,min:0,max:1},
+    "axes":{
         "x":{mod:8},
         "y":{pack:8,mod:16},
         "char":{pack:(8*16)},
-    },
+        "opacity":{array:[
 */
-
-var LEWCID_KEYBOARD_IMAGE = {
-
-};
 
 var LEWCID_CONSOLE_BUFFER = {
     "axes":{
-        "x":{mod:12},  // index%12
-        "y":{pack:12}, // (index/12)
+        "row":{mod:12},  // index%12
+        "col":{pack:12}, // (index/12)
         "char":{array:"Hello World.New Line."}
     },
 };
 
-/*
-LEWCID_FONT( char=LEWCID_CONSOLE_BUFFER ) == {
-    "concepts":{
-        "all":{count:786432},
-        "opacity":{count:1,mod:1,min:0,max:1},
-        "x":{pack:1,mod:96},
-        "y":{pack:1536,mod:512},
-    },
-    "percepts":{
-
-    },
-};
-
-perceptions( LEWCID_KEYBOARD )
-
-concept_reduce( LEWCID_KEYBOARD, LEWCID_FONT );
-
-*/
-
 
 var LEWCID_OPACITY_BUFFER = {
-    "concepts":{
-        "x":{mod:(8*12)},
-        "y":{pack:(8*12),mod:(16*2)},
+    "axes":{
+        "x":{mod:(8*12),count:(8*12)},
+        "y":{pack:(8*12),count:(16*2)},
         "opacity":{
-            count:(8*16*12*2),
-            mod:1, 
-            min:0, max:1,
-            value:(
-                0 //LEWCID_FONT(char=LEWCID_CONSOLE_BUFFER(X/8,Y/16).char)
-            ),
         },
     },
 };
@@ -108,7 +84,15 @@ function concept_value_by_index(concept,index) {
     }
 }
 
-function idea_index_by_value(idea,values) {
+function idea_packing_ensure(idea) {
+
+    if (idea.packing) return idea.packing;
+
+    idea.packing = {};
+
+}
+
+function idea_index_by_values(idea,values) {
     var index = 0;
     for (var vi in values) {
         var concept = idea.axes[vi];
@@ -130,13 +114,20 @@ function idea_index_by_value(idea,values) {
 
 function idea_max_indices(idea) {
     var dims = idea.axes;
+    var maxcount = 0;
+    var prodcount = 1;
     for (var concept_id in dims) {
         var concept = dims[concept_id];
         if (concept.array) {
             return concept.array.length;
         }
+        else if (concept.count) {
+            var c = concept.count;
+            if (c > maxcount) maxcount = c;
+            prodcount *= c;
+        }
     }
-    throw "TODO";
+    return prodcount;
 }
 
 function foreach_percept(idea,cb=null,into={}) {
@@ -149,12 +140,6 @@ function foreach_percept(idea,cb=null,into={}) {
             into[concept_id] = value;
         }
         if (cb) cb(into,index);
-
-        // if testing:
-        var testIndex = idea_index_by_value(idea, into);
-        if (testIndex != index) {
-            console.log("[" + index + "]");
-        }
     }
 }
 
@@ -162,6 +147,26 @@ function idea_subset(idea,subset,into={}) {
     into.concepts = idea.concepts;
 
 }
+
+function configure_opacity() {
+    var size = idea_max_indices( LEWCID_OPACITY_BUFFER );
+    LEWCID_OPACITY_BUFFER.axes.opacity.array = new Array( size );
+
+    var data = LEWCID_CONSOLE_BUFFER;
+    var font = LEWCID_FONT_BASIC;
+
+    var data_values = {};
+    var font_values = {};
+
+    foreach_percept(LEWCID_OPACITY_BUFFER, (pixel) => {
+        data_values.x = pixel.x / 8;
+
+    });
+}
+configure_opacity();
+
+
+
 
 function canvas_ideas_draw_percepts() {
 
