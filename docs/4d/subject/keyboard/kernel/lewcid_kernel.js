@@ -7,6 +7,10 @@ var lewcidKernel = {
         "offset_instruction_ptr",
         "offset_stack_ptr",
         "offset_heap_ptr",
+        "__t0",
+        "__t1",
+        "__t2",
+        "__t3",
     ],
     StackCodes : [
         {id:"nop"},
@@ -33,6 +37,8 @@ var lewcidKernel = {
     },
     MicroRegisters : [
         "r_zero",
+        "r_micro_thread_ptr",
+        "r_micro_ins_ptr",
         "r_thread",
         "r_ins_ptr",
         "r_stack_ptr",
@@ -45,7 +51,7 @@ var lewcidKernel = {
         "nop", // no operation { }
         "kernel_flush",
         "label", // label
-        "thread_ptr_read", // dst = thread_ptr
+        "thread_ptr_read", // dst = r_thread_ptr
         "read", // dst = [ src + offset ]
         "write", // [ src + offset ] = dst
         "add", // dst = [ src + # ]
@@ -117,6 +123,85 @@ var lewcidKernel = {
         // return
     ],
     MicroAssembly : null,
+};
+
+var lewcidMemory = {
+    DefaultMemory : {
+        MainMemory : [],
+        KernelAssemblyPtr : 0,
+
+        Write : function(index,value) {
+            this.MainMemory[index] = value;
+        },
+
+
+        ProcMicroRegByName : function(proc, regName) {
+            var index = lewcidCompiler.indexIn( regName, lewcidKernel.MicroRegisters );
+            return proc + index;
+        },
+        ProcWriteMicroRegByName : function(proc, regName, value) {
+            this.Write( ProcMicroRegByName(proc, regName), value);
+        },
+        ThreadRegByName : function(thread_ptr, regName) {
+            var index = lewcidCompiler.indexIn( regName, lewcidKernel.ThreadStruct );
+            return thread_ptr + index;
+        },
+
+        AllocSize : function(sz) {
+            var start = this.MainMemory.length;
+            for (var i=0; i<sz; i++)
+                this.MainMemory.push(0);
+            return start;
+        },
+        AllocBuffer : function(buffer) {
+            var start = this.MainMemory.length;
+            for (var i=0; i<buffer.length; i++)
+                this.MainMemory.push( buffer[i] );
+            return start;
+        },
+
+        MethodAlloc : function(assembly) {
+            return this.AllocBuffer(assembly);
+        },
+
+        ThreadAlloc : function(startMethod) {
+            var size = lewcidKernel.ThreadStruct.length;
+            var thread_ptr = this.AllocSize( size );
+            var stack_ptr = this.AllocSize( 12 );
+
+            this.Write( this.ThreadRegByName(thread_ptr, "offset_instruction_ptr"), startMethod );
+            this.Write( this.ThreadRegByName(thread_ptr, "offset_register_ptr"), this.ThreadRegByName(thread_ptr, "__t0") );
+            this.Write( this.ThreadRegByName(thread_ptr, "offset_stack_ptr"), stack_ptr );
+
+            return thread_ptr;
+        },
+
+        ProcAlloc : function(thread_ptr=0) {
+            var kernel = lewcidKernel;
+            var size = kernel.MicroRegisters.length;
+            var proc_ptr = this.AllocSize(size);
+
+            ProcWriteMicroRegByName( proc_ptr, "r_micro_ins_ptr", this.KernelAssemblyPtr );
+
+            this.ProcSetThread(proc_ptr, thread_ptr);
+
+            return proc_ptr;
+        },
+
+        ProcSetThread : function(proc_ptr, thread_ptr) {
+            ProcWriteMicroRegByName( proc_ptr, "r_micro_thread_ptr", thread_ptr );
+        },
+
+    },
+    AllocateMemory : function() {
+        var kernel = lewcidKernel;
+        var proc = new this.DefaultMemory;
+
+        var pre_ptr = proc.AllocSize( 4 );
+        proc.KernelAssemblyPtr = proc.AllocBuffer( kernel.MicroAssembly );
+        
+        return proc;
+    },
 };
 
 var lewcidCompiler = {
