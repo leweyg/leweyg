@@ -16,7 +16,21 @@ var lewcidKernel = {
         {id:"push_i"}, // #
         {id:"push"}, // src
         {id:"pop"}, // dst
+        {id:"peek"}, // dst
+        {id:"var"}, // id, initial
     ],
+    Test:{
+        StackSource : [
+            "var row",
+            "var col",
+            "push_i 0",
+            "push_i 1",
+            "pop row",
+            "peek col",
+            "push row",
+            "push col",
+        ],
+    },
     MicroRegisters : [
         "r_zero",
         "r_thread",
@@ -24,9 +38,6 @@ var lewcidKernel = {
         "r_stack_ptr",
         "r_reg_ptr",
         "r_op_code",
-        "r_op_dst",
-        "r_op_src",
-        "r_op_const",
         "r_temp_0",
         "r_temp_regid"
     ],
@@ -69,7 +80,7 @@ var lewcidKernel = {
         "@ push_i",
         "read r_temp_0, r_ins_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
-        "write r_temp_0, r_stack_ptr, 0",
+        "write r_temp_0, r_stack_ptr, 0", // write
         "add r_stack_ptr, r_stack_ptr, 1",
         "jump @kernel_return",
 
@@ -78,9 +89,29 @@ var lewcidKernel = {
         "read r_temp_regid, r_ins_ptr, 0",
         "adde r_temp_regid, r_reg_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
-        "read r_temp_0, r_temp_regid",
-        "write r_temp_0, r_stack_ptr",
+        "read r_temp_0, r_stack_ptr, 0", // read
+        "write r_temp_0, r_temp_regid", // write
+        "add r_stack_ptr, r_stack_ptr, -1",
+        "jump @kernel_return",
+
+        // push register
+        "@ push",
+        "read r_temp_regid, r_ins_ptr, 0",
+        "adde r_temp_regid, r_reg_ptr, 0",
+        "add r_ins_ptr, r_ins_ptr, 1",
+        "read r_temp_0, r_temp_regid", // read
+        "write r_temp_0, r_stack_ptr, 0", // write
         "add r_stack_ptr, r_stack_ptr, 1",
+        "jump @kernel_return",
+
+        // peek register
+        "@ peek",
+        "read r_temp_regid, r_ins_ptr, 0",
+        "adde r_temp_regid, r_reg_ptr, 0",
+        "add r_ins_ptr, r_ins_ptr, 1",
+        "read r_temp_0, r_stack_ptr, 0", // read
+        "write r_temp_0, r_temp_regid", // write
+        //"add r_stack_ptr, r_stack_ptr, 1", // dont move stack
         "jump @kernel_return",
 
         // return
@@ -88,7 +119,28 @@ var lewcidKernel = {
     MicroAssembly : null,
 };
 
-function lewcidKernel_EnsureCompiled() {
+var lewcidCompiler = {
+    indexIn : function (name,array) {
+        for (var i in array) {
+            var k = array[i];
+            if (k == name)
+                return i;
+        }
+        throw "Unknown item '" + name + "'";
+    },
+    tokenize : function (str) {
+        var parts = str.split(" ");
+        var result = [];
+        for (var pi in parts) {
+            var p = parts[pi].replace(",","").trim();
+            if (p != "")
+                result.push(p);
+        }
+        return result;
+    },
+};
+
+function lewcidKernel_EnsureCompiled_Kernel() {
     var kernel = lewcidKernel;
     if (kernel.MicroAssembly)
         return kernel;
@@ -102,24 +154,8 @@ function lewcidKernel_EnsureCompiled() {
         }
         throw "unknown stack code '" + name + "'";
     }
-    function indexIn(name,array) {
-        for (var i in array) {
-            var k = array[i];
-            if (k == name)
-                return i;
-        }
-        throw "Unknown item '" + name + "'";
-    }
-    function tokenize(str) {
-        var parts = line.split(" ");
-        var result = [];
-        for (var pi in parts) {
-            var p = parts[pi].replace(",","").trim();
-            if (p != "")
-                result.push(p);
-        }
-        return result;
-    }
+    var indexIn = lewcidCompiler.indexIn;
+    var tokenize = lewcidCompiler.tokenize;
     for (var lineIndex in kernel.MicroSource) {
         var line = kernel.MicroSource[lineIndex];
         var parts = tokenize(line);
@@ -156,10 +192,22 @@ function lewcidKernel_EnsureCompiled() {
         kernel.MicroAssembly.push( 1*r_op_src );
         kernel.MicroAssembly.push( 1*r_op_const );
     }
+    return kernel;
+}
+
+function lewcidKernel_Compile_StackSource(source) {
+    var kernel = lewcidKernel;
+
+}
+
+function lewcidKernel_EnsureCompiled() {
+    var kernel = lewcidKernel_EnsureCompiled_Kernel();
+    lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
     console.log(JSON.stringify(kernel));
 }
 
 lewcidKernel_EnsureCompiled();
+
 
 
 
