@@ -123,24 +123,39 @@ var lewcidKernel = {
         // return
     ],
     MicroAssembly : null,
+    MicroSymbols : null,
 };
 
 var lewcidMemory = {
     DefaultMemory : {
         MainMemory : [],
+        MainSymbols : [],
         KernelAssemblyPtr : 0,
+        LatestSymbol : null,
 
         Read : function(index) {
+            if ((index < 0) || (index >= this.MainMemory.length))
+                throw "Write out of bounds";
+
+            this.LatestSymbol = this.MainSymbols[index];
+            console.assert(this.LatestSymbol != null);
+
             return this.MainMemory[index];
         },
         Write : function(index,value) {
+            if ((index < 0) || (index >= this.MainMemory.length))
+                throw "Write out of bounds";
+
+            this.LatestSymbol = this.MainSymbols[index];
+            console.assert(this.LatestSymbol != null);
+
             this.MainMemory[index] = value;
         },
 
         ProcAlloc : function(thread_ptr=0) {
             var kernel = lewcidKernel;
             var size = kernel.MicroRegisters.length;
-            var proc_ptr = this.AllocSize(size);
+            var proc_ptr = this.AllocSize(size, kernel.MicroRegisters );
             this.ProcWriteMicroRegByName( proc_ptr, "r_micro_ins_ptr", this.KernelAssemblyPtr );
             this.ProcSetThread(proc_ptr, thread_ptr);
             return proc_ptr;
@@ -157,6 +172,21 @@ var lewcidMemory = {
 
             var mopName = lewcidKernel.MicroOps[ mop ];
             switch (mopName) {
+                case "read":
+                    {
+                        var addr = this.ProcReadMicroRegByIndex( proc, src );
+                        addr += cst;
+                        var val = this.Read( addr );
+                        this.ProcWriteMicroRegByIndex( proc, dst, val );
+                    }
+                    break;
+                case "add":
+                    {
+                        var val = this.ProcReadMicroRegByIndex( proc, src );
+                        val += cst;
+                        this.ProcWriteMicroRegByIndex( proc, dst, val );
+                    }
+                    break;
                 case "thread_ptr_read":
                     {
                         var val = this.ProcReadMicroRegByName(proc, "r_micro_thread_ptr");
@@ -194,31 +224,45 @@ var lewcidMemory = {
             return thread_ptr + index;
         },
 
-        AllocSize : function(sz) {
+        AllocSize : function(sz,symbols) {
             var start = this.MainMemory.length;
-            for (var i=0; i<sz; i++)
+            this.CheckSymbols();
+            for (var i=0; i<sz; i++) {
                 this.MainMemory.push(0);
+                this.MainSymbols.push(symbols[i % symbols.length]);
+            }
+            this.CheckSymbols();
             return start;
         },
-        AllocBuffer : function(buffer) {
+        AllocBuffer : function(buffer, symbols) {
             var start = this.MainMemory.length;
-            for (var i=0; i<buffer.length; i++)
+            this.CheckSymbols();
+            for (var i=0; i<buffer.length; i++) {
                 this.MainMemory.push( buffer[i] );
+                this.MainSymbols.push( symbols[i % symbols.length] )
+            }
+            this.CheckSymbols();
             return start;
         },
 
-        MethodAlloc : function(assembly) {
-            return this.AllocBuffer(assembly);
+        MethodAlloc : function(assembly,symbols) {
+            return this.AllocBuffer(assembly,symbols);
+        },
+        CheckSymbols : function() {
+            console.assert( this.MainMemory.length == this.MainSymbols.length );
         },
 
         ThreadAlloc : function(startMethod) {
             var size = lewcidKernel.ThreadStruct.length;
-            var thread_ptr = this.AllocSize( size );
-            var stack_ptr = this.AllocSize( 12 );
+            
+            var thread_ptr = this.AllocSize( size, lewcidKernel.ThreadStruct );
+            var stack_ptr = this.AllocSize( 12, [ "stack_data" ] );
+            this.CheckSymbols();
 
             this.Write( this.ThreadRegByName(thread_ptr, "offset_instruction_ptr"), startMethod );
             this.Write( this.ThreadRegByName(thread_ptr, "offset_register_ptr"), this.ThreadRegByName(thread_ptr, "__t0") );
             this.Write( this.ThreadRegByName(thread_ptr, "offset_stack_ptr"), stack_ptr );
+            this.CheckSymbols();
 
             return thread_ptr;
         },
@@ -233,9 +277,10 @@ var lewcidMemory = {
         var kernel = lewcidKernel;
         var proc = Object.create( this.DefaultMemory );
         proc.MainMemory = []; // new array
+        proc.MainSymbols = [];
 
-        var pre_ptr = proc.AllocSize( 4 );
-        proc.KernelAssemblyPtr = proc.AllocBuffer( kernel.MicroAssembly );
+        var pre_ptr = proc.AllocSize( 4, [ "bad_addr" ] );
+        proc.KernelAssemblyPtr = proc.AllocBuffer( kernel.MicroAssembly, kernel.MicroSymbols );
         
         return proc;
     },
@@ -246,7 +291,7 @@ var lewcidCompiler = {
         for (var i in array) {
             var k = array[i];
             if (k == name)
-                return i;
+                return 1*i;
         }
         throw "Unknown item '" + name + "'";
     },
@@ -277,6 +322,7 @@ function lewcidKernel_EnsureCompiled_Kernel() {
     if (kernel.MicroAssembly)
         return kernel;
     kernel.MicroAssembly = [];
+    kernel.MicroSymbols = [];
     var stackcode_by_name = lewcidCompiler.stackcode_by_name;
     var indexIn = lewcidCompiler.indexIn;
     var tokenize = lewcidCompiler.tokenize;
@@ -315,6 +361,12 @@ function lewcidKernel_EnsureCompiled_Kernel() {
         kernel.MicroAssembly.push( 1*r_op_dst );
         kernel.MicroAssembly.push( 1*r_op_src );
         kernel.MicroAssembly.push( 1*r_op_const );
+
+        for (var ii=0; ii<4; ii++) {
+            kernel.MicroSymbols.push( (ii < parts.length) ? parts[ii] : ("@" + lineIndex + "," + ii + ": " + line) );
+        }
+
+        console.assert( kernel.MicroAssembly.length == kernel.MicroSymbols.length );
     }
     return kernel;
 }
@@ -326,6 +378,7 @@ function lewcidKernel_Compile_StackSource(source) {
     var stackcode_by_name = lewcidCompiler.stackcode_by_name;
     var result = {
         assembly:[],
+        symbols:[],
         source:(source),
         register_count:0,
         vars:["v0"],
@@ -345,6 +398,7 @@ function lewcidKernel_Compile_StackSource(source) {
         }
         var stack_op = stackcode_by_name( parts[0] );
         result.assembly.push( 1 * stack_op.index );
+        result.symbols.push(line);
         if (parts.length >= 1) {
             var val = parts[1];
             if (isNaN(val)) {
@@ -354,6 +408,7 @@ function lewcidKernel_Compile_StackSource(source) {
                 val = 1 * val;
             }
             result.assembly.push( 1 * val );
+            result.symbols.push(parts[1]);
         }
     }
     return result;
@@ -367,7 +422,7 @@ function lewcidKernel_EnsureCompiled() {
 
     // Test out the method:
     var memory = lewcidMemory.AllocateMemory();
-    var method_ptr = memory.MethodAlloc( method.assembly );
+    var method_ptr = memory.MethodAlloc( method.assembly, method.symbols );
     var thread_ptr = memory.ThreadAlloc( method_ptr );
     var proc_ptr = memory.ProcAlloc( thread_ptr );
     var maxSteps = 10;
