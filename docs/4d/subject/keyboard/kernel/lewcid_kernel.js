@@ -130,17 +130,64 @@ var lewcidMemory = {
         MainMemory : [],
         KernelAssemblyPtr : 0,
 
+        Read : function(index) {
+            return this.MainMemory[index];
+        },
         Write : function(index,value) {
             this.MainMemory[index] = value;
         },
 
+        ProcAlloc : function(thread_ptr=0) {
+            var kernel = lewcidKernel;
+            var size = kernel.MicroRegisters.length;
+            var proc_ptr = this.AllocSize(size);
+            this.ProcWriteMicroRegByName( proc_ptr, "r_micro_ins_ptr", this.KernelAssemblyPtr );
+            this.ProcSetThread(proc_ptr, thread_ptr);
+            return proc_ptr;
+        },
+
+        ProcMicroStep : function(proc) {
+            var micro_ins_ptr = this.ProcReadMicroRegByName(proc, "r_micro_ins_ptr");
+            this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + 4);
+
+            var mop = this.Read(micro_ins_ptr+0);
+            var dst = this.Read(micro_ins_ptr+1);
+            var src = this.Read(micro_ins_ptr+2);
+            var cst = this.Read(micro_ins_ptr+3);
+
+            var mopName = lewcidKernel.MicroOps[ mop ];
+            switch (mopName) {
+                case "thread_ptr_read":
+                    {
+                        var val = this.ProcReadMicroRegByName(proc, "r_micro_thread_ptr");
+                        this.ProcWriteMicroRegByIndex( proc, dst, val );
+                    }
+                    break;
+                case "kernel_flush":
+                    return false;
+                    break;
+                default:
+                    throw "Unknown op [" + mopName + "]";
+                    break;
+            }
+            return true;
+        },
 
         ProcMicroRegByName : function(proc, regName) {
             var index = lewcidCompiler.indexIn( regName, lewcidKernel.MicroRegisters );
             return proc + index;
         },
+        ProcReadMicroRegByName : function(proc, regName) {
+            return this.Read( this.ProcMicroRegByName( proc, regName ) );
+        },
         ProcWriteMicroRegByName : function(proc, regName, value) {
-            this.Write( ProcMicroRegByName(proc, regName), value);
+            this.Write( this.ProcMicroRegByName(proc, regName), value);
+        },
+        ProcReadMicroRegByIndex : function(proc, index, value) {
+            return this.Read( proc + index );
+        },
+        ProcWriteMicroRegByIndex : function(proc, index, value) {
+            this.Write( proc + index, value );
         },
         ThreadRegByName : function(thread_ptr, regName) {
             var index = lewcidCompiler.indexIn( regName, lewcidKernel.ThreadStruct );
@@ -176,26 +223,16 @@ var lewcidMemory = {
             return thread_ptr;
         },
 
-        ProcAlloc : function(thread_ptr=0) {
-            var kernel = lewcidKernel;
-            var size = kernel.MicroRegisters.length;
-            var proc_ptr = this.AllocSize(size);
-
-            ProcWriteMicroRegByName( proc_ptr, "r_micro_ins_ptr", this.KernelAssemblyPtr );
-
-            this.ProcSetThread(proc_ptr, thread_ptr);
-
-            return proc_ptr;
-        },
 
         ProcSetThread : function(proc_ptr, thread_ptr) {
-            ProcWriteMicroRegByName( proc_ptr, "r_micro_thread_ptr", thread_ptr );
+            this.ProcWriteMicroRegByName( proc_ptr, "r_micro_thread_ptr", thread_ptr );
         },
 
     },
     AllocateMemory : function() {
         var kernel = lewcidKernel;
-        var proc = new this.DefaultMemory;
+        var proc = Object.create( this.DefaultMemory );
+        proc.MainMemory = []; // new array
 
         var pre_ptr = proc.AllocSize( 4 );
         proc.KernelAssemblyPtr = proc.AllocBuffer( kernel.MicroAssembly );
@@ -307,7 +344,7 @@ function lewcidKernel_Compile_StackSource(source) {
             result.register_count = numVars;
         }
         var stack_op = stackcode_by_name( parts[0] );
-        result.assembly.push( stack_op.index );
+        result.assembly.push( 1 * stack_op.index );
         if (parts.length >= 1) {
             var val = parts[1];
             if (isNaN(val)) {
@@ -316,7 +353,7 @@ function lewcidKernel_Compile_StackSource(source) {
             } else {
                 val = 1 * val;
             }
-            result.assembly.push( val );
+            result.assembly.push( 1 * val );
         }
     }
     return result;
@@ -327,6 +364,16 @@ function lewcidKernel_EnsureCompiled() {
     var method = lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
     console.log(JSON.stringify(kernel));
     console.log(JSON.stringify(method));
+
+    // Test out the method:
+    var memory = lewcidMemory.AllocateMemory();
+    var method_ptr = memory.MethodAlloc( method.assembly );
+    var thread_ptr = memory.ThreadAlloc( method_ptr );
+    var proc_ptr = memory.ProcAlloc( thread_ptr );
+    var maxSteps = 10;
+    while ( (maxSteps > 0) && memory.ProcMicroStep( proc_ptr ) ) {
+        maxSteps--;
+    }
 }
 
 lewcidKernel_EnsureCompiled();
