@@ -39,6 +39,7 @@ var lewcidKernel = {
         "r_zero",
         "r_micro_thread_ptr",
         "r_micro_ins_ptr",
+        "r_micro_link_ptr",
         "r_thread",
         "r_ins_ptr",
         "r_stack_ptr",
@@ -59,6 +60,12 @@ var lewcidKernel = {
         "jump", // ins_ptr = dst
         "jump_if", // if (src == #) ins_ptr = dst
         "jump_op", // ins_ptr = @dst
+    ],
+    MicroStruct : [
+        "opcode",
+        "dst",
+        "src",
+        "cnst"
     ],
     MicroSource : [
         "@ kernel_init",
@@ -124,6 +131,7 @@ var lewcidKernel = {
     ],
     MicroAssembly : null,
     MicroSymbols : null,
+    MicroLinkTable : null,
 };
 
 var lewcidMemory = {
@@ -131,6 +139,7 @@ var lewcidMemory = {
         MainMemory : [],
         MainSymbols : [],
         KernelAssemblyPtr : 0,
+        KernelAssemblyLinkPtr : 0,
         LatestSymbol : null,
 
         Read : function(index) {
@@ -157,6 +166,7 @@ var lewcidMemory = {
             var size = kernel.MicroRegisters.length;
             var proc_ptr = this.AllocSize(size, kernel.MicroRegisters );
             this.ProcWriteMicroRegByName( proc_ptr, "r_micro_ins_ptr", this.KernelAssemblyPtr );
+            this.ProcWriteMicroRegByName( proc_ptr, "r_micro_link_ptr", this.KernelAssemblyLinkPtr );
             this.ProcSetThread(proc_ptr, thread_ptr);
             return proc_ptr;
         },
@@ -180,11 +190,29 @@ var lewcidMemory = {
                         this.ProcWriteMicroRegByIndex( proc, dst, val );
                     }
                     break;
+                case "write":
+                    {
+                        var addr = this.ProcReadMicroRegByIndex( proc, src );
+                        addr += cst;
+                        var val = this.ProcReadMicroRegByIndex( proc, dst );
+                        this.Write( addr, val );
+                    }
+                    break;
                 case "add":
                     {
                         var val = this.ProcReadMicroRegByIndex( proc, src );
                         val += cst;
                         this.ProcWriteMicroRegByIndex( proc, dst, val );
+                    }
+                    break;
+                case "jump_op":
+                    {
+                        var op = this.ProcReadMicroRegByIndex( proc, dst );
+                        var link_table = this.ProcReadMicroRegByName(proc, "r_micro_link_ptr");
+                        var link_ptr = this.Read( link_table + op );
+                        this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", link_ptr );
+
+                        //var REMOVE_ME = this.Read( link_ptr );
                     }
                     break;
                 case "thread_ptr_read":
@@ -281,6 +309,7 @@ var lewcidMemory = {
 
         var pre_ptr = proc.AllocSize( 4, [ "bad_addr" ] );
         proc.KernelAssemblyPtr = proc.AllocBuffer( kernel.MicroAssembly, kernel.MicroSymbols );
+        proc.KernelAssemblyLinkPtr = proc.AllocBuffer( kernel.MicroLinkTable, kernel.StackCodes );
         
         return proc;
     },
@@ -331,7 +360,7 @@ function lewcidKernel_EnsureCompiled_Kernel() {
         var parts = tokenize(line);
         if (parts[0] == "@") {
             var code = stackcode_by_name(parts[1]);
-            code.offset = kernel.MicroAssembly.length;
+            code.offset = kernel.MicroAssembly.length + kernel.MicroStruct.length;
             continue;
         }
         var r_op_code = indexIn( parts[0], kernel.MicroOps );
@@ -357,17 +386,26 @@ function lewcidKernel_EnsureCompiled_Kernel() {
             }
         }
 
+        var startAddr = kernel.MicroAssembly.length;
         kernel.MicroAssembly.push( 1*r_op_code );
         kernel.MicroAssembly.push( 1*r_op_dst );
         kernel.MicroAssembly.push( 1*r_op_src );
         kernel.MicroAssembly.push( 1*r_op_const );
+        console.assert( ( kernel.MicroAssembly.length - startAddr ) == kernel.MicroStruct.length );
 
         for (var ii=0; ii<4; ii++) {
-            kernel.MicroSymbols.push( (ii < parts.length) ? parts[ii] : ("@" + lineIndex + "," + ii + ": " + line) );
+            kernel.MicroSymbols.push( "@" + lineIndex + "," + ii + ": " + line );
         }
 
         console.assert( kernel.MicroAssembly.length == kernel.MicroSymbols.length );
     }
+
+    kernel.MicroLinkTable = [];
+    for (var li in kernel.StackCodes) {
+        var code = kernel.StackCodes[li];
+        kernel.MicroLinkTable[code.index] = code.offset;
+    }
+
     return kernel;
 }
 
