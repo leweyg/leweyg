@@ -30,8 +30,8 @@ var lewcidKernel = {
         StackSource : [
             "var row",
             "var col",
-            "push_i 0",
-            "push_i 1",
+            "push_i 777",
+            "push_i 888",
             "pop row",
             "peek col",
             "push row",
@@ -101,6 +101,7 @@ var lewcidKernel = {
         "read r_temp_0, r_ins_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
         "write r_temp_0, r_stack_ptr, 0", // write
+        "debug r_stack_ptr",
         "add r_stack_ptr, r_stack_ptr, 1",
         "jump @kernel_return",
 
@@ -111,6 +112,7 @@ var lewcidKernel = {
         "add r_ins_ptr, r_ins_ptr, 1",
         "read r_temp_0, r_stack_ptr, 0", // read
         "write r_temp_0, r_temp_regid", // write
+        "debug r_temp_regid",
         "add r_stack_ptr, r_stack_ptr, -1",
         "jump @kernel_return",
 
@@ -216,7 +218,7 @@ var lewcidMemory = {
             var micro_ins_ptr = this.ProcReadMicroRegByName(proc, "r_micro_ins_ptr");
             if (micro_ins_ptr < this.KernelAssemblyPtr)
                 return false;
-            this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + 4);
+            this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + lewcidKernel.MicroStruct.length );
 
             var mop = this.Read(micro_ins_ptr+0);
             //console.log( this.LatestSymbol );
@@ -288,6 +290,7 @@ var lewcidMemory = {
                     break;
                 case "thread_exit":
                     {
+                        this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr );
                         return false;
                     }
                     break;
