@@ -14,14 +14,17 @@ var lewcidKernel = {
     ],
     StackCodes : [
         {id:"nop"},
+        {id:"var"}, // id, initial
+        {id:"exit"},
         {id:"kernel_init"},
         {id:"kernel_main"},
         {id:"kernel_return"},
+        {id:"return"},
         {id:"push_i"}, // #
         {id:"push"}, // src
         {id:"pop"}, // dst
         {id:"peek"}, // dst
-        {id:"var"}, // id, initial
+        
     ],
     Test:{
         StackSource : [
@@ -33,6 +36,7 @@ var lewcidKernel = {
             "peek col",
             "push row",
             "push col",
+            "exit",
         ],
     },
     MicroRegisters : [
@@ -51,6 +55,7 @@ var lewcidKernel = {
     MicroOps : [
         "nop", // no operation { }
         "kernel_flush",
+        "thread_exit",
         "label", // label
         "thread_ptr_read", // dst = r_thread_ptr
         "read", // dst = [ src + offset ]
@@ -60,6 +65,7 @@ var lewcidKernel = {
         "jump", // ins_ptr = dst
         "jump_if", // if (src == #) ins_ptr = dst
         "jump_op", // ins_ptr = @dst
+        "debug", // console.log( latest_symbol );
     ],
     MicroStruct : [
         "opcode",
@@ -79,6 +85,7 @@ var lewcidKernel = {
         // read instruction and jump to it:
         "@ kernel_main",
         "read r_op_code, r_ins_ptr, 0",
+        "debug r_ins_ptr",
         "add r_ins_ptr, r_ins_ptr, 1",
         "jump_op r_op_code", // goto label below
 
@@ -126,6 +133,10 @@ var lewcidKernel = {
         "write r_temp_0, r_temp_regid", // write
         //"add r_stack_ptr, r_stack_ptr, 1", // dont move stack
         "jump @kernel_return",
+
+        "@ exit",
+        "thread_exit",
+        "thread_exit",
 
         // return
     ],
@@ -176,8 +187,26 @@ var lewcidMemory = {
 
         ProcThreadStep : function(proc) {
             var maxSteps = 30;
+            var stepsTaken = 0;
             while (this.ProcMicroStep(proc)) {
-                console.assert((maxSteps--) > 0);
+                stepsTaken++;
+                if (stepsTaken > maxSteps) {
+                    console.log("RAN OVER STEPS!");
+                    return 0;
+                }
+            }
+            return stepsTaken;
+        },
+
+        ProcThreadRun : function(proc) {
+            var maxCycles = 30;
+            var stepsTaken = 0;
+            while (this.ProcThreadStep(proc) > 0) {
+                stepsTaken++;
+                if (stepsTaken > maxCycles) {
+                    console.log("RAN OVER CYCLES!");
+                    return false;
+                }
             }
             return true;
         },
@@ -185,10 +214,12 @@ var lewcidMemory = {
         ProcMicroStep : function(proc) {
 
             var micro_ins_ptr = this.ProcReadMicroRegByName(proc, "r_micro_ins_ptr");
+            if (micro_ins_ptr < this.KernelAssemblyPtr)
+                return false;
             this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + 4);
 
             var mop = this.Read(micro_ins_ptr+0);
-            console.log( this.LatestSymbol );
+            //console.log( this.LatestSymbol );
             var dst = this.Read(micro_ins_ptr+1);
             var src = this.Read(micro_ins_ptr+2);
             var cst = this.Read(micro_ins_ptr+3);
@@ -216,6 +247,14 @@ var lewcidMemory = {
                     {
                         var val = this.ProcReadMicroRegByIndex( proc, src );
                         val += cst;
+                        this.ProcWriteMicroRegByIndex( proc, dst, val );
+                    }
+                    break;
+                case "adde":
+                    {
+                        var cur = this.ProcReadMicroRegByIndex( proc, dst );
+                        var extra = this.ProcReadMicroRegByIndex( proc, src );
+                        var val = cur + extra + cst;
                         this.ProcWriteMicroRegByIndex( proc, dst, val );
                     }
                     break;
@@ -247,7 +286,21 @@ var lewcidMemory = {
                         return false;
                     }
                     break;
+                case "thread_exit":
+                    {
+                        return false;
+                    }
+                    break;
                 case "nop":
+                    break;
+                case "debug":
+                    {
+                        var addr = this.ProcReadMicroRegByIndex( proc, dst );
+                        var addr_symb = this.LatestSymbol;
+                        var val = this.Read( addr );
+                        var symbol = this.LatestSymbol;
+                        console.log( "[" + addr + "(" + addr_symb + ")]=" + val + "(" + symbol + ")" );
+                    }
                     break;
                 default:
                     throw "Unknown op [" + mopName + "]";
@@ -463,7 +516,7 @@ function lewcidKernel_Compile_StackSource(source) {
         var stack_op = stackcode_by_name( parts[0] );
         result.assembly.push( 1 * stack_op.index );
         result.symbols.push(line);
-        if (parts.length >= 1) {
+        if (parts.length >= 2) {
             var val = parts[1];
             if (isNaN(val)) {
                 var regIndex = indexIn( val, result.vars );
@@ -472,7 +525,7 @@ function lewcidKernel_Compile_StackSource(source) {
                 val = 1 * val;
             }
             result.assembly.push( 1 * val );
-            result.symbols.push(parts[1]);
+            result.symbols.push("[,1]" + line);
         }
     }
     return result;
@@ -491,7 +544,7 @@ function lewcidKernel_EnsureCompiled() {
     var method_ptr = memory.MethodAlloc( method.assembly, method.symbols );
     var thread_ptr = memory.ThreadAlloc( method_ptr );
     var proc_ptr = memory.ProcAlloc( thread_ptr );
-    memory.ProcThreadStep( proc_ptr );
+    memory.ProcThreadRun( proc_ptr );
 }
 
 lewcidKernel_EnsureCompiled();
