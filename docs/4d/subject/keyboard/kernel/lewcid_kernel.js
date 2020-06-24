@@ -141,11 +141,13 @@ var lewcidMemory = {
         KernelAssemblyPtr : 0,
         KernelAssemblyLinkPtr : 0,
         LatestSymbol : null,
+        LatestAddress : null,
 
         Read : function(index) {
             if ((index < 0) || (index >= this.MainMemory.length))
                 throw "Write out of bounds";
 
+            this.LatestAddress = index;
             this.LatestSymbol = this.MainSymbols[index];
             console.assert(this.LatestSymbol != null);
 
@@ -155,6 +157,7 @@ var lewcidMemory = {
             if ((index < 0) || (index >= this.MainMemory.length))
                 throw "Write out of bounds";
 
+            this.LatestAddress = index;
             this.LatestSymbol = this.MainSymbols[index];
             console.assert(this.LatestSymbol != null);
 
@@ -176,11 +179,13 @@ var lewcidMemory = {
             this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + 4);
 
             var mop = this.Read(micro_ins_ptr+0);
+            console.log( this.LatestSymbol );
             var dst = this.Read(micro_ins_ptr+1);
             var src = this.Read(micro_ins_ptr+2);
             var cst = this.Read(micro_ins_ptr+3);
 
             var mopName = lewcidKernel.MicroOps[ mop ];
+
             switch (mopName) {
                 case "read":
                     {
@@ -208,11 +213,17 @@ var lewcidMemory = {
                 case "jump_op":
                     {
                         var op = this.ProcReadMicroRegByIndex( proc, dst );
-                        var link_table = this.ProcReadMicroRegByName(proc, "r_micro_link_ptr");
-                        var link_ptr = this.Read( link_table + op );
+                        var link_ptr = this.Read( this.KernelAssemblyLinkPtr + op ) + this.KernelAssemblyPtr;
+                        var TESTONLY = this.Read( link_ptr );
                         this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", link_ptr );
-
-                        //var REMOVE_ME = this.Read( link_ptr );
+                    }
+                    break;
+                case "jump":
+                    {
+                        var link_ptr = this.KernelAssemblyPtr + dst; // offset into micro assembly
+                        var TESTONLY = this.Read(link_ptr);
+                        this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", link_ptr );
+                        
                     }
                     break;
                 case "thread_ptr_read":
@@ -223,6 +234,8 @@ var lewcidMemory = {
                     break;
                 case "kernel_flush":
                     return false;
+                    break;
+                case "nop":
                     break;
                 default:
                     throw "Unknown op [" + mopName + "]";
@@ -360,8 +373,9 @@ function lewcidKernel_EnsureCompiled_Kernel() {
         var parts = tokenize(line);
         if (parts[0] == "@") {
             var code = stackcode_by_name(parts[1]);
-            code.offset = kernel.MicroAssembly.length + kernel.MicroStruct.length;
-            continue;
+            code.offset = kernel.MicroAssembly.length;// + kernel.MicroStruct.length;
+            //continue;
+            parts = [ "nop" ];
         }
         var r_op_code = indexIn( parts[0], kernel.MicroOps );
         var r_op_dst = 0;
@@ -463,7 +477,7 @@ function lewcidKernel_EnsureCompiled() {
     var method_ptr = memory.MethodAlloc( method.assembly, method.symbols );
     var thread_ptr = memory.ThreadAlloc( method_ptr );
     var proc_ptr = memory.ProcAlloc( thread_ptr );
-    var maxSteps = 10;
+    var maxSteps = 30; // HACK
     while ( (maxSteps > 0) && memory.ProcMicroStep( proc_ptr ) ) {
         maxSteps--;
     }
