@@ -174,7 +174,16 @@ var lewcidMemory = {
             return proc_ptr;
         },
 
+        ProcThreadStep : function(proc) {
+            var maxSteps = 30;
+            while (this.ProcMicroStep(proc)) {
+                console.assert((maxSteps--) > 0);
+            }
+            return true;
+        },
+
         ProcMicroStep : function(proc) {
+
             var micro_ins_ptr = this.ProcReadMicroRegByName(proc, "r_micro_ins_ptr");
             this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", micro_ins_ptr + 4);
 
@@ -233,7 +242,10 @@ var lewcidMemory = {
                     }
                     break;
                 case "kernel_flush":
-                    return false;
+                    {
+                        this.ProcWriteMicroRegByName(proc, "r_micro_ins_ptr", this.KernelAssemblyPtr );
+                        return false;
+                    }
                     break;
                 case "nop":
                     break;
@@ -468,22 +480,22 @@ function lewcidKernel_Compile_StackSource(source) {
 
 function lewcidKernel_EnsureCompiled() {
     var kernel = lewcidKernel_EnsureCompiled_Kernel();
-    var method = lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
     console.log(JSON.stringify(kernel));
+
+    // try compiling some stack code:
+    var method = lewcidKernel_Compile_StackSource(lewcidKernel.Test.StackSource);
     console.log(JSON.stringify(method));
 
-    // Test out the method:
+    // Test out the code:
     var memory = lewcidMemory.AllocateMemory();
     var method_ptr = memory.MethodAlloc( method.assembly, method.symbols );
     var thread_ptr = memory.ThreadAlloc( method_ptr );
     var proc_ptr = memory.ProcAlloc( thread_ptr );
-    var maxSteps = 30; // HACK
-    while ( (maxSteps > 0) && memory.ProcMicroStep( proc_ptr ) ) {
-        maxSteps--;
-    }
+    memory.ProcThreadStep( proc_ptr );
 }
 
 lewcidKernel_EnsureCompiled();
+
 
 
 
