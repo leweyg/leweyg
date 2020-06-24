@@ -32,10 +32,11 @@ var lewcidKernel = {
             "var col",
             "push_i 777",
             "push_i 888",
-            "pop row",
-            "peek col",
-            "push row",
+            "peek row",
+            "push_i 999",
+            "pop col",
             "push col",
+            "peek row",
             "exit",
         ],
     },
@@ -110,7 +111,7 @@ var lewcidKernel = {
         "read r_temp_regid, r_ins_ptr, 0",
         "adde r_temp_regid, r_reg_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
-        "read r_temp_0, r_stack_ptr, 0", // read
+        "read r_temp_0, r_stack_ptr, -1", // read
         "write r_temp_0, r_temp_regid", // write
         "debug r_temp_regid",
         "add r_stack_ptr, r_stack_ptr, -1",
@@ -122,6 +123,7 @@ var lewcidKernel = {
         "adde r_temp_regid, r_reg_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
         "read r_temp_0, r_temp_regid", // read
+        "debug r_temp_regid",
         "write r_temp_0, r_stack_ptr, 0", // write
         "add r_stack_ptr, r_stack_ptr, 1",
         "jump @kernel_return",
@@ -131,8 +133,9 @@ var lewcidKernel = {
         "read r_temp_regid, r_ins_ptr, 0",
         "adde r_temp_regid, r_reg_ptr, 0",
         "add r_ins_ptr, r_ins_ptr, 1",
-        "read r_temp_0, r_stack_ptr, 0", // read
+        "read r_temp_0, r_stack_ptr, -1", // read
         "write r_temp_0, r_temp_regid", // write
+        "debug r_temp_regid",
         //"add r_stack_ptr, r_stack_ptr, 1", // dont move stack
         "jump @kernel_return",
 
