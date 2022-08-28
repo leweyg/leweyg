@@ -280,11 +280,11 @@ function downloadAll()
     }
 }
 
-downloadAll();
+//downloadAll();
 
-//checkAndOrRefactorFile("index.html");
-//checkAndOrRefactorFile("lg/index.html");
-//checkAndOrRefactorFile("lg/aboutme.html");
+checkAndOrRefactorFile("index.html", true);
+checkAndOrRefactorFile("lg/index.html", true);
+checkAndOrRefactorFile("lg/aboutme.html", true);
 
 console.log("Wrapping...");
 
