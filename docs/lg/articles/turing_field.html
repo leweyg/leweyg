@@ -1,0 +1,507 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Turing Fields - A Lossless Visual Metaphor for any Computation</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;
+	font-weight:normal;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<table class=MsoNormalTable border=1 cellspacing=4 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <div align=center>
+  <table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0>
+   <tr>
+    <td valign=top style='padding:0in 0in 0in 0in'>
+    <p class=MsoNormal align=center style='text-align:center'><img width=42
+    height=40 src="http://www.lewcid.com/lg/lewcid_icon_white.png"></p>
+    </td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'></td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p align=center style='text-align:center'><a
+    href="http://www.lewcid.com/lg/index.html">Lewcid.com</a></p>
+    </td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'>(by <a
+    href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)</p>
+    </td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'>(by <a
+    href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)</p>
+    </td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'>(by <a
+    href="http://www.lewcid.com/lg/cube/by_place.html">Folder</a>)</p>
+    </td>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'>(by <a
+    href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;&nbsp;</p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=746 valign=top style='width:373.1pt;padding:0in 5.4pt 0in 5.4pt'><a
+  name="_The_Importance_of_2"></a><span style='font-size:11.0pt;font-family:
+  "Calibri",sans-serif'><br clear=all style='page-break-before:always'>
+  </span>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>[<span style='background:yellow'>THIS WORK IS IN PROGRESS AND NOT
+  REVIEW READY</span>]</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>This document details a lossless visualization standard for expressing
+  any recorded computation. For overviews of large systems or other lossy
+  visualizations standard geometric techniques (such as blurring or shrinking)
+  can be applied to the layout below.  What the actual interface will look
+  like, and how it will operate, one may either conceive of on their own, or
+  follow my work in the gesture and productivity space at Microsoft. <br>
+  –Lewey G.</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoTitle><span style='font-size:18.0pt'>Turing Fields<br>
+  A Lossless Visual Metaphor for any Computation</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>By Lewey Geselowitz, Senior Software Engineer</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><img border=0 width=401 height=211
+  src="turing_field_files/image001.jpg"></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>Contents:  <a href="#_The_Importance_of"><b>The Importance of Charting
+  Any Computation</b></a> , <a href="#_The_Turing_Field_1"><b>Turing Fields</b></a>
+  and <a href="#_Examples"><b>Examples</b></a><span class=MsoHyperlink><b> </b></span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='color:#70AD47'>&nbsp;</span></p>
+  <h1 style='line-height:normal'><a name="_The_Importance_of"></a><span
+  style='color:#70AD47'>The Importance of Charting Any Computation</span></h1>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>By giving consistent shape to what computers do, we shed light on the
+  transactions which hold together the Information Age, and allow for a
+  transparent integration of communicated and computed information. From
+  security to artistic recreation, it is only once the computers operation can
+  be understood, that it can truly be trusted or utilized to its fullest
+  potential. </p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>For eight years I’ve utilized Turing Field techniques in software
+  engineering, literally picturing the internal operations of computers while
+  solving every day and highly complex problems. Simply, reliably, and
+  accurately.  The model reveals an accurate metaphor for what’s really going
+  on within the software we use, without loss of integrity or information. It
+  is a method which will someday allow instantly crafting personalized and
+  smart information-interfaces, currently only possible through years of
+  software development.<span style='color:#70AD47'> </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='color:#70AD47'>&nbsp;</span></p>
+  <h1 style='line-height:normal'><a name="_The_Turing_Field_1"></a><span
+  style='color:#70AD47'>Turing Fields</span></h1>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='color:#70AD47'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b>Definition:</b> Time-inclusive chart of a Universal Turing Machine
+  performing a recalled computation, using the axes of memory, time and stored
+  state.* <br>
+  *this does not require loss of any information about the computation.</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b>Purpose</b>: To provide a simple, consistent and complete visual
+  metaphor from which one easily infer the “flow of information” – i.e. the
+  path across Turing Field space formed by related elements during a
+  computation.</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b>Definition</b>:</p>
+  <p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:
+  .0001pt;text-indent:-.25in;line-height:normal'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Review of <a href="http://en.wikipedia.org/wiki/Turing_machine">Universal
+  Turing Machines</a></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>In a Turing Machine, a tape of re-writable memory <span
+  style='color:#70AD47'>LOCATIONS </span>is used to represent the state of each
+  part of a computer at any particular <span style='color:#5B9BD5'>TIME</span>.</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>On a Turing tape, each <span style='color:#70AD47'>LOCATION </span>contains
+  a <span style='color:#ED7D31'>VALUE </span>or<span style='color:#ED7D31'>
+  STATE </span>which is the stored information about that component. </p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>The Turing Model utilizes a ‘HEAD’ able to move along the tape and
+  read and/or write the <span style='color:#ED7D31'>VALUE </span>at each <span
+  style='color:#70AD47'>LOCATION </span>which can comprehensively represent the
+  actions of a computers CPU <i>Central Processing Unit.</i>  (See <a
+  href="http://en.wikipedia.org/wiki/Universal_Turing_machine">UNIVERSAL TURING
+  MACHINE</a>).</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+  .0001pt;text-indent:-.25in;line-height:normal'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Review of Modern Software and Chart Visualizations, as represented on
+  a Turing Machine</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Each constituent instruction<span style='color:#BF8F00'> </span>requires
+  a unit of <span style='color:#5B9BD5'>TIME </span>and causes the HEAD to move
+  left/right<span style='color:#70AD47'> </span>along the <span
+  style='color:#70AD47'>LOCATIONS </span>tape<span style='color:#70AD47'> </span>or
+  change the <span style='color:#ED7D31'>VALUE </span>to go closer/further.</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>The instructions are generally arranged in <span style='color:#5B9BD5'>TIME
+  </span>order going down<span style='color:#5B9BD5'> </span>from FIRST TO LAST
+  and spatially TOP TO BOTTOM; each line generally represents the <span
+  style='color:#70AD47'>LOCATIONS </span>who’s <span style='color:#ED7D31'>VALUES
+  </span>are to be utilized in the calculation<span style='color:#5B9BD5'>.</span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>In chart visualizations, an axis spatially represents the span of
+  possible <span style='color:#ED7D31'>VALUES </span>as a linear field, with
+  opaque sections of that field denoting specifically charted occurrences. </p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+  .0001pt;text-indent:-.25in;line-height:normal'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Turing Field</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Defined as a volumetric chart with the perpendicular axes of:</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.5in;margin-bottom:.0001pt;text-indent:-1.5in;
+  line-height:normal'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='color:#70AD47'>LOCATIONS </span>stretching left/right</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.5in;margin-bottom:.0001pt;text-indent:-1.5in;
+  line-height:normal'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='color:#ED7D31'>VALUES </span>appearing nearer/further</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.5in;margin-bottom:.0001pt;text-indent:-1.5in;
+  line-height:normal'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>iii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='color:#5B9BD5'>TIME </span>progressing down</p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.5in;margin-bottom:.0001pt;text-indent:-1.5in;
+  line-height:normal'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>iv.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Computations as shown as charted or opaque<span style='color:#BF8F00'>
+  </span>intersections of the above axes.<img border=0 width=409 height=423
+  src="turing_field_files/image002.jpg"></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+  margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;
+  line-height:normal'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Any recalled computation, represented as tuples of <span
+  style='color:#70AD47'>LOCATION</span> + <span style='color:#ED7D31'>VALUE</span>
+  + <span style='color:#5B9BD5'>TIME</span>, can be completely expressed or
+  charted as a Turing Field, allowing inspection and inference as to the exact
+  operation of the recorded components. </p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <h1 style='line-height:normal'><a name="_Examples"></a><span
+  style='color:#70AD47'>Examples</span></h1>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>*Images created using Excel and custom software. [<span
+  style='background:yellow'>TO BE IMPROVED</span>]</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>Figure 1: Simple example of a ‘</i>copy<i>’ command which gets the
+  ‘</i>value<i>’ in ‘</i>from<i>’ and duplicates it in ‘</i>to<i>’. This takes
+  multiple time steps represented by the rows, and utilities five memory
+  locations represented by the columns (three for the command, and two for the
+  two locations), and refers to four values represented as both text and depth
+  (the name of the command, the two memory locations, and the actual value
+  being copied):</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><img border=0 width=376 height=198 id="Picture 1"
+  src="turing_field_files/image003.jpg"></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>Figure 2: Turing-Field of a Processor Adding Two Numbers.  A green
+  highlight is drawn on 3 to show it appearing in the instructions, in the
+  decoding of the instructions, and in stack memory, before being combined with
+  2 to create 5 (which was not mentioned in the instructions). On the left are
+  the instructions to perform (push 2, push 3, add) stored starting at i0, i2
+  and i4. In the center are the “instruction” and “stack” columns which
+  represent the processor states as the instruction were decoded. On the right
+  are the two used stack registers s0 and s1. Each row represents a moment in
+  time, first the value 2 is pushed onto the stack at s0, then 3 is pushed to
+  s1, and then they are popped off the stack and added to get 5:</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><img border=0 width=609 height=310 id="Picture 7"
+  src="turing_field_files/image004.jpg"></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>Figure 3: Turing-Field Visualization of a </i><a
+  href="http://en.wikipedia.org/wiki/Fibonacci_number"><i>Fibonacci Sequence</i></a><i>
+  computation</i> (a loop which, adds the two most recent numbers, starting
+  with 0 and 1): Fibonacci(4) : = { Fib(1) = { 0, 1 }; Fib(2) = { 1, 1 }; 
+  Fib(3) = { 1, 2 };  Fib(4) = { 2, 3 } }  = 3</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><img border=0 width=490 height=514 id="Picture 4"
+  src="turing_field_files/image005.jpg"></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>static int
+  fibn(int n){</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fa: if (n &lt;
+  2) return n;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fb: int i=1,
+  a=0, b=1;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fc: while (i
+  &lt; n) {</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fd:   int c = a
+  + b;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fe:   a = b;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>ff:   b = c;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fg:   i++; }</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fh: return b; }</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>&nbsp;</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><i>Figure 4: Visualization of allocating memory, in this case a
+  recursive </i><a href="http://en.wikipedia.org/wiki/Fibonacci_number"><i>Fibonacci
+  Sequence</i></a><i> computation:  Fibonacci(4) = Fib(3) + Fib(2) = ( Fib(2) +
+  Fib(1) ) + ( Fib(1) + Fib(0) ) = ( ( Fib(1) + 1 ) + ( 1 + 0 ) = ( ( 1 + 1 ) +
+  ( 1 + 0 ) ) = 3</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><img border=0 width=521 height=475 id="Picture 6"
+  src="turing_field_files/image006.jpg"></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>static int Fibonacci(int
+  i) {</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fa:    if (i
+  &lt; 2) return i;</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fb:    int a = Fibonacci(i-1);</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fc:    int b = Fibonacci(i-2);</i></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;line-height:normal'><i>fd:    return a
+  + b; }</i></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+  <td width=171 valign=top style='width:85.65pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<h1><a name="_The_Turing_Field"></a>&nbsp;</h1>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h1>Center for Computing History's<br/><font color="blue">
+  Interactive History of Programming
+</font></h1></center>
+<center><h2> #1. Early Computing Uses</h2></center>
+
+<script type="text/javascript">
+  function UpdateGameEntry(codeBox,inBox,outBox,refBox,gradeBox,isNumber)
+  {
+  var x = inBox.value;
+  if ( isNumber ) x = (1*x);
+  var pa = eval(codeBox.value);
+  outBox.value = pa;
+
+  if (pa == refBox.value)
+    gradeBox.value = "== COMPUTED!";
+  else
+    gradeBox.value = "!=  (i.e. not equal)";
+  }
+  function UpdateSetN(namePrefix, nameEnding, isNumber)
+  {
+  var gameCode = document.getElementById(namePrefix+'code');
+  var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+  var gameOut = document.getElementById(namePrefix+'out'+nameEnding);
+  var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+  var gameGrade = document.getElementById(namePrefix+'grade'+nameEnding);
+
+  UpdateGameEntry(gameCode, gameIn, gameOut, gameRef, gameGrade, isNumber);
+  }
+  function UpdateRandom(namePrefix,nameEnding,isNumber,valLow,valHigh,doFunc)
+  {
+  var r = 1;
+  if (isNumber)
+    r = Math.floor((Math.random()*(valHigh-valLow)) + valLow);
+  else
+    r = ((Math.random()>0.5)?valHigh:valLow);
+  var wr = doFunc(r);
+
+  var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+  var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+
+  gameIn.value = r;
+  gameRef.value = wr;
+  }
+  function UpdateGame(namePrefix,set1,set2,set3,isNumber)
+  {
+    var infoEntry = document.getElementById(namePrefix+'info');
+    try
+    {
+      UpdateSetN(namePrefix,set1,isNumber);
+      UpdateSetN(namePrefix,set2,isNumber);
+      UpdateSetN(namePrefix,set3,isNumber);
+      infoEntry.value = '...';
+      infoEntry.alt = '...';
+    }
+    catch(err)
+    {
+      infoEntry.value = err;
+      infoEntry.alt = err;
+    }
+  }
+</script>
+
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/5921/Wilhelm-Schickard-invented-a-calculating-machine/">
+          <img src="image1.jpg"/></a></td>
+      <td>
+<p><i>At first computers really only added things... but which things? 
+The early programmers quickly had to learn how to write code that
+actually gave the users what they wanted!<br/><br/> In this case, as in many, 
+we know the INPUT the computer is given (x) and the 
+expected OUTPUT... can you fix the code to make it work correctly in 
+all cases? </i></p></td>
+    </tr>
+  </table>
+<table>
+<tr>
+  <td><font color="blue">Code: </font> </td>
+  <td><input type="text" value="x+0" size="35" id="game1code" /></td>
+  <td><input type="button" value="Run!" onclick="UpdateRandom('game1','3',true,-20,20,function(r){return (r+4);});UpdateGame('game1','1','2','3',true)" /></td>
+  <td><input type="text" value="" align="right" id="game1info" disabled="true" size="30" /></td>
+</tr>
+</table>
+  <table>
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game1in1" value="5" disabled="true" /></td>
+  <td><input type="text" id="game1in2" value="8" disabled="true" /></td>
+  <td><input type="text" id="game1in3" value="-5" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game1out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game1ref1" value="9"  disabled="true" /></td>
+  <td><input type="text" id="game1ref2" value="12" disabled="true" /></td>
+  <td><input type="text" id="game1ref3" value="-1" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>comparison:</td>
+  <td><input type="text" id="game1grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade3" value="" disabled="true" /></td>
+  </tr>
+
+  </table>
+  <br/>
+
+  <hr/>
+
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/505/Philips-P354-Visible-Records-Computer/">
+          <img src="image2.png"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Text or 'strings' of characters, ever since the printer,
+            have been a vital part of what computers were used for.
+            <br/><br/>
+            Here is a common 'string processing' operation, involving combining and formatting
+            a string, think you can fix the code?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+<table>
+<tr>
+  <td><font color="blue">Code: </font></td>
+  <td><input type="text" value="'mr ' + x.toLowerCase()" size="35" id="game2code" /></td>
+  <td><input type="button" value="Run!" onclick="
+             UpdateRandom('game2','3',false,'Lane','Babage',
+             function(r){return ('MRS '+r.toUpperCase());});
+             UpdateGame('game2','1','2','3')" /></td>
+  <td><input type="text" value="" align="right" id="game2info" disabled="true" size="30" /></td>
+</tr>
+</table>
+  <table>
+
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game2in1" value="Jones" disabled="true" /></td>
+  <td><input type="text" id="game2in2" value="Watson" disabled="true" /></td>
+  <td><input type="text" id="game2in3" value="Weezle" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game2out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game2ref1" value="MRS JONES"  disabled="true" /></td>
+  <td><input type="text" id="game2ref2" value="MRS WATSON" disabled="true" /></td>
+  <td><input type="text" id="game2ref3" value="MRS WEEZLE" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>CCH Status</td>
+  <td><input type="text" id="game2grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade3" value="" disabled="true" /></td>
+  </tr>
+</table>
+  <br/>
+  <hr/>
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/11977/EDSAC-II/">
+          <img src="image3.png"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Programming ever since it's creation, was primarily used to
+            solve complex problems involving multiple stages.
+            <br/><br/>
+            In this case, can you use parenthesis to solve the multi-stage problem described below?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+<table>
+<tr>
+  <td><font color="blue">Code: </font></td>
+  <td><input type="text" value="( ( x * 2 ) + 1 )" size="35" id="game3code" /></td>
+  <td><input type="button" value="Run!" onclick="UpdateRandom('game3','3',true,-4,4,function(r){return ((r+1)*3);});UpdateGame('game3','1','2','3',true)" /></td>
+  <td><input type="text" value="" align="right" id="game3info" disabled="true" size="30" /></td>
+</tr>
+</table>
+  <table>
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game3in1" value="4" disabled="true" /></td>
+  <td><input type="text" id="game3in2" value="2" disabled="true" /></td>
+  <td><input type="text" id="game3in3" value="-2" disabled="true" /></td>
+  </tr>
+<tr>
+  <td>output:</td>
+  <td><input type="text" id="game3out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game3out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game3out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game3ref1" value="15"  disabled="true" /></td>
+  <td><input type="text" id="game3ref2" value="9" disabled="true" /></td>
+  <td><input type="text" id="game3ref3" value="-3" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>comparison:</td>
+  <td><input type="text" id="game3grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game3grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game3grade3" value="" disabled="true" /></td>
+  </tr>
+</table>
+  <br/>
+
+  <hr/>
+  <center>
+    <a href="cch_ip_2.html">#2. Lots of Data</a>
+    <br/>
+    <a href="cch_ip_3.html">#3. Interfaces</a>
+
+    <br/>
+    <br/>
+    <a href="http://www.computinghistory.org.uk/">Center for Computing History</a>
+  </center>
+
+</body>
+</html>
