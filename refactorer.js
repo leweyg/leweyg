@@ -12,6 +12,50 @@ function pathToRemotePath(path) {
     return "http://www.lewcid.com/" + path;
 }
 
+function folderFromPath(path) {
+    var end = path.lastIndexOf("/");
+    if (end >= 0) {
+        return path.substr(0,end+1);
+    }
+    return "";
+}
+
+function backToRoot(path) {
+    var ans = "";
+    while (path.includes("/")) {
+        ans += "../";
+        path = path.substr(path.indexOf("/")+1);
+    }
+    return ans;
+}
+
+function pathFromOriginal(linkPath,filePath) {
+    if (linkPath.includes("?")) {
+        linkPath = linkPath.substr(0,linkPath.indexOf("?"));
+    }
+    if (linkPath.includes("#")) {
+        linkPath = linkPath.substr(0,linkPath.indexOf("#"));
+    }
+    var path = linkPath;
+    var folder = folderFromPath(filePath);
+    var toRoot = backToRoot(filePath);
+    if (path.startsWith("http")) {
+        path = path.substr(path.indexOf("com/")+4);
+        if (path.startsWith(folder)) {
+            path = path.substr(folder.length);
+        } else {
+            path = toRoot + path;
+        }
+    } else {
+        // already a relative path
+        path = path;
+    }
+
+
+    // now make it relative to the folder of filePath:
+    return path;
+}
+
 function fileExists(path) {
     return fs.existsSync(path);
 }
@@ -105,11 +149,12 @@ function showLinks(path) {
     var links = findLinksInFile(path);
     console.log("Link Count = " + links.length);
     for (var i in links) {
-        console.log("Link='" + links[i] + "'");
+        var to = pathFromOriginal(links[i], path);
+        console.log("to='" + to + "' Link='" + links[i] + "' ");
     }
 }
 
-showLinks("index.html");
+showLinks("lg/index.html");
 
 
 
