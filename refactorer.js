@@ -75,6 +75,26 @@ function fileReadWhole(path) {
     return fs.readFileSync(pathToLocalPath(path));
 }
 
+function fileContentsValid(content) {
+    if (content.length == 0)
+        return false;
+    if (content.includes("404 - Not Found"))
+        return false;
+    if (content.includes("Invalid Request"))
+        return false;
+    return true;
+}
+
+function fileCheckWasValid(localPath) {
+    if (fs.existsSync(localPath)) {
+        var whole = "" + fs.readFileSync(localPath);
+        if (!fileContentsValid(whole)) {
+            console.log("Bad file, removing: " + localPath);
+            fs.unlinkSync(localPath);
+        }
+    }
+}
+
 var _threadCounter_Global = 0;
 function threadCounter(delta=1) {
     _threadCounter_Global += delta;
@@ -98,8 +118,8 @@ function downloadFile(path, callback) {
         return;
     }
     console.log("Downloading '" + remotePath + "' into '" + localPath + "'...");
-    return;
-    
+    //return;
+
     threadStart();
     var folderPath = folderFromPath(localPath);
     if (!fs.existsSync(folderPath)){
@@ -112,6 +132,7 @@ function downloadFile(path, callback) {
        // after download completed close filestream
        file.on("finish", () => {
            file.close();
+           fileCheckWasValid(localPath);
            console.log("Download Completed");
            threadDone();
        });
