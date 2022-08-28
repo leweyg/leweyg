@@ -1,0 +1,145 @@
+
+//In Utils:
+function RandMod(mod)
+{
+	return int(rand() * 0.99 * mod);
+}
+
+
+
+var shared board = new object();
+var shared size = 10;
+var shared colors = new object( new fcolor(1,0,0), new fcolor(0,1,0), new fcolor(0,0,1) );
+var shared numcolors = colors.Length;
+
+
+//Main function:
+
+function main()
+{
+	NewBoard();
+
+	branch
+	{	
+		while(true)
+		{
+			sleepon mouseup_left(x,y);
+			x = int(x/size);
+			y = int(y/size);
+			var color = board[y][x].color;
+			PlayTurn(color);
+		}				
+	}
+}
+
+var shared playstack;
+var oldcolor, newcolor;
+
+function IsValid(x,y)
+{
+	if ((x<0)||(x>=size))
+		return false;
+	if ((y<0)||(y>=size))
+		return false;
+	return true;
+}
+
+function PushTile(x,y)
+{
+	if (IsValid(x,y))
+	{
+		for (var i=0; i<playstack.Length; i++)
+		{
+			if ((playstack[i].x == x) && (playstack[i].y == x))
+				return;
+		}
+
+		playstack[playstack.Length] = board[x][y];
+	}
+
+}
+
+function ScaleColor(a, b, t)
+{
+	var ans = new fcolor();
+	var ot = 1-t;
+	ans.red = a.red*ot + b.red*t;
+	ans.green = a.green*ot + b.green*t;
+	ans.blue = a.blue*ot + b.blue*t;
+	return ans;
+}
+
+function ChangeColor(tile, newcolor)
+{
+	var oldc = tile.color;
+	tile.color = newcolor;
+	branch
+	{
+		oldc = colors[oldc];
+		newcolor = colors[newcolor];
+		var scale = new TimeScale(0,1,1000);
+		while (scale.Going)
+		{
+			tile.view.Color = ScaleColor(oldc, newcolor, scale.Value);
+			sleepframe();
+		}
+	}
+}
+
+function PlayTurn(color)
+{
+	var start;
+	if (board.turn==0)
+		start = new fpnt(0,0);
+	else
+		start = new fpnt(size-1, size-1);
+	oldcolor = board[start.x][start.y].color;
+	newcolor = color;
+	if (oldcolor == newcolor)
+		return;
+
+	playstack = new object();
+	playstack[0] = board[start.x][start.y];
+
+	for (var i=0; i<playstack.Length; i++)
+	{
+		var cur = playstack[i];
+		if ((cur.color == oldcolor) || (cur.color == newcolor))
+		{
+			if (cur.color == oldcolor)
+				ChangeColor(cur, newcolor);
+
+			PushTile(cur.x-1, cur.y);
+			PushTile(cur.x, cur.y+1);
+			PushTile(cur.x+1, cur.y);
+			PushTile(cur.x, cur.y-1);
+		}
+	}
+
+	board.turn = (board.turn + 1)%2;
+}
+
+
+function NewGame()
+{
+	board.view = new CompNode();
+	board.turn = 0;
+
+	for (var x=0; x<10; x++)
+	{
+		board[x] = new object();
+
+		for (var y=0; y<10; y++)
+		{
+			var nb = new object();
+			nb.x = x; nb.y = y;
+			nb.color = RandMod( numcolors );
+			nb.view = new Block();
+			nb.view.Parent = board.view;
+			nb.view.Pos = new fpnt(5+x*10, 5+y*10);
+			nb.view.Color = colors[ nb.color ];
+
+			board[x][r] = nb;
+		}
+	}
+}

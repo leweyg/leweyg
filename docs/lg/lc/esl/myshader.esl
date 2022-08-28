@@ -1,0 +1,599 @@
+
+//
+//A collection of ESL classes for demonstration purposes.
+//	While they are not quite up to production quality, they
+//	are versatile and fast enough to create many cool effects.
+//		-Lewey Geselowitz
+//
+//For more ESL information, downloads and examples, check out
+//	the ESL homepage: http://www.leweyg.com/lc/esl/
+//
+
+class MyShader adds IMaterial
+	<description="An example base shader material">
+{
+	app float4x4 ProjMatrix : WORLDPROJECTION_MATRIX;
+	app float4x4 ModelViewMatrix : MODELVIEW_MATRIX;
+	app float3 CameraPosition : CAMERA_POS <uitype="position_world">;
+	app float3 CameraDirection : CAMERA_DIR <uitype="direction_world">;
+
+	user attrib float4 RawPosition : POSITION <uitype="position_model">;
+	user attrib float3 RawNormal : NORMAL <uitype="direction_model">;
+
+	user IColor PixelColor  <description="The final pixel color.">;
+
+	float4 ModelPosition = RawPosition;
+	float4 Position = mul( ModelPosition, ModelViewMatrix );
+	float4 ProjectedPosition = mul( Position, ProjMatrix );
+
+	float3 ModelNormal = RawNormal;
+	float3 Normal = mul( ModelNormal, float3x3( ModelViewMatrix ) );
+	
+	float3 DirToCamera = Position.xyz - CameraPosition;
+	float3 UnitDirToCamera = normalize( DirToCamera );
+	float3 ReflectDir = reflect( DirToCamera, Normal );
+	float3 UnitReflectDir = normalize( ReflectDir );
+
+	//Just an approximation, but good enough for glass shaders:
+	float2 ScreenPosition
+	{
+		float4 pos = ProjectedPosition;
+		float2 coord = pos.xy / pos.w;
+		return ( coord * float2(0.5,-0.5) ) + (0.5).xx;
+	}
+
+	override float4 FinalPosition = ProjectedPosition;
+	override float4 FinalColor = PixelColor.Color;
+}
+
+class HelloShader adds IMaterial
+	<description="A very simple shader.">
+{
+	app float4x4 ProjMatrix : PROJECTION_MATRIX;
+	user attrib float4 RawPosition : POSITION <uitype="position_model">;
+	user float4 AmbientColor <uitype="color">;
+
+	float4 ProjectedPosition = mul( RawPosition, ProjMatrix );
+	override float4 FinalPosition = ProjectedPosition;
+	override float4 FinalColor = AmbientColor;
+}
+
+abstract modifier IColor
+{
+	abstract float4 Color;
+}
+
+class FlatColor adds IColor
+	<description="A flat color exposed as a normal shader constant.">
+{
+	//Just a flat user specified color
+	override user float4 Color <uitype="color">;
+}
+
+class FixedColor adds IColor
+	<description="A fixed or 'hard-coded' color.">
+{
+	override fixed user float4 Color <uitype="color">;
+}
+
+class VertexColor adds IColor
+	<description="A per-vertex color (a vertex attribute)">
+{
+	override user attrib float4 Color <uitype="color"
+		default="COLOR0">;
+}
+
+abstract modifier UVTransform
+{
+	float2 Transform(float2 uv) = uv;
+}
+
+abstract modifier ITexture adds UVTransform
+	<description="Transforms the coordinate using a UVTransform and then samples the texture.">
+{
+	//This property should be overriden, the coord passed in has already
+	//	been transformed.
+	abstract protected float4 BaseSample(float2 coord);
+
+	//This transforms the UV and then samples the texture, this cannot
+	//	be overriden.
+	sealed float4 Sample(float2 coord) = BaseSample( Transform(coord) );
+}
+
+class RealTexture adds ITexture
+	<description="Actually samples a texture.">
+{
+	//This declares an actual texture:
+	override protected texture float4 BaseSample(float2 coord) 
+		<name="Texture" default="TEXTURE0">;
+}
+
+class ColorTexture adds ITexture
+	<description="Lets you use a color as a texture, presumably for blending purposes.">
+{
+	user IColor SolidColor;
+	override protected float4 BaseSample(float2 coord) = SolidColor.Color;
+}
+
+class TexturedColor adds IColor
+	<description="Samples a texture to generate this color.">
+{
+	user ITexture Tex <name="Texture">;
+	user IValue2 TexCoord;
+
+	override float4 Color = Tex.Sample( TexCoord.Value );
+}
+
+abstract modifier IValue2 adds UVTransform
+{
+	//This property should be overriden to get the underlying value.
+	abstract protected float2 BaseValue;
+
+	//This transforms the BaseValue and cannot be overriden.
+	sealed float2 Value = Transform( BaseValue );
+}
+
+class UVCoords adds IValue2
+	<description="A per-vertex UV coordinate.">
+{
+	override protected user attrib float2 BaseValue 
+		<name="UVCoord" default="TEXCOORD0"
+		description="Select a 'channel' (like TEXCOORD0) to feed this value.">;
+}
+
+class ScreenXY adds IValue2 usedby MyShader
+	<description="Returns the current screen XY coordinate">
+{
+	override float2 BaseValue = MyShader.ScreenPosition;
+}
+
+abstract modifier ILight
+{
+	abstract float3 Direction;
+	abstract float4 Color;
+
+	//Each light can optionally change the range of factors
+	//	it can contribute. This should be called by any code
+	//	which uses this light.
+	float ClipFactor(float f) = max( 0, f );
+
+	//This assumes for now that Direction is already normalized.
+	float3 UnitDirection = Direction;
+}
+
+class DiffuseLighting adds IColor usedby MyShader
+	<description="Does diffuse lighting calculations to generate this color.">
+{
+	user IColor DiffuseColor;
+	app ILight[] DiffuseLights 
+		<description="The lights which will affect the diffuse color.">;
+
+	float LightFactor(ILight el) 
+		= el.ClipFactor( dot( MyShader.Normal, el.UnitDirection ) );
+
+	float4 DiffuseFromLight(ILight el)
+		= el.Color * LightFactor( el );
+
+	override float4 Color
+	{
+		float4 light = sumeach( 
+			DiffuseFromLight(value) in DiffuseLights );
+		return DiffuseColor.Color * light;
+	}
+}
+
+modifier FocusLight extends ILight
+	<description="Allows you to adjust the min and max lighting factor.">
+{
+	user IValue MinFactor;
+	user IValue MaxFactor;
+
+	override float ClipFactor(float f)
+	{
+		return smoothstep( MinFactor.Value, MaxFactor.Value, f );
+	}
+}
+
+class DirectionalLight adds ILight
+	<description="A directional light, has a color and direction.">
+{
+	user float3 LightDirection <uitype="direction_world" default="LIGHT_0_DIR">;
+	user IColor LightColor;
+
+	override float3 Direction = LightDirection;
+	override float4 Color = LightColor.Color;
+}
+
+class PointLight adds ILight usedby MyShader
+	<description="A point light, has a color and position.">
+{
+	user float3 Position <uitype="position_world" default="LIGHT_0_POS">;
+	user IColor LightColor;
+
+	//Use the current vertex position to calculate the light
+	//	direction.
+	override float3 Direction = Position - MyShader.Position.xyz;
+	override float3 UnitDirection = normalize( Direction );
+	override float4 Color = LightColor.Color;
+}
+
+modifier PerPixelNormalizeDirection extends PointLight
+	<description="Makes sure the point light direction is per-pixel normalized">
+{
+	override pshader float3 UnitDirection = normalize( Direction );
+}
+
+class ProjectedTextureLight adds ILight, UVTransform usedby MyShader
+	<description="Projects a texture from a light source in a direction.">
+{
+	user float3 Position <uitype="position_world" default="light_0_pos">;
+	user float3 LightDirection <uitype="direction_world" default="light_0_dir">;
+	fixed user float UVScale <default="1">;
+	user ITexture Tex;
+
+	override float3 Direction = Position - MyShader.Position.xyz;
+	override float3 UnitDirection = normalize( Direction );
+
+	float3 Up = float3( 0, 1, 0 );
+	float3 ZAxis = LightDirection;
+	float3 XAxis = cross( ZAxis, Up );
+	float3 YAxis = cross( ZAxis, XAxis );
+
+	float2 RawXYCoord
+	{
+		float2 dxy = float2(
+			dot( Direction, XAxis ),
+			dot( Direction, YAxis ) );
+		float2 coord = dxy / dot( Direction, ZAxis );
+		return ( coord * UVScale ) + (0.5).xx;
+	}
+	float2 BaseTexCoord = saturate( RawXYCoord );
+
+	sealed float2 TexCoord = Transform( BaseTexCoord );
+	override float4 Color = Tex.Sample( TexCoord );
+}
+
+class SpecularLighting adds IColor usedby MyShader
+	<description="Does specular lighting calculations to generate a color.">
+{
+	fixed user float SpecularPower
+		<description="The power to which the specular component is raised." default="32">;
+	app ILight[] SpecularLights;
+	user IColor SpecularColor;
+	
+	float3 SpecularDir = MyShader.UnitReflectDir;
+
+	float4 SpecularFromLight(ILight el)
+	{
+		float f = el.ClipFactor( dot( SpecularDir, el.UnitDirection ) );
+		return el.Color * saturate( pow( max( 0, f ), SpecularPower ) );
+	}
+		
+	override float4 Color = SpecularColor.Color * 
+		sumeach( SpecularFromLight(value) in SpecularLights );
+}
+
+modifier PerPixelNormals extends MyShader
+	<description="Normalizes the normal in the pixel shader, implicitly pushing most lighting code into the pixel shader.">
+{
+	pshader override float3 Normal = normalize( base.Normal );
+}
+
+modifier GrayScale extends IColor
+	<description="Applies a grey-scale filter to a color.">
+{
+	override float4 Color
+	{
+		float4 c = base.Color;
+		float v = ((c.r + c.g + c.b)/3);
+		return float4( v, v, v, c.a );
+	}
+}
+
+//Not the most powerful bump-mapper but works well for simple
+//	situations.
+modifier NormalMap extends MyShader
+	<description="Adds bump-mapping">
+{
+	user TexturedColor BumpMap <description="The bump-map texture">;
+	user attrib float3 TangentU <default="TEXCOORD1">;
+	user attrib float3 TangentV <default="TEXCOORD2">;
+	user IValue NormalWeight <description="Weights the bump-map in the vertex-normal direction if below 1.">;
+
+	float3 BumpBase = ( BumpMap.Color.xyz * 2 ) - (1).xxx;
+	float3 BumpDir
+	{
+		float3 bumpuv = ( 
+			( TangentU * BumpBase.x ) +
+			( TangentV * BumpBase.y ) );
+		return normalize( 
+			( bumpuv * NormalWeight.Value ) +
+			( RawNormal * BumpBase.z ) );
+	}
+
+	override float3 ModelNormal = BumpDir;
+}
+
+modifier NegOneOneToZeroOne extends IColor
+	<description="Shift a color from a [-1,1] span to the [0,1] span.">
+{
+	override float4 Color = ( base.Color + (1).xxxx ) * 0.5;
+}
+
+modifier ZeroOneToNegOneOne extends IColor
+	<description="Shift a color from a [0,1] span to the [-1,1] span.">
+{
+	override float4 Color = ( base.Color * 2 ) - (1).xxxx;
+}
+
+modifier ClampColor extends IColor
+	<description="Clamps the color to the [0,1] range.">
+{
+	override float4 Color = clamp( base.Color, (0).xxxx, (1).xxxx );
+}
+
+modifier NormalizeColor extends IColor
+	<description="Normalizes the xyz and sets the alpha to 0.">
+{
+	override float4 Color = normalize( base.Color.xyz ).xyz0;
+}
+
+modifier InvertColor extends IColor
+	<description="Does a 1 minus the color.">
+{
+	override float4 Color = (1).xxxx - base.Color;
+}
+
+modifier NegativeColor extends IColor
+	<description="Multiplies the color by a negative 1.">
+{
+	override float4 Color = -base.Color;
+}
+
+class SumColors adds IColor
+	<description="Lets you specify a number of IColor(s) and then just adds them all up.">
+{
+	user IColor[] Colors;
+
+	override float4 Color = sumeach( value.Color in Colors );
+}
+
+abstract modifier IValue
+{
+	abstract float Value;
+}
+
+class FlatValue adds IValue
+	<description="Create a shader constant to hold a single float.">
+{
+	override user float Value;
+}
+
+class FixedValue adds IValue
+	<description="Creates a fixed or 'hard coded' float value.">
+{
+	override fixed user float Value;
+}
+
+modifier CroppedUV extends UVTransform
+	<description="Crops the UV coordinates to [0,1], can then applies a scale and offset. Used to simuate a full texture as a subrect of another texture.">
+{
+	user IValue UOffset;
+	user IValue VOffset;
+	user IValue UWidth;
+	user IValue VWidth;
+
+	//Has to be done on a per-pixel basis:
+	override pshader float2 Transform(float2 coord)
+	{
+		float2 offset = float2( UOffset.Value, VOffset.Value );
+		float2 width = float2( UWidth.Value, VWidth.Value );
+		float2 uv = base.Transform( coord );
+		return ( fmod( uv, (1).xx ) * width ) + offset;
+	}
+}
+
+modifier ScaledUV extends UVTransform
+	<description="Lets you scale the UV coordinates and add an offset.">
+{
+	user IValue UScale;
+	user IValue VScale;
+	user IValue UOffset;
+	user IValue VOffset;
+
+	override float2 Transform(float2 coord)
+	{
+		float2 scale = float2( UScale.Value, VScale.Value );
+		float2 offset = float2( UOffset.Value, VOffset.Value );
+		return ( base.Transform( coord ) * scale ) + offset;
+	}
+}
+
+modifier AddRefraction extends UVTransform usedby MyShader
+	<description="Adds an offset in the refraction direction. Good for something like glass. Should be used over ScreenXY.">
+{
+	user IValue RefractionScaler <description="How much the UV coordinate is changed">;
+	user IValue RefractionIndex <description="How much the light bends, default is 2.">;
+
+	float3 RefractDir = refract( normalize(MyShader.DirToCamera), 
+		MyShader.Normal, RefractionIndex.Value );
+	float3 UnitRefractDir = ( RefractDir );
+
+	override float2 Transform(float2 coord)
+	{
+		float2 delta = UnitRefractDir.xy * RefractionScaler.Value;
+		return base.Transform( coord ) + delta;
+	}
+}
+
+abstract modifier ICubicTexture
+{
+	abstract float4 Sample(float3 coord);
+}
+
+modifier OppositeDirection extends ICubicTexture
+	<description="Samples the cubic texture in the opposite direction.">
+{
+	override float4 Sample(float3 coord) = base.Sample( -coord );
+}
+
+class RealCubicTexture adds ICubicTexture
+	<description="A cubic (CUBE) texture.">
+{
+	override CUBE texture float4 Sample(float3 coord) 
+		<default="CUBETEXTURE0" name="Cubic Texture">;
+}
+
+class ReflectionColor adds IColor usedby MyShader
+	<description="Uses an environment map to calculate the reflected color.">
+{
+	user ICubicTexture EnvMap <description="The environment map to use for reflection.">;
+
+	override float4 Color = EnvMap.Sample( MyShader.ReflectDir );
+}
+
+modifier UseNormalDirection extends ReflectionColor usedby MyShader
+	<description="Uses the normal direction instead of reflection direction.">
+{
+	override float4 Color = EnvMap.Sample( MyShader.Normal );
+}
+
+//Dots the Normal direction with the camera direction, and uses that
+//	value to blend between the two colors in the given span.
+class ReflectiveTwoTone adds IColor usedby MyShader
+	<description="Blends between two colors based on angle of the normal to the eye.">
+{
+	user IValue BlendStart <description="Angles lower than this are fully LowColor.">;
+	user IValue BlendEnd <description="Angles higher than this are fully HighColor.">;
+	user IColor LowColor;
+	user IColor HighColor;
+
+	float ReflectFactor = dot( MyShader.Normal, -MyShader.UnitDirToCamera );
+
+	float BlendFactor = smoothstep( BlendStart.Value, BlendEnd.Value, 
+		ReflectFactor );
+
+	override float4 Color = lerp( LowColor.Color, HighColor.Color, 
+		BlendFactor.xxxx );
+}
+
+modifier UseNormalDirection extends ReflectiveTwoTone usedby MyShader
+	<description="Does a reflective blend using the reflection direction instead of the normal direction.">
+{
+	override float ReflectFactor 
+		= dot( MyShader.UnitReflectDir, MyShader.UnitDirToCamera );
+}
+
+class One adds IValue
+	<description="A hard-coded 1">
+{
+	override float Value = 1;
+}
+
+class Zero adds IValue
+	<description="A hard-coded 0">
+{
+	override float Value = 0;
+}
+
+class Black adds IColor
+	<description="The hard-coded color black, (0,0,0,0)">
+{
+	override float4 Color = (0).xxxx;
+}
+
+class White adds IColor
+	<description="The hard-coded color white, (1,1,1,1)">
+{
+	override float4 Color = (1).xxxx;
+}
+
+abstract modifier IColorCombiner
+{
+	float4 Combine(float4 a, float4 b) = a * b;
+}
+
+class CombinedTexture adds IColorCombiner, ITexture
+	<description="Combines two textures (feel free to stack these). Multiplies them by default, modifiers can be added to change this.">
+{
+	user ITexture First;
+	user ITexture Second;
+
+	override float4 BaseSample(float2 coord)
+		= Combine( First.Sample(coord), Second.Sample( coord ) );
+}
+
+class CombinedColor adds IColorCombiner, IColor
+	<description="Combines two colors (feel free to stack these). Multiplies them by default, modifiers can be added to change this.">
+{
+	user IColor First;
+	user IColor Second;
+
+	override float4 Color = Combine( First.Color, Second.Color );
+}
+
+modifier AdditiveCombine extends IColorCombiner
+	<description="Changes a combiner into an additive combiner i.e. First + Second.">
+{
+	override float4 Combine(float4 a, float4 b) = a + b;
+}
+
+//
+//These classes are used for testing, and can be quite handy:
+//
+
+class Test_FlatLights adds IColor
+	<description="Just adds the lights colors, ignores thier directions.">
+{
+	app ILight[] ColoredLights;
+
+	float4 LightContrib(ILight el)
+	{
+		float f = el.ClipFactor( 1 );
+		return el.Color * f;
+	}
+
+	override float4 Color = sumeach( LightContrib(value) in ColoredLights );
+}
+
+class Test_ViewNormal adds IColor usedby MyShader
+	<description="Visualizes the normal as a color. Reverses the Z direction for convenience.">
+{
+	override float4 Color = ( MyShader.Normal * float3(1,1,-1) ).xyz0;
+}
+
+class Test_ViewTexCoords adds ITexture
+	<description="Outputs the texture coordinates as a color so that you can easily visualize them.">
+{
+	override protected float4 BaseSample(float2 coord) = frac( coord ).xy00;
+}
+
+class Test_EasyLight adds ILight
+	<description="A directional white light in the 'LIGHT_0_DIR' direction.">
+{
+	user float3 LightDirection : LIGHT_0_DIR;
+
+	override float3 Direction = LightDirection;
+	override float4 Color = (1).xxxx;
+}
+
+class Test_ViewCubicCoords adds ICubicTexture
+	<description="Outputs the texture coordinates as a color so that you can easily visualize them.">
+{
+	override float4 Sample(float3 coord) = normalize(coord).xyz0;
+}
+
+//Don't use this:
+
+/*
+	NOTE: Using this modifier, and setting NewPosition to a UVCoord
+	created a valid shader but made the driver go crazy.
+
+modifier Test_CoordToPosition extends MyShader
+{
+	user IValue2 NewPosition;
+
+	override float4 FinalPosition = NewPosition.Value.xy01;
+}
+
+*/

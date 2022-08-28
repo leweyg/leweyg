@@ -1,0 +1,5 @@
+<xml standalone="true">
+  <material compile="inst0">
+    <inst name="inst0" type="HelloShader" />
+  </material>
+</xml>
