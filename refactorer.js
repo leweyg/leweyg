@@ -282,9 +282,19 @@ function downloadAll()
 
 //downloadAll();
 
-checkAndOrRefactorFile("index.html", true);
-checkAndOrRefactorFile("lg/index.html", true);
-checkAndOrRefactorFile("lg/aboutme.html", true);
+//checkAndOrRefactorFile("index.html", true);
+//checkAndOrRefactorFile("lg/index.html", true);
+//checkAndOrRefactorFile("lg/aboutme.html", true);
+function refactorAll()
+{
+    var htmls = findAllHtmlFiles();
+    for (var i in htmls) {
+        var path = htmls[i];
+        console.log(path);
+        checkAndOrRefactorFile(path, true);
+    }
+}
+//refactorAll();
 
 console.log("Wrapping...");
 
