@@ -1,5 +1,5 @@
 
-// Lewid (LCD) Kernel
+// Lewcid (LCD) Kernel
 
 var lewcidKernel = {
     ThreadStruct : [
