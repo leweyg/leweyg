@@ -291,6 +291,7 @@ function downloadAll()
     }
 }
 //downloadAll();
+//downloadFile("lg/lc/win32/index.html");
 
 function redownloadHtmls()
 {
