@@ -229,8 +229,19 @@ function checkAndOrRefactorFile(path, reallyRefactor=false) {
         if (!ln.is_link) {
             if (fout) fout.write(ln.text);
         } else {
+            var postfix = "";
+            if (ln.text.includes("?")) {
+                var cutPos = ln.text.indexOf("?");
+                postfix = ln.text.substr(cutPos);
+                ln.text = ln.text.substr(0,cutPos);
+            } else if (ln.text.includes("#")) {
+                var cutPos = ln.text.indexOf("#");
+                postfix = ln.text.substr(cutPos);
+                ln.text = ln.text.substr(0,cutPos);
+            }
             var to = pathFromOriginal(ln.text, path);
             if (fout) fout.write(to);
+            if (fout && postfix) fout.write(postfix);
 
             // check that relative path exists:
             checkRelativeFileDownloaded(to, path);
@@ -294,7 +305,7 @@ function refactorAll()
         checkAndOrRefactorFile(path, true);
     }
 }
-//refactorAll();
+refactorAll();
 
 console.log("Wrapping...");
 
