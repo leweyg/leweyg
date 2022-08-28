@@ -77,6 +77,9 @@ function threadDone() {
 }
 
 function downloadFile(path, callback) {
+    if ((path=="") || (path.endsWith("/"))) {
+        return; // folders
+    }
     if (fileExists(path)) {
         callback(path);
         return;
@@ -156,39 +159,59 @@ function showLinks(path) {
     }
 }
 
+function checkRelativeFileDownloaded(link,owningFilePath) {
+    if (link.startsWith("http")) return; // external link, check?
+
+    var folder = folderFromPath(owningFilePath);
+    var path = folder + link;
+    console.log(path);
+    downloadFile(path);
+}
+
 function refactorFile(path) {
     // todo
     var fullText = [];
     findLinksInFile(path, fullText);
     var localPath = pathToLocalPath(path);
     console.log("Refactoring '" + localPath + "'...");
-    var fout = fs.createWriteStream(localPath);
+    var fout = null; //fs.createWriteStream(localPath);
     // loop over full text and write it out etc.
     var isFirst = true;
     for (var ndx in fullText) {
         if (!isFirst) {
-            fout.write("\"");
+            if (fout) fout.write("\"");
         }
         isFirst = false;
         var ln = fullText[ndx];
         if (!ln.is_link) {
-            fout.write(ln.text);
+            if (fout) fout.write(ln.text);
         } else {
             var to = pathFromOriginal(ln.text, path);
-            fout.write(to);
+            if (fout) fout.write(to);
+
+            // check that relative path exists:
+            checkRelativeFileDownloaded(to, path);
         }
     }
-    fout.close();
+    if (fout) fout.close();
 }
 
-//refactorFile("index.html");
+refactorFile("index.html");
+//refactorFile("lg/index.html");
 //refactorFile("lg/aboutme.html");
 
+console.log("Wrapping...");
 
-
-
-if (_threadCounter_Global > 0) {
-    console.log("Waiting for threads...!");
-} else {
-    console.log("Done!");
+function checkThreads() {
+    if (_threadCounter_Global > 0) {
+        console.log("Waiting for threads...!");
+        setTimeout(() => checkThreads(), 5000);
+    } else {
+        console.log("Done.");
+    }
 }
+
+checkThreads();
+
+
+
