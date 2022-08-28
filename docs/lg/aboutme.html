@@ -5,8 +5,13 @@
 <link rel="icon" href="lewcid_icon_icon.ico" type="image/ico" sizes="16x16 32x32"/> 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.firsts_link { color:blue; text-decoration: underline; }
+       .platform_target { color:lightgreen }
+       .white_link { color:white }
+</style>
 </head>
-<body style="font-family:sans-serif; font-size:3;padding:0; margin:0;">
+<body style="font-family:sans-serif; font-size:3;padding:0; margin:0;background-color:white;">
 
 <div style="overflow-y:hidden;overflow-x:scroll;" >
 
@@ -37,15 +42,25 @@
 
 <p style="font-size:4;">
 
-I produce lucid interfaces and software structures towards holistically alignable societies.
-<br/><br/>
+Specialist in spatial user interfaces.
 <a href="http://www.lewcid.com/lg/Resume.html">Resume</a>, <a href="https://www.linkedin.com/in/lewey-geselowitz-3346b05/">LinkedIn</a>, and Portfolio...
 <br/>
-
+<script>
+	function scrollToFirstElement(el) {
+		el.scrollIntoView({behavior:'smooth',inline:'start'});
+	}
+</script>
+Products from 
+<span class="firsts_link" onclick="scrollToFirstElement(first_tesla);" >Tesla</span>,
+<span class="firsts_link" onclick="scrollToFirstElement(first_unity);" >Unity</span>,
+<span class="firsts_link" onclick="scrollToFirstElement(first_lewcid);" >consulting</span>,
+<span class="firsts_link" onclick="scrollToFirstElement(first_lucasfilm);" >Lucasfilm</span>,
+<span class="firsts_link" onclick="scrollToFirstElement(first_microsoft);" >Microsoft</span> and
+<span class="firsts_link" onclick="scrollToFirstElement(first_hypercube);" >HyperCube</span>,
 </p>
 
 
-<div style="overflow-y:hidden;overflow-x:scroll;" id="professional">
+<div style="overflow-y:hidden;overflow-x:scroll;color:white;" id="professional">
 
 <table width="100%" bgcolor="#6898b3"><tr><td>
 <table>
@@ -56,32 +71,47 @@ I produce lucid interfaces and software structures towards holistically alignabl
 <tr><td colspan="5"><b><font color="white" size="5"><br/>PROFESSIONAL PRODUCTS <br/> </font></b></td></tr>
 
 <tr>
+	<td colspan="3" id="first_tesla"><a href="https://www.tesla.com/" class="white_link">@Tesla.com</a></td>
+	<td colspan="1" id="first_unity"><a href="https://unity.com/" class="white_link">@Unity3D.com</a></td>
+	<td colspan="3" id="first_lewcid"><a href="http://lewcid.com/" class="white_link">@Lewcid Systems (consulting)</a></td>
+	<td colspan="5" id="first_lucasfilm"><a href="https://www.lucasfilm.com/" class="white_link">@Lucasfilm.com</a></td>
+	<td colspan="17" id="first_microsoft"><a href="https://www.microsoft.com/" class="white_link">@Microsoft.com</a></td>
+	<td colspan="2" id="first_hypercube"><a href="http://www.hypercubeusa.com/" class="white_link">@Hypercube</a></td>
+	<td colspan="1"><a href="https://www.microsoft.com/" class="white_link">@Microsoft.com</a></td>
+</tr>
+
+<tr>
+
+<td valign="top" > <a href="https://www.youtube.com/watch?v=JjhA6mgyjtk"><img height="200" src="progames/tesla_autopilot_10.69_sm.png" />
+<br/><font color="white">Tesla Autopilot 10.69</a><br/>Autopilot Visualization Lead</font></td>
+
+<td valign="top" > <a href="https://www.tesla.com/blog/introducing-software-v11-0"><img height="200" src="progames/tesla-update-2021.jpg" />
+<br/><font color="white">Tesla Software v11 (2021)</a><br/>UI Core and Autopilot Visualization</font></td>
+
+<td valign="top" > <a href="https://www.tesla.com/models"><img height="200" src="progames/tesla-models-plaid-ui.jpeg" />
+<br/><font color="white">Tesla Model S Plaid (2021)</a><br/>UI Core Framework</font></td>
 
 <!--
-<td valign="top"> <a href="https://www.sugarcs.com/project/seuss-abc"><img height="200" src="progames/drseuss_ar.jpg" />
-<br/><font color="white">Dr Seuss ABC AR</a><br/>Technical Advisor (Unity MARS) <a href="https://apps.apple.com/us/app/dr-seusss-abc-ar-version/id1499082624"><font color="white">iPhone</font></a> / <a href="https://play.google.com/store/apps/details?id=com.drseuss.abcAR"><font color="white">Android</font></a> </font></td>
--->
+<td valign="top" > <a href="https://www.thebigfixup.co.uk/"><img height="200" src="progames/wallance_the_big_fixup.jpg" />
+<br/><font color="white">W&G: The Big Fix Up</a><br/>Technical Advisor (room solving by Unity MARS) 
+</font></td>
+<td valign="top" > <a href="https://www.sugarcs.com/project/seuss-abc"><img height="200" src="progames/drseuss_ar_room.jpg" />
+<br/><font color="white">Dr Seuss' ABC AR</a><br/>Technical Advisor (room solving by Unity MARS) 
+</font></td>
+ -->
 
-<td valign="top"> <a href="https://unity.com/unity/features/mars"><img height="200" src="progames/unity_mars_blue.jpg" />
+
+<td valign="top" > <a href="https://unity.com/unity/features/mars"><img height="200" src="progames/unity_mars_blue.jpg" />
 <br/><font color="white">Unity MARS</a><br/>Spatial App Studio<br/>Engineering Manager</font></td>
 
-<!-- or unity_mars_forces_adapt2.jpg or unity_mars_forces_pre.jpg -->
-<td valign="top"> <a href="https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html"><img height="200" src="progames/unity_mars_forces_adapt2.jpg" />
-<br/><font color="white">Unity MARS: Proxy Forces</a><br/>Adaptive Layout System<br/>Engineering Lead</font></td>
-
-
-<td valign="top"> <a href="https://www.amazon.com/gp/aw/sitb/B07X1V8D58"><img height="200" src="progames/VERSES_the_spatial_web_book.jpeg" />
-<br/><font color="white">The Spatial Web</a><br/>Book/Patent/White-Paper Contributor<br/></font></td>
-
-
-<td valign="top"> <a href="https://verses.io/"><img height="200" src="progames/verses_quicksilver_sm.jpg" /> <!-- verses_ar.jpg || HSTP.jpg -->
-<br/></a><a href="https://verses.io/" ><font color="white">VERSES.IO</a> & <a href="https://leweyg.github.io/design_for_verses/"><font color="white">HSTP</font></a><br/>Dir. of Spatial Standards</font></td>
+<td valign="top"> <a href="https://verses.io/"><img height="200" src="progames/verses_quicksilver_sm2.jpg" /> <!-- verses_ar.jpg || HSTP.jpg -->
+<br/></a><a href="https://verses.io/" ><font color="white">VERSES.IO</a> <br/>Cofounder and Director of Spatial Standards</font></td>
 
 <td valign="top"> <a href="http://karunavr.com/"><img height="200" src="progames/karuna_elbow.jpg" />
 <br/><font color="white">Karuna Labs</a><br/>VR Motion Therapy<br/>Engineering Lead</font></td>
 
 <td valign="top"> <a href="http://4dprocess.com/"><img height="200" src="progames/eco4d_image3_.jpg" />
-<br/><font color="white">4D Process</a><br/>Holistic Space-Time Visualization<br/>Founder and Lead</font></td>
+<br/><font color="white">4D Process</a><br/>Space-Time Visualization<br/>Founder</font> </td>
 
 <!--
 <td valign="top"> <a href="http://www.lewcid.com/"><img height="200" src="http://www.lewcid.com/images/lewcid_systems.jpg" />
@@ -158,7 +188,7 @@ I produce lucid interfaces and software structures towards holistically alignabl
 <td valign="top"> <a href="http://en.wikipedia.org/wiki/Forza_Motorsport_2"><img height="200" src="progames/forza_2_screen.jpg"/><br/><font color="white">Forza Motorsport 2<br/></a>Graphics Engine and Pipeline Engineer</font> </td>
 
 
-<td valign="top"> <a href="http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx"><img height="200"  src="progames/hyperchem_screen.jpg"/><br/><font color="white">HyperProtein 1.0<br/></a>Graphics and Bioinformatics</font> </td>
+<td valign="top""> <a href="http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx"><img height="200"  src="progames/hyperchem_screen.jpg"/><br/><font color="white">HyperProtein 1.0<br/></a>Graphics and Bioinformatics</font> </td>
 
 <td valign="top"> <a href="http://www.hyper.com/Products/HyperChemProfessional/75Overview/tabid/361/Default.aspx"><img height="200"  src="progames/hyperchem_field_screen.jpg"/><br/>
 <font color="white">HyperChem 8.0<br/></a>Graphics</font> </td>
@@ -168,17 +198,21 @@ I produce lucid interfaces and software structures towards holistically alignabl
 
 </tr>
 
+<!--
 <tr>
 <td colspan="10"><p><I><font color="white" >
-<li>Present: <a href="https://unity.com/"><font color="white" >Unity</font></a> MARS: Mixed and Augmented Reality Studio - Runtime Engineering Lead</li>
-<li>2 Years + Present: Spatial Web startups <a href="http://verses.io/"><font color="white" >VERSES.IO</font></a> and <a href="http://www.lewcid.com/"><font color="white" >Lewcid Systems</font></a>.
-<li>12 years: Developed 3D Graphics and Interaction technologies at <a href="http://www.microsoft.com/"><font color="white">Microsoft</font></a> and <a href="https://www.ilm.com/"><font color="white" >Lucasfilm</font></a> headquaters.
-<li>5 years: Gesture Interaction Design for <a href="http://www.microsoft.com/"><font color="white">Microsoft's</font></a>  Kinect and HoloLens.
-<li>15 years: Self-Taught Interactive Software Creator, personal site now at <a href="http://www.lewcid.com/lg/index.html"><font color="white">Lewcid.com</font></a>.
-<li>4 years: Figure Sculpting Studios at the <a href="http://www.gageacademy.org/"><font color="white">Gage Academy</font></a> in Seattle.
-<li>1 year: Molecular Modeling and Phylogenetic Protein Analysis at <a href="http://www.hyper.com/"><font color="white">HyperCube Inc.</font></a>
+<li>Currently a Staff Software Engineer at <a href="https://unity.com/"><font color="white" >Tesla</font></a> on the vehicle dashboard team.</li>
+<li>Previously Engineering Lead at <a href="https://unity.com/"><font color="white" >Unity 3D</font></a> on Unity MARS their Mixed and Augmented Reality Studio.</li>
+<li>Director of Technology and later Spatial Standards at <a href="http://verses.io/"><font color="white" >VERSES.IO</font></a>.
+<li>Ran my own consulting and technology licensing business <a href="http://www.lewcid.com/"><font color="white" >Lewcid Systems</font></a>. </li>
+<li>Developed 3D Graphics and Interaction technologies at <a href="http://www.microsoft.com/"><font color="white">Microsoft</font></a>, <a href="https://www.ilm.com/"><font color="white" >Lucasfilm</font></a> and <a href="https://unity.com/"><font color="white" >Unity</font></a> headquaters.
+<li>Worked with early hardware prototypes for <a href="http://www.microsoft.com/"><font color="white">Microsoft's</font></a> Kinect and HoloLens, and later the <a href="https://www.magicleap.com/en-us/magic-leap-1"><font color="white">Magic Leap One</font></a>.
+<li>Self-Taught Interactive Software Creator, personal site now at <a href="http://www.lewcid.com/lg/index.html"><font color="white">Lewcid.com</font></a>.
+<li>Figure Sculpting at the <a href="http://www.gageacademy.org/"><font color="white">Gage Academy</font></a> in Seattle.
+<li>Molecular Modeling and Phylogenetic Protein Analysis at <a href="http://www.hyper.com/"><font color="white">HyperCube Inc.</font></a>
 </font></I>
 </p><br/></td>
+-->
 
 </tr>  <!-- might not be correct -->
 
@@ -189,7 +223,7 @@ I produce lucid interfaces and software structures towards holistically alignabl
 
 <br/><br/>
 
-<div style="overflow-y:hidden;overflow-x:scroll;" id="personal">
+<div style="overflow-y:hidden;overflow-x:scroll; color:white;" id="personal">
 <table width="100%" bgcolor="#68b368"><tr><td>
 <table id="individual"><tr><td>
 
@@ -198,24 +232,39 @@ I produce lucid interfaces and software structures towards holistically alignabl
 <tr>
 <td> </td>
 
-<td valign="top"><a href="https://www.facebook.com/leweyg"><img height="200" src="http://www.lewcid.com/lg/leweyg_profile2.jpg"><br/><font color="white">Friends</font></a>
-<font color="white"> / </font> <a href="https://www.linkedin.com/in/lewey-geselowitz-3346b05/"><font color="white">Co-Workers</font></a> </td>
+<td valign="top"><a href="https://www.facebook.com/leweyg"><img height="200" src="http://www.lewcid.com/lg/leweyg_profile2.jpg"><br/><font color="white">Friends</font> </a> <font class="platform_target">[facebook]</font>
+<font color="white"> / </font><br/><a href="https://www.linkedin.com/in/lewey-geselowitz-3346b05/"><font color="white">Co-Workers</font></a> <font class="platform_target">[linkedin]</font> </td>
+
+<td valign="top"><a href="https://leweyg.github.io/heroine_dawn/"><img height="200" src="http://www.lewcid.com/lg/progames/heroine_dawn.png"><br/>
+<font color="white">Heroine Dawn</font></a> <font class="platform_target">[web/mobile]</font></td>
+
+<td valign="top"><a href="https://leweyg.github.io/carnival/carnival/"><img height="200" src="http://www.lewcid.com/lg/progames/carnival_intro.jpg"><br/>
+<font color="white">Carnival</font></a> <font class="platform_target">[web]</font></td>
 
 <td valign="top"><a href="http://www.4dprocess.com/fieldhand/"><img height="200" src="http://www.lewcid.com/lg/progames/FieldHand_Friday_Sep18th_2020_sm.jpg"><br/>
-<font color="white">Field Hand<br/>(coming soon)</font></a></td>
+<font color="white">Project Field Hand</font></a></td>
 
-<td valign="top"><a href="https://leweyg.github.io/lewdo/index.html"><img height="200" src="http://www.lewcid.com/lg/progames/lewdo_sm3.png"><br/>
-<font color="white">Lewdo</font></a></td>
+<td valign="top"><a href="https://leweyg.github.io/FreedGames/FreedGo/"><img height="200" src="http://www.lewcid.com/lg/progames/freed_go_2.jpg"><br/>
+<font color="white">Freed Go</font></a> <font class="platform_target">[web/mobile]</font></td>
+
+
+<td valign="top"><a href="https://leweyg.github.io/DiceWalker/"><img height="200" src="http://www.lewcid.com/lg/progames/dice_walker_sm.jpg"><br/>
+<font color="white">Dice Walker</font></a> <font class="platform_target">[web]</font></td>
+
+
+
+<td valign="top"><a href="https://github.com/leweyg/lewdo"><img height="200" src="http://www.lewcid.com/lg/progames/lewdo_sm3.png"><br/>
+<font color="white">Lewdo</font></a> <font class="platform_target">[web/mobile]</font></td>
+
 
 <td valign="top"><a href="http://www.4dprocess.com/4d/index.html"><img height="200" src="http://www.lewcid.com/lg/progames/viral_contacts_crop_sm.jpg"><br/>
-<font color="white">4D Process</font></a></td>
-
+<font color="white">4D Process</font></a> <font class="platform_target">[web/mobile]</font></td>
 
 <td valign="top"><a href="https://leweyg.github.io/HealerGame/demo/"><img height="200" src="http://www.lewcid.com/lg/progames/HealerGame.jpg"><br/>
-<font color="white">Healer Game Series</font></a></td>
+<font color="white">Healer Game Series</font></a> <font class="platform_target">[web/mobile]</font></td>
 
 <td valign="top"><a href="https://leweyg.github.io/vrbiofield/index.html"><img height="200" src="http://www.lewcid.com/lg/progames/VRBiofield_HeartChakra.jpg"><br/>
-<font color="white">VR Biofield Meditation</font></a></td>
+<font color="white">VR Biofield Meditation</font></a> <font class="platform_target">[web/vr]</font></td>
 
 <!--
 <td valign="top"><a href="https://github.com/leweyg/vrbiofield"><img height="200" src="http://www.lewcid.com/lg/progames/VRBiofields_Summary.jpg"><br/>
@@ -225,18 +274,13 @@ I produce lucid interfaces and software structures towards holistically alignabl
 <td valign="top"><a href="http://www.lewcid.com/lg/articles/leweys_energy_work.html"><img height="200" src="http://www.lewcid.com/lg/articles/lewcid_energy_work_sm.gif"><br/>
 <font color="white">Energy Work Experiences</font></a></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/articles/vol/hand_poses.html"><img height="200" src="http://www.lewcid.com/lg/articles/vol/Volumetrics_Scrolling_Early_screen.jpg"><br/><font color="white">3D UI Hand Gestures</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/articles/vol/hand_poses.html"><img height="200" src="http://www.lewcid.com/lg/articles/vol/Volumetrics_Scrolling_Early_screen.jpg"><br/><font color="white">3D UI Hand Gestures</font></a> <font class="platform_target">[video]</font></td>
 
 
 <td valign="top"><a href="http://www.lewcid.com/lg/sculpture/index.html"><img height="200" src="http://www.lewcid.com/lg/sculpture/07/hand_front_small.jpg"><br/>
 <font color="white">Sculptures</font></a></td>
 
-
-
-<!--
-<td valign="top"><a href="http://www.lewcid.com/lg/sculpture/index.html#hand_reaching"><img height="200" src="sculpture/07/hand_front_small.jpg"><br/><font color="white">'Reaching'<br/></font></a></td>
--->
-
+<td valign="top"><a href="http://www.lewcid.com/lg/sculpture/index.html#second_good_idea"><img height="200" src="sculpture/06/headshot.jpg"><br/><font color="white">'Second Good Idea'<br/></font></a></td>
 
 <td valign="top"><a href="http://www.lewcid.com/lg/sculpture/index.html#hoagie"><img height="200" src="http://www.lewcid.com/lg/sculpture/03/small.jpg"><br/><font color="white">'Hoagie'</font></a></td>
 
@@ -268,7 +312,7 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 </video>
 -->
 
-<br/><font color="white">Kinect Gesture Development<br/>Videos and Articles</font>
+<br/><font color="white">Kinect Gesture Development<br/>Videos and Articles <font class="platform_target">[videos]</font></font>
 </a></td>
 
 
@@ -282,61 +326,59 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 <td valign="top"><a href="http://www.lewcid.com/lg/lc/esl/"><img height="200" src="http://www.lewcid.com/lg/lc/esl/examples/pic1_small.jpg"><br/><font color="white">ESL<br/>Extensible Shading Language</font></a></td>
 
 
-<td valign="top"><a href="http://www.lewcid.com/lg/lc/evildice2/index.html"><img height="200" src="http://www.lewcid.com/lg/lc/evildice2/EvilDice2_InGame_3_small.jpeg"><br/><font color="white">Evil Dice 2<br/>Speedy Puzzle Game</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/lc/evildice2/index.html"><img height="200" src="http://www.lewcid.com/lg/lc/evildice2/EvilDice2_InGame_3_small.jpeg"><br/><font color="white">Evil Dice 2<br/>Speedy Puzzle Game</font></a> <font class="platform_target">[win32]</font></td>
 
 
-<td valign="top"><a href="http://www.lewcid.com/lg/lc/shuzzle.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/Shuzzle_Mix_small.jpeg"><br/><font color="white">Shuzzle<br/>The Shadow Puzzle</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/lc/shuzzle.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/Shuzzle_Mix_small.jpeg"><br/><font color="white">Shuzzle<br/>The Shadow Puzzle</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/lc/freedgo.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/FreedGo_9_small.jpeg"><br/><font color="white">Freed Go<br/>Mobius and Layered Go</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/lc/freedgo.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/FreedGo_9_small.jpeg"><br/><font color="white">Freed Go<br/>Mobius and Layered Go</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/lc/freedinvasion.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/FreedInv_3_small.jpeg"><br/><font color="white">Freed Invasion<br/>Quick Strategy Game</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/lc/freedinvasion.html"><img height="200" src="http://www.lewcid.com/lg/lc/screens/FreedInv_3_small.jpeg"><br/><font color="white">Freed Invasion<br/>Quick Strategy Game</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/impview.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/ImpView_F_small.jpg"><br/><font color="white">ImpView<br/>3D Implicit Equations</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/impview.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/ImpView_F_small.jpg"><br/><font color="white">ImpView<br/>3D Implicit Equations</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/vsaber/index.html"><img height="200" src="http://www.lewcid.com/lg/vsaber/screens/VSaber_Q_small.jpg"><br/><font color="white">VSaber<br/>Voxel Carving Tool</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/vsaber/index.html"><img height="200" src="http://www.lewcid.com/lg/vsaber/screens/VSaber_Q_small.jpg"><br/><font color="white">VSaber<br/>Voxel Carving Tool</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/SIRD/q2/index.html"><img height="200" src="http://www.lewcid.com/lg/progames/Quake_to_SIRDS.jpg"><br/><font color="white">Quake II AbSIRD<br/>Stereogram Engine Mod</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/SIRD/q2/index.html"><img height="200" src="http://www.lewcid.com/lg/progames/Quake_to_SIRDS.jpg"><br/><font color="white">Quake II AbSIRD<br/>Stereogram Engine Mod</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/SIRD/index.html"><img height="200" src="http://www.lewcid.com/lg/download/SIRD/AbSIRD/SIRD2_small.jpg"><br/><font color="white">AbSIRD Algorithm<br/>Realtime 'Magic Eye'</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/SIRD/index.html"><img height="200" src="http://www.lewcid.com/lg/download/SIRD/AbSIRD/SIRD2_small.jpg"><br/><font color="white">AbSIRD Algorithm<br/>Realtime 'Magic Eye'</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/anied/index.html"><img height="200" src="http://www.lewcid.com/lg/anied/AniEd_remote_small.jpg"><br/><font color="white">Ink AniEd<br/>Tablet PC Ink Animator</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/anied/index.html"><img height="200" src="http://www.lewcid.com/lg/anied/AniEd_remote_small.jpg"><br/><font color="white">Ink AniEd<br/>Tablet PC Ink Animator</font></a> <font class="platform_target">[tablet pc]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/tabletpc.html"><img height="200" src="http://www.lewcid.com/lg/other/LazyInk.gif"><br/><font color="white">Lazy Ink<br/>Tablet PC Ink Effect</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/tabletpc.html"><img height="200" src="http://www.lewcid.com/lg/other/LazyInk.gif"><br/><font color="white">Lazy Ink<br/>Tablet PC Ink Effect</font></a> <font class="platform_target">[tablet pc]</font></td>
 
 
-<td valign="top"><a href="http://www.lewcid.com/lg/pocketpc/index.html"><img height="200" src="http://www.lewcid.com/lg/pocketpc/Screen_MindSweeper.jpg"><br/><font color="white">Pocket PC<br/>Games and Tools</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/pocketpc/index.html"><img height="200" src="http://www.lewcid.com/lg/pocketpc/Screen_MindSweeper.jpg"><br/><font color="white">Pocket PC<br/>Games and Tools</font></a> <font class="platform_target">[pocket pc]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/EvilDice.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/EvilDice_6s_small.jpg"><br/><font color="white">Evil Dice<br/>Puzzle Game Perfection</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/EvilDice.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/EvilDice_6s_small.jpg"><br/><font color="white">Evil Dice<br/>Puzzle Game Perfection</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/3DStuff.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/ModEd_Computer.jpg"><br/><font color="white">WirEd and ModEd<br/>3D Modeling Kit</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/3DStuff.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/ModEd_Computer.jpg"><br/><font color="white">WirEd and ModEd<br/>3D Modeling Kit</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/TG2.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/TG2_Game1.jpg"><br/><font color="white">Thinking Game 2<br/>Connect 4 in 3D</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/TG2.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/TG2_Game1.jpg"><br/><font color="white">Thinking Game 2<br/>Connect 4 in 3D</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Grapher.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Grapher_2DGraph.jpg"><br/><font color="white">Grapher<br/>2D/3D Equations</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Grapher.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Grapher_2DGraph.jpg"><br/><font color="white">Grapher<br/>2D/3D Equations</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Crystal.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Crystal_Calc.jpg"><br/><font color="white">Crystal Math<br/>Visual Symbolic Calculator</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Crystal.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Crystal_Calc.jpg"><br/><font color="white">Crystal Math<br/>Visual Symbolic Calculator</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Alarm.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Alarm_One.jpg"><br/><font color="white">Alarm Clock<br/>T-Rex Sound Included</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Alarm.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Alarm_One.jpg"><br/><font color="white">Alarm Clock<br/>T-Rex Sound Included</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Teach.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Teach_Tree.jpg"><br/><font color="white">Teach Linked Lists<br/>Programming Education App</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Teach.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Teach_Tree.jpg"><br/><font color="white">Teach Linked Lists<br/>Programming Education App</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Towers.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Towers_Game.jpg"><br/><font color="white">Towers of Hanoi<br/>Classic Recursion Example</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Towers.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/Towers_Game.jpg"><br/><font color="white">Towers of Hanoi<br/>Classic Recursion Example</font></a> <font class="platform_target">[win32]</font></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/download/Crystal.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/CrystalMath_Console.jpg"><br/><font color="white">Crystal Math Console<br/>Command Line Tool</font></a></td>
+<td valign="top"><a href="http://www.lewcid.com/lg/download/Crystal.html"><img height="200" src="http://www.lewcid.com/lg/download/Screens/CrystalMath_Console.jpg"><br/><font color="white">Crystal Math Console<br/>Command Line Tool</font></a> <font class="platform_target">[win32]</font></td>
 </tr>
 
+<!--
 <tr>
 <td colspan="10"><p><I><font color="white"  >
-
 <li>Personal projects, from 
 <a href="http://www.lewcid.com/lg/download/Alarm.html"><font color="white">alarm clocks</font></a>, to 
 <a href="http://www.lewcid.com/lg/lc/shuzzle.html"><font color="white">puzzle games</font></a>, <a href="http://www.lewcid.com/lg/articles/sketches__the_comet.html"><font color="white">stories</font></a> and 
 <a href="http://www.lewcid.com/lg/sculpture/index.html"><font color="white">sculptures</font></a>.
-
 <li>Pivoted by 
 <a href="http://www.lewcid.com/lg/cube/by_subject.html"><font color="white">Subject</font></a>, 
 <a href="http://www.lewcid.com/lg/cube/by_time.html"><font color="white">Time</font></a> or <a href="http://www.lewcid.com/lg/cube/by_place.html"><font color="white">Folder</font></a>. Many available with source code.
-
 <li>Classics: 
 <a href="http://www.lewcid.com/lg/articles/kinect/"><font color="white">Kinect</font></a>, 
 <a href="http://www.lewcid.com/lg/download/impview.html"><font color="white">ImpView</font></a>, 
@@ -345,12 +387,11 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 <a href="http://www.lewcid.com/lg/sculpture/index.html"><font color="white">Sculpture</font></a>, 
 <a href="http://www.lewcid.com/lg/download/EvilDice.html"><font color="white">Evil Dice</font></a> and 
 <a href="http://www.lewcid.com/lg/vsaber/index.html"><font color="white">VSaber</font></a>.
-
 </font></a>
-
 </font></I>
 </p></td>
 </tr> 
+-->
 
 <tr><td><br/></td></tr>
 </table> 
@@ -360,7 +401,7 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 
 <br/><br/>
 
-<div style="overflow-y:hidden;overflow-x:scroll;" id="interests">
+<div style="overflow-y:hidden;overflow-x:scroll;color:white;" id="interests">
 <table width="100%" bgcolor="#a19a5c"><tr><td>
 <table><tr><td>
 <tr><td></td><td colspan="5"><b><font color="white" size="5"><br/>ACTIVE INTERESTS and *articles</font></b></td></tr>
@@ -371,9 +412,26 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 
 <td valign="top"><a href="http://suzanneastar.com/"><img height="200" src="progames/suzanne_astar_at_work.jpg"><br/><font color="white">Suzanne Astar</font></a> </td>
 
-<td valign="top"><a href="https://leweyg.github.io/design_for_verses/"><img height="200" src="progames/VERSES_Smart_Warehouse_sm.jpg"><br/><font color="white">*Designing for VERSES and The Spatial Web</font></a> </td>
+<td valign="top"> <a href="https://www.amazon.com/gp/aw/sitb/B07X1V8D58"><img height="200" src="progames/VERSES_the_spatial_web_book.jpeg" />
+<br/><font color="white">The Spatial Web</a><br/>Book/Patent/White-Paper Contributor<br/></font></td>
 
-<td valign="top"><a href="https://www.youtube.com/watch?v=IVV5ir_JX_A"><img height="200" src="progames/spatialweb_jobs.jpeg"><br/><font color="white">*Spatial Web Economy<br/>and Blockchain</font></a> </td>
+<!--
+<td valign="top"><a href="articles/using-3d-to-optimize-computation.pdf"><img height="200" src="articles/optimization_figure_1_sm.png"><br/><font color="white">*Using 3D to Optimize Computations</font></a> </td>
+-->
+
+<td valign="top"><a href="https://youtu.be/cPmYqzaDPV4"><img height="200" src="related/portfolio_video_thumbnail_sm.jpg"><br/><font color="white">*37th Birthday Portfolio Review</font></a> <font class="platform_target">[video]</font></td>
+
+<!-- or unity_mars_forces_adapt2.jpg or unity_mars_forces_pre.jpg -->
+<td valign="top"> <a href="https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html"><img height="200" src="progames/unity_mars_forces_adapt2.jpg" />
+<br/><font color="white">*Unity MARS: Proxy Forces</a><br/>Adaptive Layout System<br/>Engineering Lead</font></td>
+
+<td valign="top"><a href="https://leweyg.github.io/design_for_verses/"><img height="200" src="progames/VERSES_Smart_Warehouse_sm.jpg"><br/><font color="white">*Designing for VERSES and The Spatial Web</font></a> <font class="platform_target">[videos]</font></td>
+
+
+<td valign="top"><a href="http://www.lewcid.com/lg/lc/win32/"><img height="200" src="lc/win32/LewcidApps.png"><br/><font color="white">Classic Win32 Apps</font></a> 
+ <font class="platform_target">[win32]</font></td>
+
+<td valign="top"><a href="https://www.youtube.com/watch?v=IVV5ir_JX_A"><img height="200" src="progames/spatialweb_jobs.jpeg"><br/><font color="white">Spatial Web Economy<br/>and Blockchain (interview)</font></a> <font class="platform_target">[video]</font></td>
 
 <td valign="top"><a href="http://www.lewcid.com/lg/articles/ar-contextual-messaging-ux.html"><img height="200" src="articles/images/AR_UX_sm.jpg"><br/><font color="white">*Augmented Reality<br/>Contextual Messaging UX</font></a> </td>
 
@@ -381,8 +439,9 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 
 <td valign="top"><a href="http://www.lewcid.com/lg/articles/excel3d_patent.pdf"><img height="200" src="http://www.lewcid.com/lg/progames/Excel3DPatentImage_sm.jpg"><br/><font color="white">*Excel 3D Patent<br/>Chart and Query Shapes</font></a> </td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/math/index.html"><img height="200" src="http://www.lewcid.com/lg/math/images/interval_logo.png"><br/><font color="white">*Interval Arithmetic<br/>For Visualization</font></a> </td>
+<td valign="top"><a href="http://www.lewcid.com/lg/math/index.html"><img height="200" src="http://www.lewcid.com/lg/math/images/interval_logo.png"><br/><font color="white">*Interval Arithmetic<br/>For Visualization</font></a> <font class="platform_target">[web]</font></td>
 
+<td valign="top"><a href="http://www.lewcid.com/lg/cch/cch_ip_1.html"><img height="200" src="progames/cch_programming.jpg"><br/><font color="white">*Interactive History of Programming</font></a> <font class="platform_target">[web]</font></td>
 
 <td valign="top"><a href="http://www.bing.com/search?q=electromyography"><img height="200" src="related/human_magnetic_field.jpg"><br/><font color="white">Electromyography</font></a>
 <br/><a href="http://iyashisource.com/shieldite/electro-magnetic-fields"><font color="gray">(image source)</font></a></td>
@@ -391,14 +450,15 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 <br/><a href="http://www.microsoft.com/microsoft-hololens/"><font color="gray">(image source)</font></a></td>
 
 
+
 <td valign="top"><a href="http://en.wikipedia.org/wiki/OLAP_cube"><img height="200" src="related/tufte_cloud_sm.jpg"><br/><font color="white">Volumetric Data Cubes</font></a>
 <br/><a href="https://www.edwardtufte.com/tufte/"><font color="gray">(image source)</font></a></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/articles/vol/hand_poses.html"><img height="200" src="related/mantis_kung_fu_slim.jpg"><br/><font color="white">*Hand Gestures</font></a>
+<td valign="top"><a href="http://www.lewcid.com/lg/articles/vol/hand_poses.html"><img height="200" src="related/mantis_kung_fu_slim.jpg"><br/><font color="white">*Hand Gestures</font></a> <font class="platform_target">[video]</font>
 <br/><a href="http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094"><font color="gray">(image source)</font></a></td>
 
 
-<td valign="top"><a href="http://www.lewcid.com/lg/articles/kinect/kinect_dev_videos.html#muscle_motion"><img height="200" src="related/exoskeleton.jpg"><br/><font color="white">*Motion<br/>Augmentation</font></a>
+<td valign="top"><a href="http://www.lewcid.com/lg/articles/kinect/kinect_dev_videos.html#muscle_motion"><img height="200" src="related/exoskeleton.jpg"><br/><font color="white">*Motion<br/>Augmentation</font></a> <font class="platform_target">[videos]</font>
 <br/><a href="http://www.cyberdyne.jp/english/products/HAL/index.html"><font color="gray">(image source)</font></a></td>
 
 <td valign="top"><a href="http://www.lewcid.com/lg/articles/Kinect_Augmentation_Principals_and_Practices.html"><img height="200" src="related/walk_cycle.jpg"><br/><font color="white">*Interactive<br/>Animation</font></a>
@@ -471,7 +531,9 @@ http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4
 <td valign="top"><a href="http://www.bing.com/search?q=district+9+movie"><img height="200" src="related/nelson_mandela_sm.jpg"><br/><font color="white">Revolution</font></a>
 <br/><a href="http://www.capegallery.co.za/patric_cordingley1.htm"><font color="gray">(image source)</font></a></td>
 
-<td valign="top"><a href="http://www.lewcid.com/lg/articles/PeterG_Philosophy_in_Five_Easy_Pieces.html"><img height="200" src="related/aristotle.jpg"><br/><font color="white">Philosophy</font></a>
+<td valign="top"><a href="related/video_games_with_the_boys__full.jpg"><img height="200" src="related/video_games_with_the_boys.jpg"><br/><font color="white">Video Games</font></a></td>
+
+<td valign="top"><a href="http://www.lewcid.com/lg/articles/PeterG_Philosophy_in_Five_Easy_Pieces.html"><img height="200" src="related/aristotle.jpg"><br/><font color="white">*Philosophy in Five Easy Pieces</font></a> <font class="platform_target">[pamphlet]</font>
 <br/><a href="http://en.wikipedia.org/wiki/The_School_of_Athens"><font color="gray">(image source)</font></a></td>
 
 <td valign="top"><a href="https://www.facebook.com/leweyg"><img height="200" src="related/family_kira.jpg"><br/><font color="white">Family</font></a></td>
@@ -499,30 +561,19 @@ Kinect Augmented<br/>Animation Principals
 (in progress)<br/>Interval Arithmetic<br/>Reference
 </b></font></td></tr></table></a></td><td width="3"></td>
 
-<td><a href="http://www.lewcid.com/lg/articles/PeterG_Philosophy_in_Five_Easy_Pieces.html">
-<table><tr><td><img src="http://www.lewcid.com/lg/other/article_icon.png"></td><td><font color="white"><b>
-Father's Notes<br/>on Philosophy
-</b></font></td></tr></table></a></td><td width="3"></td>
-
 -->
 
-</tr>
 
+<!--
+</tr>
 <tr>
 <td colspan="20"><p><I><font color="white" >
-
-
-<li>Semi-autobiographical series of interests.
-
-<li>Currently my interests are focused on volumetric visualization and interaction, using the body�s electro-magnetic fields as real-world reference.
-
-<li>While working on real-time motion augmentation, my primary interests were around gestural expressions as seen in acting, sculpture and animation. [<a href="http://www.lewcid.com/lg/articles/kinect/kinect_dev_videos.html#muscle_motion"><font color="white">see muscle motion work</font></a>]
-
-
+<li>Semi-autobiographical series of articles and interests.
 </font></a>
 </font></I>
 </p></td>
 </tr> 
+-->
 
 <tr><td><br/></td></tr>
 </table> 
@@ -547,16 +598,18 @@ Father's Notes<br/>on Philosophy
 
 <p><b><u>Contact:</b></u> <a href="mailto:leweyg@outlook.com">Email</a>, <a href="http://www.facebook.com/leweyg">Facebook</a> or <a href="https://www.linkedin.com/pub/lewey-geselowitz/5/6b0/334">LinkedIn</a></p>
 
+<!--
 <p><b><u>Passions:</u></b> <a href="http://www.microsoft.com/microsoft-hololens">3D interfaces</a>, <a href="http://www.lewcid.com/lg/sculpture/">Sculpture</a>, <a href="http://www.microsoft.com/en-us/default.aspx">Software</a>, <a href="http://www.lewcid.com/lg/articles/Kinect_Augmentation_Principals_and_Practices.html">Kinesthetics, Gesture Design, and Physical Interaction</a>, coordinating systems, combination of all these to produce ergonomically contextual interactive software visualization (and ultimately grapes).</p>
-
 <p>
-  <b><u>Professional Products:</u></b> <a href="http://www.bing.com/videos/search?q=power+map+for+excel">Power Map for Excel</a>, <a href="http://www.microsoft.com/microsoft-hololens/en-us">Microsoft HoloLens</a> (pre-production), <a href="http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon">Zoo Tycoon</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#4/3/2012">Kinect Star Wars</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/15/2011">Kinect Disneyland</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/4/2010">Kinectimals</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/4/2010">Kinect itself</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#5/2007">Forza Motorsport 2</a>, <a href="http://www.hyper.com/">HyperChem 8</a>, <a href="http://windows.microsoft.com/en-us/windows/home">Windows Vista</a> (and involvement in many others).
+  <b><u>Professional Products:</u></b> <a href="http://www.bing.com/videos/search?q=power+map+for+excel">Power Map for Excel</a>, <a href="http://www.microsoft.com/microsoft-hololens/en-us">Microsoft HoloLens</a> (pre-production), <a href="http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon">Zoo Tycoon</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#4/3/2012">Kinect Star Wars</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/15/2011">Kinect Disneyland</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/4/2010">Kinectimals</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#11/4/2010">Kinect itself</a>, <a href="http://www.lewcid.com/lg/cube/by_time.html#5/2007">Forza Motorsport 2</a>, <a href="http://www.hypercubeusa.com/">HyperChem 8</a>, <a href="http://windows.microsoft.com/en-us/windows/home">Windows Vista</a> (and involvement in many others).
 <br/></p>
-
-<p><b><u>Favorite Number:</b></u> 20 centimeters per hour - the rate that water flows through a grape vine (see <a href="http://www.openisbn.com/isbn/0520025911/">General Viticulture</a>).</p>
+-->
 
 
 <p><b><u>Moments Caught in Motion:</u></b>
+
+
+<br/>~mid 2022: My daughter Viveka is born. I'm working at Tesla on the Autopilot UI and core UI frameworks.
 
 <br/>~early 2015: I'm currently working on <a href="http://www.microsoft.com/office">Office</a>'s Data Visualization eXperience team, trying to start the 3D revolution.
 
@@ -569,6 +622,9 @@ Father's Notes<br/>on Philosophy
 
 
 <br/>~early 2004: Originally from South Africa, I'm now living in the U.S. and finishing up a Computer Science degree at the University of Florida. My main interests are computer graphics (preferably real-time), games, programming languages, user interfaces, philosophy, art theory, and of course my girlfriend. 
+
+
+<p><b><u>Favorite Number:</b></u> 20 centimeters per hour - the rate that water flows through a grape vine (see <a href="http://www.openisbn.com/isbn/0520025911/">General Viticulture</a>), useful to contemplate while in forests.</p>
 
 <br/><br/>
 
