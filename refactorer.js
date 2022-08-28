@@ -20,6 +20,17 @@ function folderFromPath(path) {
     return "";
 }
 
+function removeUpFolders(path) {
+    while (path.includes("../")) {
+        var center = path.indexOf("../");
+        var left = path.substr(0,center-1);
+        var right = path.substr(center+3);
+        left = left.substr(0,left.lastIndexOf("/"));
+        path = left + "/" + right;
+    }
+    return path;
+}
+
 function backToRoot(path) {
     var ans = "";
     while (path.includes("/")) {
@@ -80,15 +91,20 @@ function downloadFile(path, callback) {
     if ((path=="") || (path.endsWith("/"))) {
         return; // folders
     }
-    if (fileExists(path)) {
-        callback(path);
-        return;
-    }
 
     var localPath = pathToLocalPath(path);
-    var remotePath = pathToRemotePath(path);
+    var remotePath = removeUpFolders(pathToRemotePath(path));
+    if (fileExists(localPath)) {
+        return;
+    }
     console.log("Downloading '" + remotePath + "' into '" + localPath + "'...");
+    return;
+    
     threadStart();
+    var folderPath = folderFromPath(localPath);
+    if (!fs.existsSync(folderPath)){
+        fs.mkdirSync(folderPath, { recursive: true });
+    }
     const file = fs.createWriteStream(localPath);
     const request = http.get(remotePath, function(response) {
        response.pipe(file);
@@ -109,6 +125,7 @@ function isStringALink(str) {
     if (str.startsWith("http")) return true;
     if (str.endsWith(".png")) return true;
     if (str.endsWith(".jpg")) return true;
+    if (str.endsWith(".pdf")) return true;
     if (str.endsWith(".jpeg")) return true;
     if (str.endsWith(".html")) return true;
     if (str.endsWith("/")) return true;
@@ -127,6 +144,7 @@ function isDropLink(str) {
     if (str.startsWith("javascript:")) return true;
     if (str.startsWith("mailto:")) return true;
     if (str.startsWith("http") && !str.includes("lewcid")) return true;
+    if (str.endsWith(".com")) return true;
     return false;
 }
 
@@ -164,17 +182,21 @@ function checkRelativeFileDownloaded(link,owningFilePath) {
 
     var folder = folderFromPath(owningFilePath);
     var path = folder + link;
-    console.log(path);
+    //console.log(path);
     downloadFile(path);
 }
 
-function refactorFile(path) {
+function checkAndOrRefactorFile(path, reallyRefactor=false) {
     // todo
     var fullText = [];
     findLinksInFile(path, fullText);
     var localPath = pathToLocalPath(path);
-    console.log("Refactoring '" + localPath + "'...");
     var fout = null; //fs.createWriteStream(localPath);
+    if (reallyRefactor && fileExists(localPath)) {
+        console.log("Refactoring '" + localPath + "'...");
+        fout = fs.createWriteStream(localPath);
+    }
+    
     // loop over full text and write it out etc.
     var isFirst = true;
     for (var ndx in fullText) {
@@ -196,9 +218,52 @@ function refactorFile(path) {
     if (fout) fout.close();
 }
 
-refactorFile("index.html");
-//refactorFile("lg/index.html");
-//refactorFile("lg/aboutme.html");
+function findAllFiles(path="lg/") {
+    var infos = fs.readdirSync(pathToLocalPath(path), { withFileTypes: true });
+    var ans = [];
+    for (var i in infos) {
+        var prefix = (path=="") ? "" :
+                    ((path.endsWith("/") ? path : (path + "/")));
+        var prefixed = prefix + infos[i].name;
+        if (!infos[i].isDirectory()) {
+            var str = prefixed;
+            ans.push(str);
+        } else {
+            var sub = findAllFiles(prefixed);
+            for (var j in sub) { ans.push(sub[j]); }
+        }
+        //console.log(infos[i].name + " " + ( infos[i].isDirectory() ? "/" : "" ) );
+    }
+    return ans;
+}
+
+function findAllHtmlFiles() {
+    var files = findAllFiles();
+    var ans = [];
+    for (var i in files) {
+        var path = files[i];
+        if (path.endsWith(".html")) {
+            ans.push(path);
+        }
+    }
+    return ans;
+}
+
+function downloadAll()
+{
+    var htmls = findAllHtmlFiles();
+    for (var i in htmls) {
+        var path = htmls[i];
+        console.log(path);
+        checkAndOrRefactorFile(path, false);
+    }
+}
+
+downloadAll();
+
+//checkAndOrRefactorFile("index.html");
+//checkAndOrRefactorFile("lg/index.html");
+//checkAndOrRefactorFile("lg/aboutme.html");
 
 console.log("Wrapping...");
 
