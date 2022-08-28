@@ -140,7 +140,7 @@ function findLinksInFile(path,full_list=null) {
             ans.push(str);
         }
         if (full_list) {
-            full_list.push({text:str,link:isLink});
+            full_list.push({text:str,is_link:isLink});
         }
         nextIsLink = isNextALink(str);
     }
@@ -160,11 +160,29 @@ function refactorFile(path) {
     // todo
     var fullText = [];
     findLinksInFile(path, fullText);
-    fs.createWriteStream('test.txt');
+    var localPath = pathToLocalPath(path);
+    console.log("Refactoring '" + localPath + "'...");
+    var fout = fs.createWriteStream(localPath);
     // loop over full text and write it out etc.
+    var isFirst = true;
+    for (var ndx in fullText) {
+        if (!isFirst) {
+            fout.write("\"");
+        }
+        isFirst = false;
+        var ln = fullText[ndx];
+        if (!ln.is_link) {
+            fout.write(ln.text);
+        } else {
+            var to = pathFromOriginal(ln.text, path);
+            fout.write(to);
+        }
+    }
+    fout.close();
 }
 
-showLinks("lg/index.html");
+//refactorFile("index.html");
+//refactorFile("lg/aboutme.html");
 
 
 
