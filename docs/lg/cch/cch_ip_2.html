@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h1>Center for Computing History's<br/><font color="blue">
+  Interactive History of Programming
+</font></h1></center>
+<center><h2> #2. Lots of Data</h2></center>
+
+<script type="text/javascript">
+  function UpdateGameEntry(codeBox,inBox,outBox,refBox,gradeBox,isNumber)
+  {
+    var inVal = inBox.value;
+    {
+      var parts = inVal.split(',');
+      inVal = [ ];
+      var count=0;
+      for (var iter in parts)
+      {
+        var item = (parts[iter].trim());
+        if (isNumber) item = (1*item);
+        inVal[count] = item;
+        count++;
+      }
+    }
+    var theFunc = eval("(function (x){" + codeBox.value + "})");
+    var pa = theFunc(inVal);
+    outBox.value = pa;
+
+    if ((pa == refBox.value) || ((""+pa).trim() == refBox.value.trim()))
+    gradeBox.value = "== COMPUTED!";
+    else
+    gradeBox.value = "!=  (i.e. not equal)";
+  }
+  function UpdateSetN(namePrefix, nameEnding, isNumber)
+  {
+    var gameCode = document.getElementById(namePrefix+'code');
+    var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+    var gameOut = document.getElementById(namePrefix+'out'+nameEnding);
+    var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+    var gameGrade = document.getElementById(namePrefix+'grade'+nameEnding);
+
+    UpdateGameEntry(gameCode, gameIn, gameOut, gameRef, gameGrade, isNumber);
+  }
+  function UpdateRandom(namePrefix,nameEnding,isNumber,valLow,valHigh,doFunc)
+  {
+    var r = "";
+    var ar = [];
+    if (isNumber)
+    {
+      for (var i=0; i!=3; i++)
+      {
+        ar[i] = Math.floor((Math.random()*(valHigh-valLow)) + valLow);
+        r += ar[i];
+        if (i!=2) r += ", ";
+      }
+    }
+    else
+    {
+      r = ((Math.random()>0.5)?valHigh:valLow);
+      ar = r.split(',');
+      for (var i in ar)
+        ar[i] = ar[i].trim();
+    }
+
+    var wr = doFunc(ar);
+
+    var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+    var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+
+    gameIn.value = r;
+    gameRef.value = wr;
+  }
+  function UpdateGame(namePrefix,set1,set2,set3,isNumber)
+  {
+    var infoEntry = document.getElementById(namePrefix+'info');
+    try
+    {
+      UpdateSetN(namePrefix,set1,isNumber);
+      UpdateSetN(namePrefix,set2,isNumber);
+      UpdateSetN(namePrefix,set3,isNumber);
+      infoEntry.value = '...';
+      infoEntry.alt = '...';
+    }
+    catch(err)
+    {
+      infoEntry.value = err;
+      infoEntry.alt = err;
+    }
+  }
+</script>
+
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/5471/Sharp-CS-1151-Compet/" >
+          <img src="image7.jpg"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Dealing with long lists of number has perhaps been the most
+            important use of computers.<br/><br/>
+            Below is code that should be calculating the sum of the numbers,
+            but somehow it is calculating the product (i.e. it is multiplying
+            instead of adding). Can you fix it?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+<table>
+  <tr>
+    <td valign="bottom">
+      <font color="blue">Code: </font>
+    </td>
+    <td colspan="2" rowspan="2">
+      <textarea cols="55" rows="7" id="game1code">
+var answer = 1;
+for (i in x)
+{
+  answer = ( answer * x[i] );
+}
+return answer;</textarea>
+    </td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td></td>
+    <td valign="bottom">
+      <input type="button" value="Run!" onclick="
+             UpdateRandom('game1','3',true,-20,20,
+             function(xr){var s=0;for(i in xr){s+=(xr[i]);};return s;});
+             UpdateGame('game1','1','2','3',true)" />
+    </td>
+    <td align="right"><input type="text" value="" align="right" id="game1info" disabled="true" size="30" /></td>
+    
+  </tr>
+</table>
+  <table>
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game1in1" value="5, 2, 3" disabled="true" /></td>
+  <td><input type="text" id="game1in2" value="8, 2, 2" disabled="true" /></td>
+  <td><input type="text" id="game1in3" value="-1, 3, 2" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game1out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game1ref1" value="10"  disabled="true" /></td>
+  <td><input type="text" id="game1ref2" value="12" disabled="true" /></td>
+  <td><input type="text" id="game1ref3" value="4" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>comparison:</td>
+  <td><input type="text" id="game1grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade3" value="" disabled="true" /></td>
+  </tr>
+
+  </table>
+  <br/>
+
+  <hr/>
+
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/14411/TI-Silent-700-ASR-Data-Terminal/">
+          <img src="image5.jpg"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Lists of "strings" are a huge industry, but within a computer
+            a string is actually just an array of characters.<br/><br/>
+            See if you can fix the string code below?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td valign="bottom">
+        <font color="blue">Code: </font>
+      </td>
+      <td colspan="2" rowspan="2">
+        <textarea cols="55" rows="12" id="game2code">
+var answer = "";
+for (i in x)
+{
+  var name = x[i];
+  var start = name.substring(0,1); 
+  var end = name.substring(1);
+  start = start.toUpperCase();
+  answer += ( start + "-" + end + ". ");
+}
+return answer;
+        </textarea>
+      </td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td></td>
+      <td align="left">
+        <input type="button" value="Run!" onclick="
+          UpdateRandom('game2','3',false,'lewey, steve, mark','joel, art, clayton',
+          function(xr){var s='';for(i in xr){s+=('Hey '+((xr[i]).substring(0,1).toUpperCase()) + ((xr[i]).substring(1)) + '. ');};return s;});
+          UpdateGame('game2','1','2','3',false)" />
+      </td>
+      <td align="right" >
+        <input type="text" value="" align="right" id="game2info" disabled="true" size="20" />
+      </td>
+
+    </tr>
+  </table>
+  <table>
+
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game2in1" value="james, mike, bill" disabled="true" /></td>
+  <td><input type="text" id="game2in2" value="wayne, luke, kyle" disabled="true" /></td>
+  <td><input type="text" id="game2in3" value="Weezle" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game2out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game2ref1" value="Hey James. Hey Mike. Hey Bill."  disabled="true" /></td>
+  <td><input type="text" id="game2ref2" value="Hey Wayne. Hey Luke. Hey Kyle." disabled="true" /></td>
+  <td><input type="text" id="game2ref3" value="Hey Weezle." disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>CCH Status</td>
+  <td><input type="text" id="game2grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade3" value="" disabled="true" /></td>
+  </tr>
+</table>
+  <br/>
+  
+  
+  <hr/>
+
+    <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/16840/Ferranti-FM1600-B/">
+          <img src="image4.png"/>
+
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Being able to "branch" or use "if" statements is one of the most
+            powerful features of computers.<br/><br/>
+            We would like to <b>find the highest number</b> in a list, but the code
+            below finds the sum of numbers less than 4. Can you fix it?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+<table>
+  <tr>
+    <td valign="bottom">
+      <font color="blue">Code: </font>
+    </td>
+    <td colspan="2" rowspan="2">
+      <textarea cols="55" rows="12" id="game3code">
+var answer = 0;
+for (i in x)
+{
+  if ( x[i] &lt; 4 )
+  {
+    answer = ( answer + x[i] );
+  }
+}
+return answer;</textarea>
+    </td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td></td>
+    <td valign="bottom">
+      <input type="button" value="Run!" onclick="
+          UpdateRandom('game3','3',true,-20,20,
+          function(xr){var s=-1000;for(i in xr){var v=xr[i];s=((v&gt;s)?v:s);};return s;});
+          UpdateGame('game3','1','2','3',true)" />
+    </td>
+    <td align="right"><input type="text" value="" align="right" id="game3info" disabled="true" size="30" /></td>
+    
+  </tr>
+</table>
+  <table>
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game3in1" value="5, 2, 4.5" disabled="true" /></td>
+  <td><input type="text" id="game3in2" value="7, 1, 3" disabled="true" /></td>
+  <td><input type="text" id="game3in3" value="-1, 3, 2" disabled="true" /></td>
+  </tr>
+<tr>
+  <td>output:</td>
+  <td><input type="text" id="game3out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game3out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game3out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game3ref1" value="5"  disabled="true" /></td>
+  <td><input type="text" id="game3ref2" value="7" disabled="true" /></td>
+  <td><input type="text" id="game3ref3" value="3" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>comparison:</td>
+  <td><input type="text" id="game3grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game3grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game3grade3" value="" disabled="true" /></td>
+  </tr>
+</table>
+  <br/>
+  
+  <hr/>
+  <center>
+    <a href="cch_ip_1.html">#1. Early Computing Uses</a>
+    <br/>
+    <a href="cch_ip_3.html">#3. Interfaces</a>    <br/>
+    <br/>
+    <a href="http://www.computinghistory.org.uk/">Center for Computing History</a>
+  </center>
+
+</body>
+</html>

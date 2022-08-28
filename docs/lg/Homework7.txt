@@ -1,0 +1,41 @@
+Numerical Homework 7 - Lewey Geselowitz
+
+Problem 1:
+	1) The degree should be n-1 (because you are multiply (xj-xi) for all i's in n except where equal to j).
+
+	2) g(t) = sum( j=1:n, yj * prod( k=1:n k!=j, (x - xk) / (xj - xk) ) )
+		This is the n-1 degree polynomial approximation of the sample points.
+
+Problem 2:
+	1) a1*1 + a2*x + a3*x^2
+		a1 - a2 + a3 = 1
+		a1 + 0  + 0  = 0
+		a1 + a2 + a3 = 1
+	This gives, a1=0, a2=0 and a3 = 1, or in polynomial form: 0 + 0*x + 1*x^2
+
+	2) 
+	p0 = (x-0)*(x-1)/(-1-0)*(-1-1) = (x^2 - x)/2
+	p1 = (x+1)*(x-1)/(0+1)*(0-1) = (x^2 - 1)/-1
+	p2 = (x+1)*(x-0)/(1+1)*(1-0) = (x^2 + x)/2
+
+	1*p0 + 0*p1 + 1*p2 = 0 + 0 + x^2
+
+	3)
+	nj = aj*prod( i=0:j-1, (x-xi) )
+	n0 = a0
+	n1 = a1 * (x + 1)
+	n2 = a2 * (x + 1) * (x - 0)
+
+	n0 + n1 + n2 = 0 + 0 + x^2
+
+	They all gives the same resulting polynomial, x^2
+
+Problem 3)
+	TODO
+
+
+Problem 4)
+	1) Midpoint: (1-0)*( 0.5^3 ) = 1/8
+	   Trapezoid: 1/2 (mental calculation)
+	2) True value = 1/4, Midpoint error = 1/8, Trapezoidal error: 1/4
+	3) (1/6)*( 0 + 4*(1/8) + 1 ) = 1/4???

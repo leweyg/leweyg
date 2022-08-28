@@ -1,0 +1,177 @@
+<xml version="1.0" standalone="yes">
+
+<page output="indexForCISE.html" title="Going to my real site">
+	<header value="And now to my real website..." />
+</page>
+
+<page output="index.html" title="Root">
+	<header value="Lewey Geselowitz's World" />
+	<descrip value="One man software company, and industry leader in something or other." />
+	<descrip value="Here you will find information and downloads for some of the projects I have or am working on. The 'Projects' section is what I'm currently work on (or just need a quick link to often) and the 'Downloads' sections holds some of my other work mostly so that I can get it from anywhere" />
+
+	<descrip value="I hope you find something interesting or useful to you<br>-Lewey G." />
+
+	<header value="News" />
+	<news date="7/5/2004" value="Sweet! I just hit the 50000 mark on my hit counter! The counter is set to only count individual IPs too, not just page hits. Anyway, it was 50005 this morning at 9:51 AM! The ticker was put in on 9/12/2003." />
+	<news date="7/3/2004" value="Now you can generate a <a href=\"http://www.leweyg.com/lc/freedgo.html\">Freed Go</a> board from any <a href=\"http://www.leweyg.com/lc/freedgo.html#off\">OFF 3d model</a>. How rediculous is that?" link="file://192.168.0.7/vw/NewPlaza/lc/freedgo.html#off" />
+	<news date="6/23/2004" value="Now accepting <a href=\"donate.html\">donations</a> to show appreciation for this site." />
+	<news date="6/23/2004" value="<a href=\"http://www.leweyg.com/lc/freedgo.html\">Freed Go</a> updates to 1.1 now you can <a href=\"http://www.leweyg.com/lc/freedgo.html#remote\">play over a network</a>, <a href=\"http://www.leweyg.com/lc/freedgo.html#custom\">create your own boards</a>, and a enjoy a few other enhancements." />
+
+	<news date="6/19/2004" value="<a href=\"http://www.leweyg.com/lc/freedgo.html\">Freed Go</a> made it onto the front page of <a href=\"http://games.slashdot.org/games/04/06/19/174256.shtml?tid=127&tid=186&tid=208\">SlashDot Games</a>! Sweet! It's the second time I've achieved that, and they guys over at SlashDot even remember, how cool is that!" />
+	<news date="6/18/2004" value="Posted <a href=\"http://www.leweyg.com/lc/freedgo.html\">Freed Go</a> and <a href=\"http://www.leweyg.com/lc/freedinvasion.html\">Freed Invasion</a>, the first two games in <a href=\"http://www.leweyg.com/lc/freed.html\">The Freed Series</a>." link="http://www.leweyg.com/lc/freed.html" />
+	<news date="5/28/2004" value="Somebody spotted a small bug in <a href=\"http://www.leweyg.com/anied/pocket/index.html\">Pocket AniEd</a>, so a new version without the bug has been posted. Enjoy." />
+	<news date="5/25/2004" value="Posted <a href=\"http://www.leweyg.com/anied/pocket/index.html\">Pocket AniEd</a> a Pocket PC rapid animation editor. Lets you create animations exceedingly quickly and will little effort. It is roughly based on <a href=\"http://www.leweyg.com/anied/index.html\">Ink AniEd</a> for the Tablet PC." link="http://www.leweyg.com/anied/pocket/index.html" />
+	<news date="5/19/2004" value="<a href=\"http://helios.acomp.usf.edu/~jpoag/\">James Poag's</a> <a href=\"http://www.leweyg.com/vsaber/index.html#mesh\">VSaber mesh utilities</a> appeared on the front page of <a href=\"http://www.gamedev.net/\">GameDev.net</a>! " link="http://helios.acomp.usf.edu/~jpoag/apps/apps.html" />
+	<news date="5/18/2004" value="Posted some links to <a href=\"http://helios.acomp.usf.edu/~jpoag/\">James Poag's</a> <a href=\"http://www.leweyg.com/vsaber/index.html#mesh\">VSaber</a> <a href=\"http://helios.acomp.usf.edu/~jpoag/apps/vsbtodirectx.html\">mesh utilities</a> ( &lt;-- three different links). Which allow you to create 3d meshes from VSaber models." link="http://www.leweyg.com/vsaber/index.html#mesh" />
+	<news date="5/17/2004" value="Posted the <a href=\"http://www.leweyg.com/vsaber/index.html#deveds\">GLUT version</a> of the <a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber Beta</a>. About the same as the others, but with OpenGL accelerated graphics and the interface isn't nearly as nice." link="http://www.leweyg.com/vsaber/index.html#deveds" />
+	<news date="5/10/2004" value="Ink AniEd updates to version 1.2 now with the ability to export as SVG animations. Very cool stuff which will hopefully set the tablet on the trail as being the platform of choice for graphic designers, <a href=\"http://www.leweyg.com/anied/index.html#svg\">see some SVG action here</a>." link="http://www.leweyg.com/anied/index.html" />
+	<news date="5/10/2004" value="Loren of <a href=\"http://www.tabletpcpost.com\">Tablet PC Post</a> was kind enough to make up a little animation of Lazy Ink in action" link="http://www.leweyg.com/other/lazyink.html" />
+	<news date="5/9/2004" value="Posted <a href=\"http://www.leweyg.com/other/lazyink.html\">Lazy Ink</a> which is just a little graphics trick you can do with the tablet SDK. You might find it amusing" link="http://www.leweyg.com/other/lazyink.html" />
+	<news date="5/9/2004" value="Unposted PaperWork and officially abandoned it. Most of the stuff on this site is done and left that way, but that one wasn't. Such a shame. <a href=\"http://www.leweyg.com/paperwork.html\">Read more here</a>." link="http://www.leweyg.com/paperwork.html" />
+	<news date="4/4/2003" value="Johan Forslöf sent in a REALLY cool <a href=\"http://www.leweyg.com/download/impview.html#submitted\">equation for ImpView</a>, trust me you'll like this." link="http://www.leweyg.com/download/impview.html#submitted" />
+	<news date="4/3/2003" value="Seems <a href=\"http://www.leweyg.com/download/SIRD/q2/index.html\">Quake II AbSIRD</a> can also been used on the <a href=\"http://www.gamershell.com/download_4577.shtml\">free demo of Quake II</a>" />
+	<news date="4/2/2003" value="I got on SlashDot! Yeah! It's regarding <a href=\"http://www.leweyg.com/download/SIRD/q2/index.html\">Quake II AbSIRD</a>, the article is <a href=\"http://games.slashdot.org/article.pl?sid=04/04/02/1918255\">here</a>" />
+
+
+	<news date="4/1/2003" value="<a href=\"http://www.leweyg.com/download/SIRD/q2/index.html\">Quake II AbSIRD</a> featured on the front page of <a href=\"http://www.gamedev.net\">GameDev.net</a> and <a href=\"http://www.planetquake.com\">PlanetQuake.com</a>" link="http://www.leweyg.com/download/SIRD/q2/index.html" />
+	<news date="3/31/2004" value="Posted <a href=\"http://www.leweyg.com/download/SIRD/q2/index.html\">Quake II AbSIRD</a>, lets you play the full game in SIRDS! Use the skills you learnt from <a href=\"http://www.magiceye.com/\">Magic-Eye</a> books to save humanity in one of the greatest FPSs ever." link="http://www.leweyg.com/download/SIRD/q2/index.html"/>
+	<news date="3/31/2004" value="Just got back from Microsoft. Suffice to say Windows Longhorn is going to be something spectacular. Indigo and WinFS are great, but Avalon is really going to shake things up, can't wait to see them in action. Also, just for the records, working at Microsoft is even better than you've heard." />
+	<news date="12/11/2003" value="Just posted <a href=\"download/quickcapture.html\">QuickCapture</a>, which I use alot to copy screenshots from Journal for use in documents and such (makes for a quick and easy way to add Ink drawing in WordPad). Basically lets you crop images in the clip-board and/or save them to file quickly and easily. Includes the C# source code." link="download/quickcapture.html" />
+	<news date="12/11/2003" value="Posted some screens of <a href=\"download/quickconvert.html\">QuickConvert</a> at work, has really saved me alot of time" link="download/quickconvert.html" />
+	<news date="11/17/2003" value="<b><u>WOOOOOO HAAAAAAA!</u></b> I just heard that my interview with Microsoft went very well and it seems I'll be interning very soon as a <a href=\"http://www.microsoft.com/college/intern/sde.asp\">Software Design Engineer</a> (i.e. programmer) on the '<a href=\"http://msdn.microsoft.com/longhorn/understanding/pillars/avalon/default.aspx\">Avalon</a>' team (Avalon is the code name for the new user interface framework for the upcoming revolutionary version of Windows code named 'Longhorn'). While I was accepted for both the Avalon and Tablet PC team, I just couldn't pass up this opportunity to help shape and be a part of the future of Windows." />
+	<news date="11/12/2003" value="Thanks to Chris Clark for spotting that the 3 and 5 where in the wrong places in Evil Dice PE, the problem has now been fixed" link="http://www.leweyg.com/pocketpc/evildicepe.html" />
+	<news date="11/11/2003" value="Quick Convert posted, this is a nice little C# app which converts bitmaps to jpegs, and makes thumbnails of them at the same time, just drop as many files as you like over the app to have it work it's magic." link="http://www.leweyg.com/download/quickconvert.html" />
+	<news date="11/10/2003" value="<u><b><a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber Beta</a></b></u> is finally out! Check out this program, I'm sure you won't be disappointed." link="http://www.leweyg.com/vsaber/index.html" />
+	<news date="11/6/2003" value="Thanks to Chris Clark for the MIPS Pocket PC 2000 version of Evil Dice PE which is now available. I recomend taking some time to check out his <a href=\"http://dialdtmf.sourceforge.net/\">dialDTMF</a> project which uses your Pocket's speaker to dial numbers from your address book (very cool I thought)." link="http://www.leweyg.com/pocketpc/evildicepe.html" />
+	<news date="11/6/2003" value="Evil Dice PE seems to be a big hit, raking in many hits per day! Anyway, just for fun I ported <a href=\"http://www.leweyg.com/pocketpc/evildicepe.html#osx\">Evil Dice PE to OS X</a>." link="http://www.leweyg.com/pocketpc/evildicepe.html#osx" />
+	<news date="11/1/2003" value="Evil Dice for Pocket PC! Finally I have my addiction right in my pocket! If you're a fan of the the PlayStation's <a href=\"http://psx.ign.com/articles/153/153896p1.html\">Devil Dice</a>, my <a href=\"http://www.leweyg.com/download/EvilDice.html\">Evil Dice</a>, or own a Pocket PC and would like an amazing puzzle game, check out <a href=\"http://www.leweyg.com/pocketpc/evildicepe.html\">Evil Dice PE</a>." link="http://www.leweyg.com/pocketpc/evildicepe.html" />
+	<news  date="10/23/2003" value="Posted Easy JS, a web-based JavaScript editor, basically lets you code quick functions right from any browser without all the hassles of IDEs and compiling and so forth. Also includes a fairly powerful equation evalutor. Definatly check this out as it may save you alot of time in the future" link="http://www.leweyg.com/other/easyjs.html" />
+	<news  date="10/4/2003" value="My solution to the tablet versus laptop question. A device you attach to your arm which puts the pen in your hand quickly when you need it while typing on the keyboard. Very cool idea, but a little crazy." link="http://www.leweyg.com/other/pentop.html" />
+	<news  date="9/26/2003" value="Made a small update to Imp View after I spent a couple hours making up cool implicit equations. I honestly never thought I'd get hooked on a graphing system like I do a good puzzle game! Anyway, hope you enjoy it." link="http://www.leweyg.com/download/impview.html" />
+	<news date="9/23/2003" value="Posted Imp View, an implicit 3D function visualizer using the <a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber</a> engine. Looks REALLY cool!" link="http://www.leweyg.com/download/impview.html" />
+	<news date="9/23/2003" value="Finally posted some pics of the VSaber demo" link="http://www.leweyg.com/vsaber/demo.html" />
+	<news date="9/22/2003" value="Paper Work has an updated screen-shot which can be seen <a href=\"http://www.leweyg.com/PaperWork_Alpha.jpg\">here</a>" link="http://www.leweyg.com/paperwork.html" />
+	<news date="9/17/2003" value="I posted my resume, just in case anyone is interested. Word version and such can be found in the <a href=\"http://www.leweyg.com/aboutme.html\">about me</a> section." link="http://www.leweyg.com/Resume.html" />
+	<news date="9/12/2003" value="<b>Ink AniEd</b> updated to version 1.1. With a bunch of really cool features!" link="http://www.leweyg.com/anied/index.html" />
+	<news date="9/12/2003" value="I'm looking for help with project codename 'Paper Work' (a new kind of animation editor). Screen shot now available." link="http://www.leweyg.com/paperwork.html" />
+	<news date="9/12/2003" value="I'm trying out the page counter to se how it works, this should be interesting." />
+	<news date="8/27/2003" value="Added the check marks next to the amount of Ink used in Low Ink Pictionary, as <a href=\"http://www.kstati.com/tabula/\">Tabula PC</a> guy recomended" link="http://www.leweyg.com/download/lowink.html" />
+	<news date="8/27/2003" value="Something cool, I got mentioned at Tabula PC (a great site for Tablet PC news). He said some great things about my apps, good man." link="http://www.kstati.com/tabula/" />
+	<news date="8/25/2003" value="Posted far more interesting version of Low Ink Pictionary, and also it's source code" link="http://www.leweyg.com/download/lowink.html" />
+	<news date="8/24/2003" value="New Downloads/SiteExplorer section, much better, check it out" link="http://www.leweyg.com/download/index.html" />
+	<news date="8/24/2003" value="Put up a screen shot of CheapSite at work, looks good under OS X." link="http://www.leweyg.com/download/cheapsite.html" />
+	<news date="8/24/2003" value="I just updated the AbSIRD homepage, so that it's buildt over CheapSite (instead of just included into it). Looks much better now, plus added links to all my SIRD projects online" link="http://www.leweyg.com/download/SIRD/index.html" />
+	<news date="8/23/2003" value="WOOOHAAA! The new Tablet has arrived!" />
+	<news date="8/22/2003" value="Posted Low Ink Pictionary, where you can only draw with a limited amount of ink. Makes Pictionary far more fun!" link="http://www.leweyg.com/download/lowink.html" />
+	<news date="8/22/2003" value="Decided that Tablets deserve their own section of my site, check it out. Ironically, today is also when I've moved my whole website development system to Mac OS X, interesting eh?" link="http://www.leweyg.com/tabletpc.html" />
+	<news date="8/19/2003" value="Posted my first Mac OS X app! It's the gcc build of CheapSite, woohoo!" link="http://www.leweyg.com/download/cheapsite.html" />
+	<news date="8/3/2003" value="Posted Gox, a Java applet which lets you play Go with 6 neighbors instead of the usual 4, it's quite interesting." link="http://www.leweyg.com/download/gox/index.html" />
+	<news date="8/3/2003" value="I just posted CheapSite, which is what I use to make this site. It's pretty crappy, but I needed to get it while not at home, so here it is." link="http://www.leweyg.com/download/cheapsite.html" />
+	<news date="7/31/2003" value="<u><b>WOOOOOOO HAAAAAA!!!!</b></u> <a href=\"http://www.leweyg.com/anied/index.html\">Ink AniEd</a> won the Grand Prize (a free TabletPC) from <a href=\"http://www.tabletpcdeveloper.com/\">Tablet PC Developer.com</a>!" />
+	<news date="7/30/2003" value="Posted LewCheck, an alternative to Visual Check Pro, which I used in my programming class" link="http://www.leweyg.com/download/lewcheck.html" />
+	<news date="7/30/2003" value="Finally posted the new version of AlarmClock which shows the time until the alarm will go off" link="http://www.leweyg.com/download/Alarm.html" />
+	<news date="7/23/2003" value="I just posted my small collection of UNIX-type apps which make the Windows Command Prompt feel more like a UNIX terminal (things like <b>ls, cat, rm</b> etc.)" link="http://www.leweyg.com/download/mycommands.html" />
+	<news date="7/10/2003" value="Although this site isn't too old, I've decided to put in a news section, so the news seems to only start now, but really news started a long time ago." />
+	<news date="7/10/2003" value="Ink AniEd meantioned at tabletpcbuzz.com, seems to be quite popular with some people" link="http://www.tabletpcbuzz.com" />
+	<news date="7/10/2003" value="Added two of my favorite peg games to the PocketPC page" link="http://www.leweyg.com/pocketpc/index.html" />
+	
+</page>
+
+<page output="donate.html" title="Support Lewey's World">
+	<header value="Support Lewey's World!" />
+	<descrip value="The best reason to donate to Lewey’s World is just to show appreciation for one or more of the apps posted here. If you think something here is really cool, or if you spent a long time playing one of the games, or if for whatever reason you think it just deserves money, then I assure you any amount you give will be greatly appreciated! The other reason is to keep me from writing accounting software, as I reason below:" />
+
+	<descrip value="This website is devoted to creating new and interesting applications which extend current ideas and technologies into something innovative, intuitive and imagenertaining (meaning \"with pretty pictures\"). There are games with new and experimental interfaces while there are some that are just plain cool; I’ve got innovative editors working on all sorts of different mediums; and a bunch of other stuff that is hard to classify but fun to look at." />
+
+	<descrip value="All of this software is free and handed out to anyone who happens to be passing by, which I believe, is the best way to get these new ideas out into the world. New and interesting ideas are the cornerstone of progress and I hope that Lewey’s World has done its small part in broadening people’s minds on what can be done with what we have, which seeming boundaries can be broken, and possibly pointing out a few borders should probably not have been broken." />
+
+	<descrip value="The only problem with this great plan is that I’ve got to actually do it, and considering I do everything on this site, that is a lot of work. Apart from being a full time student I’ve got to live my life, do research, stay in shape, find a girl, enjoy the college life, and somehow find money for the bills. That is where your donations come in: If I get a job, then I won’t be able to do much on this website and the flow of interesting apps will become a trickle. Thus any money you give goes towards me not having to get a job and spending the time I would have spent on that job creating new and interesting content for Lewey’s World. Essentially this is the fund to prevent me from having to write accounting software (you saw Office Space; you know what that does to people)." />
+
+	<descrip value="Really this is an experiment. It is a test to see if I can support myself by doing my dream job of writing odd-ball apps. While I do enjoy working in an office on some big project (and have done so), the real joy of programming for me comes in realizing new ideas in code. So if you wish to help in my dream of expanding the knowledge of mankind, or if you are just a good person, then you will surely want to support Lewey’s World by making a donation and helping shape our world into a better place (or at least the same place but with better graphics)." />
+
+	<descrip value="Thanks for hearing me out.<br> -Lewey" />
+
+	<header value="How to give" />
+
+	<descrip value="The easiest way is to click on the PayPal link to the left. Otherwise whatever is convenient for you (checks, money-orders, \"favors\"). Feel free to contact me at <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a> if you have any questions or comments." />
+</page>
+
+<page output="paperwork.html" title="Paper Work">
+	<header value="Project Codename: Paper Work" />
+	<pic value="PaperWork_Alpha_small.jpg" link="PaperWork_Alpha.jpg" />
+	<br />
+	<subblock>
+	<descrip value="The PaperWork project has, I'm sad to say, been ended as it was realised that a real animation editor is not made with a few cool UI concepts but is founded on long and arduous hours of adding features and additional tools. Basically it is a job best suited for teams and preferably professional teams, and quite frankly there already are many such groups out there creating great animation systems. This project ended up just really been an experiment or prototype for a real application and which I simply don't have the time to finish. I must say however that in it's initial stage it showed great progress and I think was a good core for a more complete animation system." />
+	<descrip value="To those who are interested, PaperWork was to be an extension of the concepts founded in Ink AniEd, which was to represent all animations through a series of easy drawn 'strokes' the strokes would express how the shapes moved and transformed over time. This amounts to a key-frame animation system with a simple interface which was quite intuitive. If you would like what source code there is I still have it but I doubt anyone will have a use for it" />
+	</subblock>
+
+</page>
+
+<page output="tabletpc.html" title="Tablet PC Stuff">
+	<header value="Tablet PC Stuff" />
+	<descrip value="\"The pen is mightier than the mouse!\"<br> - Lewey Geselowitz" />
+	<descrip value="I'm a huge fan of the Tablet PC, and it's one of those things that definatly walks in the right direction of the future. It also lets us try all sorts of interesting things with user-interfaces and generally makes an fun platform to develop for." />
+	<descrip value="On this page you'll find information about a few little apps I wrote which I believe show off just a few of the interesting new areas we can explore with Tablets." />
+	<descrip value="Many of these and tons of other Tablet PC software can be found at <a href=\"http://www.tabletpcpost.com\">Tablet PC Post</a>, considered by many as THE source for Tablet software" />
+	<descrip value="Most of these applications have been featured at <a href=\"http://www.kstati.com/tabula/\">Tabula PC</a>, <a href=\"http://www.tabletpcbuzz.com/\">Tablet PC Buzz</a>, and <a href=\"http://www.tabletpcdeveloper.com/\">Tablet PC Developer</a>" />
+	<tabletapp name="Ink AniEd" link="http://www.leweyg.com/anied/index.html" pic="small_anied.jpg" descrip="An Ink base animation program. Essentially it lets you create animations as fast as you can draw the few simple key frames which make them up. Simply draw one frame, adjust the time, draw another frame, and the system will make a \"calculated geuss\" as to what the frames in between look like. This makes it extemely easy to create great looking animations at a couple flicks of the wrist.<br><br>AniEd also won the Grand Prize at <a href=\"http://www.tabletpcdeveloper.com/\">TabletPCDeveloper.com</a> for best PowerToy."/>
+	<tabletapp name="Magic Ink" link="http://www.leweyg.com/download/SIRD/magicink.html" pic="small_magicink.gif" descrip="Magic Ink lets you interactivly draw 3D images similar to the posters popularized by the Magic-Ink company. So now you can make your own, as your drawing just adjust the pressure with which your pressing down, and the line your drawing will appear at a different height. This makes it fun and very easy to create great looking 'real 3D' images on your Tablet." />
+	<tabletapp name="Low Ink Pictionary" link="http://www.leweyg.com/download/lowink.html"  pic="http://www.leweyg.com/small_lowink.jpg" descrip="Try playing Pictionary, when your pen's ink keeps running out! This fun little app lets you only draw so much while trying to win at Pictionary. It adds a whole new level to the great old game, and also helps train your artistic skills." />
+	<tabletapp name="Lazy Ink" link="http://www.leweyg.com/other/lazyink.html" descrip="Imagine you have stuck up one of those letters people put on their houses and only put in the last screw; as you let go of the letter it will swing back and forth on that screw and then finally stop once it has run out of energy. This is exactly what Lazy Ink does, only with any 'ink' you draw. Really this is just a silly little graphics idea I couldn't resist implimenting." pic="http://www.leweyg.com/other/LazyInk_2_small.jpeg" />
+	<tabletapp name="Pentop" link="http://www.leweyg.com/other/pentop.html" descrip="An amazing device you attach to your arm while using your Tablet PC in laptop mode. With a flick of your wrist your tablet's pen shoots into your hands from it's place on your arm, and you go from typing on your keyboard to writing on the screen (in under a second with no effort at all). The pen then folds back away with another flick of your wrist and your back to typing!<br><br>Note: This is just one of my crazy ideas, it doesn't actually exist." pic="other/Pentop_logo.jpg" />
+	<tabletapp name="Project Codename: Paper Work" link="http://www.leweyg.com/paperwork.html" descrip="Abandoned. This was going to be a powerful and easy to use animation editor using the same interaction model as Ink AniEd. But I eventually realised that any real editor requires way to much work which I simply don't have the time to do." />
+</page>
+
+<page output="aboutme.html" title="About Me">
+	<header value="Who I am" />
+	<descrip value="My name is Lewey Geselowitz, originally from South Africa, and I'm currently enrolled at the <a href=\"http://www.ufl.edu/\">University of Florida</a>, and have recently returned from being a <a href=\"http://www.microsoft.com/college/intern/sde.asp\">Software Design Engineer intern</a> at Microsoft (with the <a href=\"http://msdn.microsoft.com/longhorn/understanding/pillars/avalon/default.aspx\">Avalon</a> team). My main interests are artificial intelligence, computer graphics programming, new user interaction models, and art theory (pretty much what <a href=\"http://www.amazon.com/exec/obidos/tg/detail/-/0465026567/102-3208891-5123342?v=glance\">'Godel, Escher, Bach'</a> talks about). See my resume for my adventures in the world of computer science and the rest of the site for the stuff spoken of in there." />
+	<descrip value="If you are interested in one of my projects and wish to work on it, port/compile it for a different platform, or just a comment or question about it, feel free to drop me at line at lewey@leweyg.com" />
+	<link to="Resume.html" name="My Resume" descrip="HTML" />
+	<link to="Resume.doc" name="My Resume" descrip="Word" />
+	<pic value="Me.jpg" />
+	<link name="Pics of Spring Break in Puerto Rico 2003..." to="http://www.cise.ufl.edu/~lgeselow/PR/" />
+</page>
+
+<page output="links.html" title="Links">
+	<header value="Quick Links" />
+	<link to="http://www.google.com" name="Google" descrip="my replacement for a having to work for knowledge" />
+	<link to="http://www.3dlabs.com/support/developer/glmanpage_index.htm" name="OpenGL Man Pages" />
+	<link to="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winui/winui/windowsuserinterface/windowui.asp" name="MSDN: Windows API" />
+	<link to="http://sdldoc.csn.ul.ie/" name="SDL documentation" />
+	<link to="http://mail.yahoo.com/?.intl=us" name="Yahoo! Mail" />
+
+	<header value="Tablet PC Links" />
+	<link to="http://www.tabletpcpost.com" name="Tablet PC Post" descrip="THE source for Tablet PC software" />
+	<link to="http://www.tabletpcbuzz.com/" name="Tablet PC Buzz" />
+	<link to="http://www.kstati.com/tabula/" name="Tabula PC" descrip="Peter's Blog" />
+	<link to="http://journals.tuxreports.com/lch/" name="Incremental Blogger" descrip="Loren's Blog" />	
+	<link to="http://www.gotdotnet.com/team/tabletpc/" name="Tablet PC Developer" descrip="Now at GotDotNet"/>
+	<header value="Important Links" />
+	<link to="http://www.lamanchaapts.com" name="La Mancha Apartments" />
+	<link to="http://www.cise.ufl.edu/~jorg/" name="Dr. Jorg Peters" />
+	<link to="http://msdn.microsoft.com/longhorn/understanding/pillars/avalon/default.aspx" name="Avalons current homepage" />
+	<link to="http://www.cfxweb.net/~aggrav8d/tutorials/tao.html" name="The Tao of Programming" />
+	<link to="http://www.libsdl.org/" name="SDL - Simple Direct MediaLayer" />
+	<link to="http://www.codeproject.com/" name="The Code Project" />
+	<link to="http://cone3d.gamedev.net/cgi-bin/index.pl?page=tutorials/gfxsdl/tut1" name="Getting SDL to work in MS VC++ 6.0" descrip="because I always forget about the DLL thingy" />
+	<link to="http://www.nottingham.ac.uk/~etzpc/sirds.html" name="Gareth and Peter's SIRDS pages" descrip="best collection of SIRD related sites" />
+	<link to="http://www.ufl.edu" name="The University of Florida" />
+	<link to="http://www.isis.ufl.edu" name="ISIS at UF" />
+	<link to="http://www.nonags.com/" name="NONAGS" descrip="Great place to pick up Win32 freeware" />
+	<link to="http://media.mk12.com/quicktime/moa_small.mov" name="The Terrible Cosmic Death" descrip="MK12's masterpiece, this is the small QuickTime Movie of it." />
+	<link to="http://www.penny-arcade.com" name="Penny Arcade" />
+</page>
+
+<more value="pocketpc/page.xml" />
+
+<more value="other/page.xml" />
+
+<more value="anied/page.xml" />
+
+<more value="download/downloads.xml" />
+
+<more value="lc/page.xml" />
+
+<more value="vsaber/page.xml" />
+
+</xml>

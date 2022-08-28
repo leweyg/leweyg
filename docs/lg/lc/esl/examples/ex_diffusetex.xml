@@ -1,0 +1,29 @@
+<xml standalone="true">
+  <material compile="inst0">
+    <inst name="inst7" type="White" />
+    <inst name="inst6" type="DirectionalLight">
+      <setchannel member="LightDirection" channel="LIGHT_0_DIR" />
+      <setinst member="LightColor" inst="inst7" />
+    </inst>
+    <inst name="inst5" type="UVCoords">
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst4" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst3" type="TexturedColor">
+      <setinst member="Texture" inst="inst4" />
+      <setinst member="TexCoord" inst="inst5" />
+    </inst>
+    <inst name="inst2" type="DiffuseLighting">
+      <setinst member="DiffuseColor" inst="inst3" />
+      <setarray member="DiffuseLights" insts="inst6" />
+    </inst>
+    <inst name="inst1" type="SumColors">
+      <setarray member="Colors" insts="inst2" />
+    </inst>
+    <inst name="inst0" type="MyShader">
+      <setinst member="PixelColor" inst="inst1" />
+    </inst>
+  </material>
+</xml>

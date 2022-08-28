@@ -1,0 +1,232 @@
+<html>
+<head><title>Branching - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+	<td rowspan="1"><p valign="center" align="center"><a href="http://www.lewcid.com/">Lewcid.com</a><br/>Site-Cube</p></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#that">#that</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#1/3/2005">#1/3/2005</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#nq/">nq/</a></center></td>
+	<td>(this <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3><table><tr><td>&nbsp;</td><td><h1>Branching<br>A Better Way to Animate Applications</h1><p><p>"Branching" is a programming language construct which allows one to create beautiful procedural animations with the same style and ease with which you create standard non-animate code. In other words, it lets you write animated code so easily it�s almost as though it were linear.</p><p>On this page: <a href="#download">Download</a>, <a href="#example1">Example</a>, <a href="#compare">Comparison to non-branching</a>, <a href="#framebased">How it Works</a>, <a href="#cool">Cool Concepts</a></p><table bgcolor="#f0f0c0" ><tr><td><h1>JavaScript with Branching</h1><p>JavaScript with Branching (JSB) is a prototype language based on JavaScript which allows you to use the branching technique. The principal of branching can be added to any language, but is easier to add to scripting languages. The current implemented is in C#, and uses the .Net Framework to do all that cool reflection stuff (thus it can also be used to animate any .Net object like WinForms and so forth). It is not however based on any pre-existing JScript API or what-have-you, I've completely written the compiler and interpreter from scratch as the changes which JSB required to the language model where too deep to do it otherwise. //Note: if you are interested in working on this project, fixing it up and making it into a final product, please give me a <a href="mailto:lewey@lewcid.com">yell</a>.</p><a name="download"><center><table ><tr><td ><center><a href="jsb_3d.jpeg"><img src="jsb_3d_small.jpeg"></a><br>3D Animations<br></center></td><td ><center><a href="jsb_2d.jpeg"><img src="jsb_2d_small.jpeg"></a><br>2D Animations<br></center></td></tr><tr><td ><table bgcolor="#f0c0c0"><tr><td><center><a href="JSB_3D.zip"><font size=5><i>JSB_3D.zip</i></font></a></center><br><b>Requires: </b> .Net Framework<br>and Managed DirectX 9<br><b>Note:</b> Includes numerous examples<br>and full source code<br></td></tr></table><br></td><td ><table bgcolor="#f0c0c0"><tr><td><center><a href="JSB_2D.zip"><font size=5><i>JSB_2D.zip</i></font></a></center><br><b>Requires: </b> .Net Framework<br><b>Note:</b> Includes numerous examples<br>and full source code<br></td></tr></table><br></td></tr></table></center></a><center><p><b>Note:</b> The 3D code is based on the pretty good <a href="http://www.drunkenhyena.com/">Drunkien Hyenda DirectX Tutorials</a>.</p></center><a name="example1"><p>Here is an example of JSB in action: this example adds a grid of 25 "Blocks" onto the screen, each row starts being added 400 ms after the previous one, and each column is added 300 ms after it�s predecessor, once added each block smoothly fades it�s colour from black to green (so it makes a sort of falling curtain which fades from black to green). What essentially you are seeing here then is numerous animations, and complex sequences of animations, all represented with a few simple commands:
+<br><pre>for (var y=0; y&lt;5; y++)
+{
+	branch for (var x=0; x&lt;5; x++)
+	{
+		var b = new Block(x, y);
+		
+		branch
+		{
+			var sc = new TimeScale(Black, Green, 2000);
+			while (sc.Going)
+			{
+				b.Color = sc.Value;
+				sleepframe();
+			}
+		}
+
+		sleep(300);
+	}
+	sleep(400);
+}</pre>
+	Firstly, if you aren�t familiar with JavaScript, it�s simply like C# or Java, but interpreted at run-time, and you don�t declare variables types. While JSB is actually a complete rewrite from scratch of the JavaScript compiler and interpreter, it still acts pretty much the same from the outside. Now to start explaining this, ignore the inner branch of the code and you are left with this:
+<pre>for (var y=0; y&lt;5; y++)
+{
+	branch for (var x=0; x&lt;5; x++)
+	{
+		var b = new Block(x, y);
+		sleep(300);
+	}
+	sleep(400);
+}</pre>
+	If you take the above, and completely ignore the branch statement, it looks like you go through each value of y, then add a block for each value of x, sleeping between values. This is the magic of branching in that the code "reads" very well, just as if it where linear. And yes, the above code would work without the branch, however what the branch does is to create a "parallel" point of execution, somewhat like a thread. So as the y loop hits the branch statement, it creates a new "pseudo thread" or "branch" which goes and does the x loop, while the y loop carries on going.  There is a lot of detail about how the different branches interplay but I�ll talk about that later.
+<br><br>	The standard code for adding a grid of blocks usually goes through each row, adding all the columns of that row and then continues. But when you think about it, adding the columns to each row could happen in parallel without any problem. It is this sort of animation that is easy to create and implement by using a branch statement. When a branch is encountered, all the variables in the current namespace (i.e. all the variables you can use at the point) are copied into the new branch. In the example above, the y value in the x loop will always stay the same even though the original y value from the y loop is changing. 
+<br><br>	This takes a little getting used to, thinking of things happening in parallel and so forth. I recommend downloading the 2D demo and trying out a few different things to get the hang on it. This is one of those things where you try not to "think too hard about it" you�ll probably get it done sooner.
+	</p></a></td></tr></table><br><table bgcolor="#f0f0c0" ><tr><td><h1>Frame Based Animation<br>(a fairly advanced description of branching)</h1><a name="framebased"></a><p>The principal of branching is "frame based rendering". Essentially how this works is some block of "app code" or "logic" is run, which changes the scene in some way, and then the scene is redrawn. So in the examples above, the script runs until it reaches a "sleep" command, at which time the script is paused, the scene is redrawn, and then the cycle repeats. This is generally how all animations are done. 
+<br><br>Standard programming languages require a block of code to completely execute before control can pass to another point, also there is only one point of code being executed at a time. Both of these issues make it very hard to write animations, and especially simultaneous animations. If you don�t believe me, try writing the above "animating blocks onto a screen" example using a standard language (like C++, C#, etc.). The primary difficulty is that you have to save and restore the "state" of the animation, in this case what the x and y values are, how far along with the green animation you have gone and so on. The branching technique on the other hand simply transparently saves and restores the variables states so that you can focus on the import part, your animation! Here is a simple (quasi-fake) example of the difference between a simple animation with and without branching. Consider a simple function which has to count down from 10 to 0 counting down each second, and updating a text box with the current value. 
+<a name="compare"> </a><pre>//WITHOUT BRANCHING:
+var countstate;
+var counttimer;
+function _onCountTick()
+{
+	textBox1.Text = countstate.ToString();
+	countstate--;
+	if (countstate < 0)
+	{
+		counttimer.Enable = false;
+		counttimer = null;
+		countstate = null;
+	}
+}
+function StartCountDown()
+{
+	countstate = 10;
+	counttimer = new Timer();
+	counttimer.Duration = 1000;
+	counttimer.Tick = _onCountTick();
+	counttimer.Enable = true;	
+	_onCountTick();
+}
+
+//WITH BRANCHING:
+function StartCountDown()
+{
+	branch for (var t=10; t>=0; t--)
+	{
+		textBox1.Text = t.ToString();
+		sleep(1000);
+	}
+}</pre>
+Some of you may say that is a little contrived, but many application which do animation use a mechanism just like that above. The trouble is that you land up having to store your animation state, and break up the code so that it�s organized into groups of code that have to run together, as opposed to groups of code that are logically connected. This is the beauty of branching.
+<br><br>	Now some of you may be wondering "what is the difference between branching and multi-threading?" There are a lot of differences, first of all, blocks of branching code must voluntarily release control (with for example a "sleep" command), thus you can be assured that any perticular operation is fully executed before control passes away (one of the problems with multi-threading). Also only one "branch" is actually executed at a time, and only after all the branches are done is control passed back to the renderer. This ensures that you won�t get multiple blocks of code working with the same data at the same time, thus you don�t have to worry about monitors and so forth. 
+<br><br>	In the first example, you saw two sleep functions sleep and sleepframe, the first sleeps the current frame for at least the given number of milliseconds. "Sleepframe" however simply stop execution of the branch so that other branches and then the renderer can run, and then it continues. This allows you to do animations as "smoothly" as your frame rate allows. The sleep function could actually be implemented with sleepframe like so:
+<pre>function MySleep(duration)
+{
+	var endat = global.Time + duration;
+	while (endat > global.Time)
+	{
+		sleepframe();
+	}
+}</pre></p></td></tr></table><br><table bgcolor="#f0f0c0" ><tr><td><h1>Smoothing Animations</h1><p>If you want animations to look good, you have to make them smooth, now in terms of real-time animations, "smooth" simply means "modified every frame". So if we go back to our first example we see this:
+<pre>	var b = new Block(x, y);
+	branch
+	{
+		var sc = new TimeScale(Black, Green, 2000);
+		while (sc.Going)
+		{
+			b.Color = sc.Value;
+			sleepframe();
+		}
+	}</pre>
+	The smooth animation is the fading of the block from black to green, this is done using a helper object called a "TimeScale" which interpolates across two values over a given time. In this case it scales from Black to Green over a span of 2 seconds. This same animation could be written as such:
+<pre>var b = new Block(x, y);
+branch
+{
+	var start = global.Time;
+	var dur = 2000;
+	while (start+dur > global.Time)
+	{
+		var t = (global.Time - start)/dur;
+		b.Color = Black*(1-t) + Green*t;
+		sleepframe();
+	}
+	b.Color = Green;
+}</pre>
+But I feel the TimeScale system makes it a lot easier to read and write. Also consider that because branching doesn�t use some silly intermediate meta-representation you can also run as much code as you want between frames, and you can create complex equations for the values, there is no need to use simple linear interpolate. Also this allows you to animate numerous things each frame without having to have numerous meta-representations. For example swapping the locations of two items, you simply make a TimeScale which goes from 0 to 1 and you use that values to move both objects, there is no need to create separate animations for each.
+	</p></td></tr></table><br><table bgcolor="#f0f0c0" ><tr><td><h1>The Current Implementation</h1><p>The current implementation comes with a 2D GDI+ based composition tree, and a 3D Managed DirectX based composition tree. Please note that both of these composition trees where implemented as standard .Net objects, and don�t contain any special code to make them animate. JSB naturally interacts with them creating the "illusion of animation" by modifying them over time. You can use JSB to animate any .Net based application from a WinForms app to whatever crazy interface you are creating for yourself. Please note however, that in it�s current form it is something of a throw together, so there are certain issues and it should not be consider a complete language. Hopefully someone out there with more time will find this project and clean it up, fix up a few of the performance issues, and hone it into a "real" language. However, in it�s current state you can defiantly play with it and see what you can get out of it.</p></td></tr></table><br><table bgcolor="#f0f0c0" ><tr><td><h1>Quasi-Conclusion</h1><p>So there you have it, a simplified animation model which combines the easy and simplicity of linear programming, with a frame based rendering model, the functionality of multi-threading, without the hassles of real threads, and the beauty of flowing motion without the crappy meta-representations.
+<br><br>	I hope you have found this project interesting and useful. Hopefully one of you will be a language programmer who would be willing to craft this app, and hone it into something which could be quite spectacular. If you do so, or would like talk more about to ask questions about this system, please feel free to email me at lewey@lewcid.com . 
+<br>-Lewey</p></td></tr></table><br><a name="cool"><table bgcolor="#f0f0c0" ><tr><td><h1>Cool Concepts</h1><p>This is a short little list of ideas I�ve been working on which are just generally cools things that could be added to a programming language. They are mostly just programming ideas, but some also relate to animation. Some of you may say that they aren�t very "pure", which is true I some sense, but generally I find that the hacks people use to get around the "purity" of a language or API are often so hacky themselves that it�s worth it to give them a better route.
+
+<br><br><b><u>Subfunctions:</u></b> often times we write "callbacks" which are special functions you pass into another function. For instance, you pass a comparison function into a sorter. This looks something like this:
+<pre>function _ageCompare(a,b)
+{
+	return a.Age.CompareTo( b.Age );
+}
+function SortByAge(list)
+{
+	QuickSort(list, _ageCompare);
+}</pre>
+However this becomes complex when we have complex operations to be applied with each callback. A better solution I see is that the call back should actually execute in the function namespace. Take for instance the very popular "foreach" statement in C#, this allows you to write code right in your function which in a sense is a call back as an iterator moves across a collection. I�m recommending this mechanism be generalized by the creation of "subfunction" which creates a function which executes in it�s creators namespace whenever it is called. For instance, you want to look at every other item in a list, and if it�s age is less than a certain value, then you add it to a list:
+<pre>function EveryOther(list, func)
+{
+	for (var i=0; i&lt;list.Length; i++)
+	{
+		if (i%2 == 1)
+			func(ob);
+	}
+}
+function FindEveryOtherYoungerThan(list, max)
+{
+	var ans = new Array();
+	EveryOther(list, subfunction(a)
+		{
+			if (a.Age &lt; max)
+				ans.Add( a );
+		} 
+	);
+	return ans;
+}</pre>
+In this case, EveryOther is our "complex function requiring a callback" and FindEveryOtherYoungerThan it shows how we can easily inline a subfunction so that we can keep all related logic together, and not have to worry about how we access and pass variables between the main and callback functions.
+<br><br>	Well it�s not currently added to JSB, but it could be, and I think it would make things allot easier. I�ve written too many call backs, for tree traversal or whatever and then I have to create some special data structure I can pass into. This would really have saved a lot of time, and made the code a lot easier to read.
+<br><br>
+<br><b><u>Easy Threading in JSB:</u></b> The "branch" architecture used by JSB is really good for doing many things related to animation, but it still does require you to call "sleep" functions now and then to pass control back to the rest of the application. Personally I see this as giving the developer the most control and power but there are times when you don�t want to do that. For instance, in a file browser, you want to get the list of files in a directory, put up little icons, and then slowly load the thumbnails or whatever to put in them. You want however the thumbnails to load while the rest of the application is animating. Here is a simple syntax that I think would allow that, and would mean you�d get the best of both branching animation and easy control of threads:
+<pre>function OpenFolder()
+{
+	var dir = GetCurrentDirectory();
+	foreach(var file in dir.Files)
+	{
+		var icon = new Icon();
+		icon.Name = file.Name;
+		shared var done = false;
+		thread
+		{
+			var det = file.LoadDetails(); //slow
+			framesync { 
+				icon.Details = det;
+			}
+			var thumb = file.LoadThumb(); //slow
+			framesync {
+				icon.Thumb = thumb;
+			}
+			done = true;
+		}
+		
+		branch
+		{
+			var rot = new Rotation();
+			rot.Target = icon;
+			while (!done)
+			{
+				rot.Angle = (global.Time / 1000);
+				sleepframe();
+			}
+			rot.Target = null;
+		}
+	}
+}</pre>
+What is happening here is that for each file, a new icon is created with that files name, then a thread is created which loads the details and thumbnail of the file and updates the icon periodically. While the file data is loading, a separate branch spins the icon around to indicate that it�s loading. The "framesync" command causes the thread to pause and wait for it�s turn with the rest of the branches to execute that block, this allows you to safely interact with the other objects and not have to worry about changing them at the same time (in other words it�s a simplified way to use monitors to avoid threading errors). I feel this is a handy model for multi-threaded applications as it combines logically related blocks of code together despite whether they will be executed in parallel other threads or so forth. Oh and the "shared" command, states that a variables should be shared across the different subbranches/threads and so forth so that if it�s value is changed in one it affects the other ones (so the thread can set done to true, which branch which is spinning the icon).
+<br><br>
+<br><b><u>Dynamic Inherited Properties:</u></b> JavaScript has this cool "Object" which you can create and dynamically associate properties too. So you can do stuff like "var t = new Object(); t.Age = 30;" and so forth. This is quite powerful and lets you do a lot of cool things. However, I found when I was creating more complex data structures, you land up having to create a special function to generate an Object with all your default values. So I figure why not be able to inherit them. Consider the following:
+<pre>var node = new Object();
+node.Value = -1;
+node.Depth = 0;
+var t = inherit(node);
+t.Depth = 5;
+//at this point: t.Depth==5 and t.Value==-1
+node.Value = 3;
+//at this point: t.Depth==5 and t.Value==3</pre>
+What happens here is that whenever you "set" a property on an object, it value is set on the current object. However, when you "get" a property, if the current object doesn�t have it, then it checks it�s parent to see if it has that property. And in this way, you can change the parent and it instantly propagates to it�s children. Anyway, it�s a thought, and I�m sure you can do some cool stuff to do with it.  It�s in the current implementation, so feel free to play with it. 
+
+<br><br>Member Functions in JavaScript: one of the other problems I found when writing moderately large JavaScript applications is the lack of "member functions". This makes it awkward to write object oriented code, and you land up writing essentially C-style applications with a bunch of functions loosely connected together without the organization that OOP provides. A simple solution to this problem is a way to represent member functions, would could be done like this:
+<pre>var x = new Object();
+x.Name = "Cat";
+x.SameName = function(this, other)
+{
+	return (Name == other.Name);
+};
+var issame = x.SameName( y );</pre>
+Here "SameName" is a member function of x, and naming the first argument "this" means that the first argument is implicitly passed to the function when it is dereferenced and called; thus when you write "x.SameName(y)" it calls SameName and passing "x" as the value of "this" and "y" as the value of "other". Then in the function, the variable namespace is set to include the "this" object, so that any properties of "this" can be accessed like local variables. This I believe is a relatively simple and straight forward way to implement member functions, and could save a lot of time, and make the code easier to read.
+<br><br>
+<br><b><u>Nestable Comments:</b></u> come on people, with all our advanced technology and we can�t nest  /* */ comments! The only difficulty could be that when a /* was encountered, you would have to find it�s matching */, but you would have to make sure that you didn�t count any sub-*/�s which appeared on a line after a "//". Of course many people have taken to "//" commenting out the beginning or end "/* */" comments, so as long as you accounted for that you wouldn�t have any problems. It�s just a thought because I�ve had too many times when I�ve commented out a block including a large comment and it only worked half way.
+</p></p></td></tr></table><br></a></td></tr></table></font>
+  </div>
+<!-- end page content -->
+</div>
+
+</font>
+</body>
+</html>

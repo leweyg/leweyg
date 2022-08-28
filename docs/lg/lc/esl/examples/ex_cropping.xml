@@ -1,0 +1,48 @@
+<xml standalone="true">
+  <material compile="inst0">
+    <inst name="inst18" type="Zero" />
+    <inst name="inst17" type="Zero" />
+    <inst name="inst16" type="FixedValue">
+      <setfloat member="Value" value="3" />
+    </inst>
+    <inst name="inst15" type="FixedValue">
+      <setfloat member="Value" value="3" />
+    </inst>
+    <inst name="inst14" extends="UVCoords" adds="ScaledUV">
+      <setinst member="UScale" inst="inst15" />
+      <setinst member="VScale" inst="inst16" />
+      <setinst member="UOffset" inst="inst17" />
+      <setinst member="VOffset" inst="inst18" />
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst31" type="FixedValue">
+      <setfloat member="Value" value="0.7" />
+    </inst>
+    <inst name="inst30" type="FixedValue">
+      <setfloat member="Value" value="0.7" />
+    </inst>
+    <inst name="inst29" type="FixedValue">
+      <setfloat member="Value" value="0.15" />
+    </inst>
+    <inst name="inst28" type="FixedValue">
+      <setfloat member="Value" value="0.15" />
+    </inst>
+    <inst name="inst27" extends="RealTexture" adds="CroppedUV">
+      <setinst member="UOffset" inst="inst28" />
+      <setinst member="VOffset" inst="inst29" />
+      <setinst member="UWidth" inst="inst30" />
+      <setinst member="VWidth" inst="inst31" />
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst11" type="TexturedColor">
+      <setinst member="Texture" inst="inst27" />
+      <setinst member="TexCoord" inst="inst14" />
+    </inst>
+    <inst name="inst1" type="SumColors">
+      <setarray member="Colors" insts="inst11" />
+    </inst>
+    <inst name="inst0" type="MyShader">
+      <setinst member="PixelColor" inst="inst1" />
+    </inst>
+  </material>
+</xml>

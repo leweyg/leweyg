@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?> 
+<svg id="root" xml:space="preserve" width="224" height="216" viewBox="0 0 224 216">
+	<text x="0" y="15" style="font-size:15;fill:black;text-anchor:left">Reset
+		<animate id="mytimer" begin="mybox.click;mybox.load" attributeName="fill" values="black" />
+	</text>
+	<rect id="mybox" x="0" y="0" width="40" height="20" style="fill:black;fill-opacity:0.1" />
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="25 78 23 83 23 88 23 93 23 99 22 107 21 112 23 116 28 114 35 114 40 113 45 112 50 112 52 110 51 106 51 101 51 94 51 90 51 85 52 81 53 76 49 76 45 76 40 75 36 77 32 76 28 77 24 77 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="23 91 27 91 33 90 38 89 42 90 46 91 47 89 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="114 82 114 90 114 97 113 103 113 108 114 113 118 114 123 113 128 113 134 112 140 111 143 108 142 101 142 91 142 84 142 79 143 74 139 76 134 76 129 77 123 77 118 78 113 80 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="116 92 120 93 125 93 131 93 136 92 142 92 144 92 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="31 85 27 87 23 88 19 89 14 90 10 92 9 94 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="4.74359s" fill="freeze" keyTimes="0;0.7702702;1" values="45 82 50 79 55 76 59 74 63 73 68 73 72 74 77 76 81 81 85 85 88 89 93 94 97 98 101 101 105 102 109 103 112 103 ;45 82 50 79 55 76 59 74 63 73 68 73 72 74 77 76 81 81 85 85 88 89 93 94 97 98 101 101 105 102 109 103 112 103 ;45 83 48 83 52 83 56 82 60 81 64 80 68 78 72 76 76 71 79 67 82 63 84 60 88 56 91 52 94 49 97 46 99 46 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="3.653846s" fill="freeze" keyTimes="0;0.6842105;1" values="121 85 117 85 113 83 108 84 103 83 98 83 93 83 89 84 85 85 81 88 77 90 73 93 68 95 64 97 60 97 56 97 52 98 47 97 45 97 ;121 85 117 85 113 83 108 84 103 83 98 83 93 83 89 84 85 85 81 88 77 90 73 93 68 95 64 97 60 97 56 97 52 98 47 97 45 97 ;123 84 120 84 117 84 113 85 111 85 108 84 105 82 103 80 102 78 104 75 105 72 107 69 110 65 112 62 114 59 116 56 117 53 118 51 119 49 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="139 89 143 85 148 83 153 82 158 83 162 85 167 88 172 88 178 88 182 88 186 88 190 87 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="101 14 101 18 100 23 99 28 98 34 98 39 98 45 99 51 101 52 106 53 111 52 116 52 121 52 126 50 126 45 126 40 126 33 126 28 127 23 127 19 128 14 126 12 122 12 117 11 111 11 107 11 103 12 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1s" fill="freeze" values="99 30 103 29 107 29 114 29 118 29 124 30 128 30 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="1.410257s" fill="freeze" keyTimes="0;1" values="122 21 122 21 123 21 124 21 125 21 126 21 127 21 128 21 129 21 131 21 132 21 133 21 134 21 135 21 136 20 136 20 137 20 137 20 138 21 ;124 19 127 16 131 15 135 13 139 14 143 18 146 22 148 27 148 32 149 37 149 41 149 46 147 50 145 54 143 59 140 62 137 67 135 71 133 75 " />
+	</polyline>
+	<polyline style="stroke:rgb(0,0,0);stroke-width:2;fill-opacity:0.0;" points="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " >
+		<animate begin="mytimer.begin+0s" repeatCount="1" attributeName="points" dur="2.5s" fill="freeze" keyTimes="0;0.5641026;1" values="105 25 104 25 103 25 102 25 101 25 99 25 98 25 97 25 96 25 95 26 93 27 92 27 90 27 89 27 87 28 85 28 84 28 82 29 81 29 80 30 78 31 ;105 25 104 25 103 25 102 25 101 25 99 25 98 25 97 25 96 25 95 26 93 27 92 27 90 27 89 27 87 28 85 28 84 28 82 29 81 29 80 30 78 31 ;105 26 101 25 97 26 92 28 87 29 83 31 79 32 75 32 71 33 66 35 62 38 57 40 54 44 50 48 46 52 45 56 43 61 42 65 41 69 42 74 42 76 " />
+	</polyline>
+</svg>

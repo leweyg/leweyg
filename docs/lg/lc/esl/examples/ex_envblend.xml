@@ -1,0 +1,43 @@
+<xml standalone="true">
+  <material compile="inst0">
+    <inst name="inst17" type="White" />
+    <inst name="inst16" type="DirectionalLight">
+      <setchannel member="LightDirection" channel="LIGHT_0_DIR" />
+      <setinst member="LightColor" inst="inst17" />
+    </inst>
+    <inst name="inst15" type="UVCoords">
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst14" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst13" type="TexturedColor">
+      <setinst member="Texture" inst="inst14" />
+      <setinst member="TexCoord" inst="inst15" />
+    </inst>
+    <inst name="inst7" type="DiffuseLighting">
+      <setinst member="DiffuseColor" inst="inst13" />
+      <setarray member="DiffuseLights" insts="inst16" />
+    </inst>
+    <inst name="inst6" type="RealCubicTexture">
+      <setchannel member="Cubic Texture" channel="CUBETEXTURE0" />
+    </inst>
+    <inst name="inst5" type="ReflectionColor">
+      <setinst member="EnvMap" inst="inst6" />
+    </inst>
+    <inst name="inst4" type="One" />
+    <inst name="inst3" type="Zero" />
+    <inst name="inst2" type="ReflectiveTwoTone">
+      <setinst member="BlendStart" inst="inst3" />
+      <setinst member="BlendEnd" inst="inst4" />
+      <setinst member="LowColor" inst="inst5" />
+      <setinst member="HighColor" inst="inst7" />
+    </inst>
+    <inst name="inst1" type="SumColors">
+      <setarray member="Colors" insts="inst2" />
+    </inst>
+    <inst name="inst0" type="MyShader">
+      <setinst member="PixelColor" inst="inst1" />
+    </inst>
+  </material>
+</xml>

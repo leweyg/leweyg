@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Graphing 2d - Interval Math - Lewcid.com</title>
+</head>
+<body>
+    <font face="sans-serif">
+
+        <div>
+            <p align="left">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <table border="0">
+                                <tr>
+                                    <td><a href="http://www.lewcid.com/lg/index.html"><img src="http://www.lewcid.com/lg/lewcid_icon_white.png" height="40" /></a></td>
+                                    <td><a href="http://www.lewcid.com/lg/index.html">Lewcid.com</a></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_subject.html#math">#math</a></center></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_time.html#1/28/2016">#1/28/2016</a></center></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_place.html#math">#math</a></center></td>
+                                    <td>(by <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <div>
+            <!-- begin page content -->
+
+            <br />
+            <h1><a href="index.html">Interval Math</a> - Graphing 2d</h1><br />
+
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)">Interval</a> Arithmetric Based Graphing Visualization
+                (uses <a href="span.js">span.js</a>)
+            </p>
+            <script src="span.js"></script>
+            <script>
+
+
+                function SayHello() {
+                    var canvas = document.getElementById("MainCanvas");
+
+                    var ctx = canvas.getContext("2d");
+
+                    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+                    DrawPixel(10, 20);
+                    ctx.fillRect(20, 10, 3, 3);
+
+                    // Filled triangle
+                    //ctx.beginPath();
+                    //ctx.moveTo(25, 25);
+                    //ctx.lineTo(105, 25);
+                    //ctx.lineTo(25, 105);
+                    //ctx.fill();
+
+                }
+
+                function DrawPixel(x, y) {
+                    var canvas = document.getElementById("MainCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillRect(x, y, 3, 3);
+                }
+
+                function MouseStateInfo(x, y) {
+                    var ans = new Object();
+                    ans.x = x; ans.y = y;
+                    return ans;
+                }
+                var MainMouseState = MouseStateInfo(20, 10);
+
+                function SceneGraphTarget(ar) {
+                    return function (ndx, val) {
+                        if (val === undefined) {
+                            return ar[ndx];
+                        } else {
+                            ar[ndx] = val;
+                        }
+                    }
+                }
+
+                function SceneGraphNode(to) {
+                    return ((to) ? to : {
+
+                        Target: undefined,      // set(i,v) => { [i] = v; }  ( and get(i) => { return [i] => v; } )    // textureN<X>
+                        Window: undefined,      // [ i, ... ]                       // vectorN<span<I>>
+
+                        Children: undefined,    // { node, ... }
+
+                        Field: undefined,           // (i/q) => v                   // Func<I,X>
+                        FieldProjection: undefined, // (i) => q                     // Func<I,I>
+
+                        Query: undefined,       // { q, ... }                       // IEnum<Q>
+                        Polygons: undefined,    // { [ q, ... ], ... }              // IEnum<SpanN<Q>>
+                        Aggregation: undefined, // (q,v) => v                       // Func<X,X,X>
+                        Projection: undefined,  // (q) => r                         // Func<Q,Span<I>>
+                        Rasteration: undefined, // (r,[i,...]) => { i, ... }        // Func<Span<I>,Window<I>,IEnum<I>>
+
+                    });
+                }
+
+                function UpdateSceneNodeInContext(context, node) {
+
+                    if (!node) {
+                        return;
+                    }
+                    if (!context) {
+                        context = node;
+                    }
+
+                    context = SceneGraphNode(context);
+                    node = SceneGraphNode(node);
+
+                    if (node.UpdateInContext) {
+                        node.UpdateInContext(context, node);
+                        return;
+                    }
+
+                    return TODO();
+                }
+
+                function ApplySceneGraph(destination, field, query, projection, window, raster, aggregation, graph) {
+
+                    // Defaults:
+                    var passThrough = function (a) { return a; };
+                    if (!destination) {
+                        destination = new Object();
+                    }
+                    if (!window) {
+                        window = destination; //.keys
+                    }
+                    if (projection === undefined) {
+                        projection = passThrough;
+                    }
+
+                    // If it's a field:
+                    if (field && !query) {
+                        for (var w in window) {
+                            destination[w] = field(projection(w));
+                        }
+                        return;
+                    }
+
+                    if ((graph) && (!query)) {
+
+                    }
+
+                    if (query !== undefined) {
+
+                        // If it's a simple query:
+                        if ((!window) && (!raster) && (!aggregation)) {
+                            for (var q in query) {
+                                destination[projection(q)] = q;
+                            }
+                            return;
+                        }
+
+                        // Setup for the query:
+                        if (aggregation == undefined) {
+                            aggregation = passThrough;
+                        }
+                        if (raster === undefined) {
+                            if (!window) {
+                                raster = passThrough;
+                            }
+                            else {
+                                raster = function (q, w) {
+                                    for (var qi in q) {
+                                        for (var wi in w) {
+                                            if (qi === wi) {
+                                                return wi;
+                                            }
+                                        }
+                                    }
+                                };
+                            }
+                        }
+
+                        // If it's query based:
+                        for (var q in query) {
+                            for (var r in raster(projection(q), w)) {
+                                destination[r] = aggregation(q, destination[r], r);
+                            }
+                        }
+
+                    }
+
+                    return destination;
+                }
+
+                function TestApplySceneGraph() {
+                    var pixels = [0, 0, 0, 0, 0, 0];
+                    //Hologram( destination:pixels, field:function(i) { return i+1; } );
+                    ApplySceneGraph(pixels, function (i) { return 5 + i; });
+                    ApplySceneGraph(pixels, null, [2, 4, 6, 8]);
+                }
+
+                var MainFirstTime = (new Date()).getTime();
+                var MainPreviousTime = MainFirstTime;
+
+                var MainStepSize = 4;
+                function MainStepSizeToggled() {
+                    if (MainStepSizeSwitch.checked) MainStepSize = 4;
+                    else MainStepSize = 1;
+                    MainEvaluatePressed();
+                }
+
+                function DrawEachPixel(code) {
+                    var label = document.getElementById("MainErrorLabel");
+                    var canvas = document.getElementById("MainCanvas");
+                    var ctx = canvas.getContext("2d");
+
+                    var width = canvas.width;
+                    var height = canvas.height;
+
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.fillStyle = '#00ff00';
+
+                    var stepSize = MainStepSize;
+
+                    label.textContent = "Processing...";
+                    try {
+                        var heading = document.getElementById("MainHeadingLabel");
+                        heading.textContent = code;
+
+                        var mx = MainMouseState.x;
+                        var my = MainMouseState.y;
+
+                        var abs = Math.abs;
+                        var sine = Math.sin;
+                        var around = function (lx, ly) { return sine(10 * Math.atan2(ly, lx)); }
+
+                        var domainx = span(0, width);
+                        var domainy = span(0, height);
+                        var rangex = span(-1, 1);
+                        var rangey = span(-1, 1);
+                        var projx = spanProjFromDomainAndRange(domainx, rangex);
+                        var projy = spanProjFromDomainAndRange(domainy, rangey);
+
+                        var startTime = (new Date()).getTime();
+                        var qt = span(MainPreviousTime - MainFirstTime, startTime - MainFirstTime).times(exactly(1.0/1000.0));
+                        var dt = (qt.To - qt.From);
+                        if (!isAutoEnabled) {
+                            qt = exactly(0.0);
+                            dt = 0.0;
+                        }
+                        MainPreviousTime = startTime;
+
+                        for (var ix = 0; ix < width; ix += stepSize) {
+                            for (var iy = 0; iy < height; iy += stepSize) {
+                                var test = false;
+                                {
+                                    var x = ix;
+                                    var y = iy;
+
+                                    //var qx = spanProjInt(projx, ix);
+                                    //var qy = spanProjInt(projy, iy);
+                                    var qx = spanProjSpan(projx, span(ix, ix + stepSize));
+                                    var qy = spanProjSpan(projy, span(iy, iy + stepSize));
+                                    var qr = spanSqrt(qx.times(qx).add(qy.times(qy)));
+
+                                    var ans = eval(code);
+                                    test = (ans != false) && (ans > 0);
+                                }
+
+                                if (test)
+                                    ctx.fillRect(ix, iy, stepSize, stepSize);
+                            }
+                        }
+
+                        var endTime = (new Date()).getTime();
+                        label.textContent = "" + (endTime - startTime) + "ms";
+                    }
+                    catch (e) { label.textContent = e.toString(); }
+                }
+
+                function DrawMouseAt(event, x, y) {
+                    x = event.offsetX;
+                    y = event.offsetY;
+
+                    var canvas = document.getElementById("MainCanvas");
+                    var ctx = canvas.getContext("2d");
+
+                    MainMouseState = MouseStateInfo(x, y);
+
+                    var cx = x;// x - 15;
+                    var cy = y; //y - 167;
+                    DrawPixel(cx, cy);
+
+                    if (isAutoEnabled) {
+                        MainEvaluatePressed();
+                    }
+                }
+
+                function DrawStartingScreen() {
+                    var canvas = document.getElementById("MainCanvas");
+                    var ctx = canvas.getContext("2d");
+
+                    var brush = ctx.createLinearGradient(0.5, 0.75, 0.75, 0.5);
+                    ctx.fillStyle = brush;
+                }
+
+                var MainEvaluateRequested = false;
+                function MainEvaluatePressed() {
+                    MainEvaluateRequested = false;
+                    DrawEachPixel(MainEquation.textContent);
+                    AutoCheckForRefresh();
+                }
+
+                var isAutoEnabled = false;
+                function AutoSwitchToggled() {
+                    if (isAutoEnabled == MainAutoSwitch.checked) return;
+                    isAutoEnabled = MainAutoSwitch.checked;
+                    AutoCheckForRefresh();
+                    if (!isAutoEnabled) {
+                        MainEvaluatePressed(); // for when time is turned off
+                    }
+                }
+                function AutoCheckForRefresh() {
+                    if (isAutoEnabled && (!MainEvaluateRequested)) {
+                        MainEvaluateRequested = true;
+                        window.setTimeout(MainEvaluatePressed, 30);
+                    }
+                }
+
+                function SetupExample(code) {
+                    MainEquation.textContent = code;
+                    MainAutoSwitch.checked = false;
+                    AutoSwitchToggled();
+                    MainEvaluatePressed();
+                }
+
+                function SetupInteractiveExample(code) {
+                    MainEquation.textContent = code;
+                    MainAutoSwitch.checked = true;
+                    MainStepSizeSwitch.checked = true;
+                    AutoSwitchToggled();
+                    MainStepSizeToggled();
+                }
+            </script>
+
+            <table>
+                <tr>
+                    <td bgcolor="green" width="10"></td>
+                    <td>
+
+
+                        <h2>Graph Where '<label id="MainHeadingLabel">qy.equals(qx)</label>'</h2>
+
+                        <canvas id="MainCanvas"
+                                width="300" height="200"
+                                onload="DrawStartingScreen()"
+                                onmousemove="DrawMouseAt(event, event.offsetX, event.offsetY )"></canvas><br />
+
+                        <label>Given: spans qx and qy (-1~1), radius qr, scalars x and y,  mouse mx and my, and pixel ix and iy:</label><br />
+
+                        <textarea id="MainEquation" rows="2" cols="40">qy.equals(qx) || qx.times(span(0.3,0.7)).equals(qy) || qx.times(span(9,12)).add(qt).cos().equals(qy)</textarea><br />
+                        <button onclick="MainEvaluatePressed()">Evaluate</button>
+                        <input type="checkbox" id="MainAutoSwitch" onchange="AutoSwitchToggled()" />Time (qt)
+                        <input type="checkbox" checked="true" id="MainStepSizeSwitch" onchange="MainStepSizeToggled()" />Quick
+                        <br />
+                        <label id="MainErrorLabel"></label><br />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="red"></td>
+                    <td>
+
+                        <script>
+                            var allEasyEqs = "qy.equals(qx) || \n" +
+                            "qx.times(span(0.3,0.7)).equals(qy) || \n" +
+                            "qx.times(span(9,12)).add(qt).cos().equals(qy)";
+                        </script>
+                        <br />
+                        <b>Learn (Demo Buttons)</b><br /><br />
+
+                        Intervals:
+                        <button onclick="SetupExample('exactly(-0.5).equals(qx) || span(0.45,0.55).equals(qx)')">0.5 vs 0.45~0.55</button>
+                        <button onclick="SetupExample('span(0.1,0.2).add(span(0.4,0.6)).equals(qx) || span(-0.2,-0.1).equals(qx) || span(-0.6,-0.4).equals(qx)')">Adding Intervals</button>
+                        <button onclick="SetupInteractiveExample('qt.cos().equals(qy)')">Time Spans</button>
+
+                        <br /><br />
+
+
+                        Interval Lines:
+                        <button onclick="SetupExample('qy.equals(qx)')">When Y = X</button>
+                        <button onclick="SetupExample('qx.times(span(0.4,0.7)).equals(qy)')">When Y = X * (0.4 ~ 0.7 )</button>
+                        <button onclick="SetupExample('qx.times(exactly(0.6)).equals(qy)')">When Y = X * exactly(0.6)</button>
+                        <button onclick="SetupExample('qx.times(span(9,12)).add(qt).cos().equals(qy)')">Waves Y = Cos( X * ( 9 ~ 12 ) )</button>
+                        <button onclick="SetupExample(allEasyEqs)">All</button>
+                        <br /><br />
+
+                        Interval Distance Waves:
+                        <button onclick="SetupExample('qr.times(span(16,19)).cos().equals(exactly(0))')">Waves 16~19</button>
+                        <button onclick="SetupExample('qr.times(exactly(17.5)).add(qt).cos().equals(exactly(0))')">Waves 17.5</button>
+                        <button onclick="SetupExample('span(0.45,0.55).equals(qr)')">Radius(qr) = 0.45~0.55</button>
+                        <button onclick="SetupExample('qr.equals(exactly(0.5))')">Radius(qr) = 0.5</button>
+
+                        <br /><br />
+
+
+                        Interaction:
+                        <button onclick="SetupInteractiveExample('(y > my) && (x < mx)')">Mouse Axes</button>
+                        <br /><br />
+
+
+                        Experimental:
+                        <button onclick="SetupExample('(px*px + py*py) < 36')">Sphere</button>
+                        <button onclick="SetupExample('around(rx,ry) + around(px,py)')">Field</button>
+                        <button onclick="SetupExample('sine( ((f*f) +1.5) * 300/p) < 0')">Field 2</button>
+                        <button onclick="SetupExample('( Math.sin((r+p) * 0.3) * Math.sin((r-p) * 0.3) ) < 0')">Interactive</button>
+
+
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <br />
+            <br />
+
+            <script>
+                MainEvaluatePressed();
+            </script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<html>
+<head><title>Easy Browsing - Before and After Buttons - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+	<td rowspan="1"><p valign="center" align="center"><a href="http://www.lewcid.com/">Lewcid.com</a><br/>Site-Cube</p></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#that">#that</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#then">#then</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#other/">other/</a></center></td>
+	<td>(this <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3><table><tr><td>&nbsp;</td><td><h1>Easy Browsing:<br>Before and After Buttons</h1><p>Simply drag these links into your 'Links' bar and then use them as buttons. When you click on them, they will take you to the next numbered page or file. For instance if you're on a page called MyScreenShot009.jpeg it will take you to MyScreenShot010.jpeg and so forth. This lets you easily and quickly browse through numbered files either on your computer or on the web. Plus they work on most browsers (tested on Internet Explorer 6.0, Netscape 4.0 and Safari 1.0, and should work on other versions as well)</p><table bgcolor="#f0f0c0" ><tr><td><h1>Installing (very easy)</h1><p>To install these buttons, all you have to do is drag them into your 'Links' bar, and that is it! They will be installed and will stay there until you delete them. It's that easy. If you don't like them, just right-click and 'delete' them.</p><center><table ><tr><td  align="center" ><p>This button lets you go into the containing folder, this is just for people who don't have the 'Up' button on the Google Toolbar</p></td><td  align="center" ><p>This button takes you to the file numbered before the current files, that is from MyFile010.html to MyFile009.html</p></td><td  align="center" ><p>This button takes you to the file numbered after the current file, that is from MyFile9.html to MyFile10.html</p></td></tr><tr><td ></td></tr><tr><td><center>
+
+<a href="javascript:
+
+function GoUp()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  while (i >= 0)
+
+  {
+
+    s = str.substring(i,i+1);
+
+    if ((s=='/')||(s=='\\'))
+
+    {
+
+      str = str.substring(0,i+1);
+
+      document.location.href = str;
+
+      return;
+
+    }
+
+    i--;
+
+  }
+
+}
+
+
+
+  GoUp();
+
+">Up</a>
+
+</center></td><td><center>
+
+<a href="javascript:
+
+function GoBefore()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  var found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s >= '0') && (s <= '9'));
+
+    i--;
+
+  }
+
+  if (i < 0)
+
+    return -1;
+
+  var end = i+2;
+
+  found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s < '0') || (s > '9'));
+
+    i--;
+
+  }
+
+  var beg = i+2;
+
+  var num = str.substring(beg,end);
+
+  var len = num.length;
+
+  num--;
+
+  num = ''+num;
+
+  while (num.length < len)
+
+  {
+
+    num = '0' + num;
+
+  }
+
+  len = str.substring(0,beg);
+
+  len += num;
+
+  len += str.substring(end, str.length);
+
+  document.location.href = len;
+
+}
+
+  GoBefore();
+
+"><- Before</a>
+
+
+</center></td><td><center>
+
+<a href="javascript:
+
+function GoAfter()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  var found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s >= '0') && (s <= '9'));
+
+    i--;
+
+  }
+
+  if (i < 0)
+
+    return -1;
+
+  var end = i+2;
+
+  found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s < '0') || (s > '9'));
+
+    i--;
+
+  }
+
+  var beg = i+2;
+
+  var num = str.substring(beg,end);
+
+  var len = num.length;
+
+  num++;
+
+  num = ''+num;
+
+  while (num.length < len)
+
+  {
+
+    num = '0' + num;
+
+  }
+
+  len = str.substring(0,beg);
+
+  len += num;
+
+  len += str.substring(end, str.length);
+
+  document.location.href = len;
+
+}
+
+  GoAfter();
+
+">After -></a></center>
+
+
+</td></tr><tr><td></td></tr></table></center></td></tr></table><br><table bgcolor="#f0f0c0" ><tr><td><h1>Test it out!</h1><p>Now that you have the buttons, try testing them out, the following is a link to page10.html, you will notice that you can easily go between the different numbers using the buttons, this same method will work on any webpage or file, and there is nothing special about these pages (sorry they are boring I know, but they serve their purpose).</p><p>Oh and testing them out on this current page won't do you much good as there are no numbers in the address, sorry.</p><a href="bandatest/page10.html">page10.html</a> - try it out<br><br></td></tr></table><br><p>If you try these out I'm sure you will find they help quite often in every-day browsing and can make searching through long indexed systems alot easier and less painful.</p></td></tr></table></font>
+  </div>
+<!-- end page content -->
+</div>
+
+</font>
+</body>
+</html>

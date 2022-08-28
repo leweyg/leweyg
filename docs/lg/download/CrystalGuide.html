@@ -1,0 +1,196 @@
+<html>
+
+<head><title>Crystal Math - Version 0.5.7</title></head>
+
+<body>
+
+<center><table width=100%>
+<tr><td width=40%><font color=blue><h1>Crystal Math - Version 0.5.7</h1><font></td>
+<td align=right width=40%><h1>
+<a href="../index.html"><font color=red>Ogre Industrial</font></a></h1></td></tr>
+</table></center>
+
+<center><table width=90%><tr><td>
+
+Last Guide Update: 7/15/2002 - 4:36 PM<br><br>
+
+Grapher is a math program which is currently under development. As of right now, I've only really worked on the math engine, and two simple interfaces. One is a console based app so that source code can be compiled for any 32 bit platfrom with a C++ compiler (this means all most all modern platforms), and the other is a Win32 dialog based program which allows for far greater ease of use, but is really just an interface to the same math engine (the Win32 version also includes an optional console type interface which acts exactly like the console edition).<br><br>
+
+<b>Why use Crystal Math?</b><br>
+first of all, it's one hell of a lot better than using the Calculator program that comes with many OSes (because you write equations and do many other things that can't be done on computer versions of scientific calculators), and it doesn't cost anything (unlike real math apps like Mathematica, Maple, Matlab, etc.) Also the learning curve is almost nothing because the equation format is almost exactly like normal math. Soon however, once I'm happy with the engine, Crystal Math will  have 2D and 3D graphers and such which will make the whole experience much better. And lastly, when ever something jumps into your head, sure it's easy to use those standard calculators, but it's even easier to use Crystal Math, the Win32 version has even made it so that you even push the exact same buttons to get an answer as if you were using a simple calculator. NOTE: to any of you who have used my previous math app <a href="Grapher.html">Grapher</a>, Crystal Math is Grapher's big brother boasting far more flexibility and power (the only lacking on Crystal Math's part being that there are currently no graphing utilities).<br><br>
+
+<b>A Note on Version 0.5</b><br>
+Although it is fairly new, Version 0.5 offers the power of true symbolic math with a balanced mix of linear and object oriented code (written of course in C++). The different types (such as strings, expressions and real numbers) are all blended together to allow for seamless transition between them. The engine itself is primarily focused around expressions as opposed to numbers, as many other similar math platforms. As an example of how the engine works, let me explain how a command you enter is executed, first you enter in some text, this is then loaded into the program just like any other string, it is then transformed into an expression, which is then evaluated, all of this is done with standard function calls which means no special exceptions are made for the compiler, which means that the power of the compiler is always avialable for any function to use. If you don't understand what I just said, don't worry about it, you the user need never be bothered with such details, all you'll find is an easy to use and powerful math suite for your usage<br><br>
+
+<b>Usage:</b><br>
+The calculator itself works the same way on both platforms, just type in the equation and it executes it. You can do simple math like "5+6" and it will give the answer, you also expand on this by adding parenthesis and using any of the functions listed below. Operator precidence is followed. Functions work like they do in real math, so "sin(90)" is 1 (if your in degrees mode).<br><br>
+
+<b>Implimented Functions:</b><br>
+All the following functions have been implimented, but considering this is not the finished product, don't be surprised with little errors here and there (mostly round off stuff like 3.99999 inplace of 4). <br><br>
+<li><b>+</b> - plus</li><br>
+<li><b>-</b> - minus </li><br>
+<li><b>*</b> - multiply </li><br>
+<li><b>/</b> - divide </li><br>
+<li><b>^</b> - to the power of </li><br>
+<li><b>=</b> - equals (assignment operator)</li><br>
+<li><b>==</b> - is equal (test)</li><br>
+<li><b>!=</b> - isn't equal (test)</li><br>
+<li><b>< </b> - is less (test)</li><br>
+<li><b>> </b> - is more (test)</li><br>
+<li><b>>=</b> - is greater than or equal to (test)</li><br>
+<li><b><=</b> - is less than or equal to (test)</li><br>
+<li><b>sin</b> - sine </li><br>
+<li><b>cos</b> - cosine </li><br>
+<li><b>tan</b> - tangent </li><br>
+<li><b>csc</b> - cosecant </li><br>
+<li><b>sec</b> - secant </li><br>
+<li><b>cot</b> - cotangent </li><br>
+<li><b>asin</b> - arcsin </li><br>
+<li><b>acos</b> - arccos </li><br>
+<li><b>atan</b> - arctan </li><br>
+<li><b>acsc</b> - arccosecant </li><br>
+<li><b>asec</b> - arcsecant </li><br>
+<li><b>acot</b> - arccotangent </li><br>
+<li><b>ln</b> - natural log </li><br>
+<li><b>log</b> (<i>base</i>,<i>value</i>) - gets the log base <i>base</i> of <i>value</i> </li><br>
+<li><b>exp</b> (<i>value</i>) - raises <i>e</i> to the <i>value</i> given. In other words: <tt>e^x = exp x</tt></li><br>
+<li><b>sqrt</b> - square root </li><br>
+<li><b>abs</b> - absolute value </li><br>
+<li><b>rand</b> (<i>value</i>) - returns a random number between 0 and the <i>value</i> given</li><br>
+<li><b>nder</b> (<i>equation</i>,<i>variable</i>,<i>value</i>) - numerically differentiate the <i>equation</i> with respect to <i>variable</i> at <i>value</i> </li><br>
+<li><b>nroots</b> (<i>equation</i>,<i>variable</i>,<i>minimum</i>,<i>maximum</i>) - numerically finds the roots of <i>equation</i> (with respect to <i>variable</i>) from <i>minimum</i> to <i>maximum</i></li><br>
+<li><b>nint</b> (<i>equation</i>,<i>variable</i>,<i>from</i>,<i>to</i>) - numerically integrate the <i>equation</i> with respect to <i>variable</i> from <i>from</i> to <i>to</i></li><br>
+<li><b>sigma</b> (<i>variable</i>,<i>from</i>,<i>to</i>,<i>expression</i>) - takes the sum of the values of the <i>expression</i> for all the values of <i>variable</i> from <i>from</i> to <i>to</i> (incrimenting by 1 each time)</li><br>
+<li><b>eval</b> (<i>equation</i>,<i>expression1</i>,<i>expression2</i>, ... ) - execute numerous expressions, and then evaluate the <i>equation</i> (e.g. <tt>eval((x+y)^2,x=2,y=3)</tt> gives <tt>25</tt> ). Any number of expressions is allowed. <b>ALSO</b> if you wish to use a variable you made (like "u" or "v") but you want it to be considered a value (and not a variable) write "eval(u)" (or whatever the variable is).</li><br>
+<li><b>frombase</b> (<i>base</i>,<i>string</i>) - converts <i>string</i> from base <i>base</i> to base 10 </li><br>
+<li><b>tobase</b> (<i>base</i>,<i>value</i>) - converts <i>value</i> from base 10 to base <i>base</i> (NOTE: the return value is a string)</li><br>
+<li><b>nintersects</b> (<i>equation1</i>,<i>equation2</i>,<i>variable</i>,<i>minimum</i>,<i>maximum</i>) - numerically finds intersections of <i>equation1</i> and <i>equation2</i> from <i>minimum</i> to <i>maximum</i>(with respect to <i>variable</i>)</li><br>
+<li><b>nextrema</b> (<i>equation</i>,<i>variable</i>,<i>minimum</i>,<i>maximum</i>) - numerically finds the extrema of <i>equation</i> from <i>minimum</i> to <i>maximum</i> (with respect to <i>variable</i>)</li><br>
+<li><b>testder</b> (<i>equation</i>,<i>derivative_of_equation</i>,<i>variable</i>,<i>minimum</i>,<i>maximum</i>) - calculates the error of a <i>derivative</i> over a specific area (<i>minimum</i> to <i>maximum</i>) based on the original <i>equation</i>. Use it to test derivatives (hence the name). Both must be of <i>variable</i></li><br>
+<li><b>convert</b> (<i>value</i>,<i>unitNameFrom</i>,<i>unitNameTo</i>) - converts <i>value</i> from <i>unitNameFrom</i> to <i>unitNameTo</i>. A list of valid units will be shown later. (e.g. convert(12,inches,feet) is 1</li><br>
+<li><b>frac</b> (<i>value</i>) - converts a decimal value into a fraction (e.g. <tt>frac(0.2)</tt> is "<tt>1/5</tt>") </li><br>
+<li><b>ipart</b> (<i>value</i>) - gives the integer part of a value (i.e. <tt>ipart(32.85) = 32</tt> ) </li><br>
+<li><b>fpart</b> (<i>value</i>) - gives the fractional part of a value (i.e. <tt>ipart(32.85) = 0.85</tt> ) </li><br>
+<li><b>setmode</b> (<i>mode</i>,...) - simply enter one or a series of modes to set them as active. Here is a the current list of modes: <i>degrees</i>, <i>radians</i></li><br>
+<li><b>tostring</b> (<i>anything</i>) - convert almost <i>anything</i> into a string</li><br>
+<li><b>toreal</b> (<i>anything</i>) - convert almost <i>anything</i> into a real number</li><br>
+<li><b>tovec</b> (<i>anything</i>) - convert almost <i>anything</i> into a vector</li><br>
+<li><b>toexp</b> (<i>anything</i>) - convert almost <i>anything</i> into an expression</li><br>
+<li><b>. (Period)</b> - can be used to get (NOT SET) the value in a vecotor. ex: <tt>5 + v.0 >> x</tt></li><br>
+<li><b>set</b> (<i>vector</i>,<i>index</i>,<i>anything</i>) - sets the <i>index</i>th variable of the <i>vector</i> to <i>anything</i></li><br>
+<li><b>dot</b> (<i>vector1</i>,<i>vector2</i>) - returns the dot product of <i>vector1</i> and <i>vector2</i> (you can also use the '*' (multiply) operator)</li><br>
+
+
+<li><font color="red">BELOW are unfinished functions: (but they work pretty darn well)</font></li><br>
+<li><b>der</b> (<i>expression</i>,<i>variable</i>) - symbolically differentiate <i>expression</i> with respect to <i>variable</i>. Not too many rules have been implimented for it yet, still working a couple bugs out of the code. NOTE: system may sometimes display, DER (instead of der), but the user must always type "der"</li><br>
+<li><b>simp</b> (<i>expression</i>) - symbolically simplify, still has some problems as far as abstraction goes, but will be getting better. Plus a couple bugs</li><br>
+
+
+<li><font color="red">BELOW are functions that probably only developers will use:</font></li>
+<li><b>group</b> (<i>expression</i>) - groups the <i>expression</i> (i.e. changes "<tt>+(a,+(b,c))</tt>" into "<tt>+(a,b,c)</tt>") </li><br>
+<li><b>isconst</b> (<i>anything</i>) - is <i>anything</i> is constant or not (test) </li><br>
+<li><b>issamevar</b> (<i>variable1</i>,<i>variable2</i>) - is <i>variable1</i> <i>variable2</i> (used in conditions) (test) </li><br>
+<li><b>isreal</b> (<i>variable</i>) - is <i>variable</i> a Real (test) </li><br>
+<li><b>isstring</b> (<i>variable</i>) - is <i>variable</i> a String (test) </li><br>
+<li><b>isexp</b> (<i>variable</i>) - is <i>variable</i> a Exp (test) </li><br>
+<li><b>isvec</b> (<i>variable</i>) - is <i>variable</i> a Vector (test) </li><br>
+<li><b>islist</b> (<i>variable</i>) - is <i>variable</i> a List (test) </li><br>
+<li><font color="red">... and many more to come</font></li><br>
+<br>
+
+<b>Constants:</b><br>
+NOTE: you can change the values of these variables at run time (with for example "pi = 4.3"), so be careful.<br>
+<li><b>pi</b> - this is of course Pi</li>
+<li><b>E</b> - this is the constant <i>e</i> so that <tt>ln(E) = 1</tt> </li>
+<br><br>
+
+<b>Units:</b><br>
+These are the units supported by <i>convert</i><br>
+<i>Distance</i>: mm, cm, km, inch, inches, feet, foot, ft, m, meter, meters, yard, yards<br>
+<i>Time</i>: second, seconds, minute, minutes, hour, hours, day, days, week, weeks, year, years<br>
+<br>
+
+<b>Base Converter:</b><br>
+While you can use <b>tobase</b> and <b>frombase</b> to convert between bases, the Win32 version of Crystal Math also contains a base converter for converting numbers into a different base, which uses a very nice little interface. The four forms are Dec (decimal, base 10, which is what we use), Hex (hexadecimal, base 16, used in computers), Bin (binary, base 2, also used in computers), and Let (letter format, base 26, not really used but fun). Just type in the number in the appropriate section and the other values will be calculated. A note on "letter form", within this base 26 format, A is 0 and Z is 25, so BA is 26. One thing you may notice is that no Let number starts with A, (except 0), the reason is that A is 0, and putting a 0 in front of a number doesn't mean anything does it? Also, with base changer you may use lower case and upper case letters interchangeably.<br><br>
+
+<b>Equation Visualizer</b><br>
+Currently (only in the console version) any equations you enter will be displayed as real math functions (like one thing over another for divide, a square root sign and such). See the screen shots of the console versio to know what I mean. I havn't recompiled the Linux version to do this yet, but it's comming tommorrow.<br><br>
+
+<b>Console Mode in the Win32 Edition</b><br>
+When I use Crystal Math (for general math purposes), I primarily use the console option in the Win32 version (for development I prefer the standard console version though). You can access this by running the program and then selecting "Console" from the "Crystal Math" menu, or you can run the program with the command line option "console" (with no quotes). One idea is to make a shortcut to the program, and add "console" after the file name, that way you will automatically boot into the console mode. You may also note that after displaying any values in console mode, the type of the value is shows in [] next to it. This is mostly for development, don't worry too much about it.<br><br>
+
+<b>Examples:</b><br>
+<u>Simple Stuff:</u><pre>
+>1+2
+   1 + 2  [exp]
+
+   3  [real]
+
+
+>sin(pi*3)
+   sin [ pi * 3 ]  [exp]
+
+   0  [real]</pre>
+
+<u>Proper use of expressions and variables:</u><pre>
+>u = x^2/(1+x)
+         2
+   u =  x     [exp]
+       -----
+       1 + x
+
+     2
+    x     [exp]
+   -----
+   1 + x
+
+   0  [real]
+
+
+>der(eval u, x) >> du
+   d  /   2   \
+   -- |  x    | >> du  [exp]
+   dx | ----- |
+      \ 1 + x /
+
+   2 * [ 1 + x ] * x + - /  2 \
+                         \ x  /
+   ----------------------------  [exp]
+                     2
+            [ 1 + x ]
+
+   0  [real]
+
+
+>nder(u,x,5)
+   nder [ u, x, 5 ]  [exp]
+
+   0.972222  [real]
+
+
+>eval( du, x=5)
+   0.972222  [exp]
+
+   0.972222  [real]
+</pre>
+
+<b>Developers Needed:</b><br>
+If you are interested in working on this project, please contact me. Also if you wish to compile it for Mac, UNIX (or whatever), I will supply you with the source code. Also if you wish to impliment a GUI on one of these platforms I assure it is very simple, the console GUI code is only about 100 lines. Also remember, the true power of Crystal Math has yet to come and will be in the form of true symbolic mathematics<br><br>
+
+<b>A Note From the Developer:</b><br>
+I sincerely hope Crystal Math is as much a help you as it has been to me. If there is anything you wish changed or added to Crystal Math, please contact me with any good ideas. I can be reached at <a href="mailto:ogrecorp@yahoo.com">OgreCorp@Yahoo.com</a>. Crystal Math is of course free to anyone who wants it, but donations are always gratefully accepted ("favors" are also much appreciated form any female users out there).<br><br>
+
+<b>Developers Involved:</b><br>
+<i>Lewey Geselowitz</i> - Creator, and main programmer<br>
+<i>David Edelstein</i> - Numerous improvements regarding the scripting engine<br>
+
+
+<table align="right" width=100%><tr align="right" width=100%"><td align="right" width=100%">
+<b>Credits:</b><br>
+Developed by <a href="../index.html">Ogre Industrial</a><br>
+Created by <a href="mailto:ogrecorp@yahoo.com">Lewey Geselowitz</a><br>
+Crystal Math at <a href="http://www.sourceforge.net/projects/crystalmath">Source Forge</a>
+</td></tr></table>
+</table></body>
+
+</html><!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378798820" alt="setstats" border="0" width="1" height="1"></noscript>

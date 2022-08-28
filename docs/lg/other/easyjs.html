@@ -1,0 +1,83 @@
+<html>
+<head><title>Easy JS - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+	<td rowspan="1"><p valign="center" align="center"><a href="http://www.lewcid.com/">Lewcid.com</a><br/>Site-Cube</p></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#Editors">#Editors</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#10/23/2003">#10/23/2003</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#other/">other/</a></center></td>
+	<td>(this <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3><table><tr><td>&nbsp;</td><td><h1>Easy JS</h1><p>Need to code a quick algorithm to find a number? Don't feel like firing up your massive IDE just to write 3 lines of code? Why not used your browser's built in JavaScript interpreter! Thats exactly what this page does, simply type your code into the boxes provided, press the button and a new page is created which lets you quickly execute your code.<br><br>This is great for those times when you want to write a short function but are on a computer without a compiler. JavaScript is a great C-syntax-family  language and lets you get the job done quickly and easily. There are examples below the main work area, and a fuller explanation of how this page works, if your interested in how JavaScript itself works, there are many greats sites out there (most of them deal with it for use in web page creation, here I'm using it as just a simple scripting language). I hope you enjoy this little tool. <b>Technical note:</b> Easy JS simply creates a webpage with your code on it and gives it to your browser to display. This is all done locally (i.e. no server side involvement) so you can copy this page to your computer and use it there if you like. All interpreting, processing, garbage collection, etc. is done by your JavaScript interpret, my code just hands stuff over to it, so I shouldn't really get any credit.</p><table bgcolor="#f0f0c0" ><tr><td><h3>Code Interpreter</h3>
+Write any neccasary auxilary functions here:<br>
+<textarea id="myfuncs" cols=50 rows=10></textarea>
+<br><br>
+Write the code that will go into your main function here:<br>
+<textarea id="mycode" cols=50 rows=10></textarea>
+<br>
+<input type="button" value="Run (Multiple)" onClick="RunCode(mycode.value,myfuncs.value,false,false,isincludemath.checked)">
+<input type="button" value="Run (Single)" onClick="RunCode(mycode.value,myfuncs.value,true,false,isincludemath.checked)">
+
+<br>
+<input type="checkbox" checked="true" id="isincludemath" >
+Include standard Math functions so you can write sqrt instead of Math.sqrt. Also includes: sin, cos, tan, acos, asin, atan, log, exp, ln, floor, ciel, round, rand, pow, pi and e.<br>
+
+<br><br>
+<h3>Equation Evaluator</h3>
+<input type="text" id="mathfunc" value="5/6">
+<input type="button" value="Evaluate" onClick="RunCode(mathfunc.value,myfuncs.value,true,true,true)"><br>
+
+<table><tr><td>
+Variable Name:</td><td>Value</td></tr><tr><td>
+<input type="text" id="var0n"></td><td><input type="text" id="var0v"></td></tr><tr><td>
+<input type="text" id="var1n"></td><td><input type="text" id="var1v"></td></tr><tr><td>
+<input type="text" id="var2n"></td><td><input type="text" id="var2v"></td></tr><tr><td>
+<input type="text" id="var3n"></td><td><input type="text" id="var3v"></td></tr><tr><td>
+<input type="text" id="var4n"></td><td><input type="text" id="var4v"></td></tr><tr><td>
+</td></tr></table>
+<input type="button" value="Example Equation" onclick="Example_Equation()"><br>
+<br><b>WARNING:</b> Don't use the ^ (carrot looking thingy) to mean the exponent operator. This has a very different meaning in JavaScript. Instead use the <b>pow</b> function, which works like this: instead of writing 2^3, you write pow(2,3)<br><br>
+Note: You can use engineering notation. So you can write 5E5 or 6.23E-3 to mean 5*10^5 and 6.23*10^-3 (respectively).<br><br>
+Note: Although the above acts like a normal computer algebra system, it is infact merely convering whatever you write into JavaScript and then interpreting it. Also note that you can use in your expressions any functions you defined in the function area above (just not anything in main).<br><br>
+
+<br><br>
+<h3>Examples</h3>
+Here are a few examples to get you going with JavaScript, just click on the button and the code will be entered into the boxes above.<br>
+NOTE: These are very simple examples, don't expect perfect (or even good) code.<br>
+<input type="button" value="Hello World" onClick="Example_HelloWorld(mycode,true)"> - uses Easy JS's special WriteLine function<br>
+<input type="button" value="Hello World (alert box version)" onClick="Example_HelloWorld(mycode,false)"> - uses the JavaScript 'alert' function.<br>
+<input type="button" value="Factorial" onClick="Example_Factorial(mycode,true)"> - As you would imagine.<br>
+<input type="button" value="Quadratic" onClick="Example_Quadratic(mycode,true)"> - Asks for A, B, C in A*x^2 + B*x + C = 0, and the solves for real values of x. No imaginary.<br>
+<input type="button" value="Word Count" onClick="Example_WordCount(mycode,myfuncs)"> - Shows the number of letters and words in any text entered in the 'Input' section. Very crude, words=number of spaces+1. 'Run (Multiple)' mode only!<br>
+</td></tr></table><br><h1>Explanation</h1><p>
+This is just a simple little tool that lets you code quick algorithums from anywhere.
+I often find that I'm in class, or at someones house, and the best way to solve something is with 
+a little code, but this can be a tricky to do as most people don't have a compiler installed.
+So this page gives you an on-the-go compiler using good old JavaScript running on your computer (it is not server side executed). Just type in your code above,
+hit the button and you get your results. Here is an explanation of the two different 'Run' buttons.<br><br>
+<b>Run (Single)</b> - Creates a new page and automatically runs the code<br>
+<b>Run (Multiple)</b> - Creates a new page with a button on it, click the button and it executes the function you wrote above. This also allows you to run the code multiple times without refreshing.<br><br>
+In both modes you can use the special <b>Write</b> and <b>WriteLine</b> functions which
+output text to a console looking thing above. Also the <b>GetLine</b> function gets whatever input is in the input area. This is great if you just need to get some quick output. Of course
+you can also just use the 'alert' or whatever functions from JavaScript.</p><p>I wrote this page pretty quickly one day, and it's really just here as a convenience to me, if you find it useful that's great. If you have any questions for comments, send me an email at <a href="mailto:lewey@lewcid.com">lewey@lewcid.com</a>.</p></td></tr></table></font>
+  </div>
+<!-- end page content -->
+</div>
+
+</font>
+</body>
+</html>

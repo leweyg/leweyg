@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<title>Kabbalah Study Guide</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+td, th {
+    border: 1px solid rgb(201, 201, 201);
+    text-align: center
+}
+table {
+    border-collapse: collapse;
+}
+.myWideDiv {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.myColHeader {
+  font-weight: bold;
+  color:lightgray;
+}
+.myButton {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 1px;
+  border-radius: 10px;
+  background-color: rgb(171, 171, 206);
+  text-align: center;
+  
+}
+.myClickText {
+  cursor: pointer; 
+}
+.mySmButton {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 1px;
+  border-radius: 5px;
+  background-color: rgb(211, 171, 206);
+  text-align: center;
+  cursor: pointer; 
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">KABBALAH</a>
+    
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">KABBALAH</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:16px">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">UNIVERSAL KABBALAH</h2>
+    <p class="w3-opacity"><i>Understanding the Mind of God</i></p>
+    <p class="w3-opacity">Content for private study only by permission of<br/>
+      <a href="https://www.modernmysteryschoolint.com/">The Modern Mystery School</a>
+    </p>
+    <div style="text-align:center;">
+      <p class="w3-opacity">
+        <a href="https://docs.google.com/spreadsheets/d/1x50uNpYl_RH5BtYxB6PtDnPQ8pOCg8JF8bPB5Gzbzys/edit?usp=sharing">simple spreadsheet</a>
+      </p>
+    </div>
+
+  </div>
+
+<!-- End Page Content -->
+</div>
+
+  <!-- Selections -->
+  <div class="w3-content myWideDiv">
+    <div class="myButton">
+      <p onclick="ToggleVisability(mainSelectSephira)" class="myClickText">Select Sephiroth</p>
+      <div id="mainSelectSephira" style="display:none;">
+        <p class="mySmButton" onclick="ChangeSephira('all')">All</p>
+        <p class="mySmButton" onclick="ChangeSephira([1,6,9,10])">Middle Pillar</p>
+        <p class="mySmButton" onclick="ChangeSephira([2,4,7])">Pillar of Mercy</p>
+        <p class="mySmButton" onclick="ChangeSephira([3,5,8])">Pillar of Severity</p>
+      </div>
+    </div>
+    <div class="myButton">
+        <p onclick="ToggleVisability(mainSelectCols)" class="myClickText">Select Correspondences</p>
+        
+        <div id="mainSelectCols" style="display:none;">
+            <p class="mySmButton" onclick="ChangeCols('all')">All</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Phrase','God Name'])">Names</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Virtue','Vice','Strengths Achieved','Weaknesses Revealed'])">Ethics</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Body','Scent','Symbols','Color','Inner Body Correspondence','Healing Correspondence','Musical Tone'])">Body/Sensations</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Archangel','Angelic Host','Celestial'])">Angelic</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Celestial','Place of Power','Magical Image','Spiritual Experience',
+            'Symbols'])">Magical</p>
+            <p class="mySmButton" onclick="ChangeCols(['Order','Name','Scent','Aromatic Oils','Herbs','Flowers','Tree','Animal','Stone'])">Plant/Animal</p>
+            
+        </div>
+
+      </div>
+      <div  onclick="ToggleClickToReveal()" class="myButton myClickText">
+          <p>Click to Reveal</p>
+        </div>
+
+  </div>
+
+  <!-- Main Table -->
+  <div class="w3-content myWideDiv" style="overflow-y: scroll;overflow-x: scroll;">
+
+      <p id="main_content">
+        </p>
+  </div>
+
+<script>
+
+var kblCols = [
+'Order','Name','Phrase','Plane','God Name',
+'Body','Scent',
+'Archangel','Angelic Host','Celestial',
+'Place of Power','Magical Image','Spiritual Experience',
+'Symbols','Color',
+'Virtue','Vice',
+'Strengths Achieved','Weaknesses Revealed',
+'Human System',
+'Inner Body Correspondence',
+'Healing Correspondence',
+'Musical Tone',
+'Aromatic Oils','Herbs','Flowers','Tree','Animal','Stone'
+];
+var kblColOptions = {};
+var kblRawData = [
+'1','Kether','Crown','Supernal','Eheieh','Crown Chakra',"Frankincense, Sage",'Metatron','Chaioth ha Qadosh (Holy Living Creatures)','Universe','The Innermost Temple','Ancient bearded king in profile','Union with God; Union with Self',"Point, crown, clock-wise swastika",'White Brilliance',"Unity, Completion of the Great Work",'None',"Creative imagination, sense of wonder, embracing change, order",'None','The Highest Self','Consiousness','Cranium','B',"Almond, Ambergris, Frankincense, Sage",'Chamomile',"Almond, Lotus",'Almond','Swan',"Hermiker Diamond, Clear Double Terminated Quartz",'EOL',
+'2','Chokmah','Wisdom','Supernal','Yah','Left Temple',"Eucalyptus, Geranium",'Ratziel','Auphanim / Ophanim (The Wheels of Whirling Forces)','Solar System','The Celestial Spheres','Bearded Male Figure',"Vision of God Face to Face, Vision of Self","Phallus, yod of Tetragrammaton, inner robe of glory",'Pearl / Grey','Devotion','None',"Initiative, dovtion, study of stars, goal-oriented, idealism",'None',"Spirtual Will, Spiritual Purpose",'Left Brain',"Left side of face, balancing the hemispheres, sinuses, pituitary gland",'A#',"Eucalyptus, Frankincense, Geranium, Musk",'Rosemary','Orchid','Beech','Owl','Fluorite','EOL',
+'3','Binah','Understanding','Supernal','Elohim','Right Temple',"Chamomile, Myrrh",'Tzaphkiel',"Aralim (The Thrones, The Mighty Ones)",'Saturn','The Great Sea',"Mature Woman, Matron",'Vision of Wonder & Sorrow',"The yoni, the kteis, the vesica piscis, the cup or chalice, outer robe of glory",'Black','Silence','None',"Patience, silence, faithfulness",'None',"Spirtual Love, Spirtual Awareness",'Right Brain',"Right side of face, skin, bones, joints, teeth, spleen, hearing, tendons, colds, congestion",'A',"Chamomile, Myrrhm, Eucalyptus, Sage, Civet",'Comfrey','Lily','Alder','Whale','Black Obsidian','EOL',
+'-','Daath','Knowledge','Abyss','Jehovah Elohim','Throat','-','Archangels of the Cardinal Points','Serpents',"Asteroids, Uranus",'The Rainbow Bridge','One head with two faces','Vision across the Abyss',"The condemned cell, the prism, the empty room",'Lilac','Expression','Dispersion',"Open-mindedness, willingness to face karma, courage to express","Doubts, fears, fanaticism, apathy, blame",'&apos;The Next Step&apos;',"Throat, Thyroid",'-','G#',"Bayberry, Cedar, Eucalyptus, Lilac, Bay Oil, Wisteria",'Balm of Gilead','Ivy','Magnolia','Vulture','-','EOL',
+'4','Chesed','Mercy','Ethical','El','Left Shoulder',"Cedar, Nutmeg",'Tzadkiel',"Chasmalim (Brilliant Ones, Shining Ones)",'Jupiter','The Temple of Love','Mighty Crowned & Throned King','Vision of Love',"The solid figure, tetrahedron, pyramid, equal-armed cross, orb",'Blue',"Obedience, Alignment","Hypocrisy, Pride, Bigotry, Tyranny","Idealism, truth & loyalty, patience, devotion, endurance, committedness","Hypocrisy, dogmatism, smugness, self-righteousness, false pride, bigotry","Soul Love, Soul Awareness",'Left Adrenal',"Liver, hips, thighs, intestines, cell nutrition, formation & function of hemoglobin",'G',"Bayberry, Cedarwood, Nutmeg",'Borage','Tulip',"Birch, Olive",'Dolphin','Lapis Lazuli','EOL',
+'5','Geburah','Severity','Ethical','Elohim Gibor','Right Shoulder',"Cypress, Pine",'Khamael',"Seraphim (The Flaming Ones, Fiery Serpents)",'Mars','The Temple of Power','Mighty Warrior in His Chariot','Vision of Power',"The pentagon, the 5-petalled tudor rose, the sword",'Red',"Courage, Energy","Cruelty, Destruction","Confidence, critical judgement, initiative, activity, dealing with issues","Anger, fear, cruelty, self-doubt, manipulation, belligerence","Soul Will, Soul Power",'Right Adrenal',"Energy, anemia, colds, red corpuscles, muscular system, sinuses, adrnals temperature",'F#',"Cypress, Gardenia, Cinnamon, Tobacco",'Borage','Peony','Rowan','Horse','Red Tigers Eye or Garnet','EOL',
+'6','Tiphareth','Beauty','Ethical','Eloah va-Daath','Heart',"Jasmine, Rose",'Raphel','Malachim (The Kings)','Sun','The Mountain of the Soul',"Majestic King, A Child, A Sacrificed God",'Vision of Harmony',"The Lamen, rosey cross, Calvary cross, truncated pyramid, cube",'Yellow','Devotion to the Great Work',"False Pride, Arrogance","Reverence, idealism, nurturing, compassion, devotion","False pride, self-doubt, insecurity, irreverence, blaming","Personal Self, The Center, The &apos;I Am&apos;","Heart, Thymus","All general health problems, heart, back, blood pressure, circulation, stamina, spine",'F',"Jasmine, Rose, Lily, Olibanum","Hawthorne, Bay, Heartsease","Gorse, Yellow Rose",'Holly','Spider',"Rose Quartz, Topaz",'EOL',
+'7','Netzach','Victory','Astral','Jehovah Tzabaoth','Left Hip',"Patchouli, Rose",'Haniel','Elohim (Gods; Gods / Goddesses of Nature)','Venus','The Graden of Beauty','Beautiful Naked Woman','Vision of Beauty Triumphant',"Lamp & girdle, the rose",'Green','Unselfishness',"Unchastity, Impurity, Lust","Warmth, optimism, time in nature, creative activities, expressiveness","Emotioalism, worry, envy, lust, impurity, possessiveness","Feeling, Emotion",'Left Kidney',"Physical attractiveness, hair, skin, kidneys, reproductive system, thymus, complexion",'E',"Bayberry, Patchouli, Rose, Benzoin, Red Sandalwood","Couch grass, Verbena","Grasses, Red Roses",'Apple','Dove',"Malachite, Emerald",'EOL',
+'8','Hod','Splendor','Astral','Elohim Tzabaoth','Right Hip',"Rosemary, Wisteria",'Michael','Beni Elohim (Children or Sons of God)','Mercury','The House of Spells','Hermaphrodite','Vision of Splendor',"Names, versicles, apron",'Orange','Truthfulness',"Dishonesty, Falsehood, Mental Rigidity","Patience, practicality, knowledge, communication efforts, truthfulness","Deciet, impatience, dogmatism, over-criticalness, separatism","Thinking, Mind, Intellect",'Right Kidney',"Nervous system, hands, vocal chords, thyroid, respiration, solar plexus, mental problems",'D',"Frangipani, Rosemary, Wisteria, Storax","Couch grass, Sage",'Pansy','Hazel','Fox',"Citrine, Fire Opal",'EOL',
+'9','Yesod','Foundation','Astral','Shaddai El Chai','Hara',"Lavender, Myrtle",'Gabriel','Kerubim / Cherubim (The Strong)','Moon','The Secret Valley','Beautiful Naked Man','Vision of the Machinery of the Universe','The perfumes and sandals',"Purple, Violet",'Independance','Idleness',"Indepedance, spontaneity, dream study, consious psychic development, self-awareness","Idleness, vanity, obsessive sex, impulsiveness, always a follower","Subconious, Sexuality","Sexual Organs, Hara Chakra","Breasts, lungs, ovaries, stomache, menstration, all emotion-based illnesses",'Middle C',"Honeysuckle, Lavender, Jasmine, Ginseng",'Damiana',"Iris, Violet",'Willow','Cat',"Amethyst, Moon Stone",'EOL',
+'10','Malkuth','Kingdom','Physical','Adonai ha-Aretz','Feet/Root',"Sandalwood, Lemon",'Sandalphon',"Ashim / Eshim (Souls of Fire, Soulds of the Perfected)","Earth, Elements",'The Meadow of Delights',"Young Woman, Crowned and Throned",'Vision of the Holy Guardian Angel',"Altar of the double cube, equal-armed cross, magic circle","Citrine, Olive, Russet, Black",'Discrimination',"Avarice, Inertia","Sense, physical energy, discernment","Laziness, greed, avarice, overly reactive, aggresive, recklessness","The body (as a whole), senses, the world of sensation",'Body as Whole','Where all illness manifests','F',"Carnation, Lemon, Sandalwood, Dittany of Crete",'Meadowsweet',"Clover, Meadowsweet",'Oak','Rabbit',"Smokey Quartz, Rock Salt Crystal",'EOL',
+
+];
+var kblSephiraOptions = {};
+var kblSephiraOrder = [1,2,3,'-',4,5,6,7,8,9,10];
+var kblData = {};
+var kblIsClickToReveal = false;
+
+
+function SetupData() {
+  kblData = {};
+  var curRow = undefined;
+  var curCol = 0;
+
+  for (var ii in kblRawData) {
+    var val = kblRawData[ii];
+    if (val == "EOL") {
+      curRow = undefined;
+      curCol = 0;
+    } else {
+      if (curRow == undefined) {
+        curRow = {};
+        kblData[val] = curRow;
+        kblSephiraOptions[val] = true;
+      }
+      var ndx = kblCols[curCol];
+      curRow[ndx] = val;
+      kblColOptions[ndx] = true;
+      curCol++;
+    }
+  }
+}
+SetupData();
+
+function ChangeSephira(wanted) {
+  var isAll = (wanted == 'all');
+  for (var ii in kblSephiraOptions) {
+    kblSephiraOptions["" + ii] = isAll;
+  }
+  if (!isAll) {
+    for (var jj in wanted) {
+      kblSephiraOptions["" + wanted[jj]] = true;
+    }
+  }
+  FillMainTable();
+  ToggleVisability(mainSelectSephira);
+}
+
+function ChangeCols(wanted) {
+  var isAll = (wanted == 'all');
+  for (var ii in kblColOptions) {
+    kblColOptions["" + ii] = isAll;
+  }
+  if (!isAll) {
+    for (var jj in wanted) {
+      if (!(wanted[jj] in kblColOptions)) {
+        alert("Bad item: '" + wanted[jj] + "'");
+      }
+      kblColOptions["" + wanted[jj]] = true;
+    }
+  }
+
+  FillMainTable();
+  ToggleVisability(mainSelectCols)
+}
+
+function ToggleClickToReveal() {
+  kblIsClickToReveal = !kblIsClickToReveal;
+  FillMainTable();
+}
+
+function ToggleVisability(name) {
+  if (name.style.display == "none") {
+    name.style.display = "block";
+  } else {
+    name.style.display = "none";
+  }
+}
+
+function DoClickToReveal(item) {
+  if (item.style.background != "white") {
+    item.style.color = "green";
+    item.style.background = "white";
+  } else {
+    item.style.color = "black";
+    item.style.background = "black";
+  }
+}
+
+
+function FillMainTable() {
+  var res = "";
+
+  res += "<tr>";
+  for (var ci in kblCols) {
+      var col = kblCols[ci];
+      if (kblColOptions[col] != false) {
+      res += "<td class='myColHeader'>" + col + "</td>";
+      }
+  }
+  res += "</tr>";
+
+  var basicStyle = "max-width:200px;white-space:pre-wrap; word-wrap:break-word;";
+  var clickCode = "";
+  var clickCodeFirst = "";
+  if (kblIsClickToReveal) {
+    clickCodeFirst = " onclick='DoClickToReveal(this)' ";
+    clickCode = clickCodeFirst + " style='" + basicStyle + "background:black; color:black;cursor: pointer; ' "
+  } else {
+    clickCode = " style='" + basicStyle + "' ";
+  }
+
+
+  for (var rsi in kblSephiraOrder) {
+    var si = kblSephiraOrder[rsi];
+    var row = kblData[si];
+    if (kblSephiraOptions[si] == false) {
+      continue;
+    }
+    res += "<tr>";
+    for (var ci in kblCols) {
+      var col = kblCols[ci];
+      if (kblColOptions[col] != false) {
+        var val = row[col];
+        if (val == undefined) {
+          val = "";
+        }
+        val = "<span style=''>" + val + "</span>";
+        res += "<td " + ((ci==0)?clickCodeFirst:clickCode) + ">" + val + "</td>";
+      }
+    }
+    res += "</tr>";
+  }
+  res = "<table style=''>" + res + "</table>";
+  main_content.innerHTML = res;
+
+  //main_content.innerHTML = "<table><tr><td>Hi there</td></tr></table>";
+}
+
+FillMainTable();
+
+</script>
+
+
+<!-- Footer -->
+<footer id="contact" class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+
+  <p class="w3-medium">Content by <a href="https://www.modernmysteryschoolint.com/" target="_blank">The Modern Mystery School</a></p>
+  <p class="w3-medium">Powered by <a href="http://lewcid.com/" target="_blank">Lewcid Systems</a></p>
+</footer>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

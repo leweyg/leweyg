@@ -1,0 +1,205 @@
+
+#define LABELSIZE	300
+
+class Sequence
+{
+public:
+	char Label[300];
+	bool IsActive;
+	char* Data;
+	int Length;
+
+	void LoadFromFile(char* filename);
+};
+
+BArray<Sequence> GSequences;
+
+
+
+
+class PhyloTreeNode
+{
+public:
+	Sequence* BaseSequence;
+	PhyloTreeNode *Child1, *Child2;	
+	char Label[300];
+
+	char* GetName() {if (BaseSequence) return BaseSquence->Label; return Label;};
+
+	PhyloTreeNode() {BaseSequence=0; Child1=0; Child2=0; Label[0]=0;};
+	~PhyloTreeNode() { if (Child1) delete Child1; if (Child2) delete child2; }
+};
+
+class PhyloTree
+{
+public:
+	PhyloTreeNode* Root;
+	char Label[LABELSIZE];
+
+	PhyloTree() {Root=0; Label[0]=0;};
+	~PhyloTree() {if (Root) delete Root;};	
+};
+
+BArray<PhyloTree> GPhyloTrees;
+PhyloTree* GPriPhyloTree = NULL;
+
+
+
+
+
+class MSAString
+{
+public:
+	Sequence* BaseSequence;
+	char* Data;
+	int Length;
+
+	void Init(int len, Sequence* seq) {Data=new char[len]; Length=len; BaseSequence=seq;};
+	void UnInit() {if (Data) delete [] Data; Length=0; Data=0; BaseSequence=0;};
+	
+	MSAString() {Data=0; Length=0; BaseSequence=0;};
+	~MSAString() {UnInit();};
+};
+
+class MSA
+{
+public:
+	char Label[LABELSIZE];
+	BArray<MSAString> Strings;
+	int NumStrings;
+	int StringLength;
+};
+
+BArray<MSA> GMSAs;
+MSA* GPriMSA = NULL;
+
+
+
+#define HE_Sequence_Set_Change		1
+#define HE_Sequence_Single_Change	2 /* WPARAM = &sequence */
+#define HE_PhyloTree_Set_Change		3
+#define HE_PhyloTree_Pri_Change		4
+#define HE_PhyloTree_Single_Change	3 /* WPARAM = &PhyloTree */
+#define HE_MSA_Set_Change		5
+#define HE_MSA_Pri_Change		6
+#define HE_MSA_Single_Change		6 /* WPARAM = &MSA */
+
+void SendHyperEvent(LPARAM type, WPARAM extra)
+{
+	// ...
+}
+
+void LoadSequences(char* filesnames)
+{
+	// ...
+
+	SendHyperEvent( HE_Sequence_Set_Change, 0);
+}
+
+void CreatePhyloTreeFromMSA()
+{
+	int count = 0;
+	int i;
+	BAMem<PhyloTreeNode*> nodes;
+
+	if (!GPriMSA)
+	{
+		MessageBox(MainWnd, "No primary MSA.", "Tree Create Error", MB_OK);
+		return;
+	}
+
+
+	for (i=0; i<GPriMSA->Strings.Length(); i++)
+	{
+		//Sequence* seq = &GSequences[i];
+		Sequence* seq = GPriMSA->Strings[i].BaseSequence;
+		if (seq->IsActive)
+		{
+			PhyloTreeNode* node = new PhyloTreeNode();
+			*nodes.Add() = node;
+			node->BaseSequence = seq;
+			strcpy(node->Label, seq->Label);
+		}
+	}
+
+	if (nodes.Length() < 1)
+	{
+		MessageBox(MainWnd, "Not active sequences in the MSA.", "Tree Create Error", MB_OK);
+		return;
+	}
+
+	while (nodes.Length() > 1)
+	{
+		PhyloTreeNode *a, *b, *n;
+
+		int i = (rand() % nodes.Length());
+		a = *node[i];
+		nodes.Remove(i);
+
+		i = (rand() % nodes.Length());
+		b = *node[i];
+		nodes.Remove(i);
+
+		n = new PhyloTreeNode();
+		n->BaseSequence = 0;
+		n->Child1 = a;
+		n->Child2 = b;
+		strcpy(n->Label, "internal");
+
+		*nodes.Add() = n;
+	}
+
+	PhyloTree* tree = GPhyloTrees.Add();
+	tree->Root = *nodes[0];
+	strcpy(tree->Label, "Tree_01");
+
+	SendHyperEvent( HE_PhyloTree_Set_Change, 0 );
+	GPriMSA = msa;
+	SendHyperEvent( HE_PhyloTree_Pri_Change, 0 );
+}
+
+void CreateMSAFromSequences()
+{
+	int longest = 0;
+	int i;
+	for (i=0; i<GSequences.Length(); i++)
+	{
+		Sequence* seq = &GSequences[i];
+		if ((seq->IsActive) && (seq->Length > longest))
+			longest = seq->Length;
+	}
+	if (longest == 0)
+	{
+		MessageBox(MainWnd, "No Active Sequences", "MSA Create Error", MB_OK);
+	}
+
+	MSA* msa = GMSAs.Add();
+	strcpy(msa->Label, "MSA_01" );
+	for (i=0; i<GSequences.Length(); i++)
+	{
+		Sequence* seq = &GSequences[i];
+		if (seq->IsActive)
+		{
+			MSAString* ms = msa->String.Add();
+			ms->Init(longest, seq);
+			int r;
+			for (r=0; r<seq->Length; r++)
+				ms->Data[r] = seq->Data[r];
+			ms->Length = seq->Length;
+			while (ms->Length < longest)
+			{
+				int at = (rand() % ms->Length);
+				for (r=ms->Length; r>at; r--)
+					ms->Data[r] = ms->Data[r-1];
+				ms->Data[at] = '-';
+				ms->Length++;
+			}
+		}
+	}
+
+
+	SendHyperEvent( HE_MSA_Set_Change, 0 );
+	GPriMSA = msa;
+	SendHyperEvent( HE_MSA_Pri_Change, 0 );
+}
+

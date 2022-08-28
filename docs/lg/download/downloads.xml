@@ -1,0 +1,349 @@
+<xml version="1.0" standalone="yes">
+
+<more value="download/SIRD/pages.xml" />
+
+<page output="download/index.html" title="Site Explorer">
+	<header value="Site Explorer" />
+
+	<descrip value="This section of the site basically categorizes the rest of it. Each of the listed items below are programming projects I've worked on." />
+
+	<subblock title="Sub-Sites">
+	<link name="SIRDS" descrip="If your interested or just plain enjoy SIRDS (commonly known as Magic-Eye) you'll find all sorts of interesting SIRDS based projects here" to="http://www.leweyg.com/download/SIRD/index.html" />
+	<link name="Freed Series" descrip="A collection of games with the common theme of taking a normal 2d game and seeing how it expands into the 3D realm, that is to say you have 'freed' them from their 2 dimensional confinement" to="http://www.leweyg.com/lc/freed.html" />
+	<link name="Tablet PC" descrip="Some quite interesting Tablet PC based software (usually runs on modern Windows machines as well)." to="http://www.leweyg.com/tabletpc.html" />
+	<link name="Pocket PC" descrip="A few Pocket PC apps to help pass the time" to="http://www.leweyg.com/pocketpc/index.html" />
+	</subblock>
+
+	<subblock title="Editors" marker="editors">
+		<descrip value="I love making editors because you get to try out interesting graphics ideas without having to create any real content yourself!" />
+		<link name="VSaber" descrip="Amazing 3D Carving tool, beta now available!" to="http://www.leweyg.com/vsaber/index.html" />
+		<link name="Ink AniEd (TabletPC)" descrip="Ink based animation editor, very easy to use" to="http://www.leweyg.com/anied/index.html" />
+		<link name="AbSIRDlet" descrip="Lets you 'draw in height' using real-time SIRDS in a Java applet." to="http://www.leweyg.com/download/SIRD/java/absirdlet.html" />
+		<link name="Imp View (.Net)" descrip="A 3D implicit function visualizer. Renders as a voxelized volume using the VSaber engine." to="http://www.leweyg.com/download/impview.html" />
+		<link name="Pocket AniEd (Pocket PC, .Net)" descrip="Rapidly create and edit animations on your Pocket PC." to="http://www.leweyg.com/anied/pocket/index.html" />
+		<link name="Magic Ink (TabletPC)" descrip="Ink based SIRDS editor for the tablet" to="http://www.leweyg.com/download/SIRD/magicink.html" />
+		<link name="Easy JS" descrip="Lets you quickly write some code from any browser using the browsers built in JavaScript interpreter. Also includes a fairly powerful equation evaluator." to="http://www.leweyg.com/other/easyjs.html" />
+		<link name="CheapSite (OS X/Win)" descrip="Web design for lazy people with many web pages to maintain." to="http://www.leweyg.com/download/cheapsite.html" />
+		<link name="PDAbSIRD Editor (PocketPC)" descrip="SIRDS Editor for the PocketPC (includes special compressed image format)" to="http://www.leweyg.com/download/SIRD/PDAbSIRD/index.html" />
+		<link name="QuickConvert (.Net)" descrip="Quickly convert images to jpegs and take thumbnails at the same time." to="quickconvert.html" />
+		<link name="QuickCapture (.Net)" descrip="Very quickly deal with images in the clip-board; cropping, saving and such" to="quickcapture.html" />
+		<link name="Paper Work (.Net)" descrip="A full animation editor using the same intuitive interface as Ink AniEd. Still under development" to="http://www.leweyg.com/paperwork.html" />
+	</subblock>
+
+	<subblock title="Games" marker="games">
+		<descrip value="A few games, I've worked on over the years" />
+		<link name="Shuzzle - The Shadow Puzzle" descrip="A 3d block building game where you can only see the shadows of the blocks, makes for a great brain buster." to="http://www.leweyg.com/lc/shuzzle.html" />
+		<link name="Freed Go (Win/Mac)" descrip="Lets you play the game of Go on many different boards including a Sphere, a Torus, a Mobius Strip or on numerous flat fields but with 3, 5 or 6 neighbors. " to="http://www.leweyg.com/lc/freedgo.html" />
+		<link name="Freed Invasion (Win/Mac)" descrip="Extends the classic puzzle game 'Color Invasion' into the world of 3d with all the interesting boards found in Freed Go" to="http://www.leweyg.com/lc/freedinvasion.html" />
+		<link name="Quake 2 AbSIRD" descrip="Now you can experience Quake II in full SIRDS! This is the standard game, it merely represents your environments as SIRDS instead of normal 3D objects. It's like those great <a href=\"http://www.magiceye.com/\">Magic-Eye books</a>, except there are zombies trying to kill you." to="http://www.leweyg.com/download/SIRD/q2/index.html" />
+		<link name="Evil Dice" descrip="The amazing 3D fast-paced puzzle action of <a href=\"http://psx.ign.com/articles/153/153896p1.html\">Devil Dice</a> is now available on the PC!" to="http://www.leweyg.com/download/EvilDice.html" />
+		<link name="SPonglet" descrip="Play Pong in real-time SIRDS right in your browser." to="http://www.leweyg.com/download/SIRD/java/sponglet.html" />
+		<link name="Evil Dice PE (PocketPC, Win, OS X)" descrip="The amazing fast-paced puzzle action of <a href=\"http://psx.ign.com/articles/153/153896p1.html\">Devil Dice</a> is now available on the Pocket PC!" to="http://www.leweyg.com/pocketpc/evildicepe.html" />
+		<link name="Lazy Ink (Tablet, .Net)" descrip="This is just a silly little graphics trick you can do with the Tablet SDK. Fun to play around with" to="http://www.leweyg.com/other/lazyink.html" />
+		<link name="SPong" descrip="Real-time SIRDS based Pong game, revolutionary stuff" to="http://www.leweyg.com/download/SIRD/SPong.html" />
+		<link name="Gox (Java)" descrip="It's Go hexagonally, with each piece having 6 instead of 4 neighbors. Interesting, but doesn't have the balance of Go." to="http://www.leweyg.com/download/gox/index.html" />
+		<link name="Low Ink Pictionary (TabletPC)" descrip="Use your Tablet as a Pictionary sketch book thats running out of Ink!" to="http://www.leweyg.com/download/lowink.html" />
+		<link name="Pegs (PocketPC)" descrip="Classic pen based puzzle game for the Pocket PC" to="http://www.leweyg.com/pocketpc/index.html" />
+		<link name="Go (PocketPC)" descrip="My own personal Go board for the Pocket, no AI (yet)" to="http://www.leweyg.com/pocketpc/index.html" />
+		<link name="MindSweeper (PocketPC)" descrip="My version of mine sweeper" to="http://www.leweyg.com/pocketpc/index.html" />
+		<link name="Othello" descrip="Classic Othello game" to="http://www.leweyg.com/download/Othello.html" />
+		<link name="TG2" descrip="Basically Connect-4, but in 3D, great game, but I wrote it a long time ago." to="http://www.leweyg.com/download/TG2.html" />
+		<link name="Towers of Hanoi Problem" descrip="Fun to tease other people with" to="http://www.leweyg.com/download/Towers.html" />
+	</subblock>
+
+	<subblock title="Math">
+		<link name="Imp View (.Net)" descrip="A 3D implicit function visualizer. Renders as a voxelized volume using the VSaber engine." to="http://www.leweyg.com/download/impview.html" />
+		<link name="Crystal Math (Win/Linux)" descrip="The computer algebra system that could have, and may one day still be" to="http://www.leweyg.com/download/Crystal.html" />
+		<link name="Easy JS" descrip="Lets you quickly write some code from any browser using the browsers built in JavaScript interpreter. Also includes a fairly powerful equation evaluator." to="http://www.leweyg.com/other/easyjs.html" />
+		<link name="Grapher" descrip="Bad math core, good at 2D and 3D graphing" to="http://www.leweyg.com/download/Grapher.html" />
+		<link name="SciCalc (PocketPC)" descrip="Basic scientific calc for the Pocket PC" to="http://www.leweyg.com/pocketpc/index.html" />
+	</subblock>
+
+	<subblock title="Tools">
+		<link name="QuickCapture (.Net)" descrip="Very quickly deal with images in the clip-board; cropping, saving and such" to="quickcapture.html" />
+		<link name="QuickConvert (.Net)" descrip="Quickly convert images to jpegs and take thumbnails at the same time." to="quickconvert.html" />
+		<link name="AlarmClock" descrip="Let your cave-man instincts wake you." to="http://www.leweyg.com/download/Alarm.html" />
+		<link name="UNIX@home" descrip="A couple Windows apps to make your Windows console feel just a little like a UNIX terminal" to="http://www.leweyg.com/download/mycommands.html" />
+		<link name="Old 3D Stuff" descrip="My first 3D apps, very bad editor and viewer" to="http://www.leweyg.com/download/3DStuff.html" />
+		<link name="FileMan" descrip="File Splitter/Recombiner, for  moving large files over 3 1/2 disks (or such)" to="http://www.leweyg.com/download/FileMan.html" />
+	</subblock>
+
+	<subblock title="Programming">
+		<link name="Easy JS" descrip="Lets you quickly write some code from any browser using the browsers built in JavaScript interpreter. Also includes a fairly powerful equation evaluator." to="http://www.leweyg.com/other/easyjs.html" />
+		<link name="LewCheck" descrip="Comparing two programs on the same input? Heres a better way." to="http://www.leweyg.com/download/lewcheck.html" />
+		<link name="Teach" descrip="Tool for interactively teaching linked lists, trees and so forth (great tool, I tutored with it a lot)" to="http://www.leweyg.com/download/Teach.html" />
+	</subblock>
+</page>
+
+<page output="download/mycommands.html" title="UNIX Commands in Windows">
+	<header value="Make Windows Command Prompt more like UNIX shell" />
+	<descrip value="This is a small collection of apps and batch files, which basicaly make the Windows 'Command Prompt' feel more like a UNIX shell. Essentially it just adds the following commands so that when you type them forgetting that your not in UNIX anymore you won't get an error: <b>ls, cat, clear, cp, mv, mkdir, pico (opens Notepad), rm and rmdir</b>. Not too much, but enough to make the transition managable. " />
+	<descrip value="Now <b>ls</b> is a pretty good remake (not just <b>dir</b>), but most of them are just batch files which map what you wrote to the correct Windows name for the same thing. For instance <b>cp</b> is mapped to <b>copy</b>, and while this may seem trivial, it has saved me alot of time. I hope you like them." />
+	<descrip value="To 'install' them, put them in a folder which you know you won't ever move, now copy or write down that folder's name and follow these fairly simple instructions: right-click the My Computer icon on your desktop and select Properties from the shortcut menu. Select the Advanced tab and click the Environment Variables button. In the System Variables pane, select path from the list and click Edit. In the Edit System Variable dialog box, move the cursor to the end of the string in the Variable Value field and type a semicolon (;) followed by the full directory name I told you to copy or write down. Sorry I couldn't figure out how to write a script to do this and didn't look too hard, if anyone knows how please give me a yell. This description is adapted from <a href=\"http://webreference.com/js/tips/020429.html\">this site</a>." />
+	<file name="MyCommands.zip" platform="Windows" />
+</page>
+
+<page output="download/impview.html" title="Imp View - Implicit 3D Function Grapher">
+	<header value="Imp View<br>An Implicit 3D Function Visualizer" />
+	<descrip value="Imp View lets you easily graph 3D implicit equations such as 'x^2 + y^2 + z^2 < 1' (the equation of a sphere). This lets you visualize many common equations without having to solve for them." />
+	<descrip value="<b>Note:</b> - ImpView uses my <a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber Technology</a> for interactive volumetric systems. VSaber is an amazing 3D modeling tool that 'is as easy to use as MS Paint'. ImpView uses the software renderer from VSaber, so that it will run on computers without great graphics cards." />
+	<table>
+		<pic value="Screens/ImpView_A_small.jpg" link="Screens/ImpView_A.jpg" />
+		<newcol />
+		<pic value="Screens/ImpView_B_small.jpg" link="Screens/ImpView_B.jpg" />
+	</table>
+	<table>
+		<pic value="Screens/ImpView_D_small.jpg" link="Screens/ImpView_D.jpg" />
+		<newcol />
+		<pic value="Screens/ImpView_F_small.jpg" link="Screens/ImpView_F.jpg" />
+	</table>
+	<table>
+		<pic value="Screens/ImpView_E_small.jpg" link="Screens/ImpView_E.jpg" />
+		<newcol />
+		<pic value="Screens/ImpView_G_small.jpg" link="Screens/ImpView_G.jpg" />
+	</table>
+	<marker value="submitted" />
+	<subblock title="Submitted Equations">
+		<table>
+			<descrip value="Johan Forslöf sent in this really cool equation, the equation is below and it's graph is to the right. I'm sure anyone interested in an implicit equation grapher can appreciate this." />
+			<descrip value="
+			(x^2+y^2+z^2&lt;0.2)+((y^2+z^2&lt;0.08)*(x&lt;0.4)*(x&gt;0))+(x^2+4*y^2&lt;(1-abs z)*0.12)+((abs z&lt;0.95)*(abs z&gt;0.9)*(abs x+abs y*0.3&lt;1))+((abs z&lt;1)*(abs z&gt;0.89))*((abs x&lt;0.7)*(abs y&gt;0.9)+(abs y&lt;0.035)+(x&gt;y*0.7-0.05)*(x&lt;y*0.7+0.05)+(-x&gt;y*0.7-0.05)*(-x&lt;y*0.7+0.05)+((abs x+abs y*0.3&lt;1.05)*(abs x+abs y*0.3&gt;0.95)))
+			" />
+			<newcol />
+			<thumb value="Screens/ImpView_StarWars" />
+		</table>
+		<descrip value="If you have an equation you would like to submit, just drop me a line at <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a>" />
+		<descrip value="To all you would be implicit models out there, Johan recomends using the C-preprocessor to generate 'complex' equation, as shown in an example below:<pre>#define CUT(a, b) (a) * (b) 
+#define SPHERE x^2 + y^2 + z^2 < 1 
+#define CYLINDER x^2 + y^2 < 1 
+CUT(SPHERE, CYLINDER)</pre>" />
+	</subblock>
+	<subblock title="Download">
+	<donate />
+	<file name="ImpView.zip" requires=".Net Framework on Windows" note="If it runs too slowly, turn the Quality down (in the 'Imp View' menu)" usage="Unzip and run. Make sure ImpViewer.dll is in the same folder as ImpView.exe" />
+	<update date="11/10/2003" value="ImpView just got a speed boost, and the ability to export the equation models thanks to the beta version of <a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber</a>. You can now save your equation as a 3D model and edit it naturally using VSaber." />
+	<update date="9/26/2003" value="After a couple hours making cool implicit equations (is it wrong to enjoy that?), I decided to add a few of the more interesting ones to the 'Equations' menu (these are a set of example equations), as well as fix a small math bug, give it a cool icon, and add a feature that lets you see 'inside' the volume instead of just it's surface (called 'View Inside Volume' in the 'View' menu). Oh and I reduced the default resolution down to 60^3 (change it in the 'Quality' menu). Enjoy." />
+	<descrip value="<b>Note:</b> ImpView also includes a small symbolic equation evaluator. For stuff like 'sqrt(cos(pi^2))' or something. It's called 'Calc' under the 'Imp View' menu" />
+	</subblock>
+	<subblock title="About">
+	<descrip value="<b>Math Stuff:</b> The system graphs the implicit equation by sampling it at discrete values in the given domain, if the function is true at that coordinate, it puts a point there (technically it puts a point if the result of the equation is non zero). However, don't try anything too fancy, I have only implimented the basic math operations (+ - * / ^ sin cos tan asin acos atan ln > >= < <= etc.). Also The reason I have you only enter equations with > >= < or <= in them is that if you used the equals sign, the result of the implicit equation would be a surface. And surfaces don't appear very well (or at all) when you discretely sample the surface like this system does." />
+	<descrip value="<b>Tech Stuff:</b> I wrote this program in about 5 hours! Well sort of. Actually all I did was tie together a few parts from some of my other projects, and added a few extras like a fast evaluation core, interface, etc. First of all it uses the voxel engine I'm working on for the upcoming version of <a href=\"http://www.leweyg.com/vsaber/index.html\">VSaber</a> (only demo available right now). This engine is actually a full fledge volumetric carving system, here I just disabled a few of the editing features and used it as a visualizer. The rendering core of this engine is a high-performance software based algorithum, because it's targeted for Tablet PCs which don't have great graphics cards (which you need if your rendering 80^3 voxels like VSaber does. NOTE: 80^3 voxels is the default quality setting for Imp View). The expression parsing and scripting core come from <a href=\"http://www.leweyg.com/download/Crystal.html\">Crystal Math</a>, this let me convert a written equation into a set of steps which you could follow to evaluate that expression. I then wrote a high performance evaluator which let me very quickly see if the given equation is true at a certain (x,y,z) coordinate (and by true I mean non-zero, the < and > operators simply return 1 for true and 0 for false). Then simply bring the two together and voila!, you have can visualize a 3D implicit equation as a voxelized volume! Now I'm sure a few of you are thinking you could get better performance for volumetric rendering, this is very true. However those super fast rendering algorithms only work for static volumes, which makes them unsuitable for an interactive applications like VSaber. VSaber's engine is one of the few that uses a dynamic rendering system so that the volume can change from frame to frame. Why do I use it in this program then when the volume doesn't change that often? Because I didn't feel like writing another one when this one was just lying around!" />
+	<descrip value="<b>Development:</b> Imp View is a 'multi-lingual' application, but not in the usual sense. The voxel engine, and rendering core are written in C++ bordering on straight C. The scripting stuff was in C++. All of this was wrapped and made into a .Net Windows Control using Managed C++. The interface (buttons, text areas, etc.) were written in C#, using a DLL containing the Managed C++ voxel Control." />
+	</subblock>
+	<subblock title="Links">
+	<link name="VSaber" to="http://www.leweyg.com/vsaber/index.html" descrip="Beta version currently available." />
+	<link name="Crystal Math" to="http://www.leweyg.com/download/Crystal.html" descrip="My personal math program, which is great if you don't have Mathematica or whatnot." />
+	<link name="Grapher" descrip="This was one of my first Windows apps (quite old), but it's a pretty good 2D/3D graphing utilit. I still use it from time to time." to="http://www.leweyg.com/download/Grapher.html" />
+	</subblock>
+</page>
+
+<page output="download/FileMan.html" title="FileMan">
+	<header value="FileMan - File Splitter/Combiner" />
+	<descrip value="FileMan is a file fragmenation program. The point is that you could take a big file and break it into smaller files. This is useful when moving big file from one computer to another using 3 1/2 disks. And the interface is very easy to use, just select the file to fragment and it does it rest (or select the first fragmented file to recombine them into the original file)" />
+	<file name="FileMan.exe" platform="Windows"/>
+</page>
+
+<page output="download/3DStuff.html" title="3D Stuff">
+	<header value="3D Stuff" />
+	<descrip value="These are a few utilities I use to work with my own 3D files. They are mainly used to allow me to view and edit simple 3D models for other programs I am working on (like my real-time SIRD renderer). Anyway, I'm putting them here mainly for people who work with me, but also if your really interested in the 3D, you might find them interesting. One of the cool features is the ability to render models based on a VERY simple text file format that you easily write yourself or in own program. Anyway here are the two main programs I use, and a bunch of examples." />
+	<screenshot value="Screens/WireEd_Computer.jpg" note="WireEd" />
+	<screenshot value="Screens/ModEd_Computer.jpg" note="ModEd" />
+	<screenshot value="Screens/ModEd_First.jpg" note="My First 3D model ever." />
+	<descrip value="WireEd is the model editor. It only renders in wire frame mode, but it's still pretty powerful. I wrote the engine from start to finish, math routines and all.<br><br>ModEd a model viewer that uses the same model types as WireEd (it however cannot currently be used as an editor). It does rendering in OpenGL though which makes it very easy on the eyes. A great extra tool to go with WireEd." />
+
+	<file name="3DStuff.zip" platform="Windows" note="WireEd and ModEd" />
+	<file name="3DModels.zip" note="Small Collection of Models" />
+</page>
+
+<page output="download/lowink.html" title="Low Ink Pictionary">
+	<header value="Low Ink Pictionary<br>For the Tablet PC" />
+	<descrip value="Essentially, Low Ink Pictionary is a drawing board, but with a limited amount of ink. So you can only draw a few lines. Now, if your playing Pictionary, this can make things very interesting because you have to be able to express as much as you can with what little ink you have left. It not only improves your Pictionary skills, but also you general artistic skills, forcing you to draw only that which is absolutely neccasary." />
+	<descrip value="Low Ink Pictionary has been featured at the major hubs for Tablet PC news <a href=\"http://www.tabletpcbuzz.com/\">Tablet PC Buzz.com</a> and <a href=\"http://www.kstati.com/tabula/\">Tabula PC</a>" />
+	<descrip value="This program is in no way associated with the Milton Bradly company, nor it's very cool game Pictionary. It is merely recommended as a fun way to liven the game up and give it a new twist for old players." />
+	<donate />
+	<typeoftablet />
+	<update date="8/27/2003" value="Add those little check marks next to the current amount of ink being used." />
+	<update date="8/25/2003" value="Posted the source code, see below" />
+	<update date="8/25/2003" value="Added the contest mode, so that your opponent has to draw using the same amount of ink as you used. Makes for a far more personal game" />
+	<file name="LowInkPictionary.exe" platform="Windows, with .Net and Ink" note="Best played on a Tablet, but will run<br> on any computer with .Net and Ink" />
+	<file name="LowInkPictionary_Src.zip" platform="Visual C#.Net" note="Requires the Tablet PC SDK" />
+	<pic value="Screens/LowInk_Pegasus.jpg" />
+	<descrip value="The above was done with 'Amount of Ink' set to High, so that the demo pic every one sees doesn't totally embarrass me. I assure you most drawings will use less ink, and will cause a fair amount of laughter from your friends. Oh and if your wondering, it's Pegasus." />
+</page>
+
+<page output="download/cheapsite.html" title="CheapSite">
+	<header value="CheapSite - seriously cheap web design" />
+	<descrip value="CheapSite is a very rough web design tool, that borders on not being one at all. Basically, it builds your site using a given template and a bunch of page info (all given in a modified XML format). This lets you keep a large number of pages all looking basicaly the same, and with almost no effort (each page only requires writing a few lines of XML). I use it to manage this site, which is the only reason I post it here, so that I can get it from elsewhere. And despite it's many short-comings, it has saved me so much time it's scary and has allowed me to let this site grow fiarly rapidly with very little work on my part. ReadMe and example site included with binary in the zip." />
+	<descrip value="Now also available is the Mac OS X build of CheapSite (using gcc 3.1). Sorry I'm new to OS X so you have to run the app from the command line, I can't seem to figure out how to get it so that you can just double click it." />
+	<file name="CheapSite.zip" platform="Windows and Mac OS X" />
+	<pic value="Screens/CheapSite_small.jpg" link="Screens/CheapSite.jpg" />
+</page>
+
+<page output="download/Towers.html" title="Towers Of Hanoi">
+	<header value="The Towers of Hanoi Problem" />
+	<descrip value="The Towers of Hanoi is one of those great old Chinese mathematical riddles. It's one of those where you really have to think at first, and once you see it the answer seems just too obvious. Anyway, I was teaching the method to solve the problem to one of my students and they just weren't getting it, so I wrote up this pretty little app so you can physically move the blocks from poll to poll (by dragging them with the mouse). It also includes a description of the problem itself. Not much but fun to show people." />
+	<file name="Towers.zip" platform="Windows" />
+	<screenshot value="Screens/Towers_Game.jpg" note="During Game" />
+</page>
+
+<page output="download/TG2.html" title="TG2">
+	<header value="TG2<br>Connect 4 in 3D" />
+	<descrip value="TG2 is a great thinking game, which plays like a 3D version of Connect 4, you place balls on 16 polls arranged in a 4x4 pattern, and you try to get four of your balls in a row, two players alternate turns. This game can really lead to a lot of looking and some great fun. This program offers a free moving view, so you can look from any angle, I'm still working on the AI, but should have it soon, right now it's only 2 players." />
+	<file name="TG2.zip" platform="Windows" />
+	<screenshot value="Screens/TG2_Game1.jpg" note="Begining of a game" />
+	<screenshot value="Screens/TG2_RedWins.jpg" note="Red Wins" />
+	<screenshot value="Screens/TG2_RedWins2.jpg" note="Red Wins Again" />
+</page>
+
+<page output="download/Othello.html" title="Othello">
+	<header value="Othello" />
+	<descrip value="Othello is just a simple implimenation of the classic board game. It contains a nice little AI which you can customize to a fair extent. Please note that I wrote this game a while ago, and was based of what I thought the rules were, it turns out the \"official\" rules of the game are slightly different (Oops!). Anyway, it's still fun to play around with. The instructions are included with the game.
+" />
+	<file name="Othello.zip" platform="Windows" />
+</page>
+
+<page output="download/Go.html" title="Go">
+	<header value="Go" />
+	<descrip value="Go is an amazingly simple and yet enthralling game. This little version allows for undo, un-undo (both for as many moves as you like), saving the game and other such basic features. It doesn't have any AI yet, but I'm working on it (really this is just for my messing around with, there are alot of much better Go programs out there, get one of those)." />
+	<file name="Go.exe" platform="Windows" />
+	<screenshot value="Screens/Go_Game1.jpg" note="19 by 19 board" />
+	<screenshot value="Screens/Go_Game2.jpg" note="9 by 9 board" />
+</page>
+
+<page output="download/lewcheck.html" title="LewCheck">
+	<header value="LewCheck - \"Like a better version of Visual Check Pro\"" />
+	<descrip value="For those of you taking early programming classes, you are probably given an assignment where you have to write a program which under the same input gives the same output as a given example program. Well LewCheck simplifies the comparison process! Similar to the visual check pro program, LewCheck has a simple interface which lets you choose which programs to compare and on which input. It also allows you have to spaces in the file names and even have the programs in different folders (as long as LewCheck and the input files are in the same folder). Also it creates a file called quickcompare.bat which remembers the last two programs you compared and can automatically recompare them by just double-clicking it, without you having to reenter their names. It also includes a 'Safe Check' feature, which helps stop the problem where a program will hang on a certain input and fill-up your harddrive (it does this by first running both programs without saving their output to a file, this way if one of them hangs, it never writes anything to file, saving you from creating 30 MB files filled with errors)." />
+	<descrip value="NOTE: that <b>the differences found by LewCheck should be exactly the same as those found by Visual Check Pro</b>, because they both use the same underlying Windows tool ('fc'). This program is what I used instead of Visual Check Pro while taking CGS 2425, which allowed me to write my code in Visual C++, in any folder I want. I've also posted the source code if anyone is interested, as you'll see it was a VERY easy program to write. It requires Visual C++ 6.0 to compile." />
+	<file name="LewCheck.exe" platform="Windows" />
+	<file name="LewCheckSrc.zip" platform="Visual C++ 6.0" />
+	<pic value="Screens/LewCheck.jpg"/>
+</page>
+
+<page output="download/Alarm.html" title="Alarm Clock">
+	<header value="Alarm Clock" />
+	<descrip value="Alarm Clock is a very simple yet extremely useful little application, although it no why does anything complicated, it has come in handy for my use many times (which is why it’s here, so I can download it). Essentially all it does is you give it a time at which to go off (either a certain time or a time from when you set the alarm) and at that time the alarm goes off. The sound it makes is a sound like a T-Rex roaring when the alarm goes off, so I’m sure it can wake most people. There is also an option for it to keep roaring until you hit enter, space or whatever (this is useful if you easily sleep-in like I do). It also has a feature to execute another program with command line options when the alarm goes off, and also a stop watch which can be useful." />
+	<descrip value="7/30/2003 - Finally posted the new version which shows how much longer until the alarm goes off" />
+	<file name="AlarmClock.exe" platform="Windows" />
+	<pic value="Screens/Alarm_One.jpg"/>
+</page>
+
+<page output="download/Teach.html" title="Teach - Linked Lists">
+	<header value="Teach - Linked Lists Tutoring Program" />
+	<descrip value="Teach is a simple program intended to help a proramming student visualize things like linked lists, binary trees, and all the difference varients and combinations of the two. It is easy to learn, and comes with a collection of examples, including single and double linked lists (null terminated and circular), binary trees (simple and complex) and a few other things. It also has the ability to export the structure as an image for use in presentations." />
+	<file name="Teach.zip" platform="Windows" />
+	<screenshot value="Screens/Teach_DoubleArray.jpg" note="Doubly Linked Array" />
+	<screenshot value="Screens/Teach_Tree.jpg" note="Simple Binary Tree" />
+	<screenshot value="Screens/Teach_ListTree.jpg" note="Binary List Tree (combined binary tree and linked list)" />
+</page>
+
+<page output="download/EvilDice.html" title="Evil Dice">
+<header value="Evil Dice" />
+<descrip value="<b>The Ultimate 3D Puzzle Game Now for PC!</b><br>Evil Dice is an amazing puzzle game similar to <a href=\"http://psx.ign.com/articles/153/153896p1.html\">Devil Dice</a> for the PlayStation (which was considered by many major game critics to be quite possibly the greatest puzzle game ever, even eclipsing Tetris). It has a few simple rules: try and match up similar dice by rolling and pushing them around, scoring points as you do. Although this may seem simple, it leads to intense mind-busting lightning fast puzzle action like you've never experienced before. It is a great game which I have you doubt you will quickly become addicted to. <a href=\"#howtoplay\">How To Play</a>." />
+<descrip value="Be sure to check out <a href=\"http://www.leweyg.com/pocketpc/evildicepe.html\">Evil Dice Pocket PC Edition</a>, now available!" />
+	<table>
+	<pic value="Screens/EvilDice_6s_small.jpg" link="Screens/EvilDice_6s.jpg" note="6 sixes!" />
+	<newcol />
+	<pic value="Screens/EvilDice_Start_small.jpg" link="Screens/EvilDice_Start.jpg" note="Average Start" />
+	</table>
+
+
+<subblock title="Download It!" >
+<donate />
+<file name="EvilDice.zip" platform="Windows 98 and above" usage="Unzip and Run!" requires="A fair graphics card, nothing too fancy." />
+</subblock>
+
+
+<subblock title="Evil Dice PE for Pocket PC" >
+
+<link name="Evil Dice PE - Pocket PC Edition" to="http://www.leweyg.com/pocketpc/evildicepe.html" descrip="Now you can have Evil Dice anywhere you go, right in your Pocket! This great version of Evil Dice captures the fun and fast paced action of Evil Dice using isometric graphics to give superb performance on the Pocket PC while still looking great. Note that is a complete rewrite of the code, using only a few time settings from Evil Dice." />
+
+<pic value="http://www.leweyg.com/pocketpc/screens/EvilDicePE_C.jpg" link="http://www.leweyg.com/pocketpc/evildicepe.html" />
+
+</subblock>
+
+
+<marker value="howtoplay" />
+<subblock title="How To Play" >
+<descrip value="The object of the game is to score as many points as you can in a 3 minute time-span. You do this by matching up die with the same number on top. The number of die you have to match up is equal to the number of the top of the die (so you have to match up 4 fours, 5 fives and so forth) (ones will be covered later). This matching is done by moving your character around on top of the die, if he is on top of a die, he will roll it in whatever direction you tell him, or move onto whatever die is there. If the die that your on sinks, you'll end up on the ground, where you can push die around (it's usually best to try to climb back onto a die that is rising if your stuck on the floor). Anyway, for a more <a href=\"http://www.leweyg.com/download/EvilDiceGuide.html\">COMPLETE GUIDE</a> look there." />
+</subblock>
+
+</page>
+
+
+<page output="download/Grapher.html" title="Grapher">
+	<header value="Grapher" />
+	<descrip value="Grapher is a math app, with an easy to use interface and features like 2D and 3D graphing, a function based calculator, a numerous graph functions, and even a small scripting language. The package includes the program, example scripts and an HTML guide to using it. You may also want to check out Crystal Math, which is a complete rewrite of Grapher to allow for far more power and flexibility. Currently it is very usable, but quite far from complete (the interface looks almost exactly like Grapher's Calculator, but the core is vastly different, and it' cannot graph functions yet)." />
+	<file name="Grapher.zip" platform="Windows" />
+	<screenshot value="Screens/Grapher_2DGraph.jpg" note="2D Graph" />
+	<screenshot value="Screens/Grapher_3DGraph.jpg" note="3D Graph" />
+	<screenshot value="Screens/Grapher_Calc.jpg" note="The Calculator" />
+</page>
+
+<page output="download/Crystal.html" title="Crystal Math">
+	<header value="Crystal Math<br>Version 0.5.7" />
+	<descrip value="Crystal Math is a powerful math app, that is still in the process of being developed. Not to say that it doesn't already contain many really cool features such as is. Basically you can use it for most simple math problems where it's nicer to write an equation than type out individual commands (so you type \"4*(3+5)\" instead of using the standard calculator and typeing [3] [+] [5] [*] [4]), plus if your using the Win32 interface you can click work it exactly like a normal calculator or like a symbolic one. It also comes in two formats, a Win32 dialog based program (which I use a lot) and a standard C++ console app, so it could be compiled for any 32 bit platform (I've included the Windows console version). For more information check out the guide. Also note that Crystal Math is the big brother of Grapher, which is no longer being developed, but contains many of the features that Crystal Math will eventually hold (although Crystal Math's versions will be more powerful when the times comes)" />
+
+	<file name="CrystalMathFull.zip" platform="Windows/Linux" note="Includes the source code" />
+	<file name="CrystalMathBinaries.zip" platform="Windows/Linux" />
+	<screenshot value="Screens/Crystal_Calc.jpg" note="Win32 Edition" />
+	<screenshot value="Screens/Crystal_WinConsole.jpg" note="Win32 Console" />
+	<screenshot value="Screens/Crystal_Console.jpg" note="Console Edition - Windows" />
+	<screenshot value="Screens/Crystal_LinuxConsole.jpg" note="Console Edition - Linux" />
+	<link to="CrystalGuide.html" name="Guide to Crystal Math" />
+	<link to="CrystalForDev.html" name="Developer's Guide to Crystal Math" />
+	<link to="CrystalToDo.html" name="Developer To Do List" />
+
+
+	<descrip value="Developers Involved:<br>
+Lewey Geselowitz - Creator, and main programmer<br>
+David Edelstein - Numerous improvements regarding the scripting engine" />
+	<descrip value="You can also check out this project's SourceForce page at <center><A href=\"http://sourceforge.net\"> <IMG src=\"http://sourceforge.net/sflogo.php?group_id=53936&amp;type=5\" width=\"210\" height=\"62\" border=\"0\" alt=\"SourceForge Logo\"></A></center>" />
+
+</page>
+
+<page output="download/quickconvert.html" title="Quick Convert">
+	<header value="Quick Convert" />
+	<descrip value="This was a tiny little app I wrote to help me convert and format my screen shots. Basically, you select a bunch of .bmp files, drop them over QuickConvert, and it will not only make jpeg versions of them, but also scale them down (to a size you specify) and save the small .jpegs as a different file. For instance you drop MyPic.bmp over QuickConvert, and it will produce MyPic.jpeg and MyPic_small.jpeg. To adjust the settings and such which it uses to convert stuff, simply run the program without dropping a file onto it. Change your settings and close, the settings will automatically be saved." />
+	<descrip value="I find this a handy little tool, and I hope you do too. It was written in about 20 minutes using C# which I think is another testament to how quickly you can write an effective application using this damn cool language." />
+	<descrip value="I'll post the source if I get my requests for it, but I'm sure there is no need as there is nothing really special here, just convenience for lazy people like me." />
+	<file name="QuickConvert.exe" platform=".Net Framework" usage="Run to change settings, drops files onto to convert" />
+	<table align="center">
+		<descrip value="Time = 0 seconds" />
+		<newcol align="center" />
+		<descrip value="Time = 3 seconds" />
+		<newrow />
+		<pic value="Screens/QuickConvert_0_small.jpeg" link="Screens/QuickConvert_0.jpeg" />
+		<newcol />
+		<pic value="Screens/QuickConvert_1_small.jpeg" link="Screens/QuickConvert_1.jpeg" />
+	</table>
+</page>
+
+<page output="download/quickcapture.html" title="Quick Capture">
+	<header value="Quick Capture" />
+	<descrip value="Quite often I found myself to be taking screen captures (from Journal, or one of my apps or whatnot), copying them to Paint, cropping out the part I wanted and then either pasting that part to a document or saving it to a file. This process is tedious and irritating. So I wrote this quick little app to make the whole process much easier. This is how I use it:" />
+	<descrip value="Most of the time I draw something up in Journal (but you could use almost any Windows app), and then hit Print-Screen (PrtSc on the keyboard), this copies the window to the clip board. Then run QuickCapture and whatever is in the clipboard will automatically be loaded and displayed. At this point you can optionally draw a rectangle around the part that you're interested in (simply click on one corner and drag to another). Then either hit the 'Copy' button to copy this image into the clip-board, or the 'Save' button to save it to file. And thats about it. Enjoy." />
+	<descrip value="Some of the more advanced features: One of my favorites is if your creating a collection of images (say a series of screen shots), if you hit the 'Save' button and the file save slot is empty it will ask you where to save the file to, if it's not empty it will save it to the file specified. By hitting the 'Next' button, a quick little algorithum will search for the last number present in the file name you gave, and incriment it by 1. So if the last file you saved to was 'MyPicture08.bmp' it will change it to 'MyPicture09.bmp' and so forth. Really handy! Also note that it will save to either bmp or jpeg depending on the extension of the file name you ask it to save it as. Also whenever you save or copy, it will use whatever rectangle you last drew, or the whole picture if no rectangle was selected. Oh and lastly the 'Refresh' button loads whatever is currently in the clip-board into QuickConvert, this way you can leave it open while you take screen-shots and quick jump back to it, hit Refresh and then do what ever you do with it." />
+	<descrip value="The source code for this app is also made available here as someone asked to see it." />
+	<file name="QuickCapture.exe" platform=".Net Framework on Windows" usage="Download and run!" />
+	<file name="QuickCaptureSrc.zip" platform="Visual Studio .Net" note="The source code for QuickCapture.<br>Written in C#" />
+	<pic value="Screens/QuickCapture_0_small.jpeg" link="Screens/QuickCapture_0.jpeg" note="Select Windows and hit Alt-PrtSc<br>" />
+	<pic value="Screens/QuickCapture_1_small.jpeg" link="Screens/QuickCapture_1.jpeg" note="Run QuickConvert.<br>Draw Rectangle Around Good Part<br>" />
+	<pic value="Screens/QuickCapture_2_small.jpeg" link="Screens/QuickCapture_2.jpeg" note="Hit 'Save' or 'Copy'!<br>" />
+</page>
+
+<page output="download/gox/index.html" title="Gox - GO Hexagonally">
+	<header value="Gox - GO Hexogonally" />
+	<descrip value="Gox is GO Hexogonally. That is it's a Go board, except 
+that most pieces have 6 neighbors instead of 4. This is a VERY rough 
+implimentation, so please excuse any problems you may encounter. Also, while it 
+will automatically removed killed stones, and it won't check for Ko violations. It 
+will also only let you 'undo' one move. The + and - buttons adjust the number of 
+stones per side, this is because I couldn't work out what the correct amount 
+should be" />
+	<descrip value="Anyone wishing to have the source code, or just to shout at 
+me for violating the perfect balance of Go may contact me at <A 
+href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</A>." />
+	<descrip value="<APPLET codeBase=. height=500 width=500 code=Gox.class> ALT=\"Your browser understands the &ltAPPLET&gt tag but isn't running the applet, for some reason.\" Your browser is ignoring the &ltAPPLET&gt tag! </APPLET>" />
+</page>
+
+</xml>

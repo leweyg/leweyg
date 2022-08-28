@@ -1,0 +1,57 @@
+<html>
+<head><title>PDAbSIRD - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+	<td rowspan="1"><p valign="center" align="center"><a href="http://www.lewcid.com/">Lewcid.com</a><br/>Site-Cube</p></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#Editors">#Editors</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#then">#then</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#download/SIRD/PDAbSIRD/">download/SIRD/PDAbSIRD/</a></center></td>
+	<td>(this <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3><table><tr><td>&nbsp;</td><td><h1>PDAbSIRD and SIRD Swarm<br>Real-time SIRDS for the PocketPC</h1><p><b>Download</b><br>These are the programs, which you can download and run on your Pocket PC. These are the same files I run on my Compaq iPaq 3950, and they run very well (these are compiled for the ARM processor by Microsoft eMbedded Visual C++). The way I like to "install" these programs is by first downloading onto your computer, linking up your Pocket PC, then browse into it through "My Computer/Mobive Device" and then just copy and paste the programs in there, that simple. Then run "File Explorer" and select them to run them. That simple. Or you can meet me and I can "beam" them to you.</p><table bgcolor="#f0c0c0"><tr><td><center><a href="PDAbSIRD_Ed.exe"><font size=5><i>PDAbSIRD_Ed.exe</i></font></a></center><br><b>Platform: </b> Windows CE (ARM for Pocket PC)<br></td></tr></table><br><table bgcolor="#f0c0c0"><tr><td><center><a href="SIRD_Swarm.exe"><font size=5><i>SIRD_Swarm.exe</i></font></a></center><br><b>Platform: </b> Windows CE (ARM for Pocket PC)<br></td></tr></table><br><p>
+<p><font color="red">To conserve memory and processor time, I recomend you use the "Exit" command in each of these programs, instead of the "X" or minimize button</font><br><br>
+
+
+<b>Description:</b><br>
+	SIRDs (which you may know as "Magic-Eye" images (this is trademark of NE Things Productions), well SIRDs is the technical term for "Magic-Eye" images) are an amazing form of image which when viewed correctly appear to be fully 3D objects. That is to say that they are carefully designed tricks of the eye which make it seem as though a full 3d object is in front of you, while really you are merely looking at a bunch of strange colours. Up until very recently this process has been limited to posters and books because the technique required to create them was too slow. However I have recently reworked the system to allow it to easily run in real-time, I call it The AbSIRD algorithm.<br>
+	PDAbSIRD is an implementation of the AbSIRD algorithm for Pocket PC 2002s running Windows CE. It is an image editor that lets you paint height instead of colour; so you draw objects by how close they are to you, not just what they look like. This revolutionary tool was only made possible due to the amazing speed of the new Pocket PCs and the speed of my AbSIRD algorithm. Thus you are allowed to edit in real-time these height images and immediately see them in full SIRD, something that is not available on any platform, and here we have it on a Pocket PC. The system also lets you save to a powerful lossless compressed format so that you can have lots of images without it severely affecting your memory.<br>
+
+<center><img src="Swirl.jpg" /> &nbsp; <img src="Face.jpg" /></center>
+<br><br>
+
+<b>Why Do This?</b><br>
+	The primary motive behind this project is not in fact to create a Paint style program that lets you draw SIRDs, instead it is to create the technology required for PDAs to perform SIRDs. That is the rendering engine upon which PDAbSIRD is built. The existence of this �engine� means that developing further applications which use SIRDs is incredibly easy, because all the hard work has already been done. The engine itself was specifically created so that the image editing code can be easily removed and replaces with games, applications, media players, or whatever else one might want to see in full SIRD glory. PDAbSIRD is also not merely a rendering system, vital to it�s existence is a custom lossless image compressor (which is currently employed when saving or loading images). This compressor which is optimized for used in animations (although they haven�t been used yet) allows for compression ratios up to 16 to 1, and even in worst case scenarios will never drop below 1 to 1 compression (average around 8 to 1 for most images). Also the decompression algorithm is extremely quick allowing for it to be used �on the fly� uncompressing images each frame, to allow for programs with massive content to easily manage many images. All of this means that the PDAbSIRD platform is an excellent and easy to use system for creating an endless amount of dynamic and amazing 3d applications for the PDA.<br>
+	The other reason is far simpler, I personally find it REALLY cool that I can edit 3d images on a PDA. Being able to quickly and easily carve space using only a stylus combines the fun of painting, sculpture, and digital design all into one, and lets you really see a 3d object in front of you.<br><br>
+
+<b>The Design:</b><br>
+	When choosing the best method for this system, I realized that I would need low-level access to data if I was going to perform the algorithm at anywhere near real-time speeds. Because of this, I turned to the Win32 environment for the Pocket PC. This is because not only do I already have a fair knowledge of the Win32 environment, but also because I can get direct access to pixels in my C code. The AbSIRD algorithm requires sampling and re-sampling quite a lot, so any system which would require calling a function for each pixel was totally out of the question. Because of this I thought it wise to go with C (with a smattering of C++) as opposed to C#, VB or some such other language, which doesn�t give me the low level access I needed.<br>
+	Even though I had some experience with Win32 programming for desktops, there are a few major differences with the WinCE implementation. So it was a heart wrenching and hair pulling experience getting all the components working. Also adapting the AbSIRD algorithm was no piece of cake, it�s quite a complex system and took some time to reimplement. However I did land up over optimizing, and the system has enough features to allow only certain parts of the screen to be updated, and in different manners and such. Because of this the system could be easily adapted to a very slow PDA (which had Windows CE), it would loose a few graphical niceties, but would over all be quite useable.<br>
+	Implementing the image compression utilities was also quite hard as these are never as easy as one might expect. Luckily I pulled a few tricks by using buffers meant for display as output buffers and other such sneaky little tricks to keep the memory usage low. <br>
+	Over all I started on Friday afternoon (11/22) and am now finishing on (11/24/2002), however I was only able to code for a few hours on Saturday. <br><br>
+
+<b>SIRD Swarm</b><br>
+	To demonstrate the PDAbSIRD engine in a more �game-like� environment, I created the �SIRD Swarm� demo, in which a number of balls bounce around a 3D box, So they not only go left, right up and down, but also go away or towards you the viewer, the 3D affect is of course achieved using the SIRD technology.  You can adjust the number of flies (up to a certain number) and their size. In this way you can see how the PDAbSIRD algorithm can be easily adapted easy to a game environment rather than an editing environment. Porting the PDAbSIRD code to the SIRD Swarm code took about half and hour, which is pretty good, I took advantage of all the circle rendering, blitting and other such functions that I had created for PDAbSIRD. <br><br>
+
+<img src="Swarm.jpg" /><br><br></p>
+</p></td></tr></table></font>
+  </div>
+<!-- end page content -->
+</div>
+
+</font>
+</body>
+</html>

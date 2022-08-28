@@ -1,0 +1,160 @@
+<script language="JavaScript">
+<!--
+
+function ShowCode(thecode)
+{
+	alert("code="+thecode);
+}
+
+function AddFunc(doc,func)
+{
+	doc.write("function "+func+"(farg) {return Math."+func+"(farg);}\n");
+}
+
+function IncludeMath(doc)
+{
+	AddFunc(doc,"sqrt");
+	AddFunc(doc,"sin");
+	AddFunc(doc,"cos");
+	AddFunc(doc,"tan");
+	AddFunc(doc,"log");
+	AddFunc(doc,"exp");
+	AddFunc(doc,"acos");
+	AddFunc(doc,"asin");
+	AddFunc(doc,"atan");
+	AddFunc(doc,"floor");
+	AddFunc(doc,"ceil");
+	AddFunc(doc,"round");
+	doc.write("function rand() {return random();}\n");
+	doc.write("function ln(v) {return Math.log(v);}");
+	doc.write("function pow(a,b) {return Math.pow(a,b);}");
+}
+
+function AddVar(doc,name, value)
+{
+	if (name.value == "")
+		return;
+	doc.write("var "+name.value+" = ("+value.value+");\n");
+}
+
+function AddVars(doc)
+{
+	doc.write("var pi = Math.PI;\n");
+	doc.write("var e = Math.E;\n");
+
+	AddVar(doc, var0n, var0v);
+	AddVar(doc, var1n, var1v);
+	AddVar(doc, var2n, var2v);
+	AddVar(doc, var3n, var3v);
+	AddVar(doc, var4n, var4v);
+}
+
+function Example_Equation()
+{
+	var0n.value = "t";	var0v.value="1.5";
+	var1n.value = "accel";	var1v.value="-9.8";
+	var2n.value = "velocity";	var2v.value="t*sqrt(25)/3";
+	var3n.value = "initial"; 	var3v.value="100";
+	mathfunc.value = "initial + t*velocity + (1/2)*accel*pow(t,2)";
+}
+
+function RunCode(main,funcs,ispage,ismath, includemath)
+{
+         var doc;
+	if (ismath) 
+	{ 
+		main=("WriteLine(\"" + main + "\"); WriteLine(\" = \"+(" + main + "));"); 
+	}
+	doc = window.open("","displayWindow","menubar=yes,scrollbars=yes,status=yes,width=450,height=500").document;
+         doc.write("<HTML><HEAD><TITLE>Program Page</TITLE>");
+         doc.write("<script language=\"JavaScript\">" + funcs);
+	if (includemath) {
+		IncludeMath(doc); 
+	}
+         doc.write("function Write(str) {page_cout.value+=\"\"+str;}");
+         doc.write("function WriteLine(str) {page_cout.value+=\"\"+str+\"\\n\";}");
+         doc.write("function GetLine() {return page_cin.value;}");
+	AddVars(doc);
+         doc.write("function TheMain() {" + main + "} </script></head><body bgcolor=\"f0f0c0\">" );
+	 doc.write("<h3>Output:</h3><textarea id=\"page_cout\" cols=50 rows=15></textarea><br>");
+		 if (ispage==false)
+		 {
+			doc.write("<center> <input type=\"button\" value=\"Execute\" onclick=\"TheMain()\" id=\"button\"1 name=\"button\"1> </center>");
+			 doc.write("<h3>Input:</h3><textarea id=\"page_cin\" cols=50 rows=3 ></textarea><br>");
+	     }
+	   else
+	{
+		doc.write("<script language=\"javascript\">TheMain()</script>");
+	}
+         doc.write("</BODY></HTML>");
+ //       doc.close(); 
+}
+
+function Example_WordCount(tocode, tofunc)
+{
+	tofunc.value = "function NumWords(str)\
+\n{\
+\n  var count=0;\
+\n  if (str.length==0)\
+\n   return 0;\
+\n  for (i=0; i<str.length; i++)\
+\n  {\
+\n    if (str.substring(i,i+1)==\" \")\
+\n      count++;\
+\n  }\
+\n  return (count+1);\
+\n}";
+  tocode.value = "WriteLine(\"Information about the text in the Input area:\");\
+\nvar text = GetLine();\
+\nWriteLine(\"Number of Characters: \"+text.length);\
+\nWriteLine(\"Number of Words: \"+NumWords(text));" ;
+}
+
+function Example_Quadratic(tocode,isconsole)
+{
+	tocode.value="var a, b, c;\
+\na = prompt(\"Enter A from A*x^2 + B*x + C = 0\",1);\
+\nb = prompt(\"Enter B from A*x^2 + B*x + C = 0\",1);\
+\nc = prompt(\"Enter C from A*x^2 + B*x + C = 0\",1);\
+\nvar top = (b*b)-(4*a*c);\
+\nvar bottom = 2*a;\
+\nif (top >= 0)\
+\n{\
+\n WriteLine(\"Possible Values for X:\");\
+\n  Write(\"x = \");\
+\n  WriteLine( ( (-b) + Math.sqrt(top) ) / bottom );\
+\n  Write(\"x = \");\
+\n  WriteLine( ( (-b) - Math.sqrt(top) ) / bottom );\
+\n}\
+\nelse\
+\n{\
+\n  WriteLine(\"imaginary answer\");\
+\n}";
+}
+
+function Example_HelloWorld(tocode,isconsole)
+{
+	if (isconsole)
+		tocode.value = "WriteLine(\"Hello World\");";
+	else
+		tocode.value = "alert(\"Hello World!\");";
+}
+
+function Example_Factorial(tocode,isconsole)
+{
+	tocode.value="var p = prompt(\"Factorial of What?\",5);\
+\nif (p==0)\
+\n{\
+\n  alert(\"!0 = 0\");\
+\n  return;\
+\n}\
+\nvar sum=1, i;\
+\nfor (i=1; i<=p; i++)\
+\n{\
+\n  sum *= i;\
+\n}";
+		tocode.value += "\nWriteLine(\"!\"+p+\" = \" + sum);";
+}
+
+-->
+</script>

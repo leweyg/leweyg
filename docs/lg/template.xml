@@ -1,0 +1,493 @@
+<xml version="1.0" standalone="yes">
+
+<center>
+	<raw value="<center>" />
+	<dosubs />
+	<raw value="</center>" />
+</center>
+
+<donate>
+	<ifnot value="many">
+		<raw value="<p>If you appreciate this application, a small <a href=\"http://www.leweyg.com/donate.html\">donation</a> to support me writing more interesting apps like it (and not get a job writing accounting software) would be greatly appreciated.</p>" />
+	</ifnot>
+	<if value="many">
+		<raw value="<p>If you appreciate these applications, a small <a href=\"http://www.leweyg.com/donate.html\">donation</a> to support me writing more interesting apps like them (and not get a job writing accounting software) would be greatly appreciated.</p>" />
+	</if>
+</donate>
+
+<panifile>
+	<paste value="name" />
+	<raw value="</td><td>" />
+	<ifnot value="nosvg">
+		<raw value="&nbsp;<a href=\"watch_" />
+		<paste value="file" />
+		<raw value=".html\">WATCH</a>&nbsp;" />
+
+		<raw value="&nbsp;&nbsp;<a href=\"" />
+		<paste value="file" />
+		<raw value=".svg\">svg file</a>&nbsp;" />
+	</ifnot>
+	<raw value="&nbsp;</td><td>" />
+	<ifnot value="noink">
+		<raw value="&nbsp;<a href=\"" />
+		<paste value="file" />
+		<raw value=".pani\">pani file</a>&nbsp;" />
+	</ifnot>
+	<raw value="</td><td width=\"50%\">&nbsp;" />
+	<if value="descrip">
+		<paste value="descrip" />
+	</if>
+	<raw value="</td></tr><tr><td height=\"5\"></td></tr><tr><td>" />
+</panifile>
+
+<anifile>
+	<paste value="name" />
+	<raw value="</td><td>" />
+	<ifnot value="nosvg">
+		<raw value="&nbsp;<a href=\"watch_" />
+		<paste value="file" />
+		<raw value=".html\">WATCH</a>&nbsp;" />
+
+		<raw value="&nbsp;&nbsp;<a href=\"" />
+		<paste value="file" />
+		<raw value=".svg\">svg file</a>&nbsp;" />
+	</ifnot>
+	<raw value="&nbsp;</td><td>" />
+	<ifnot value="noink">
+		<raw value="&nbsp;<a href=\"" />
+		<paste value="file" />
+		<raw value=".inka\">inka file</a>&nbsp;" />
+	</ifnot>
+	<raw value="</td><td>&nbsp;" />
+	<if value="descrip">
+		<paste value="descrip" />
+	</if>
+	<raw value="</td></tr><tr><td>" />
+</anifile>
+
+<section>
+	<raw value="<a name=\"" />
+	<paste value="value" />
+	<raw value="\"></a>" />
+</section>
+
+<br>
+	<raw value="<br>" />
+</br>
+
+<newrow>
+	<raw value="</td></tr><tr><td " />
+	<if value="align">
+		<raw value=" align=\"" />
+		<paste value="align" />
+		<raw value="\" " />
+	</if>
+	<raw value=">" />
+</newrow>
+
+<newcol>
+	<raw value="</td><td " />
+	<if value="align">
+		<raw value=" align=\"" />
+		<paste value="align" />
+		<raw value="\" " />
+	</if>
+	<raw value=">" />
+</newcol>
+
+<table>
+	<ifnot value="nocenter">
+		<raw value="<center>" />
+	</ifnot>
+	<raw value="<table " />
+	<if value="width">
+		<raw value="width=\"" />
+		<paste value="width" />
+		<raw value="\" " />
+	</if>
+	<raw value="><tr><td " />
+	<if value="align">
+		<raw value=" align=\"" />
+		<paste value="align" />
+		<raw value="\" " />
+	</if>
+	<raw value=">" />
+	<dosubs />
+	<raw value="</td></tr></table>" />
+	<ifnot value="nocenter">
+		<raw value="</center>" />
+	</ifnot>
+</table>
+
+<marker>
+	<raw value="<a name=\"" />
+	<paste value="value" />
+	<raw value="\">" />
+	<dosubs />
+	<raw value="</a>" />
+</marker>
+
+<text>
+	<paste value="value" />
+</text>
+
+<rawhtml>
+	<paste value="value" />
+</rawhtml>
+
+<subblock>
+	<if value="marker">
+		<raw value="<a name=\"" />
+		<paste value="marker" />
+		<raw value="\">" />
+	</if>
+	<raw value="<table" />
+	<if value="color">
+		<raw value=" bgcolor=\"" />
+		<paste value="color" />
+		<raw value="\" " />
+	</if>
+	<ifnot value="color">
+		<raw value=" bgcolor=\"f0f0c0\" " />
+	</ifnot>
+	<if value="width">
+		<raw value=" width=\"" />
+		<paste value="width" />
+		<raw value="\" " />
+	</if>
+	<raw value="><tr><td>" />
+	<if value="title">
+		<raw value="<h1>" />
+		<paste value="title" />
+		<raw value="</h1>" />
+	</if>
+	<dosubs />
+	<raw value="</td></tr></table><br>" />
+	<if value="marker">
+		<raw value="</a>" />
+	</if>
+</subblock>
+
+<update>
+	<raw value="<b><font color=\"red\">UPDATE</font> - " />
+	<paste value="date" />
+	<raw value=" - </b>" />
+	<paste value="value" />
+	<raw value="<br><br>" />
+</update>
+
+<typeoftablet>
+	<raw value="<p><a href=\"http://www.leweyg.com/tabletpc.html\">More Of My Tablet PC Applications...</a></p>" />
+</typeoftablet>
+
+<tabletapp>
+	<raw value="<table bgcolor=\"f0f0c0\"><tr><td><h3>" />
+	<raw value="<a href=\"" />
+	<paste value="link" />
+	<raw value="\">" />
+	<paste value="name" />
+	<raw value="</a></h3>" />
+	<if value="screenshot">
+		<raw value="<a href=\"" />
+		<paste value="screenshot" />
+		<raw value="\">Screen Shot</a><br>" />
+	</if>
+	<paste value="descrip" />
+	<raw value="</td>" />
+	<if value="pic">
+		<raw value="<td><a href=\"" />
+		<paste value="link" />
+		<raw value="\"><img src=\"" />
+		<paste value="pic" />
+		<raw value="\"></a></td>" />
+	</if>
+	<raw value="</tr></table><br>" />
+</tabletapp>
+
+<news>
+	<raw value="<b>" />
+	<paste value="date" />
+	<raw value="</b> - " />
+	<if value="link">
+		<raw value="<a href=\"" />
+		<paste value="link" />
+		<raw value="\">goto</a> - " />
+	</if>
+	<paste value="value" />
+	<raw value="<br><br>" />
+</news>
+
+<screenshot>
+	<raw value="<center><a href=\"" />
+	<paste value="value" />
+	<raw value="\"><b>Screen Shot</b></a>" />
+	<if value="note">
+		<raw value=" - " />
+		<paste value="note" />
+	</if>
+	<raw value="</h3></center>" />
+</screenshot>
+
+<link>
+	<raw value="<a href=\"" />
+	<paste value="to" />
+	<if value="section">
+		<raw value="#" />
+		<paste value="section" />
+	</if>
+	<raw value="\">" />
+	<if value="name">
+		<paste value="name" />
+	</if>
+	<ifnot value="name">
+		<paste value="to" />
+	</ifnot>
+	<raw value="</a>" />
+	<if value="descrip">
+		<raw value=" - " />
+		<paste value="descrip" />
+	</if>
+	<raw value="<br><br>" />
+</link>
+
+<thumbjpg>
+	<raw value="<center><a href=\"" />
+	<paste value="value" />
+	<raw value=".jpg\"><img src=\"" />
+	<paste value="value" />
+	<raw value="_small.jpg\"></a></center>" />
+</thumbjpg>
+
+<thumb>
+	<raw value="<center>" />
+	<if value="width">
+		<raw value="<table width=\"" />
+		<paste value="width" />
+		<raw value="\"><tr><td>" />
+	</if>
+	<raw value="<a href=\"" />
+	<paste value="value" />
+	<raw value=".jpeg\"><img src=\"" />
+	<paste value="value" />
+	<raw value="_small.jpeg\"></a>" />
+	<if value="note">
+		<raw value="<br>" />
+		<paste value="note" />
+		<raw value="<br>" />
+	</if>
+	<if value="width">
+		<raw value="</td></tr></table>" />
+	</if>
+	<raw value="</center>" />
+</thumb>
+
+<svg>
+	<raw value="<embed " />
+	<if value="width">
+		<raw value="width=\"" />
+		<paste value="width" />
+		<raw value="\" " />
+	</if>
+	<if value="height">
+		<raw value="height=\"" />
+		<paste value="height" />
+		<raw value="\" " />
+	</if>
+	<raw value="src=\"" />
+	<paste value="value" />
+	<raw value="\" />" />
+</svg>
+
+<pic>
+	<raw value="<center>" />
+	<if value="link">
+		<raw value="<a href=\"" />
+		<paste value="link" />
+		<raw value="\">" />
+	</if>
+	<raw value="<img src=\"" />
+	<paste value="value" />
+	<raw value="\">" />
+	<if value="link">
+		<raw value="</a>" />
+	</if>
+	<raw value="<br>" />
+	<if value="note">
+		<paste value="note" />
+		<raw value="<br>" />
+	</if>
+	<raw value="</center>" />
+</pic>
+
+<file>
+	<raw value="<table bgcolor=\"f0c0c0\"><tr><td><center><a href=\"" />
+	<paste value="name" />
+	<raw value="\"><font size=5><i>" />
+	<paste value="name" />
+	<raw value="</i></font></a></center><br>" />
+	<if value="version">
+		<raw value="<b>Version: </b> " />
+		<paste value="version" />
+		<raw value="<br>" />
+	</if>
+	<if value="platform">
+		<raw value="<b>Platform: </b> " />
+		<paste value="platform" />
+		<raw value="<br>" />
+	</if>
+	<if value="requires">
+		<raw value="<b>Requires: </b> " />
+		<paste value="requires" />
+		<raw value="<br>" />
+	</if>
+	<if value="usage">
+		<raw value="<b>Usage: </b> " />
+		<paste value="usage" />
+		<raw value="<br>" />
+	</if>
+	<if value="date">
+		<raw value="<b>Date: </b> " />
+		<paste value="note" />
+		<raw value="<br>" />
+	</if>
+	<if value="note">
+		<raw value="<b>Note:</b> " />
+		<paste value="note" />
+		<raw value="<br>" />
+	</if>
+	<raw value="</td></tr></table><br>" />
+</file>
+
+<descrip>
+	<raw value="<p>" />
+	<paste value="value" />
+	<raw value="</p>" />
+</descrip>
+
+<header>
+	<raw value="<h1>" />
+	<paste value="value" />
+	<raw value="</h1>" />
+</header>
+
+<page>
+	<raw value="<html><head>" />
+	<if value="title">
+		<raw value="<title>" />
+		<paste value="title" />
+		<raw value=" - Lewey's World</title>" />
+	</if>
+	<if value="inheaderfile">
+		<include value="inheaderfile" />
+	</if>
+	<raw value="
+</head><body link=\"purple\" vlink=\"red\" alink=\"red\"  >
+<h2><font color=\"blue\">Lewey Geselowitz's World</font></h2>
+<table><tr>
+
+<td width=\"140\" bgcolor=\"cornflowerblue\" valign=\"top\" >
+<font color=\"white\">
+<br>
+
+<font color=\"white\">Main Projects</font>
+<table>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/vsaber/index.html\"><font color=\"white\">VSaber</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/lc/freed.html\"><font color=\"white\">Freed Series</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/SIRD/q2/index.html\"><font color=\"white\">Quake 2 AbSIRD</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/anied/index.html\"><font color=\"white\">Ink AniEd</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/impview.html\"><font color=\"white\">Imp View</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/EvilDice.html\"><font color=\"white\">Evil Dice</font></a></td></tr>
+
+<tr><td><br>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/index.html\"><font color=\"white\">View All</font></a></td></tr>
+
+</tr></table>
+<br>
+
+<font color=\"white\">Recent</font>
+<table>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/lc/freedgo.html\"><font color=\"white\">Freed Go 1.1</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/lc/freedinvasion.html\"><font color=\"white\">Freed Invasion</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/anied/pocket/index.html\"><font color=\"white\">Pocket AniEd</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/anied/index.html\"><font color=\"white\">Ink AniEd 1.2</font></a></td></tr>
+
+</tr></table>
+<br>
+
+<font color=\"white\">Categories</font>
+<table>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/index.html#games\"><font color=\"white\">Games</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/index.html#editors\"><font color=\"white\">Editors</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/tabletpc.html\"><font color=\"white\">Tablet PC</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/pocketpc/index.html\"><font color=\"white\">Pocket PC</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/SIRD/index.html\"><font color=\"white\">SIRDS</font></a></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;<a href=\"http://www.leweyg.com/download/index.html\"><font color=\"white\">All</font></a></td></tr>
+
+</tr></table>
+<br>
+
+<a href=\"http://www.leweyg.com/links.html\"><font color=\"white\">Links</font></a><br><br>
+
+<a href=\"http://www.leweyg.com/aboutme.html\"><font color=\"white\">About Me</font></a><br><br>
+
+<a href=\"mailto:lewey@leweyg.com\"><font color=\"white\">Contact</font></a><br><br>
+
+<a href=\"http://www.leweyg.com/index.html\"><font color=\"white\">Home</font></a><br><br>
+
+<center><form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">
+<input type=\"hidden\" name=\"cmd\" value=\"_xclick\">
+<input type=\"hidden\" name=\"business\" value=\"lewey@leweyg.com\">
+<input type=\"hidden\" name=\"item_name\" value=\"Donate to Lewey's World\">
+<input type=\"hidden\" name=\"no_note\" value=\"1\">
+<input type=\"hidden\" name=\"currency_code\" value=\"USD\">
+<input type=\"hidden\" name=\"tax\" value=\"0\">
+<input type=\"image\" width=\"62\" height=\"31\" src=\"https://www.paypal.com/en_US/i/btn/x-click-but04.gif\" border=\"0\" name=\"submit\" alt=\"Make a donation with PayPal - it's fast, free and secure!\">
+<br><a href=\"http://www.leweyg.com/donate.html\"><font color=\"white\">Why Support<br>Lewey's World?</font></a>
+</form>
+</center>
+
+</font>
+</td>
+
+<td width=\"3%\">
+</td>
+
+<td width=\"*\">" />
+	<dosubs />
+	<raw value="
+</td>
+
+<td width=\"3%\">
+</td>
+
+</tr>
+</table>
+<br>
+<table><tr align=left><td align=left>
+<font align=right>(c) 2004 Lewey Geselowitz - <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a><br>Page Rebuildt on " />
+
+<date />
+<raw value=" by CheapSite for OS X</font>
+<br><IMG SRC=\"http://counter.digits.com/wc/-d/4/lewey\" ALIGN=middle WIDTH=60 HEIGHT=20 BORDER=0 HSPACE=4 VSPACE=2> - Page counter provided by <a href=\"http://www.digits.com/\"><img src=\"http://www.leweyg.com/wc-03.gif\"></a> </td></tr></table>
+
+</body>
+</html>
+" />
+</page>
+
+</xml>

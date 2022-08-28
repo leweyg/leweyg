@@ -1,0 +1,201 @@
+</td></tr><tr><td><center>
+
+<a href="javascript:
+
+function GoUp()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  while (i >= 0)
+
+  {
+
+    s = str.substring(i,i+1);
+
+    if ((s=='/')||(s=='\\'))
+
+    {
+
+      str = str.substring(0,i+1);
+
+      document.location.href = str;
+
+      return;
+
+    }
+
+    i--;
+
+  }
+
+}
+
+
+
+  GoUp();
+
+">Up</a>
+
+</center></td><td><center>
+
+<a href="javascript:
+
+function GoBefore()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  var found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s >= '0') && (s <= '9'));
+
+    i--;
+
+  }
+
+  if (i < 0)
+
+    return -1;
+
+  var end = i+2;
+
+  found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s < '0') || (s > '9'));
+
+    i--;
+
+  }
+
+  var beg = i+2;
+
+  var num = str.substring(beg,end);
+
+  var len = num.length;
+
+  num--;
+
+  num = ''+num;
+
+  while (num.length < len)
+
+  {
+
+    num = '0' + num;
+
+  }
+
+  len = str.substring(0,beg);
+
+  len += num;
+
+  len += str.substring(end, str.length);
+
+  document.location.href = len;
+
+}
+
+  GoBefore();
+
+"><- Before</a>
+
+
+</center></td><td><center>
+
+<a href="javascript:
+
+function GoAfter()
+
+{
+
+  var str = document.location.href;
+
+  var i = str.length-1, s;
+
+  var found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s >= '0') && (s <= '9'));
+
+    i--;
+
+  }
+
+  if (i < 0)
+
+    return -1;
+
+  var end = i+2;
+
+  found = false;
+
+  while ((i >= 0) && (!found))
+
+  {
+
+    s = str.substring(i,i+1);
+
+    found = ((s < '0') || (s > '9'));
+
+    i--;
+
+  }
+
+  var beg = i+2;
+
+  var num = str.substring(beg,end);
+
+  var len = num.length;
+
+  num++;
+
+  num = ''+num;
+
+  while (num.length < len)
+
+  {
+
+    num = '0' + num;
+
+  }
+
+  len = str.substring(0,beg);
+
+  len += num;
+
+  len += str.substring(end, str.length);
+
+  document.location.href = len;
+
+}
+
+  GoAfter();
+
+">After -></a></center>
+
+
+</td></tr><tr><td>

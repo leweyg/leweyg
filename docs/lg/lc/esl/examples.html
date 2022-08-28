@@ -1,0 +1,386 @@
+<html xmlns:o>
+	<head>
+		<title>ESL - Examples</title></head>
+	<body>
+		<center>
+			<h1>ESL - Extensible Shading Language</h1>
+			<a href="http://www.lewcid.com/lg/lc/esl/">Homepage</a> - <a href="http://www.lewcid.com/lg/lc/esl/examples.html">
+				Examples</a> - <a href="http://www.lewcid.com/lg/lc/esl/myshader.html">MyShader.esl</a>
+		</center>
+		<br>
+		<hr>
+		<h2>Examples</h2>
+		<p>This page contains a number of ESL example materials, most of which are shader 
+			graphs created in the ESL_Designer (a visual editor for ESL shader 
+			graphs).&nbsp;As a quick note of reference, ESL&nbsp;is broken into classes 
+			which defined node types, and the shader graph which connects instances of 
+			these classes to make a complete material.&nbsp;All examples are based on the <A href="myshader.html">
+				myshader.esl example classes</A>. While the first few examples gives a 
+			quick overview of the language, most of the examples will simply explain how 
+			the nodes are connected to create the effect.
+		</p>
+		<P>Many of the examples below will have a 'Designer File' listed, this is an XML 
+			file which you can download and open in ESL_Designer, although if it's listed 
+			here it's probably already in your 'example/' folder. Once in the Designer, you 
+			can export it to an Fx file and view it with FxViewer.exe . Some of the samples 
+			will include an 'HLSL' file as well, this is the compiled output of the 
+			Designer so that you can see how the code is reinterpreted.</P>
+		<table id="Table1" bgColor="lightgrey">
+			<tr>
+				<td>
+					<center><A href="examples/ex_simplest.xml">Designer File</A></center>
+					<br>
+					<A href="examples/pic0.jpg"><IMG src="examples/pic0_small.jpg"></A></td>
+				<td>
+					<p>This is roughly the simplest shader you can write in ESL. It declares a new 
+						class (or shader graph node type) which adds the IMaterial modifier (this 
+						modifiers lets the compiler know that this is a compile-able material). The 
+						first three properties define shader inputs; �user� means it�s a per node 
+						instance input, and �app� means it�s an application shared defined input. In 
+						ESL, all class members are either inputs or procedural properties, 
+						ProjectedPosition is not a member variable, but is rather a procedural value 
+						written in a sort of short-hand. The IMaterial modifier, used by the compiler 
+						to create the shader, declares two abstract properties �FinalPosition� and 
+						�FinalColor� which are the vertex and pixel shader outputs respectively, in 
+						this material we override them and set them equal to something useful..</p>
+					<SPAN style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">class</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"> 
+      HelloShader <SPAN style="COLOR: blue">adds</SPAN> 
+      IMaterial <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </SPAN>&lt;description="A very simple shader."&gt; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">{ 
+      <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">app</SPAN> <SPAN style="COLOR: blue">float4x4</SPAN> ProjMatrix : 
+      PROJECTION_MATRIX; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">user</SPAN> <SPAN style="COLOR: blue">attrib</SPAN> <SPAN style="COLOR: blue">float4</SPAN> RawPosition : 
+      POSITION &lt;uitype="position_model"&gt;; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">user</SPAN> <SPAN style="COLOR: blue">float4</SPAN> AmbientColor 
+      &lt;uitype="color"&gt;; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+						<o:p>&nbsp;</o:p>
+					</SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">float4</SPAN> ProjectedPosition = 
+      <SPAN style="COLOR: blue">mul</SPAN>( RawPosition, 
+      ProjMatrix ); <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">override</SPAN> <SPAN style="COLOR: blue">float4</SPAN> FinalPosition = 
+      ProjectedPosition; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">override</SPAN> <SPAN style="COLOR: blue">float4</SPAN> FinalColor = 
+      AmbientColor; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">} 
+      <o:p></o:p></SPAN><br>
+					<P>&nbsp;</P>
+				</td>
+			</tr>
+		</table>
+		<P><br>
+			&nbsp;</P>
+		<table id="Table3" bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic4.jpg"><IMG src="examples/pic4_small.jpg"></A>
+					<br>
+					<p>ESL is a fundamentally graph based language, shown to the right&nbsp;is an 
+						object graph which generates the shader seen above. This graph was created in 
+						the&nbsp;ESL_Designer visual editor. The node type names&nbsp;(in { } braces) 
+						are the names of classes from <a href="myshader.html">myshader.esl</a>, and the 
+						subitems are editable properties of those classes. In this way you can see 
+						exactly which code was used to create the final shader.
+					</p>
+					<p>This example demonstrates bump-mapping in ESL. The only difference is the 
+						addition of the "NormalMap" modifier to the base MyShader class. This lets you 
+						select a texture which is sampled to get the bump-value, two tangent vectors 
+						(as per-vertex attributes), and a normal weight which can be used to push the 
+						bump normal in the direction of the vertex normal (smoothing out the 
+						bump-mapping if less than 1).
+					</p>
+					<P>An interesting note in this shader is that the UVCoords object is referenced as 
+						both the bump-map texcoord and the base texture texcoord. Reusing nodes within 
+						the graph can often improve performance as the values are only calculated once.
+					</P>
+					<P>I should meantion that&nbsp;this isn't the most flexible bump-map representation 
+						but it's easy to impliment and does a pretty decent job.</P>
+				</td>
+				<td>
+					<center><A href="myshader.html">Classes</A> - <A href="examples/ex_bumpwdiff.xml">Designer 
+							File</A><br>
+						<br>
+					</center>
+					<IMG src="examples/code4.jpg">
+				</td>
+			</tr>
+		</table>
+		<P>&nbsp;</P>
+		<table id="Table2" bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic1.jpg"><IMG src="examples/pic1_small.jpg"></A>
+					<br>
+					<P>This effect is somewhat like looking into a pool of water. The first color is a 
+						TexturedColor which samples a texture at the current screen UV coordinate, and 
+						adds a small refraction value to the coordinate. If the texture being sampled 
+						contains the screen behind the object this will create a glass-like turbulance 
+						(like 'invisable' characters in games).
+					</P>
+					<P>Then the reflection color is calculated&nbsp;using an environment map and 
+						blended with&nbsp;the refracted color&nbsp;based on the reflection direction so 
+						that it can only be seen around the edges. This is similar to how water only 
+						reflects light when viewed at a steep angle.</P>
+				</td>
+				<td>
+					<center><A href="myshader.html">Classes</A> - <A href="examples/ex_watery.xml">Designer 
+							File</A><br>
+						<br>
+					</center>
+					<IMG src="examples/code1.jpg">
+				</td>
+			</tr>
+		</table>
+		<P>&nbsp;</P>
+		<table id="Table4" bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic5.jpg"><IMG src="examples/pic5_small.jpg"></A>
+					<br>
+					<P>This is a somewhat more practical shader, which doesn't use per-pixel lighting. 
+						Rather it does a two-tone blending between the diffuse lighting color and an 
+						environment map.
+					</P>
+					<P>You'll notice no explicit meantion of where the computations should be done, 
+						rather the compiler implicitly derives it from hints in the ESL code. In this 
+						way most code can be written in a general sence and then adapted as needed. Any 
+						code&nbsp;can explicitly push itself into a perticular shader and the compiler 
+						respects this, so that&nbsp;the developer has control when it is needed.&nbsp;</P>
+					<br>
+					<A href="examples/pic6.jpg"><IMG src="examples/pic6_small.jpg"></A><br>
+					<p></p>
+					This is the same shader as above, except the GreyScale modifier was added to 
+					the base PixelColor object. Here is the very slightly modified <a href="examples/code6.jpg">
+						graph</a> and <a href="examples/ex_greyreflect.xml">XML file</a>.
+					<P></P>
+				</td>
+				<td>
+					<center><A href="myshader.html">Classes</A> - <A href="examples/ex_envblend.xml">Designer 
+							File</A> - <a href="examples/ex_envblend.fx">Fx File</a><br>
+						<br>
+					</center>
+					<IMG src="examples/code5.jpg">
+				</td>
+			</tr>
+		</table>
+		<P>&nbsp;</P>
+		<table id="Table5" bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic7.jpg"><IMG src="examples/pic7_small.jpg"></A>
+					<br>
+					<p>One of the key features of ESL is that the material graph once created by the 
+						artist can be modified by the game engine and compiled in different forms (for 
+						different pass/LODS/etc.). For instance texture cropping can be introduced 
+						which allows&nbsp;a subsection of a texture to be referenced as a full texture. 
+						In this case a the UV coordinates are tiled three times, but the texture is 
+						cropped so only the middle of the image is seen and that part part is tiled.
+					</p>
+					<P>Ideally, an engine could compile a shader, see which textures it references, put 
+						all or&nbsp;a few of these into a one larger texture and then modify the shader 
+						code to sample cropped sections of the larger texture. This could all be done 
+						automatically at content build time and shows the kind of code manipulation 
+						which would be useful for an engine.</P>
+					<P>Also, the&nbsp;CroppedUV modifier in <a href="myshader.html">MyShader.esl</a> is 
+						a good example how to force an operation into the pixel shader (cropped texture 
+						coordinates cannot be linearly interpolated and thus should be calculated on a 
+						per-pixel basis).</P>
+				</td>
+				<td>
+					<center><A href="myshader.html">Classes</A> - <A href="examples/ex_cropping.xml">Designer 
+							File</A><br>
+						<br>
+					</center>
+					<IMG src="examples/code7.jpg">
+				</td>
+			</tr>
+		</table>
+		<P>&nbsp;</P>
+		<table id="Table6" bgColor="lightgrey">
+			<tr>
+				<td>
+					<A href="examples/pic8.jpg"><IMG src="examples/pic8_small.jpg"></A>
+				</td>
+				<td>
+					<h3>Differed Rendering</h3>
+					<p>Flexibility at compile-time is one of ESL�s primary design objectives. Below are 
+						two modifiers which can be applied by the engine at compile time to create 
+						differed shaders. The first replaces the final pixel color with the normal 
+						direction, and the second replaces the normal direction with a texture sample 
+						at the current screen coordinate. In this way two shaders can be generated, one 
+						to fill the differed normal texture and another which uses it. These modifiers 
+						can be applied to any of the above materials, or any materials deriving from 
+						MyShader for that matter. In this way, ESL hopes to enable engine and game 
+						developers to do massive reorganizations and performance explorations with 
+						their game in a simple and clean manner. Current generation shading languages 
+						would require you to rewrite massive portions of code to allow such changes.</p>
+				</td>
+			</tr>
+			<tr><td colspan=2>
+			<br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New";color:blue'>modifier</span><span
+style='font-size:10.0pt;font-family:"Courier New"'> OutputNormal <span
+style='color:blue'>extends</span> MyShader<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'>{<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//convert normal from [-1,1] to [0,1]<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:blue'>float4</span> NormalColor<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span>{<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+2'>����������� </span><span style='color:blue'>float3</span> n = ( <st1:City
+w:st="on"><st1:place w:st="on">Normal</st1:place></st1:City> * 0.5 ) +
+(1.0).xxx;<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+2'>����������� </span><span style='color:blue'>return</span> n.xyz0;<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span>}<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//write the normal color as the pixel
+color:<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:blue'>override</span> <span
+style='color:blue'>float4</span> FinalColor = NormalColor;<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'>}<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New";color:blue'>modifier</span><span
+style='font-size:10.0pt;font-family:"Courier New"'> UseDifferedNormal <span
+style='color:blue'>extends</span> MyShader<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'>{<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//Put the differed normal texture in
+here:<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:blue'>user</span> <span style='color:blue'>texture</span>
+<span style='color:blue'>float3</span> DiffNormalTex(<span style='color:blue'>float2</span>
+coord);<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//Sample the differed normal texture
+based on the<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//<span style='mso-tab-count:1'>��� </span>current
+screen position. Scale from [0,1] to [-1,1]<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:blue'>float3</span> DiffNormal<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span>{<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+2'>����������� </span><span style='color:blue'>float3</span> n = DiffNormalTex(
+ScreenPosition );<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+2'>����������� </span><span style='color:blue'>return</span> ( n * 2.0 ) -
+(1.0).xxx;<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span>}<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:green'>//Use that sampled normal in all
+lighting code:<o:p></o:p></span></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'><span style='mso-tab-count:
+1'>����� </span><span style='color:blue'>override</span> <span
+style='color:blue'>float3</span> <st1:City w:st="on"><st1:place w:st="on">Normal</st1:place></st1:City>
+= DiffNormal;<o:p></o:p></span><br/>
+
+<span
+style='font-size:10.0pt;font-family:"Courier New"'>}<o:p></o:p></span><br/>
+			
+			</td></tr>
+		</table>
+		<P>&nbsp;</P>
+		<table bgColor="lightgrey">
+			<tr>
+				<td>
+					<h3>Numerous Examples</h3>
+					<p>A number of example shaders not really worthy of individual sections</p>
+					<table border="1">
+						<tr>
+							<td><b>Description</b></td>
+							<td><b>Pic</b></td>
+							<td><b>Graph</b></td>
+							<td><b>Designer&nbsp;File</b></td>
+							<td><b>Fx File</b></td>
+						</tr>
+						<tr>
+							<td>Simple diffuse and texture</td>
+							<td><A href="examples/pic2.jpg">Pic</A></td>
+							<td><A href="examples/code2.jpg">Graph</A></td>
+							<td><A href="examples/ex_diffusetex.xml">XML</A></td>
+							<td><A href="examples/ex_diffusetex.fx">Fx</A></td>
+						</tr>
+						<tr>
+							<td>
+								Diffuse and specular</td>
+							<td><A href="examples/pic3.jpg">Pic</A></td>
+							<td><A href="examples/code3.jpg">Graph</A></td>
+							<td><A href="examples/ex_sharplights.xml">XML</A></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<P>&nbsp;</P>
+		<P>Copyright 2006 Lewey Geselowitz</P>
+	</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378800244" alt="setstats" border="0" width="1" height="1"></noscript>

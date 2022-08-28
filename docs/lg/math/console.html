@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Console - Interval Math - Lewcid.com</title>
+</head>
+<body>
+    <font face="sans-serif">
+
+        <div>
+            <p align="left">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <table border="0">
+                                <tr>
+                                    <td><a href="http://www.lewcid.com/lg/index.html"><img src="http://www.lewcid.com/lg/lewcid_icon_white.png" height="40" /></a></td>
+                                    <td><a href="http://www.lewcid.com/lg/index.html">Lewcid.com</a></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_subject.html#math">#math</a></center></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_time.html#1/28/2016">#1/28/2016</a></center></td>
+                                    <td><center>(by <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br /><a href="http://www.lewcid.com/lg/cube/by_place.html#math">#math</a></center></td>
+                                    <td>(by <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <div>
+            <!-- begin page content -->
+
+            <br />
+            <h1><a href="index.html">Interval Math</a> - Console</h1><br />
+
+            <p>
+                Expression<br />
+
+              <script src="span.js"></script>
+
+                <script>
+                    function AddToEval(txt) {
+                        MainEvalFrom.textContent = MainEvalFrom.textContent + txt;
+                    }
+                    var mostRecentResult = this;
+                    function DoEval() {
+                        MainEvalError.textContent = '';
+                        try {
+                            var codeToEval = MainEvalFrom.textContent;
+                            if (codeToEval == '') {
+                                throw "empty (type something)";
+                            }
+                            if (codeToEval.length > 1) {
+                                if ((codeToEval.charAt(0) == '.') && (isNaN(codeToEval.charAt(1)))) {
+                                    codeToEval = 'mostRecentResult' + codeToEval;
+                                }
+                            }
+
+                            // Do the actual eval statement:
+                            var res = eval(codeToEval);
+
+                            // Eval succeeded (or try-catch would have kicked in):
+                            mostRecentResult = res;
+                            var resStr = res.toString();
+                            if ((resStr.length > 1) && (resStr.charAt(0) == '[')) {
+                                ShowObjectInHistory(res);
+                            } else {
+                                MainObjectView.options.length = 0;
+                            }
+                            MainEvalTo.textContent = resStr;
+                            InsertIntoHistory(resStr);
+                            InsertIntoHistory(codeToEval);
+                            
+                            MainEvalFrom.textContent = '';
+                        } catch (exp) {
+                            MainEvalError.textContent = exp.toString();
+                            MainEvalTo.textContent = '';
+                        }
+                        MainEvalFrom.focus();
+                    }
+                    function ShowObjectInHistory(obj) {
+                        MainObjectDiv.style.display = '';
+                        MainObjectView.options.length = 0;
+                        MainObjectView.clientHeight = 400.0;
+                        var ndx = 0;
+                        for (var i in obj) {
+                            MainObjectView.options[ndx++] = new Option("." + i);
+                        }
+                    }
+                    function InsertIntoHistory(text) {
+                        var curToInsert = new Option( text );
+                        var curIndex = 0;
+
+                        while (MainHistory.options.length >= curIndex) {
+                            var prev = MainHistory.options[curIndex];
+                            MainHistory.options[curIndex] = curToInsert;
+                            curToInsert = prev;
+                            curIndex++;
+                        }
+                        MainHistory.options[curIndex] = curToInsert;
+                    }
+                    function EvalClear(dir) {
+                        MainEvalFrom.textContent = '';
+                    }
+                    function DoKeyCheck() {
+                        if (window.event.keyCode == 13) // Enter key
+                        {
+                            var curTxt = MainEvalFrom.textContent;
+                            curTxt = curTxt.replace('\n', '');
+                            MainEvalFrom.textContent = curTxt;
+
+                            DoEval();
+                        }
+                    }
+                    function AddFromHistory() {
+                        var txt = MainHistory.options[MainHistory.selectedIndex].textContent;
+                        MainEvalFrom.textContent += txt;
+                    }
+                    function AddFromObjectView() {
+                        var txt = MainObjectView.options[MainObjectView.selectedIndex].textContent;
+                        MainEvalFrom.textContent += txt;
+                    }
+                    function ExploreFromObjectView() {
+                        var txt = MainObjectView.options[MainObjectView.selectedIndex].textContent;
+                        MainEvalFrom.textContent = txt;
+                        DoEval();
+                    }
+                </script>
+                <textarea id="MainEvalFrom" rows="1" cols="30" onkeyup="DoKeyCheck()">10 + ( 4 * 4 )</textarea>
+                <button onclick="DoEval()">=&gt;</button>
+                <textarea id="MainEvalTo" rows="1" cols="30"></textarea>
+                <!-- <textarea id="DebugText" rows="1" cols="30"></textarea> -->
+
+
+                <br />
+                <label id="MainEvalError"> </label> <br />
+                <div id="MainObjectDiv" style="display:none">
+                    <select id="MainObjectView" multiple style="max-height: 165px;"></select>
+                    <button onclick="ExploreFromObjectView()">-></button>
+
+                    <button onclick="AddFromObjectView()">-> ^</button>
+
+                </div>
+                <select id="MainHistory" multiple style="max-height: 165px;">
+                    <option>document</option>
+
+                </select>
+                <button onclick="AddFromHistory()">-> ^</button>
+
+
+            </p>
+
+
+</body>
+</html>

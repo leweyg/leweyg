@@ -1,0 +1,196 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head><title>3D UI Hand Gestures - Lewcid.com</title>
+    <style>
+        .hand_img {
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+<td><a href="http://www.lewcid.com/lg/index.html"><img src="http://www.lewcid.com/lg/lewcid_icon_white.png" height="40"/></a></td>
+<td><a href="http://www.lewcid.com/lg/index.html">Lewcid.com</a></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#writings">#articles</a></center></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#5/5/2015">#5/5/2015</a></center></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#articles/vol">#articles/vol</a></center></td>
+	<td>(by <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3>
+
+<table><tr><td>&nbsp;</td><td>
+
+<br/>
+<h1>3D UI Hand Gestures</h1>
+
+<!--
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P0zR5qTijjA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
+
+<div>
+    <p>
+        Core hand gestures needed for common 2.5D and 3D user interface actions: idling, pointing and scrolling (with selection usually by touch or tap gesture); each pose is identified by it's muscle contraction-or-protraction signature (how the wrist muslces are flexing the hand). The poses can be used while operating a mouse with the other hand, or in conjuction with shared gestures such as zoom in or out. 
+        <!--
+        Inspired by poses and sequences from <a href="http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094">Mantis Kung Fu</a>.
+    -->
+    </p>
+    <p style="text-align: right;">
+        Demo video and article originally posted 5/5/2015. Hand pose chart illustrated 8/20/2020. - Lewey Geselowitz
+    </p>
+    <video poster="Volumetrics_Scrolling_Early_screen.jpg" controls="controls" autoplay="autoplay"  loop="loop" height="150" preload="preload">
+       <source src="Volumetrics_Scrolling_Early.mp4" />
+       <source src="Volumetrics_Scrolling_Early_screen.jpg" />
+       Video loading or not supported...
+    </video>
+    
+    <br/><i><b>Above Demo Video: </b> <a href="https://www.youtube.com/embed/P0zR5qTijjA">YouTube</a> or <a href="Volumetrics_Scrolling_Early.mp4">video</a>:</i>
+     the colors on the fingers represent the protraction state of each finger (<font color="green">protracted-back</font> / <font color="blue">relaxed-forward</font> / <font color="red">contracted-in</font>).
+    The block shape around the hands represent the current cursor state (see hand poses above).</I>
+    
+        </div>
+
+<!-- <p><span background="yellow" display="block"><font color="red"><b> 
+[THIS WORK IS IN PROGRESS AND NOT REVIEW READY]
+</b></font></span></p> -->
+<br/>
+
+<h3>Table of hand poses with images, muscle signature, and UI action</h3>
+
+<p>The six hand poses: Open, Flat, Pointing, Row, Column, Closed.</p>
+
+    <table border="1" cellpadding="0" cellspacing="0" style="border-color: lightblue;">
+
+
+    <tr><td colspan="6">Hand Poses</td>
+    </tr>
+    
+    <tr><td>#</td>
+        <td>Pose</td>
+        <td>Image</td>
+    <td>Muscles</td>
+    <td>Action</td>
+    <td>Comments</td>
+    </tr>
+
+
+<tr><td>1</td><td>Open</td>
+    <td><img class="hand_img" src="hand_left_open.jpg" /></td>
+<td>Neither contracted nor protracted</td>
+<td>Idle</td>
+<td>No action taken</td>
+</tr>
+
+<tr><td>2</td><td>Pointing</td>
+    <td><img class="hand_img" src="hand_left_pointing.jpg" /></td>
+<td>Index protracted, ring and pinky contracted</td>
+<td>Aiming/Zooming-Z</td>
+<td>For focusing on a specific point</td>
+</tr>
+
+<tr><td>3</td><td>Flat</td>
+    <td><img class="hand_img" src="hand_left_flat.jpg" /></td>
+<td>All protracted, palm down</td>
+<td>Rotate / Depth Scrolling</td>
+<td>Tilts view and/or pans up/down.</td>
+</tr>
+
+
+
+<tr><td>4</td><td>Row</td>
+    <td><img class="hand_img" src="hand_left_row.jpg" /></td>
+<td>Palm to the inside, palm fingers not protracted</td>
+<td>Row Scrolling</td>
+<td>Scrolling up and down, fingers tips used for detail.</td>
+</tr>
+
+<tr><td>5</td><td>Column</td>
+    <td><img class="hand_img" src="hand_left_column.jpg" /></td>
+<td>Palm to the inside, palm fingers protracted</td>
+<td>Column Scrolling</td>
+<td>Scrolling left and right.</td>
+</tr>
+
+
+<tr><td>6</td><td>Closed</td>
+    <td><img class="hand_img" src="hand_left_closed.jpg" /></td>
+<td>All contracted</td>
+<td>Resets</td>
+<td>Used as an escape</td>
+</tr>
+
+<tr><td colspan="5">Two Handed Combinations</td>
+</tr>
+
+
+<tr><td>3 + 0</td><td>Rotate w/ Mouse</td>
+    <td><img class="hand_img" src="hands_flat_mouse.jpg" /></td>
+<td>All protracted, palm down</td>
+<td>Rotate * Mouse</td>
+<td>Held for rotation</td>
+</tr>
+
+<tr><td>3 + 4</td><td>Rotate * Scroll Row</td>
+    <td><img class="hand_img" src="hands_flat_row.jpg" /></td>
+<td>Both Rotate and Row poses</td>
+<td>Rotate * Row Scrolling</td>
+<td>Scrolling up and down, fingers tips used for detail.</td>
+</tr>
+
+<tr><td>3 + 5</td><td>Rotate * Scroll Column</td>
+    <td><img class="hand_img" src="hands_flat_column.jpg" /></td>
+<td>Both Rotate and Column poses</td>
+<td>Rotate * Column Scrolling</td>
+<td>Scrolling left and right, fingers tips used for detail.</td>
+</tr>
+
+<tr><td>3 + 3</td><td>Zoom / Scroll Depth</td>
+    <td><img class="hand_img" src="hands_flat_flat.jpg" /></td>
+<td>Both hands fingers protracted, palms down</td>
+<td>Adjusts depth or zooms in/out</td>
+<td>Raises or lower the target</td>
+</tr>
+
+
+<tr><td>5 + 5</td><td>Zoom / Scroll Column</td>
+    <td><img class="hand_img" src="hands_column_column.jpg" /></td>
+<td>Two Column and Column poses</td>
+<td>Column Zooming</td>
+<td>Zooming in and out, fingers tips used for detail.</td>
+</tr>
+
+<table   ><tr><td>
+
+
+<br/>*Biases towards rotate pose: Using your non-dominant hand to rotate and hold a reference space is so vital an activity that the rotate state should be deeply biased towards once it has been initiated by the user.<br/>
+
+<br/><br/>
+<br/>Demo built using <a href="http://unity3d.com/">Unity 3D</a> and the <a href="https://www.leapmotion.com/">Leap Motion</a> sensor and SDK. (with finger protraction and hand pose recognition added).<br/><br/>
+
+<img src="Volumetrics_Scrolling_Early_screen.jpg" /><br/>
+
+</h3>
+</td></tr></table>
+<br/><br/>
+
+</div>
+
+
+</div>
+</body>
+</html>

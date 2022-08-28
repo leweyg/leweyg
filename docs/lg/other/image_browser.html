@@ -1,0 +1,214 @@
+<html>
+    <body bgcolor=black>
+
+    <script  type="text/javascript">
+        function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+	var myHistory = new Array();
+        function GetCurrentPath() {
+            return document.getElementById('MyImage').src;
+            //return document.location.href;
+        }
+        function SetCurrentPath(path) {
+	    document.bgColor = "#555555";
+		document.cookie = path;
+            document.getElementById('MyImage').src = path;
+            document.getElementById('MyURL').value = '';
+		set_cookie("imageHistory",path);
+            //document.location.href = path;
+        }
+        function SetCurrentIndex(index) {
+            document.getElementById('MyIndex').value = index;
+        }
+	function PeekHistory() {
+		if ( myHistory.length == 0 ) {
+			return "";
+		} else return myHistory[ myHistory.length - 1 ];
+	}
+	function PushHistory() {
+		var from = document.getElementById('MyImage').src;
+		var to = PeekHistory();
+		if ( from != to )
+			myHistory[ myHistory.length ] = from;
+	}
+	function PopHistory() {
+		if ( myHistory.length != 0 ) {
+			SetCurrentPath( myHistory.pop() ); // PUT ME BACK!!
+
+
+			document.getElementById('MyURL').value = get_cookie("imageHistory"); 
+		}
+	}
+	function set_cookie( name, value )
+	{
+		document.cookie = document.cookie + ";" + name + "='" + escape(value) + "'";
+	}
+	function get_cookie ( cookie_name )
+	{
+  		var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+
+  		if ( results )
+    			return ( unescape ( results[2] ) );
+  		else
+    			return null;
+	}
+
+        function GoAround( nskips, offset )
+        {
+            var str = GetCurrentPath();
+	        var cur = str.length-1;
+	        while ( cur>=0 && !IsNum(str.charAt(cur)) )
+		        cur--;
+	        for (var i=0; i<nskips; i++)
+	        {
+		        while ( cur>=0 && IsNum(str.charAt(cur)) )
+			        cur--;
+		        while ( cur>=0 && !IsNum(str.charAt(cur)) )
+			        cur--;
+	        }
+	        var start = cur;
+	        while ( cur>=0 && IsNum(str.charAt(cur)) )
+		        cur--;
+	        if ( cur <= 0 )
+	        {
+		        alert( 'Number not found' );
+		        return 0;
+	        }
+	        var pa = str.substring( 0, cur+1 );
+	        var pb = str.substring( cur+1, start+1 );
+	        var pc = str.substring( start+1, str.length );
+	        var pblen = pb.length;
+	        pb = ('' + ((1*pb) + (1*offset)));
+	        while ( pblen-1 >= pb.length )
+		        pb = '0' + pb;
+		PushHistory();
+	        SetCurrentPath(pa + pb + pc);
+	        SetCurrentIndex(pb);
+		}
+
+		var isActOnTouch = true;
+		function GoToPath() {
+			var to = document.getElementById('MyURL').value;
+			var from = document.getElementById('MyImage').src;
+			if ( ( to != from ) && ( to != "" ) )
+			{
+		    		document.getElementById('MyImage').src = to;
+				document.getElementById('MyURL').value = '';
+			}
+			else
+			{
+				if ( to == "" )
+				{
+					document.getElementById('MyURL').value = from;
+					document.getElementById('MyURL').size = 40;
+				}
+				else
+				{
+					document.getElementById('MyURL').value = '';
+					document.getElementById('MyURL').size = 3;
+				}
+			}
+		}
+
+		function myBorderWidth() { return 24; };
+		function myBorderHeight() { return 105; };
+		function storedWidth() { return document.body.clientWidth - myBorderWidth(); }
+		function storedHeight() { return document.body.clientHeight - myBorderHeight(); }
+		var isToggleWidth = true;
+
+
+
+		function ClickedImage(doToggle) {
+		    document.bgColor='black';
+		    if (!isActOnTouch) return;
+		    if ( isToggleWidth ) {
+
+		        var w = document.getElementById('MyImage').width;
+
+		        var t = w;
+		        w = storedWidth();
+		        //storedWidth = t;
+
+		        document.getElementById('MyImage').width = w;
+		        document.getElementById('MyImage').removeAttribute('height');
+		        //isToggleWidth = false;
+		    }
+		    else {
+
+		        var h = document.getElementById('MyImage').height;
+
+		        var t = h;
+		        h = storedHeight();
+		        //storedHeight = h;
+
+		        document.getElementById('MyImage').height = h;
+		        document.getElementById('MyImage').removeAttribute('width');
+		        //isToggleWidth = true;
+		    }
+		    if (doToggle)
+		    {
+		    	isToggleWidth = !isToggleWidth;
+		    }
+		    return false;
+		}
+
+    </script>
+    
+    <div align=right>
+
+
+        <button onclick="javascript:GoToPath()"><table width="62" height="62" ><tr><td>
+		-
+		</td></tr></table></button>
+         <button onclick="javascript:PopHistory();"><table width="62" height="62" ><tr><td>
+		^</td></tr></table></button>
+
+        <button onclick="javascript:GoAround( 1, -1 );"><table width="62" height="62" ><tr><td>
+		&lt;&lt;</td></tr></table></button>
+        <button onclick="javascript:GoAround( 1, 1 );"><table width="62" height="62" ><tr><td>
+		&gt;&gt;</td></tr></table></button>
+        <button onclick="javascript:GoAround( 0, -1 );"><table width="62" height="62" ><tr><td>
+		&lt;</td></tr></table></button>
+        <button onclick="javascript:GoAround( 0, 1 );"><table width="62" height="62" ><tr><td>
+		&gt;</td></tr></table></button>
+        <br/>
+
+         <input type=text id="MyIndex" size="1" />        
+        <input type=text id="MyURL" size="3" value="" />
+	<br/>
+<center>
+       <img id="MyImage"
+		onclick="ClickedImage(true)" onload="document.bgColor='black'"
+
+		src="http://www.lewcid.com/lg/lc/screens/Shuzzle_4.jpeg"
+		/>
+</center>
+
+    </font></div>
+
+	<div><p  align="center"><font color="white">
+	<script type="text/javascript">
+		var doDebug = false;
+		if ( doDebug )
+		{
+		document.write("test");
+
+		var str = GetCurrentPath();
+		document.write(str);
+	        var cur = str.length-1;
+	        while ( cur>=0 && !IsNum(str.charAt(cur)) )
+		{
+			document.write('<br>' + cur + " is " + "'" + str.charAt(cur) + "'");
+		        cur--;
+		}
+		}
+
+		var pageJump = window.location.href;
+		var argIndex = pageJump.indexOf("?");
+		if ( argIndex >= 0 ) {
+			var argPage = pageJump.substring( argIndex + 1 );			SetCurrentPath( argPage );
+		}
+	</script>
+	</font></p></div>
+
+    </body>
+</html><!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378797809" alt="setstats" border="0" width="1" height="1"></noscript>

@@ -1,0 +1,58 @@
+<xml standalone="true">
+  <material compile="inst1">
+    <inst name="inst25" type="FixedColor">
+      <setfloat member="Color" value="0.501960784313725, 0.250980392156863, 0.250980392156863, 0" />
+    </inst>
+    <inst name="inst24" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst23" type="TexturedColor">
+      <setinst member="Texture" inst="inst24" />
+      <setinst member="TexCoord" inst="inst4" />
+    </inst>
+    <inst name="inst22" type="CombinedColor">
+      <setinst member="First" inst="inst23" />
+      <setinst member="Second" inst="inst25" />
+    </inst>
+    <inst name="inst28" type="FixedColor">
+      <setfloat member="Color" value="1, 0, 0, 0" />
+    </inst>
+    <inst name="inst27" extends="PointLight" adds="PerPixelNormalizeDirection">
+      <setchannel member="Position" channel="LIGHT_1_POS" />
+      <setinst member="LightColor" inst="inst28" />
+    </inst>
+    <inst name="inst19" type="White" />
+    <inst name="inst18" extends="PointLight" adds="PerPixelNormalizeDirection">
+      <setchannel member="Position" channel="LIGHT_0_POS" />
+      <setinst member="LightColor" inst="inst19" />
+    </inst>
+    <inst name="inst17" type="White" />
+    <inst name="inst16" type="DiffuseLighting">
+      <setinst member="DiffuseColor" inst="inst17" />
+      <setarray member="DiffuseLights" insts="inst18,inst27" />
+    </inst>
+    <inst name="inst6" type="SumColors">
+      <setarray member="Colors" insts="inst16,inst22" />
+    </inst>
+    <inst name="inst5" type="FixedValue">
+      <setfloat member="Value" value="0.5" />
+    </inst>
+    <inst name="inst4" type="UVCoords">
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst3" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE1" />
+    </inst>
+    <inst name="inst2" type="TexturedColor">
+      <setinst member="Texture" inst="inst3" />
+      <setinst member="TexCoord" inst="inst4" />
+    </inst>
+    <inst name="inst1" extends="MyShader" adds="NormalMap">
+      <setinst member="BumpMap" inst="inst2" />
+      <setchannel member="TangentU" channel="TEXCOORD1" />
+      <setchannel member="TangentV" channel="TEXCOORD2" />
+      <setinst member="NormalWeight" inst="inst5" />
+      <setinst member="PixelColor" inst="inst6" />
+    </inst>
+  </material>
+</xml>

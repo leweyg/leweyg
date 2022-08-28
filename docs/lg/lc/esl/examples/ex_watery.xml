@@ -1,0 +1,58 @@
+<xml standalone="true">
+  <material compile="inst29">
+    <inst name="inst60" type="FixedValue">
+      <setfloat member="Value" value="1.2" />
+    </inst>
+    <inst name="inst59" type="FixedValue">
+      <setfloat member="Value" value="0.1" />
+    </inst>
+    <inst name="inst58" extends="ScreenXY" adds="AddRefraction">
+      <setinst member="RefractionScaler" inst="inst59" />
+      <setinst member="RefractionIndex" inst="inst60" />
+    </inst>
+    <inst name="inst56" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst55" type="TexturedColor">
+      <setinst member="Texture" inst="inst56" />
+      <setinst member="TexCoord" inst="inst58" />
+    </inst>
+    <inst name="inst42" type="RealCubicTexture">
+      <setchannel member="Cubic Texture" channel="CUBETEXTURE0" />
+    </inst>
+    <inst name="inst41" type="ReflectionColor">
+      <setinst member="EnvMap" inst="inst42" />
+    </inst>
+    <inst name="inst40" type="One" />
+    <inst name="inst39" type="Zero" />
+    <inst name="inst38" type="ReflectiveTwoTone">
+      <setinst member="BlendStart" inst="inst39" />
+      <setinst member="BlendEnd" inst="inst40" />
+      <setinst member="LowColor" inst="inst41" />
+      <setinst member="HighColor" inst="inst55" />
+    </inst>
+    <inst name="inst34" type="SumColors">
+      <setarray member="Colors" insts="inst38" />
+    </inst>
+    <inst name="inst33" type="FixedValue">
+      <setfloat member="Value" value="0.5" />
+    </inst>
+    <inst name="inst31" type="UVCoords">
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst32" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE1" />
+    </inst>
+    <inst name="inst30" type="TexturedColor">
+      <setinst member="Texture" inst="inst32" />
+      <setinst member="TexCoord" inst="inst31" />
+    </inst>
+    <inst name="inst29" extends="MyShader" adds="NormalMap">
+      <setinst member="BumpMap" inst="inst30" />
+      <setchannel member="TangentU" channel="TEXCOORD1" />
+      <setchannel member="TangentV" channel="TEXCOORD2" />
+      <setinst member="NormalWeight" inst="inst33" />
+      <setinst member="PixelColor" inst="inst34" />
+    </inst>
+  </material>
+</xml>

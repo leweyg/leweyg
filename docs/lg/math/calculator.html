@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Calculator - Interval Math - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+<td><a href="http://www.lewcid.com/lg/index.html"><img src="http://www.lewcid.com/lg/lewcid_icon_white.png" height="40"/></a></td>
+<td><a href="http://www.lewcid.com/lg/index.html">Lewcid.com</a></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#math">#math</a></center></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#1/28/2016">#1/28/2016</a></center></td>
+<td><center>(by <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#math">#math</a></center></td>
+	<td>(by <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+	<br/>
+    <h1><a href="index.html">Interval Math</a> - Calculator</h1><br/>
+    
+    <p>Expression<br/>
+
+      <script src="span.js"></script>
+        
+    <script>
+    	function AddToEval(txt) {
+    		MainEvalFrom.textContent = MainEvalFrom.textContent + txt;
+    	}
+    	function DoEval() {
+    		MainEvalError.textContent = '';
+    		try {
+    		    MainEvalTo.textContent = eval(MainEvalFrom.textContent);
+    		    MainEvalFrom.textContent = '';
+    		    MainEvalFrom.focus();
+    		} catch(exp) {
+    			MainEvalError.textContent = exp.toString();
+    			MainEvalTo.textContent = '';
+    			MainEvalFrom.focus();
+    		}
+    	}
+    	function EvalClear(dir) {
+    		MainEvalFrom.textContent = '';
+    	}
+    	function DoKeyCheck() {
+    	    if (window.event.keyCode == 13) // Enter key
+    	    {
+    	        var curTxt = MainEvalFrom.textContent;
+    	        curTxt = curTxt.replace('\n', '');
+    	        MainEvalFrom.textContent = curTxt;
+
+    	        DoEval();
+    	    }
+    	}
+    </script>
+    <textarea id="MainEvalFrom" rows="1" cols="30" onkeypress="DoKeyCheck()">10 + ( 4 * 4 )</textarea>
+    <button onclick="DoEval()">=&gt;</button>
+    <textarea id="MainEvalTo" rows="1" cols="30"></textarea>
+    <br/>
+    <label id="MainEvalError" textContent="" color="orange" /><br/>
+
+    
+    <table>
+    <tr>
+    	<td> <button onclick="AddToEval('1')">1</button> </td>
+    	<td> <button onclick="AddToEval('2')">2</button> </td>
+    	<td> <button onclick="AddToEval('3')">3</button> </td>
+    	<td> <button onclick="AddToEval('+')">+</button> </td>
+    	<td colspan="2"> <button onclick="DoEval()">=&gt;</button> </td>
+	</tr>
+	<tr>
+    	<td> <button onclick="AddToEval('4')">4</button> </td>
+    	<td> <button onclick="AddToEval('5')">5</button> </td>
+    	<td> <button onclick="AddToEval('6')">6</button> </td>
+    	<td> <button onclick="AddToEval('-')">-</button> </td>
+        <td>
+            <button onclick="AddToEval('(')">(</button>
+            <button onclick="AddToEval(',')">,</button>
+        </td>
+    	<td> <button onclick="AddToEval(')')">)</button> </td>
+	</tr>
+	<tr>
+    	<td> <button onclick="AddToEval('7')">7</button> </td>
+    	<td> <button onclick="AddToEval('8')">8</button> </td>
+    	<td> <button onclick="AddToEval('9')">9</button> </td>
+    	<td> <button onclick="AddToEval('+')">*</button> </td>
+        <td> <button onclick="AddToEval('span(')">span(,)</button> </td>
+        <td> <button onclick="AddToEval('exactly(')">exactly()</button> </td>
+	</tr>
+	<tr>
+    	<td> <button onclick="AddToEval('-')">-</button> </td>
+    	<td> <button onclick="AddToEval('0')">0</button> </td>
+    	<td> <button onclick="AddToEval('.')">.</button> </td>
+    	<td> <button onclick="AddToEval('/')">/</button> </td>
+    	<td colspan="2"> <button onclick="EvalClear()">CLR</button> </td>
+	</tr>
+	    </table>
+
+    </p>
+
+
+</body>
+</html>

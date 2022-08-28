@@ -1,0 +1,36 @@
+<html>
+<head><title>Affinity - Lewcid.com</title></head>
+<body>
+<font face="sans-serif">
+
+<div>
+<p align="left">
+<table border="1"><tr><td>
+<table border="0">
+<tr>
+	<td rowspan="1"><p valign="center" align="center"><a href="http://www.lewcid.com/">Lewcid.com</a><br/>Site-Cube</p></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_subject.html">Subject</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_subject.html#that">#that</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_time.html">Time</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_time.html#6/20/2006">#6/20/2006</a></center></td>
+<td><center>(this <a href="http://www.lewcid.com/lg/cube/by_place.html">Place</a>)<br/><a href="http://www.lewcid.com/lg/cube/by_place.html#download/">download/</a></center></td>
+	<td>(this <a href="http://www.lewcid.com/lg/aboutme.html">Lewey Geselowitz</a>)</td>
+</tr>
+</table>
+</td></tr></table>
+</p>
+</div>
+
+<div>
+<!-- begin page content -->
+
+<div id="content"><font size=3><table><tr><td>&nbsp;</td><td><h1>Affinity - Tool To Use Only One CPU</h1><p>Affinity is a small tool which can launch an application and restrict it to one CPU. Some older applications and games (such as the amazing <a href="http://www.irrationalgames.com/shock2/">System Shock 2</a>) don�t work properly on multi-processor systems, but if you restrict them to one CPU then they work fine. Some tools exist out there to set the affinity of an application while it is running (Windows Task Manager can do this), however this is a hassle, rather just drop the application that you want to execute onto Affinity and it�s done in a completely non-invasive way. The term �affinity� is the set of CPUs on which Windows lets an application run.</p><table bgcolor="#f0c0c0"><tr><td><center><a href="Affinity.exe"><font size=5><i>Affinity.exe</i></font></a></center><br><b>Platform: </b> Windows<br><b>Usage: </b> Drop an executable on Affinity to launch it on only one CPU<br></td></tr></table><br><table bgcolor="#f0c0c0"><tr><td><center><a href="SystemShock2.bat"><font size=5><i>SystemShock2.bat</i></font></a></center><br><b>Platform: </b> Windows<br><b>Usage: </b> Put this and Affinity.exe into your <a href="http://www.irrationalgames.com/shock2/">System Shock 2</a> folder, then run SystemShock2.bat. This will solve the multi-CPU / hyperthreading problem in a non-invasive way.<br><b>Note:</b> This file merely contains 'Affinity SHOCK2.EXE' <br></td></tr></table><br><p><b>How It Works</b><br>
+This a very simple app, the idea is that processor affinity is inherited by child processes; so Affinity sets it�s own affinity to only the first CPU, and then executes it�s argument, that simple. Here are the two core pieces of code (Win32 API for C); the first sets Affinity to run on only the first CPU, and the second executes the first argument to the app.
+	<br><pre>SetProcessAffinityMask( GetCurrentProcess(), 1 );
+ShellExecute( NULL, NULL, argv[1], NULL, NULL, SW_SHOWNORMAL );</pre></p><p><b>Running System Shock 2</b><br>
+I use Affinity to run System Shock 2 which makes it stable on multi-CPU or hyper-threaded systems. This means I can run the game using a simple script instead of starting it, switching to the Task Manager, setting the affinity and then switching back. Just download Affinity and the script below, put them in your System Shock 2 folder (probably C:/Sshock2/) and then execute the script to start playing. Optionally you can make a shortcut to the script file and use that (which is what I do).</p></td></tr></table></font>
+  </div>
+<!-- end page content -->
+</div>
+
+</font>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h1>Center for Computing History's<br/><font color="blue">
+  Interactive History of Programming
+</font></h1></center>
+<center><h2> #3. Interfaces</h2></center>
+
+<script type="text/javascript">
+  
+   function nameSymbol(buttonName)
+  {
+    switch (buttonName)
+    {
+    case '0':
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+      return "Num";
+    case "*":
+    case "/":
+    case "+":
+    case "-":
+    case "=":
+      return "Math";
+    }
+  return buttonName;
+  }
+  
+  function UpdateGameEntry(namePrefix,gamePrice,inBox,outBox,refBox,gradeBox,isNumber)
+  {
+    if (isNumber) { PressButton(namePrefix,'Clear',''); }
+    var inVal = inBox.value;
+    var parts = inVal.split(',');
+    for (var iter in parts)
+    {
+      if (!isNumber)
+      {
+        PressButton(namePrefix,parts[iter].trim());
+        }
+      else
+      {
+        var entry = parts[iter].trim();
+        var button = nameSymbol(entry);
+        var sub = (((entry==button)||(entry=='='))?'':entry);
+        //alert( button + ":" + sub );
+        PressButton(namePrefix,button,sub);
+      }
+    }
+    var pa = gamePrice.value;
+    outBox.value = pa;
+
+    if ((pa == refBox.value) || ((""+pa).trim() == refBox.value.trim()))
+    gradeBox.value = "== COMPUTED!";
+    else
+    gradeBox.value = "!=  (i.e. not equal)";
+    }
+    function UpdateSetN(namePrefix, nameEnding, isNumber)
+    {
+    var gamePrice = document.getElementById(namePrefix+'UIprice');
+    var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+    var gameOut = document.getElementById(namePrefix+'out'+nameEnding);
+    var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+    var gameGrade = document.getElementById(namePrefix+'grade'+nameEnding);
+
+    UpdateGameEntry(namePrefix, gamePrice, gameIn, gameOut, gameRef, gameGrade, isNumber);
+  }
+  function UpdateRandom(namePrefix,nameEnding,isNumber,valLow,valHigh,doFunc)
+  {
+  var r = "";
+  var ar = [];
+  if (isNumber)
+  {
+  for (var i=0; i!=3; i++)
+  {
+  ar[i] = Math.floor((Math.random()*(valHigh-valLow)) + valLow);
+  r += ar[i];
+  if (i!=2) r += ", ";
+  }
+  }
+  else
+  {
+  r = ((Math.random()>0.5)?valHigh:valLow);
+  ar = r.split(',');
+  for (var i in ar)
+  ar[i] = ar[i].trim();
+  }
+
+  var wr = doFunc(ar);
+
+  var gameIn = document.getElementById(namePrefix+'in'+nameEnding);
+  var gameRef = document.getElementById(namePrefix+'ref'+nameEnding);
+
+  gameIn.value = r;
+  gameRef.value = wr;
+  }
+  function UpdateGame(namePrefix,set1,set2,set3,isNumber)
+  {
+    var infoEntry = document.getElementById(namePrefix+'info');
+    //try
+    {
+      UpdateSetN(namePrefix,set1,isNumber);
+      UpdateSetN(namePrefix,set2,isNumber);
+      UpdateSetN(namePrefix,set3,isNumber);
+      infoEntry.value = '...';
+      infoEntry.alt = '...';
+    }
+    if(false)//catch(err)
+    {
+      infoEntry.value = err;
+      infoEntry.alt = err;
+    }
+  }
+
+  function PressButton(namePrefix,buttonName,buttonContent)
+  {
+    var btnCode = document.getElementById(namePrefix+'code'+buttonName);
+    var valDisplay = document.getElementById(namePrefix+'UIprice');
+    var infoDisplay = document.getElementById(namePrefix+'info');
+    
+    if (arguments.length==2)
+    {
+      var total = (1*valDisplay.value);
+      try
+      {
+      total = eval(btnCode.value);
+      valDisplay.value = total;
+      infoDisplay.value = "...";
+      }
+      catch(err)
+      {
+      infoDisplay.value = err;
+      }
+    }
+    else
+    {
+        var curDisplay = document.getElementById(namePrefix+'UItotal');
+        var opDisplay = document.getElementById(namePrefix+'UIop');
+        var showingDisplay = document.getElementById(namePrefix+'UIshowing');
+        var memDisplay = document.getElementById(namePrefix+'UImemory');
+
+        var current = ( valDisplay.value );
+        var total = ( curDisplay.value );
+        var op = opDisplay.value;
+        var showing = (showingDisplay.value=="true")?true:false;
+        var x = buttonContent;
+        var memory = memDisplay.value;
+        if (buttonName=="Math")
+        {
+          current = ( 1 * current );
+          total = ( 1 * total );
+        }
+        eval( btnCode.value );
+        
+        valDisplay.value = current;
+        curDisplay.value = total;
+        opDisplay.value = op;
+        showingDisplay.value = ((showing)?"true":"false");
+        memDisplay.value = memory;
+    }
+  }
+</script>
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/11288/Acorn-System-1/">
+          <img src="image9.jpg"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Some of the earliest computer interfaces were for cash registers,
+            can you fix the one below so that the prices and tax are correct?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+        
+        <table>
+  <tr>
+    <td>
+      <font color="blue">Interface</font>
+    </td>
+    <td colspan="2">
+      <table bgcolor="green">
+        <tr><td><center>
+          <input type="text" id="game1UIprice" value="0" disabled="true" />
+          <br/>
+          <input type="button" value="Burger" onclick="PressButton('game1','Burger')"/>
+          <input type="button" value="Salad" onclick="PressButton('game1','Salad')"/>
+          <input type="button" value="Drink" onclick="PressButton('game1','Drink')"/>
+          <br/>
+          <input type="button" value="Tax" onclick="PressButton('game1','Tax')"/>
+          <input type="button" value="Clear" onclick="PressButton('game1','Clear')"/>
+
+          </center></td></tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+      <font color="blue">Code: </font>
+    </td>
+    <td>Burger onClick=</td>
+    <td><input type="text" id="game1codeBurger" value="total += 5" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Salad onClick=</td>
+    <td><input type="text" id="game1codeSalad" value="total += 2" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Drink onClick=</td>
+    <td><input type="text" id="game1codeDrink" value="total += 1" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Tax onClick=</td>
+    <td>
+      <input type="text" id="game1codeTax" value="total *= 1.17" />
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Clear onClick=</td>
+    <td>
+      <input type="text" id="game1codeClear" value="total = 0" />
+    </td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td></td>
+    <td valign="bottom">
+      <input type="button" value="Test!" onclick="
+             UpdateGame('game1','1','2','3',false)" />
+    </td>
+    <td align="right"><input type="text" value="" align="right" id="game1info" disabled="true" size="30" /></td>
+    
+  </tr>
+</table>
+  <table>
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game1in1" value="Clear, Salad" disabled="true" /></td>
+  <td><input type="text" id="game1in2" value="Clear, Burger, Tax" disabled="true" /></td>
+  <td><input type="text" id="game1in3" value="Clear, Burger, Drink" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game1out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game1ref1" value="4"  disabled="true" /></td>
+  <td><input type="text" id="game1ref2" value="5.5" disabled="true" /></td>
+  <td><input type="text" id="game1ref3" value="6" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>comparison:</td>
+  <td><input type="text" id="game1grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game1grade3" value="" disabled="true" /></td>
+  </tr>
+
+  </table>
+  <br/>
+
+  <hr/>
+
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.computinghistory.org.uk/det/31474/The-Answer-Rockwell-Model-20R-Calculator/">
+          <img src="image8.jpg"/>
+        </a>
+      </td>
+      <td>
+        <p>
+          <i>
+            Electronic calculators, beautiful things, can you impliment the broken memory-set (M) and memory-recall (MR) buttons?
+          </i>
+        </p>
+      </td>
+    </tr>
+  </table>
+        <table>
+  <tr>
+    <td>
+      <font color="blue">Interface</font>
+    </td>
+
+    <td colspan="2">
+      <table>
+        <tr>
+          <td>
+      <table bgcolor="green">
+        <tr>
+          <td colspan="2">
+          </td>
+          <td colspan="2">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" align="right">
+            <input type="text" id="game2UIprice" size="15" value="" disabled="true" />
+          </td>
+          <td colspan="2">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="right"><input type="button" value="MR" onclick="PressButton('game2','MR','1')"/>
+          <input type="button" value="M" onclick="PressButton('game2','M','0')"/></td>
+          <td><input type="button" value="/" onclick="PressButton('game2','Math','/')"/></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="1" onclick="PressButton('game2','Num','1')"/></td>
+          <td><input type="button" value="2" onclick="PressButton('game2','Num','2')"/></td>
+          <td><input type="button" value="3" onclick="PressButton('game2','Num','3')"/></td>
+          <td><input type="button" value="*" onclick="PressButton('game2','Math','*')"/></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="4" onclick="PressButton('game2','Num','4')"/></td>
+          <td><input type="button" value="5" onclick="PressButton('game2','Num','5')"/></td>
+          <td><input type="button" value="6" onclick="PressButton('game2','Num','6')"/></td>
+          <td><input type="button" value="-" onclick="PressButton('game2','Math','-')"/></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="7" onclick="PressButton('game2','Num','7')"/></td>
+          <td><input type="button" value="8" onclick="PressButton('game2','Num','8')"/></td>
+          <td><input type="button" value="9" onclick="PressButton('game2','Num','9')"/></td>
+          <td><input type="button" value="+" onclick="PressButton('game2','Math','+')"/></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="C" onclick="PressButton('game2','Clear','0')"/></td>
+          <td><input type="button" value="0" onclick="PressButton('game2','Num','0')"/></td>
+          <td><input type="button" value="." onclick="PressButton('game2','Num','.')"/></td>
+          <td><input type="button" value="=" onclick="PressButton('game2','Math','')"/></td>
+        </tr>      
+      </table>
+            
+          </td>
+          <td>Internals:</td>
+          <td>
+            total:<br/>
+            <input type="text" id="game2UItotal" size="5" value="0" disabled="true" />
+      <br/>
+            op:<br/> <input type="text" id="game2UIop" size="5" value="" disabled="true" />
+            <br/>
+            showing:<br/> <input type="text" id="game2UIshowing" size="5" value="false" disabled="true" />
+            <br/>
+      memory:<br/> <input type="text" id="game2UImemory" size="5" value="0" disabled="true" />
+      <br/>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    <tr>
+      <td>      <font color="blue">Code: </font>
+</td>
+      <td>
+        <font color="blue">M onClick=</font>
+      </td>
+      <td>
+        <input type="text" size="30" id="game2codeM" value="memory = -3;" />
+      </td>
+    </tr>
+          <tr>
+            <td></td>
+            <td>
+              <font color="blue">MR onClick=</font></td>
+            <td>
+              <input type="text" size="30" id="game2codeMR" value=";" />
+            </td>
+          </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+    <td>Number onClick=</td>
+    <td>
+      <textarea cols="30" rows="7" id="game2codeNum">
+if (showing)
+{
+  current = '';
+  showing = false;
+}
+current = '' + current + x;
+      </textarea>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Math onClick=</td>
+    <td>
+      <textarea cols="30" rows="10" id="game2codeMath">
+if (op!='')
+{
+ if (current != '')
+ {
+  total=(''+total+op+current);
+  total = eval(total);
+  current = total;
+  showing = true;
+  op = x;
+ }
+ else
+ {
+  op = x;
+ }
+}
+else
+{
+  if (current != '')
+  {
+   total = current;
+  }
+  showing = true;
+  op = x;
+}
+      </textarea> </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Clear onClick=</td>
+    <td><input type="text" size="30" id="game2codeClear" value="total = 0; current = ''; op = ''; showing = false;" /></td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td></td>
+    <td valign="bottom">
+      <input type="button" value="Test!" onclick="
+             UpdateGame('game2','1','2','3',true)" />
+    </td>
+    <td align="right"><input type="text" value="" align="right" id="game2info" disabled="true" size="30" /></td>
+    
+  </tr>
+</table>
+  <table>
+
+<tr>
+  <td>input: x=</td>
+  <td><input type="text" id="game2in1" value="5,M,Clear,MR" disabled="true" /></td>
+  <td><input type="text" id="game2in2" value="1,+,2,=,M,5,*,MR,=" disabled="true" /></td>
+  <td><input type="text" id="game2in3" value="5,M,+,7,MR,1" disabled="true" /></td>
+  </tr>
+    <tr>
+  <td>output:</td>
+  <td><input type="text" id="game2out1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2out3" value="" disabled="true" /></td>
+  </tr><tr>
+  <td>expected:</td>
+  <td><input type="text" id="game2ref1" value="5"  disabled="true" /></td>
+  <td><input type="text" id="game2ref2" value="15" disabled="true" /></td>
+  <td><input type="text" id="game2ref3" value="1" disabled="true" /></td>
+  </tr>
+
+
+<tr>
+  <td>CCH Status</td>
+  <td><input type="text" id="game2grade1" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade2" value="" disabled="true" /></td>
+  <td><input type="text" id="game2grade3" value="" disabled="true" /></td>
+  </tr>
+</table>
+  <br/>
+  
+  
+  <hr/>
+  <center>
+    <a href="cch_ip_1.html">#1. Early Computing Uses</a>
+    <br/>
+    <a href="cch_ip_2.html">#2. Lots of Data</a>    <br/>
+    <br/>
+    <a href="http://www.computinghistory.org.uk/">Center for Computing History</a>
+  </center>
+
+</body>
+</html>

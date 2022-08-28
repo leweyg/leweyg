@@ -1,0 +1,155 @@
+<html xmlns:o>
+	<head>
+		<title>ESL - Extensible Shading Language</title></head>
+	<body>
+		<center>
+			<h1>ESL - Extensible Shading Language</h1>
+			<a href="http://www.lewcid.com/lg/lc/esl/">Homepage</a> - <a href="http://www.lewcid.com/lg/lc/esl/examples.html">
+				Examples</a> - <a href="http://www.lewcid.com/lg/lc/esl/myshader.html">MyShader.esl</a>
+		</center>
+		<br>
+		<hr>
+		<h2>Introduction</h2>
+		<p>ESL (pronounced like �easel�, the artists� platform) is a high level shading 
+			language, with a graph based / object-oriented design intended to solve the 
+			problems of large scale shader development. It combines a clean programming 
+			language with a flexible graph structure to allow game programmers, artists and 
+			engine developers to have more control over their shaders while focusing their 
+			attention on what makes each particular material shine.
+		</p>
+		<P>Current generation shading languages lack the kind of internal structural 
+			flexibility needed to create different versions, combinations and LODs of 
+			materials based on a material graph outline. For this many game engines and 
+			editors implement their own shader builder which takes their high level 
+			material representations and wrangles it into HLSL using specialized code. ESL 
+			replaces this complex proprietary system with a clean programmable compiler 
+			style solution which lets the developers write classes in a simple 
+			object-oriented shading language, the artists connect these objects in an 
+			intuitive fashion (or easily export them from Maya/Max), and then the game 
+			engine manages the compiler which translates these two into HLSL or another 
+			directly usable shading language. The key is an object oriented shading 
+			language with a clean high-level structure which easily compiles out so that 
+			the resulting shader is just as efficient as if written directly in HLSL 
+			without nice classes. In this way you get an extremely easy to create and 
+			evolve shader builder with tons of compiler optimizations which would takes 
+			ages to write into your own builder.
+		</P>
+		<h2>Language Doc</h2>
+		<p><a href="ESL.doc">The language doc</a> gives both overviews and details on the 
+			primary features included in ESL. This includes the design, implementation and 
+			philosophy behind each item. Because the ESL language is more of an extension 
+			to HLSL rather than a completely new language, the document only covers those 
+			features which are not present in HLSL or C#.</p>
+		<h2>Examples</h2>
+		<p>Here are a few examples of what you can easily do&nbsp;in ESL. For more 
+			examples, check out the <A href="examples.html">examples page</A>.</p>
+		<table bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic0.jpg"><IMG src="examples/pic0_small.jpg"></A></td>
+				<td>
+					<p>This is roughly the simplest shader you can write in ESL, it just multiplies the 
+						vertex position by the projection matrix and declares a float4 constant which 
+						is passed out as the pixel color. Keep in mind that ESL's syntax was designed 
+						as a hybrid between HLSL and C#.<A href="examples.html">Full description here</A>.</p>
+					<SPAN style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">class</SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"> 
+      HelloShader <SPAN style="COLOR: blue">adds</SPAN> 
+      IMaterial <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </SPAN>&lt;description="A very simple shader."&gt; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">{ 
+      <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">app</SPAN> <SPAN style="COLOR: blue">float4x4</SPAN> ProjMatrix : 
+      PROJECTION_MATRIX; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">user</SPAN> <SPAN style="COLOR: blue">attrib</SPAN> <SPAN style="COLOR: blue">float4</SPAN> RawPosition : 
+      POSITION &lt;uitype="position_model"&gt;; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">user</SPAN> <SPAN style="COLOR: blue">float4</SPAN> AmbientColor 
+      &lt;uitype="color"&gt;; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+						<o:p>&nbsp;</o:p>
+					</SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">float4</SPAN> ProjectedPosition = 
+      <SPAN style="COLOR: blue">mul</SPAN>( RawPosition, 
+      ProjMatrix ); <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">override</SPAN> <SPAN style="COLOR: blue">float4</SPAN> FinalPosition = 
+      ProjectedPosition; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN style="COLOR: blue">override</SPAN> <SPAN style="COLOR: blue">float4</SPAN> FinalColor = 
+      AmbientColor; <o:p></o:p></SPAN><br>
+					<SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">} 
+      <o:p></o:p></SPAN><br>
+					<P>&nbsp;</P>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table bgColor="lightgrey">
+			<tr>
+				<td><A href="examples/pic1.jpg"><IMG src="examples/pic1_small.jpg"></A>
+					<br>
+					<p>ESL is a fundamentally graph based language, shown to the right&nbsp;is an 
+						object graph which generates the shader seen above. This graph was created in 
+						the&nbsp;ESL_Designer visual editor and impliments a refracted screen oriented 
+						texture which fades into reflected reflected environment map for points which 
+						reflect at a strong angle. This is somewhat similar to the water shader in 
+						Half-Life 2. The point is that this complex effect could be quickly created 
+						from a number of small and easy to impliment classes.
+					</p>
+					<P><A href="examples.html">Full description here</A>, and see the <A href="myshader.html">
+							classes which make up this material here</A>.</P>
+				</td>
+				<td><IMG src="examples/code1.jpg">
+				</td>
+			</tr>
+		</table>
+		<center><h4><a href="examples.html">More Examples</a></h4>
+		</center>
+		<h2>Download</h2>
+		<table bgcolor="lightgrey">
+			<tr>
+				<td>
+					<h3>
+						<a href="ESL.zip">ESL.zip</a>
+					</h3>
+					<p>REQUIRES: <STRONG>.Net 1.1</STRONG>, <STRONG>DirectX 9.0c</STRONG>, and "<STRONG>DirectX 
+							for Managed Code</STRONG>". If FxViewer crashes when you try to open it, it 
+						probably means you don't have "DirectX for Managed Code". I've prepared a <A href="ManagedDX.zip">
+							small installer for it</A>, just un-zip and run dxsetup.exe, assuming you 
+						already have .Net 1.1 and DirectX 9.0c</p>
+					<P>This download contains:</P>
+					<P>ESL_Designer - An easy-to-use&nbsp;visual graph editor which uses the classes 
+						defined in an ESL file to generate a valid material and then exports it as an 
+						Fx shader (i.e. includes the ESL compiler). Most of the examples from the 
+						examples page are also included&nbsp;and can be loaded up and edited in the 
+						designer.</P>
+					<P>FxViewer - An example DirectX application which reads the Fx shader outputted by 
+						ESL_Designer and renders an object with that shader. It is an only very 
+						slightly modified DirectX SDK sample, intended to show that ESL can be used 
+						'under-the-hood' very easily.</P>
+					<P>Also includes: <a href="ESL.doc">ESL.doc</a>, System.esl and <a href="myshader.html">
+							MyShader.esl</a>
+					</P>
+					<P>PLEASE feel free to modify the classes in MyShader.esl by adding new ones or 
+						modifying the ones in there. Any changes you make to this file will show up in 
+						the designer and command line compiler. The internal compiler includes pretty 
+						good syntax and compiler errors (with name, line and column) and so you 
+						shouldn't have a hard time writing new code.</P>
+					<P>NOTE: This package does contain some of the example media from the DirectX SDK. 
+						Because this is not a publicly exposed webpage yet, I think that is okay for 
+						now.</P>
+				</td>
+				<td>
+					<CENTER>Screen shot of ESL_Designer:<br>
+					</CENTER>
+					<a href="examples/designer.jpg"><img src="examples/designer_small.jpg"></a></td>
+			</tr>
+		</table>
+		<h2>About</h2>
+		<p>ESL was designed and implimented by Lewey Geselowitz (me). Please keep in mind 
+			that this is still just a prototype so if you have any questions, suggestions 
+			or thoughts I would love to hear them. Feel free to contact me at <A href="mailto:lewey@ufl.edu">
+				lewey@ufl.edu</A>.</p>
+		<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P>Copyright 2006 Lewey Geselowitz</P>
+	</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378800243" alt="setstats" border="0" width="1" height="1"></noscript>

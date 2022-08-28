@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head><title>Crystal Math - Developer's Overview</title></head>
+
+<body>
+
+<center><table width=100%>
+<tr><td width=40%><font color=blue><h1>Crystal Math - <br>Developer's Overview</h1><font></td>
+<td align=right width=40%><h1>
+<a href="../../index.html"><font color=red>Ogre Industrial</font></a></h1></td></tr>
+</table></center>
+
+<center><table width=90%><tr><td>
+
+<h2>An intro to Crystal Math for developers:</h2>
+
+<b>NOTE:</b> This is a very rough version, written only because of the fair sized interest this project has gathered. Please excuse the horrible spelling, grammar, etc.<br><br>
+
+Last Updated: 7/15/2002 4:43 PM<br>
+For Version: 0.5.7<br><br>
+
+This document doesn't expain how to use <b>Crystal Math</b>, but instead gives a view of it's internal workings. First of all the basic unit in CM is the Var (Variable) which are created just like they are in many scripting languages (by using them, i.e. "a=5" creates a variable "a" if it doesn't exist, and then uses it). Each Var has a pointer to a Type, this is what holds the actual information about the variable, one of the most comonly used variables is the Real (for real number) this is a class derived from the Type class (NOTE: CM relies heavily on OOP). Although each Var has only one Type, you generally work mostly with Var* so that you can change the Type of the Var without having to change pointers from other places to that Var (thus you can have dynamic and changing types). Now another of the interesting aspects of CM is that the expression is a fundamental type, so when you type "a=b+3" what you are actually saying is that a is equal to the expression "b+3". Because of this CM is well suited to symbolic math (while most of the symbolic functions havn't been implimented yet, I've already written Simplify and Der which perfrom symbolic simplification and derivation (respectivly) ). Also, because of all these different types, it is neccasary to have a type casting mechanism where things can be cast from one type to another. For this we have the Get functions, for instance GetReal() which is a member of the Type class and is thus inherited by all the fundamental types. Within the Real class, GetReal() merely returns it'self, however, within the String class, GetReal() creates a new Real, sets it equal to what ever the string's value is, and return that. Because GetReal() (along with almost all Type functions) is virtual it will call the correct function based on the current Type. So in your code you put GetReal() and there is no need to write special code for each type. Another important aspect about the casting engine is that there really is no "compiler" in CM, take for instance the GUI where you type in a statement and it gives an answer, what really happens here is that you create a new String, you set it equal to the expression you wish to evaluate, and then you cast it into an Expression (i.e. GetExp() ), once you have an expression, you evaluate it with ( GetType(), get type either returns the Type itself or if an expression, evaluates it and returns the answer ), then display the answer. In this way the complex issue of compiling and executing is put entirely within the system, this makes the GUI very easy to write, and allows internal functions to use the compiler, which can be useful.<br><br>
+
+Another important aspect to consider when working with Crystal Math, is that <b>Expressions</b> consists of two things a pointer to a function (actually to a Func, which contains both the function and it's physical address) and a single Var* to use as the arguement. Functions that require multiple arguements set this single variable to a List, which is used to carry all the arguements. You would be surprise how much this simplifies things for you the coder. For instance, consider the compiler code, this is how you express a List "(a,b,c)" and this is a single arguement function "sin 90" and this is a multiple arguement function "nder(x^2,x,10)" as you can see it looks like a List is just being used as a single arguement. Of course some special code is used to handel "1 + 2" but that is just mixed around until it looks like this "+(1,2)".<br><br>
+
+By default, the expression system will translate "a+b+c" into "+(a,+(b,c))", which ease to use in some cases, but causes problems for symbolic operations where the order of the variables aren't important. For this reason that is the <b>opGroup</b> command (bound to "group" although I doubt a normal user will ever use it), this transfroms things like "+(a,+(b,c))" into "+(a,b,c)". You will notice it is used the opSimplify and the opDer function. Currently the only functions which are "grouped" are + and *. Also the - minus sign changes when being grouped. The original "a-b" is translated as "-(a,b)" and then grouped as "+(a,-b)". This has been shown to simplify the differentiation and simplification code and made it much more powerful. I am still debating translating "/(a,b)" into "*(a,/(1,b))" or possibly "*(a,inv(b))" and creating a function called "inv" which inverses the value.<br><br>
+
+One other advanced feature of Crystal Math is the <b>Rule system</b>. Which is a set of utilites to make creating symbolic math functions simple and easy. The basic unit is the Form (not like an HTML form, more like when you say "1+2" is in the form "U+V"), which is like a template for a variable. Each rules can specify how closly it has to match the given form (from Any, to SameType, to ExactSame), each From also includes "Extra" forms so that variables containing other variables can be matched to Forms (like a vector contains set of variables (as does a List), and an expression contains one variable). Thus you can specify a rule containing a List and give the example contents of that list, any variables matching that rule can then be used. Each rule also contains a list of conditions, which consist of functions for which must return a non-zero value is the condition is met (this is mainly used to allow for more exact rules). You perform most symbolic operations by passing the variable your working on to a RuleSet and it finds a rule that matches that situation (based on the form and the conditions). You can then use information that is bound to that rule to perform some operation on the variable. This may sound a little confusing, let me give an example: the function opSimplify, simplifies an equation (it's bound to "simp"). It does this by comparing the variable to the simplify RuleSet and finding matching rules, one rule such rule could be "U+0" which can be simplified to just "U" (Note: rules use a special compiler which I'll discuss later). So if you give it "(a*2)+0" it will change it into "(a*2)" that simple. Now to achieve this you need a language in which to express forms, now writing a full language like the standard one in Crystal Math requires a lot of work, and a huge compiler and such. However, writing a simple prefix notation only system is practically nothing, and the file CrystalMath05_Rules.h actually contains 2 such compilers. So if you wanted to express the rule "U+0" you would write "+(U,0)" (anyone familiar with LISP will find this easy to adapt to, the rest of you will probably have trouble with this at first). Now the Rule system itself is abstracted to a large extent to allow for a multitude of uses, so you still land up having to write a fair amount of code to bind your function to the Rule system. Anyway, I'd recomend you take a look at the simplify code in CrystalMath05_Rules.h, the symbolic differentiator also works using the Rule system.<br><br>
+
+Well I hope that gave you an idea of Crystal Math. While it is already a worthy replacement for the calculator in your quicklauch bar, it's true power is very soon to come with the full implimentation of the Rule system.<br><br>
+
+<b>Flow of Execution:</b><br>
+
+The following is a simple explanation of the flow of exection from user input to evaluation:
+<pre>
+the user enters: 1+sin(2)
+</pre>
+this enters into the program as a String, which is then cast into an Exp(ression) with GetExp(). In GetExp() it is first passed the GScript which compiles it into a series of quasi-assembly instructions (which consisting of 2 arguments, a function, and a somewhere to store the result:
+<pre>
+2 sin NULL -> __h1
+1 + __h1 -> __h2
+</pre>
+each of these is then used to create Expressions, first it makes a new expression whose name is __h1, this is an expression so it has a pointer to a function and an arguement. The function parts points to the function "sin" the argument part points to a new Real which is made an set to 2, you can take the second arguement to the sin function beign NULL to mean that there was infact only one argument. Then it moves onto the next ASM statement. In this case it also creates a new Expression, sets it's function pointer to "+" but the problem is now it has 2 arguements, where as the Expression class only has one argument pointer. So what you do is create a new variable of type List, in the list you put a new Real which is set to 1, and a pointer to the variable named __h1 (which was created earlier). So now you aim the argument pointer of the expression at this new List. In this way an expression can have multiple arguments with only one argument pointer (this helps in many other parts of the engie). So can sort of visualise this as below:
+<pre>
+Exp 
++ Name = "__h2"
++ Function = "+"
++ Argument = List
+             + (Real) 1
+             + Exp
+               + Name = "__h1"
+               + Function = "sin"
+               + Arguement = (Real) 2
+
+or, in prefix notation:
+
++ (1, sin 2)
+
+or, this is more of a direct way of showing how it's stored in Crystal Math:
+
+__h2
++ Type = Exp
++ Function = "+"
++ Argument = __h3
+
+__h3
++ Type = List
++ [0] = __h4
++ [1] = __h1
+
+__h4
++ Type = Real
++ Value = 1
+
+__h1
++ Type = Exp
++ Function = "sin"
++ Argument = __h5
+
+__h5
++ Type = Real
++ Value = 2
+</pre>
+So then you have this variable __h2 which contains the entire expression to be evaluated. So all you have to do is evaluate it. You do this by calling Exp::GetType() now at first it's going to call the opAdd function (because that is the function bound to the expression __h2). The argument to the function will be that List (which contained the 1 and __h1). In the add function it calls GetReal() for both list members and adds the value of each. When it calls GetReal() on the 1, it just returns itself. When it calls GetReal() for __h1 (the expression) it evaluates the expression and calls GetReal() on the answer. Of course the expression is "sin(2)" the answer is a Real and this is what is passed back to opAdd function. Which sums the two up, creates a new Real which is equal their total and returns that. You answer you see on the screen is a visualization of that variable. (the answer is 1.909297 by the way (in degrees mode) )<br><br>
+
+
+<b>GUIs:</b> while the real math work goes into the core, you can't use the core without a GUI, because of CM's fairly easy to impliment interface (all you really need is to enter some text, and be able to show the result and possibly errors, because the "compiler" is buildt into the system, no real special code is neccasary). First of all, there is a standard console interface which is written in totally OS independant C++ code (for any 32 bit system). Currently I've compiled it for Windows and Linux (NOTE: the Windows version does take advantage of what some characters look like in the Windows console, and make the equation visualizer look MUCH better). I've also written up a Win32 dialog based version, which is easy to use and learn because you can pretty much use the same keystrokes you use on a standard calculator (there is a place where can enter your own text, or click the buttons). There is also a KDE version on the way.<br><br>
+
+<b>How you can help:</b><br>
+Basically this is how the current system works, if you want to add something or change something, you send the change to me, and I add it to the next release. This way I can keep track of changes and make sure the we don't overlap each other and either rewriting parts of the code, or creating two different versions which aren't compatible with each other. The main things we are focusing on are add more functions (this would mean writing the function and working out the settings like precidence, script name, and such), and ehancing the currently existing functions (many of the currently implimented functions are really the bare minmum versions, I'm sure many of them could be made better and more flexible).<br><br>
+GUIs are also an area you can get into. Because of the system's fairly simple interface between the GUI and the engine, implimenting a new GUI is fairly easy. And as long as you follow the examples set forward in the console version, you can rest assured that all most all changes to the core won't affect your GUI and will simply blend in with the rest of the functions. So feel free to develop as many GUIs as you like, and we'd be glad to post them with the standard ones. Current GUIs: Windows (console version), Linux (console version), Win32 (dialog based version), and the KDE version is still being developed<br><br>
+If you would like to discuss any part of the program, to help you with your coding (or just out of interest), please feel free to contact me (Lewey Geselowitz) at <a href="mailto:ogrecorp@yahoo.com">OgreCorp@yahoo.com</a>. <br><br>
+
+
+<b>Developers Involved:</b><br>
+<i>Lewey Geselowitz</i> - Creator, and main programmer<br>
+<i>David Edelstein</i> - Numerous improvements regarding the scripting engine<br>
+<br>
+
+<table align="right" width=100%><tr align="right" width=100%"><td align="right" width=100%">
+<b>Credits:</b><br>
+Developed by <a href="../index.html">Ogre Industrial</a><br>
+Created by <a href="mailto:ogrecorp@yahoo.com">Lewey Geselowitz</a><br>
+Crystal Math at <a href="http://www.sourceforge.net/projects/crystalmath">Source Forge</a>
+</td></tr></table>
+</table>
+</body>
+
+</html>
+
+</td> </tr> </table> </body> </html><!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378798821" alt="setstats" border="0" width="1" height="1"></noscript>

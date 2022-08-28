@@ -1,0 +1,181 @@
+<html>
+
+<head>
+<title>Easy Coder</title>
+
+<script language="JavaScript">
+<!--
+
+function ShowCode(thecode)
+{
+	alert("code="+thecode);
+}
+
+function AddFunc(doc,func)
+{
+	doc.write("function "+func+"(farg) {return Math."+func+"(farg);}\n");
+}
+
+function IncludeMath(doc)
+{
+	AddFunc(doc,"sqrt");
+	AddFunc(doc,"sin");
+	AddFunc(doc,"cos");
+	AddFunc(doc,"tan");
+	AddFunc(doc,"log");
+}
+
+function RunCode(main,funcs,ispage,ismath, includemath)
+{
+         var doc=document;
+	if (ismath) 
+	{ 
+		main=("WriteLine(\"" + main + "\"); WriteLine(\" = \"+(" + main + "));"); 
+	}
+         doc.open();
+         doc.write("<HTML><HEAD><TITLE>"+"Output Page"+"</TITLE>");
+         doc.write("<script language=\"JavaScript\">" + funcs);
+	if (includemath) {
+		IncludeMath(doc); 
+	}
+         doc.write("function Write(str) {page_cout.value+=\"\"+str;}");
+         doc.write("function WriteLine(str) {page_cout.value+=\"\"+str+\"\\n\";}");
+         doc.write("function GetLine() {return page_cin.value;}");
+         doc.write("function TheMain() {" + main + "} </script></head>" );
+         if (ispage==false)
+         {
+			doc.write("<body>");
+         }
+         else
+         {
+			doc.write("<body onload=\"TheMain()\">");
+         }
+		 doc.write("<h3>Output:</h3><textarea id=\"page_cout\" cols=50 rows=15></textarea><br>");
+		 if (ispage==false)
+		 {
+			doc.write("<h3>Execute:");
+			doc.write("<input type=\"button\" value=\"Run\" onclick=\"TheMain()\" id=\"button\"1 name=\"button\"1></h3>");
+			 doc.write("<h3>Input:</h3><textarea id=\"page_cin\" cols=50 rows=3 ></textarea><br>");
+	     }
+         doc.write("</BODY></HTML>");
+         doc.close(); 
+}
+
+function Example_WordCount(tocode, tofunc)
+{
+	tofunc.value = "function NumWords(str)\
+\n{\
+\n  var count=0;\
+\n  if (str.length==0)\
+\n   return 0;\
+\n  for (i=0; i<str.length; i++)\
+\n  {\
+\n    if (str.substring(i,i+1)==\" \")\
+\n      count++;\
+\n  }\
+\n  return (count+1);\
+\n}";
+  tocode.value = "WriteLine(\"Information about the text in the Input area:\");\
+\nvar text = GetLine();\
+\nWriteLine(\"Number of Characters: \"+text.length);\
+\nWriteLine(\"Number of Words: \"+NumWords(text));" ;
+}
+
+function Example_Quadratic(tocode,isconsole)
+{
+	tocode.value="var a, b, c;\
+\na = prompt(\"Enter A from A*x^2 + B*x + C = 0\",1);\
+\nb = prompt(\"Enter B from A*x^2 + B*x + C = 0\",1);\
+\nc = prompt(\"Enter C from A*x^2 + B*x + C = 0\",1);\
+\nvar top = (b*b)-(4*a*c);\
+\nvar bottom = 2*a;\
+\nif (top >= 0)\
+\n{\
+\n  Write(\"Answer 1: \");\
+\n  WriteLine( ( (-b) + Math.sqrt(top) ) / bottom );\
+\n  Write(\"Answer 2: \");\
+\n  WriteLine( ( (-b) - Math.sqrt(top) ) / bottom );\
+\n}\
+\nelse\
+\n{\
+\n  WriteLine(\"imaginary answer\");\
+\n}";
+}
+
+function Example_HelloWorld(tocode,isconsole)
+{
+	if (isconsole)
+		tocode.value = "WriteLine(\"Hello World\");";
+	else
+		tocode.value = "alert(\"Hello World!\");";
+}
+
+function Example_Factorial(tocode,isconsole)
+{
+	tocode.value="var p = prompt(\"Factorial of What?\",5);\
+\nif (p==0)\
+\n{\
+\n  alert(\"!0 = 0\");\
+\n  return;\
+\n}\
+\nvar sum=1, i;\
+\nfor (i=1; i<=p; i++)\
+\n{\
+\n  sum *= i;\
+\n}";
+		tocode.value += "\nWriteLine(\"!\"+p+\" = \" + sum);";
+}
+
+-->
+</script>
+
+</head>
+
+<body>
+
+<h1>Easy Coder</h1>
+
+Write any neccasary auxilary functions here:<br>
+<textarea id="myfuncs" cols=50 rows=10></textarea>
+<br>
+Write the code that will go into your main function here:<br>
+<textarea id="mycode" cols=50 rows=10></textarea>
+<br>
+<input type="button" value="Run (Multiple)" onClick="RunCode(mycode.value,myfuncs.value,false,false,isincludemath.checked)">
+<input type="button" value="Run (Single)" onClick="RunCode(mycode.value,myfuncs.value,true,false,isincludemath.checked)">
+
+<br>
+<input type="checkbox" id="isincludemath" >
+Include Standard Math functions. So you can write sqrt instead of Math.sqrt<br>
+
+<br><br>
+<input type="text" id="mathfunc" value="5/6">
+<input type="button" value="Evaluate" onClick="RunCode(mathfunc.value,myfuncs.value,true,true,true)"><br>
+
+
+<br><br>
+<h3>Examples</h3>
+Here are a few examples to get you going with JavaScript:<br>
+NOTE: These are very simple examples, don't expect perfect code.<br>
+Console Examples (lets you write out to a text box, works like a console):<br>
+<input type="button" value="Hello World" onClick="Example_HelloWorld(mycode,true)"><br>
+<input type="button" value="Hello World (alert box version)" onClick="Example_HelloWorld(mycode,false)"><br>
+<input type="button" value="Factorial" onClick="Example_Factorial(mycode,true)"><br>
+<input type="button" value="Quadratic" onClick="Example_Quadratic(mycode,true)"><br>
+<input type="button" value="Word Count" onClick="Example_WordCount(mycode,myfuncs)"> - "Run (Multiple)" mode only!<br>
+
+<h3>Explanation</h3>
+This is just a simple little tool that lets you code quick algorithums from anywhere.
+I often find that I'm in class, or at someones house, and best way to solve something is with 
+a little code, but this can be a tricky to do as most people don't have a compiler installed.
+So this page gives you an on-the-go compiler using good old JavaScript running on your computer (it is not server side executed). Just type in your code above,
+hit the button and you get your results. Here is an explanation of the two different 'Run' buttons.<br>
+<b>Run (Single)</b> - Creates a new page and automatically runs the code<br>
+<b>Run (Multiple)</b> - Creates a new page with a button on it, click the button and it executes the function you wrote above. This also allows you to run the code multiple times without refreshing.<br>
+In both modes you can use the special <b>Write</b> and <b>WriteLine</b> functions which
+output text to a console looking thing above. Also the <b>GetLine</b> function gets whatever input is in the input area. This is great if you just need to get some quick output. Of course
+you can also just use the 'alert' or whatever functions from JavaScript.
+
+</body>
+
+</html>

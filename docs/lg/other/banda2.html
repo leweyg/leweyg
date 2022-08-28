@@ -1,0 +1,297 @@
+<html>
+<body>
+
+<br>
+<br>
+
+<script language="javascript">
+
+function showlast()
+{
+	//alert( "please" );
+	//alert( "[" +  history + "]" );
+	var cururl = document.location.href;
+	history.back();
+	var nurl = document.location.href;
+	history.forward();
+	
+	alert( "[" + nurl + "] [" + cururl + "]" );
+}
+
+</script>
+
+<input type="text" id="mytext" />
+
+<input type="button" onclick="showlast();" value="click me!" />
+
+<br>
+
+<a href="javascript:
+function GoUp()
+{
+	var str = document.location.href;
+	var i = str.lastIndexOf('/');
+	str = str.substring( 0, i );
+	document.location.href = str;
+}
+GoUp();
+">Up</a>
+
+<br>
+
+<a href="javascript:
+function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+function GoAround( nskips, offset )
+{
+	var str = document.location.href;
+	var cur = str.length-1;
+	while ( cur>=0 && !IsNum(str[cur]) )
+		cur--;
+	for (var i=0; i<nskips; i++)
+	{
+		while ( cur>=0 && IsNum(str[cur]) )
+			cur--;
+		while ( cur>=0 && !IsNum(str[cur]) )
+			cur--;
+	}
+	var start = cur;
+	while ( cur>=0 && IsNum(str[cur]) )
+		cur--;
+	if ( cur <= 0 )
+	{
+		alert( 'Number not found' );
+		return 0;
+	}
+	var pa = str.substring( 0, cur+1 );
+	var pb = str.substring( cur+1, start+1 );
+	var pc = str.substring( start+1, str.length );
+	var pblen = pb.length;
+	pb = ('' + ((1*pb) + (1*offset)));
+	while ( pblen-1 >= pb.length )
+		pb = '0' + pb;
+	document.location.href = pa + pb + pc;
+}
+GoAround( 1, 1 );
+">After >></a>
+
+<br>
+
+<a href="javascript:
+function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+function GoAround( nskips, offset )
+{
+	var str = document.location.href;
+	var cur = str.length-1;
+	while ( cur>=0 && !IsNum(str[cur]) )
+		cur--;
+	for (var i=0; i<nskips; i++)
+	{
+		while ( cur>=0 && IsNum(str[cur]) )
+			cur--;
+		while ( cur>=0 && !IsNum(str[cur]) )
+			cur--;
+	}
+	var start = cur;
+	while ( cur>=0 && IsNum(str[cur]) )
+		cur--;
+	if ( cur <= 0 )
+	{
+		alert( 'Number not found' );
+		return 0;
+	}
+	var pa = str.substring( 0, cur+1 );
+	var pb = str.substring( cur+1, start+1 );
+	var pc = str.substring( start+1, str.length );
+	var pblen = pb.length;
+	pb = ('' + ((1*pb) + (1*offset)));
+	while ( pblen-1 >= pb.length )
+		pb = '0' + pb;
+	document.location.href = pa + pb + pc;
+}
+GoAround( 0, 1 );
+">After -></a>
+
+<br>
+
+<a href="javascript:
+function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+function GoAround( nskips, offset )
+{
+	var str = document.location.href;
+	var cur = str.length-1;
+	while ( cur>=0 && !IsNum(str[cur]) )
+		cur--;
+	for (var i=0; i<nskips; i++)
+	{
+		while ( cur>=0 && IsNum(str[cur]) )
+			cur--;
+		while ( cur>=0 && !IsNum(str[cur]) )
+			cur--;
+	}
+	var start = cur;
+	while ( cur>=0 && IsNum(str[cur]) )
+		cur--;
+	if ( cur <= 0 )
+	{
+		alert( 'Number not found' );
+		return 0;
+	}
+	var pa = str.substring( 0, cur+1 );
+	var pb = str.substring( cur+1, start+1 );
+	var pc = str.substring( start+1, str.length );
+	var pblen = pb.length;
+	pb = ('' + ((1*pb) + (1*offset)));
+	while ( pblen-1 >= pb.length )
+		pb = '0' + pb;
+	document.location.href = pa + pb + pc;
+}
+GoAround( 0, -1 );
+"><- Before</a>
+
+<br>
+
+<a href="javascript:
+function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+function GoAround( nskips, offset )
+{
+	var str = document.location.href;
+	var cur = str.length-1;
+	while ( cur>=0 && !IsNum(str[cur]) )
+		cur--;
+	for (var i=0; i<nskips; i++)
+	{
+		while ( cur>=0 && IsNum(str[cur]) )
+			cur--;
+		while ( cur>=0 && !IsNum(str[cur]) )
+			cur--;
+	}
+	var start = cur;
+	while ( cur>=0 && IsNum(str[cur]) )
+		cur--;
+	if ( cur <= 0 )
+	{
+		alert( 'Number not found' );
+		return 0;
+	}
+	var pa = str.substring( 0, cur+1 );
+	var pb = str.substring( cur+1, start+1 );
+	var pc = str.substring( start+1, str.length );
+	var pblen = pb.length;
+	pb = ('' + ((1*pb) + (1*offset)));
+	while ( pblen-1 >= pb.length )
+		pb = '0' + pb;
+	document.location.href = pa + pb + pc;
+}
+GoAround( 1, -1 );
+"><< Before</a>
+
+<br>
+<br>
+
+<a href="javascript:
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + '=';
+    var begin = dc.indexOf('; ' + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    } else {
+        begin += 2;
+    }
+    var end = document.cookie.indexOf(';', begin);
+    if (end == -1) {
+        end = dc.length;
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+}
+document.cookie = 'lewskip=' + document.location.href + '; path=/;';
+alert( 'lewskip = ' + getCookie('lewskip') );
+" >Note Current</a>
+
+<a href="javascript:
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + '=';
+    var begin = dc.indexOf('; ' + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    } else {
+        begin += 2;
+    }
+    var end = document.cookie.indexOf(';', begin);
+    if (end == -1) {
+        end = dc.length;
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+}
+alert( 'lewskip = ' + getCookie('lewskip') );
+" >Show Current</a>
+
+<br><br>
+
+<a href="javascript:
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + '=';
+    var begin = dc.indexOf('; ' + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    } else {
+        begin += 2;
+    }
+    var end = document.cookie.indexOf(';', begin);
+    if (end == -1) {
+        end = dc.length;
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+}
+function IsNum(c) { return ((c >= '0') && (c <= '9')); }
+function LewGoNext()
+{
+	var curpage = document.location.href;
+	var prevpage = getCookie('lewskip');
+	curpage = unescape( curpage );
+	var i=0;
+	while ((i<curpage.length) && (curpage[i]==prevpage[i]))
+		i++;
+	if ( i >= curpage.length )
+	{
+		alert( 'Pattern not found' );
+		return;
+	}
+	var start = i;
+	while ( IsNum(curpage[start]) )
+		start--;
+	var end = i;
+	while ( IsNum(curpage[end]) )
+		end++;
+	var pa = curpage.substring( 0, start+1 );
+	var pb = curpage.substring( start+1, end );
+	var pbp= prevpage.substring( start+1, end );
+	var pc = curpage.substring( end, curpage.length );
+	
+	var pblen = pb.length;
+	
+	pb = '' + ((1*pb) + ((1*pb) - (1*pbp)));
+	while ( pblen > pb.length )
+		pb = '0' + pb;
+		
+	document.cookie = 'lewskip=' + document.location.href + '; path=/;';
+	document.location.href = pa + pb + pc;
+}
+LewGoNext();
+" >Go Next</a>
+
+<a href="javascript:
+function GoToImageBrowser(){
+   var curPage = document.location.href;
+   document.location.href = 'http://www.lewcid.com/lg/other/image_browser.html?' + curPage;
+} GoToImageBrowser();
+">Image Browser</a>
+
+</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://l.yimg.com/d/lib/smb/js/hosting/cp/js_source/whv2_001.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1378799321" alt="setstats" border="0" width="1" height="1"></noscript>

@@ -1,0 +1,57 @@
+<xml standalone="true">
+  <material compile="inst0">
+    <inst name="inst14" type="FixedColor">
+      <setfloat member="Color" value="1, 0, 0, 0" />
+    </inst>
+    <inst name="inst16" type="White" />
+    <inst name="inst15" type="DirectionalLight">
+      <setchannel member="LightDirection" channel="LIGHT_1_DIR" />
+      <setinst member="LightColor" inst="inst16" />
+    </inst>
+    <inst name="inst13" type="SpecularLighting">
+      <setfloat member="SpecularPower" value="32" />
+      <setarray member="SpecularLights" insts="inst15" />
+      <setinst member="SpecularColor" inst="inst14" />
+    </inst>
+    <inst name="inst9" extends="White" adds="PerPixelNormals" />
+    <inst name="inst11" type="FixedValue">
+      <setfloat member="Value" value="1" />
+    </inst>
+    <inst name="inst10" type="FixedValue">
+      <setfloat member="Value" value="0.7" />
+    </inst>
+    <inst name="inst8" extends="DirectionalLight" adds="FocusLight">
+      <setinst member="MinFactor" inst="inst10" />
+      <setinst member="MaxFactor" inst="inst11" />
+      <setchannel member="LightDirection" channel="LIGHT_0_DIR" />
+      <setinst member="LightColor" inst="inst9" />
+    </inst>
+    <inst name="inst7" type="FixedColor">
+      <setfloat member="Color" value="0, 1, 0, 0" />
+    </inst>
+    <inst name="inst6" type="DiffuseLighting">
+      <setinst member="DiffuseColor" inst="inst7" />
+      <setarray member="DiffuseLights" insts="inst8" />
+    </inst>
+    <inst name="inst5" type="SumColors">
+      <setarray member="Colors" insts="inst6,inst13" />
+    </inst>
+    <inst name="inst3" type="UVCoords">
+      <setchannel member="UVCoord" channel="TEXCOORD0" />
+    </inst>
+    <inst name="inst4" type="RealTexture">
+      <setchannel member="Texture" channel="TEXTURE0" />
+    </inst>
+    <inst name="inst2" type="TexturedColor">
+      <setinst member="Texture" inst="inst4" />
+      <setinst member="TexCoord" inst="inst3" />
+    </inst>
+    <inst name="inst1" type="CombinedColor">
+      <setinst member="First" inst="inst2" />
+      <setinst member="Second" inst="inst5" />
+    </inst>
+    <inst name="inst0" extends="MyShader" adds="PerPixelNormals" >
+      <setinst member="PixelColor" inst="inst1" />
+    </inst>
+  </material>
+</xml>

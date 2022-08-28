@@ -1,0 +1,129 @@
+<xml version="1.0" standalone="yes">
+
+<page output="other/index.html" title="Other Stuff">
+	<header value="Other Stuff" />
+	<descrip value="This is a small collection of stuff that really doesn't fit into the other categories on my site. Mostly it's stuff that isn't a software program I've work on, it's one of the other things (though little they may be)." />
+	<tabletapp name="Pentop" link="http://www.leweyg.com/other/pentop.html" descrip="An amazing device you attach to your arm while using your Tablet PC in laptop mode. With a flick of your wrist your tablet's pen shoots into your hands from it's place on your arm, and you go from typing on your keyboard to writing on the screen (in under a second with no effort at all). The pen then folds back away with another flick of your wrist and your back to typing!<br><br>Note: This is just one of my crazy ideas, it doesn't actually exist." pic="Pentop_logo.jpg" />
+	<tabletapp name="Easy JS" link="http://www.leweyg.com/other/easyjs.html" descrip="Need to code a quick algorithm to find a number? Don't feel like firing up your massive IDE just to write 3 lines of code? Why not used your browser's built in JavaScript interpreter! Easy JS is simply a web page where you enter JavaScript code, then hit a button and it's made into another page and executed. It also includes a fiarly powerful equation evaluator (JavaScript based) and will run from any web browser." />
+	<tabletapp name="Lazy Ink" link="http://www.leweyg.com/other/lazyink.html" descrip="Imagine you have stuck up one of those letters people put on their houses and only put in the last screw; as you let go of the letter it will swing back and forth on that screw and then finally stop once it has run out of energy. This is exactly what Lazy Ink does, only with any 'ink' you draw. Really this is just a silly little graphics idea I couldn't resist implimenting." pic="http://www.leweyg.com/other/LazyInk_2_small.jpeg" />
+</page>
+
+<page output="other/lazyink.html" title="Lazy Ink">
+	<header value="Lazy Ink<br>Ink that has just given up" />
+	<subblock>
+		<descrip value="While messing around with the Tablet SDK, I for some reason kept thinking what it would look like if as you wrote, your ink just sort of 'flopped' and fell as though it couldn't hold onto the screen any more. Now considering that Ink already has that handy matrix tranformation system this seemed a really easy effect to create (and I was right, it didn't take long at all). The result is 'Lazy Ink', which lets any ink you have drawn 'hang' from the last point in the stroke and swing around until it finally balances itself out. <b>To picture this imagine you have stuck up one of those letters people put on their houses and only put in the last screw; as you let go of the letter it will swing back and forth on that screw and then finally stop once it has run out of energy. This is exactly what Lazy Ink does.</b>" />
+		<descrip value="Despite this being a very silly idea, what I hope is that people will put it into their other applications. For instance in a child's learning game (such as <a href=\"http://www.jumpingminds.com/mathpractice.htm\">MathPractise</a>), if the child enters the wrong answer the letters could sort of 'flop' down as if they were sad. Or I personally would love to see some professional programmer put this into his code, tell his boss to use the app, and get all shocked and say the boss 'broke the ink' when the text starts hanging down. And of course right now I'm actually using fake physics to make the ink look like it's hanging down, but if anyone had the time they could impliment a full 'rope physics' simulation so that the entire stroke acted as a pieces of string and unraveled as it fell." />
+	</subblock>
+
+	<pic value="LazyInk.gif" note="Thanks goes to Loren of <a href=\"http://www.tabletpcpost.com\">Tablet PC Post</a> for this great animation<br>" />
+
+	<table>
+		<thumb value="LazyInk_0" note="Normal" />
+		<newcol />
+		<thumb value="LazyInk_2" note="Lazy" />
+	</table>
+		<descrip value="The screenshot above doesn't really do the demo justice as it is meant to be animated. I recomend you just download it and check it out until I get one of those animated GIF creators." />
+	<subblock title="Downloads">
+		<file name="LazyInk.exe" requires="Tablet PC OR Windows<br>with .Net Framework and 'Windows Journal' update" note="Very silly" />
+		<file name="LazyInk_src.zip" note="The C# source code for Lazy Ink" requires="Tablet PC SDK, Visual Studio .Net" />
+		<descrip value="Give me a yell if you have any questions/complaints. <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a>" />
+		<typeoftablet />
+	</subblock>
+</page>
+
+<page output="other/pentop.html" title="Pentop">
+	<header value="Pentop" />
+	<header value="Using the full power of your Tablet PC's pen while in laptop mode" />
+
+	<descrip value="Note: This is just one of my crazy ideas and doesn't actually exist. But rest assured, it would be really cool if it did!" />
+
+	<descrip value="Also have a look at <a href=\"http://blog.monstuff.com/archives/000106.html#\">Dumky's</a> great suggestion for a very cheap and effective alternative to the Pentop (albeit less Batman-like) which only requires an elastic band" />
+
+	<descrip value="I love my Tablet PC, but the fact is that I'm a programmer, and as such will doubtfully ever give up my keyboard and write code using a pen. So I pop my tablet into \"laptop\" mode (with the screen facing the right way) and I code away. But now when I want to drag some text around or what-have-you, I have three choices: use my touchpad (which is fine for occasionally pressing buttons, but try dragging an icon or block of text across the screen and it's more art than science), or I could plug in my mouse and use that, which means moving my hand over to the mouse doing something and then moving it back, or I could reach over, pick up my pen, write on the screen and put it back, that’s twice the amount of work as using the mouse! This to me is way too long to perform some simple operation like move some code around. The fact is that I want to use my keyboard for entering text, and my pen for doing what would normally be done on a mouse (because the pen based interface is quite nice to use if it weren’t for the lack of a keyboard or third arm). However, hope is not lost! I have found a way that while you are into laptop mode, you can use the Tablet's pen in a manner that is faster AND easier than the mouse or touch pad. I present to you the Pentop!" />
+
+	<descrip value="Consider the diagram below. This is what you look like as your working on any laptop:" />
+
+	<pic value="Pentop_laptop.jpg" />
+
+	<descrip value="Now consider what you look like when you’re using the pen while still in laptop mode:" />
+
+	<pic value="Pentop_tablet.jpg" />
+
+	<subblock>
+	<descrip value="Looking at it this way, the answer became so clear to me: a pen holder attached to your arm which shoots out when you need to use it (Batman style). Consider the diagram below and read to see how the system would work:" />
+
+	<pic value="Pentop_steps.jpg" />
+
+<descrip value="
+<b>1.</b>	This is you as your normally typing on your keyboard.<br>
+<b>2.</b>	You raise your hand so that it’s perpendicular to your arm (or some angle close to that).<br>
+<b>3.</b>	This raising of your wrist releases a switch and the pen shoots out to meet your hand from its resting position on your arm, and you easily take hold of it.<br>
+<b>4.</b>	You then write with the pen as you normally would.<br>
+<b>5.</b>	Now bend your hand down and this pulls a string which retracts the pen back onto your arm.<br>
+<b>6.</b>	You continue typing." />
+</subblock>
+
+<descrip value="As you can see, you can go from typing on the keyboard to using your pen in I’d say ¼ to ½ of a second! Now that’s what I’m talking about! You see when you use your pen while in laptop mode, your wrist is bent up anyway to write on the screen, this acts as the perfect trigger for when to fire the pen. Then the simple movement of bending your wrist the other way puts it away again (again maybe a ½ second here) nicely, neatly and quickly." />
+
+<descrip value="The device would be mounted to your forearm, and could be easily built using a couple strings, wires and a few runners. It would have to hold the pen a fair bit above your arm, and would be loosely connected by a few cords when you were writing to prevent limiting your range too much. If you were cheap you could even used a fixed-in-place one (without any moving parts), but it wouldn’t have that cool Batman feel to it. " />
+
+<descrip value="The way I see it, although I love that the pen is there, I honestly don’t use it that much! Which is sad, because I think it’s a really great tool. If I had this arm device, I think I’d use the pen a lot more as it would be a major improvement in almost every regard compared to the mouse, and wouldn’t loose any of the amazing power of the keyboard. The one last thought to mention here is that this would be a really cool gismo to show to your techy friends. I mean it looks like something a spy would use, it brings back memories of wrist based gun-holders in movies, and it uses the Tablet. Can you get cooler than that?" />
+
+<descrip value="So if anyone out there is interested in building such a thing, feel free to contact me as I I’d love to help with it’s design which I have pretty much planned out (not that it’s very complex). Not to mention that I’d just love to have one of these things for myself. Or if you just liked the idea, give me a yell and we’ll try to get together a little tablet lobby." />
+
+<descrip value="- Lewey - <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a>" />
+
+<typeoftablet>
+	<raw value="<p><a href=\"http://www.leweyg.com/tabletpc.html\">More Of My Tablet PC Applications...</a></p>" />
+</typeoftablet>
+
+</page>
+
+<page output="other/easyjs.html" title="Easy JS" inheaderfile="other/ejs_header.txt" >
+<header value="Easy JS" />
+<descrip value="Need to code a quick algorithm to find a number? Don't feel like firing up your massive IDE just to write 3 lines of code? Why not used your browser's built in JavaScript interpreter! Thats exactly what this page does, simply type your code into the boxes provided, press the button and a new page is created which lets you quickly execute your code.<br><br>This is great for those times when you want to write a short function but are on a computer without a compiler. JavaScript is a great C-syntax-family  language and lets you get the job done quickly and easily. There are examples below the main work area, and a fuller explanation of how this page works, if your interested in how JavaScript itself works, there are many greats sites out there (most of them deal with it for use in web page creation, here I'm using it as just a simple scripting language). I hope you enjoy this little tool. <b>Technical note:</b> Easy JS simply creates a webpage with your code on it and gives it to your browser to display. This is all done locally (i.e. no server side involvement) so you can copy this page to your computer and use it there if you like. All interpreting, processing, garbage collection, etc. is done by your JavaScript interpret, my code just hands stuff over to it, so I shouldn't really get any credit." />
+<subblock>
+	<include value="other/ejs_ui.txt" />
+</subblock>
+
+<header value="Explanation" />
+<descrip value="
+This is just a simple little tool that lets you code quick algorithums from anywhere.
+I often find that I'm in class, or at someones house, and the best way to solve something is with 
+a little code, but this can be a tricky to do as most people don't have a compiler installed.
+So this page gives you an on-the-go compiler using good old JavaScript running on your computer (it is not server side executed). Just type in your code above,
+hit the button and you get your results. Here is an explanation of the two different 'Run' buttons.<br><br>
+<b>Run (Single)</b> - Creates a new page and automatically runs the code<br>
+<b>Run (Multiple)</b> - Creates a new page with a button on it, click the button and it executes the function you wrote above. This also allows you to run the code multiple times without refreshing.<br><br>
+In both modes you can use the special <b>Write</b> and <b>WriteLine</b> functions which
+output text to a console looking thing above. Also the <b>GetLine</b> function gets whatever input is in the input area. This is great if you just need to get some quick output. Of course
+you can also just use the 'alert' or whatever functions from JavaScript." 
+/>
+<descrip value="I wrote this page pretty quickly one day, and it's really just here as a convenience to me, if you find it useful that's great. If you have any questions for comments, send me an email at <a href=\"mailto:lewey@leweyg.com\">lewey@leweyg.com</a>." />
+
+</page>
+
+<page output="other/banda.html" title="Easy Browsing - Before and After Buttons" >
+	<header value="Easy Browsing:<br>Before and After Buttons" />
+	<descrip value="Simply drag these links into your 'Links' bar and then use them as buttons. When you click on them, they will take you to the next numbered page or file. For instance if you're on a page called MyScreenShot009.jpeg it will take you to MyScreenShot010.jpeg and so forth. This lets you easily and quickly browse through numbered files either on your computer or on the web. Plus they work on most browsers (tested on Internet Explorer 6.0, Netscape 4.0 and Safari 1.0, and should work on other versions as well)" />
+	<subblock title="Installing (very easy)">
+		<descrip value="To install these buttons, all you have to do is drag them into your 'Links' bar, and that is it! They will be installed and will stay there until you delete them. It's that easy. If you don't like them, just right-click and 'delete' them." />
+	<table align="center" >
+		<descrip value="This button lets you go into the containing folder, this is just for people who don't have the 'Up' button on the Google Toolbar" />
+		<newcol align="center" />
+		<descrip value="This button takes you to the file numbered before the current files, that is from MyFile010.html to MyFile009.html" />
+		<newcol align="center" />
+		<descrip value="This button takes you to the file numbered after the current file, that is from MyFile9.html to MyFile10.html" />
+		<newrow />
+		<include value="other/BAcode.txt" />
+	</table>
+	</subblock>
+	<subblock title="Test it out!">
+		<descrip value="Now that you have the buttons, try testing them out, the following is a link to page10.html, you will notice that you can easily go between the different numbers using the buttons, this same method will work on any webpage or file, and there is nothing special about these pages (sorry they are boring I know, but they serve their purpose)." />
+		<descrip value="Oh and testing them out on this current page won't do you much good as there are no numbers in the address, sorry." />
+		<link name="page10.html" to="bandatest/page10.html" descrip="try it out" />
+	</subblock>
+	<descrip value="If you try these out I'm sure you will find they help quite often in every-day browsing and can make searching through long indexed systems alot easier and less painful." />
+</page>
+
+</xml>
