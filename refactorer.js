@@ -127,18 +127,20 @@ function isDropLink(str) {
     return false;
 }
 
-function findLinksInFile(path) {
+function findLinksInFile(path,full_list=null) {
     var text = "" + fileReadWhole(path);
     var parts = text.split("\"");
     var ans = [];
     var nextIsLink = false;
     for (var p in parts) {
         var str = parts[p];
-        if (nextIsLink || isStringALink(str))
+        var isLink = (nextIsLink || isStringALink(str)) && (!isDropLink(str));
+        if (isLink)
         {
-            if (!isDropLink(str)) {
-                ans.push(str);
-            }
+            ans.push(str);
+        }
+        if (full_list) {
+            full_list.push({text:str,link:isLink});
         }
         nextIsLink = isNextALink(str);
     }
@@ -152,6 +154,14 @@ function showLinks(path) {
         var to = pathFromOriginal(links[i], path);
         console.log("to='" + to + "' Link='" + links[i] + "' ");
     }
+}
+
+function refactorFile(path) {
+    // todo
+    var fullText = [];
+    findLinksInFile(path, fullText);
+    fs.createWriteStream('test.txt');
+    // loop over full text and write it out etc.
 }
 
 showLinks("lg/index.html");
