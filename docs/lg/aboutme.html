@@ -6,9 +6,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-	.firsts_link { color:blue; text-decoration: underline; }
-       .platform_target { color:lightgreen }
-       .white_link { color:white }
+	.firsts_link { 
+		color:white;
+		text-decoration: underline;
+	}
+	.platform_target { color:lightgreen }
+	.white_link { color:white }
 </style>
 </head>
 <body style="font-family:sans-serif; font-size:3;padding:0; margin:0;background-color:white;">
@@ -50,13 +53,6 @@ Specialist in spatial user interfaces.
 		el.scrollIntoView({behavior:'smooth',inline:'start'});
 	}
 </script>
-Products from 
-<span class="firsts_link" onclick="scrollToFirstElement(first_tesla);" >Tesla</span>,
-<span class="firsts_link" onclick="scrollToFirstElement(first_unity);" >Unity</span>,
-<span class="firsts_link" onclick="scrollToFirstElement(first_lewcid);" >consulting</span>,
-<span class="firsts_link" onclick="scrollToFirstElement(first_lucasfilm);" >Lucasfilm</span>,
-<span class="firsts_link" onclick="scrollToFirstElement(first_microsoft);" >Microsoft</span> and
-<span class="firsts_link" onclick="scrollToFirstElement(first_hypercube);" >HyperCube</span>,
 </p>
 
 
@@ -106,6 +102,18 @@ Products from
 <tr><td>
 <table>
 <tr><td colspan="5"><b><font color="white" size="5">PRODUCTS <br/> </font></b></td></tr>
+<tr><td colspan="6">
+	Scroll to prodcuts by
+	<font color="white">
+		<span class="firsts_link" onclick="scrollToFirstElement(first_tesla);" >Tesla</span>,
+		<span class="firsts_link" onclick="scrollToFirstElement(first_unity);" >Unity</span>,
+		<span class="firsts_link" onclick="scrollToFirstElement(first_lewcid);" >Consulting</span>,
+		<span class="firsts_link" onclick="scrollToFirstElement(first_lucasfilm);" >Lucasfilm</span>,
+		<span class="firsts_link" onclick="scrollToFirstElement(first_microsoft);" >Microsoft</span> and
+		<span class="firsts_link" onclick="scrollToFirstElement(first_hypercube);" >HyperCube</span>
+	</font>
+	<br/>
+</td></tr>
 
 <tr>
 	<td colspan="3" id="first_tesla"><a href="https://www.tesla.com/" class="white_link">@Tesla.com</a></td>
