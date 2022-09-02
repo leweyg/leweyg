@@ -183,20 +183,41 @@ function categorizeCells() {
     fs.writeFileSync("timeline.json",rawJson);
 }
 
+function groupByCallback(ar,callback) {
+    var ans = {};
+    for (var i in ar) {
+        var item = ar[i];
+        var key = item ? callback(item) : "";
+        if (key in ans) {
+            ans[key].push(item);
+        } else {
+            ans[key] = [ item ];
+        }
+    }
+    return ans;
+}
+
 function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
+    var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
-    for (var i in cells) {
-        var cell = cells[i];
-        lines += cellToHtml(cell);
-        
+    for (var groupName in groups)
+    {
+        lines += "<h3>" + groupName + "</h3>";
+        var cellList = groups[groupName];
+        for (var i in cellList) {
+            var cell = cellList[i];
+            lines += cellToHtml(cell);
+            
+        }
     }
+
     fs.writeFileSync("docs/lg/test.html", lines);
 }
 
 //collectCells();
-categorizeCells();
-//updateCells();
+//categorizeCells();
+updateCells();
 
 
 
