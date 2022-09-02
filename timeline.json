@@ -752,7 +752,8 @@
         "href": "https://www.amazon.com/gp/aw/sitb/B07X1V8D58",
         "src": "progames/VERSES_the_spatial_web_book.jpeg",
         "title": "The Spatial Web",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*Using 3D to Optimize Computations --",
@@ -760,7 +761,8 @@
         "src": "articles/optimization_figure_1_sm.png",
         "title": "*Using 3D to Optimize Computations",
         "subtitle": "--",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*37th Birthday Portfolio Review [video]",
@@ -768,23 +770,25 @@
         "src": "related/portfolio_video_thumbnail_sm.jpg",
         "title": "*37th Birthday Portfolio Review",
         "subtitle": "[video]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
-        "plain_text": "*Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead",
+        "plain_text": "Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead",
         "subtitle": "Adaptive Layout SystemEngineering Lead",
         "href": "https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html",
         "src": "progames/unity_mars_forces_adapt2.jpg",
-        "title": "*Unity MARS: Proxy Forces",
-        "category": "interest"
+        "title": "Unity MARS: Proxy Forces",
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*Designing for VERSES and The Spatial Web [videos]",
         "href": "https://leweyg.github.io/design_for_verses/",
         "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
         "title": "*Designing for VERSES and The Spatial Web",
-        "subtitle": "[videos]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
         "plain_text": "Classic Win32 Apps [win32]",
@@ -792,7 +796,8 @@
         "src": "lc/win32/LewcidApps.png",
         "title": "Classic Win32 Apps",
         "subtitle": "[win32]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
@@ -800,7 +805,8 @@
         "src": "progames/spatialweb_jobs.jpeg",
         "title": "Spatial Web Economyand Blockchain (interview)",
         "subtitle": "[video]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
         "plain_text": "*Augmented Reality Contextual Messaging UX",
@@ -808,7 +814,8 @@
         "src": "articles/images/AR_UX_sm.jpg",
         "title": "*Augmented RealityContextual Messaging UX",
         "subtitle": "",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*Augmented Reality Does Two Things",
@@ -816,7 +823,8 @@
         "src": "articles/ar-does-two-things-sm.jpeg",
         "title": "*Augmented RealityDoes Two Things",
         "subtitle": "",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*Excel 3D Patent Chart and Query Shapes",
@@ -824,7 +832,8 @@
         "src": "progames/Excel3DPatentImage_sm.jpg",
         "title": "*Excel 3D PatentChart and Query Shapes",
         "subtitle": "",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "*Interval Arithmetic For Visualization [web]",
@@ -832,7 +841,8 @@
         "src": "math/images/interval_logo.png",
         "title": "*Interval ArithmeticFor Visualization",
         "subtitle": "[web]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "*Interactive History of Programming [web]",
@@ -840,7 +850,8 @@
         "src": "progames/cch_programming.jpg",
         "title": "*Interactive History of Programming",
         "subtitle": "[web]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Electromyography (image source)",
@@ -1094,7 +1105,8 @@
         "src": "related/aristotle.jpg",
         "title": "*Philosophy in Five Easy Pieces(image source)",
         "subtitle": "[pamphlet]",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Family",
@@ -1126,7 +1138,8 @@
         "href": "articles/turing_field.html",
         "title": "Turing Field",
         "subtitle": "",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "",
@@ -1134,6 +1147,7 @@
         "href": "articles/holographic_interval.pdf",
         "title": "Holographic Interval",
         "subtitle": "",
-        "category": "interest"
+        "category": "personal",
+        "subgroup": "article-images"
     }
 ]
