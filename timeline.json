@@ -54,7 +54,7 @@
         "src": "progames/tesla_autopilot_10.69_sm.png",
         "title": "Tesla Autopilot 10.69",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "Tesla Software v11 (2021) UI Core and Autopilot Visualization",
@@ -63,7 +63,7 @@
         "src": "progames/tesla-update-2021.jpg",
         "title": "Tesla Software v11 (2021)",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "Tesla Model S Plaid (2021) UI Core Framework",
@@ -72,7 +72,7 @@
         "src": "progames/tesla-models-plaid-ui.jpeg",
         "title": "Tesla Model S Plaid (2021)",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "W&G: The Big Fix Up Technical Advisor (room solving by Unity MARS)",
@@ -81,7 +81,7 @@
         "src": "progames/wallance_the_big_fixup.jpg",
         "title": "W&G: The Big Fix Up",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "Dr Seuss",
@@ -90,7 +90,7 @@
         "src": "progames/drseuss_ar_room.jpg",
         "title": "Dr Seuss",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "Unity MARS Spatial App Studio Engineering Manager",
@@ -99,7 +99,7 @@
         "src": "progames/unity_mars_blue.jpg",
         "title": "Unity MARS",
         "category": "product",
-        "subgroup":"recent"
+        "subgroup": "recent"
     },
     {
         "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
@@ -108,7 +108,7 @@
         "src": "progames/verses_quicksilver_sm2.jpg",
         "title": "VERSES.IO",
         "category": "product",
-        "subgroup":"startups"
+        "subgroup": "startups"
     },
     {
         "plain_text": "Karuna Labs VR Motion Therapy Engineering Lead",
@@ -117,7 +117,7 @@
         "src": "progames/karuna_elbow.jpg",
         "title": "Karuna Labs",
         "category": "product",
-        "subgroup":"startups"
+        "subgroup": "startups"
     },
     {
         "plain_text": "4D Process Space-Time Visualization Founder",
@@ -126,7 +126,7 @@
         "src": "progames/eco4d_image3_.jpg",
         "title": "4D Process",
         "category": "product",
-        "subgroup":"startups"
+        "subgroup": "startups"
     },
     {
         "plain_text": "Lewcid Systems CEO/Founder --",
@@ -135,7 +135,7 @@
         "src": "../images/lewcid_systems.jpg",
         "title": "Lewcid Systems",
         "category": "product",
-        "subgroup":"startups"
+        "subgroup": "startups"
     },
     {
         "plain_text": "Vader Immortal: A Star Wars VR Series Prototype/Pre-Production",
@@ -144,7 +144,7 @@
         "src": "progames/vader_vr_hand_sm.jpg",
         "title": "Vader Immortal: A Star Wars VR Series",
         "category": "product",
-        "subgroup":"disney"
+        "subgroup": "disney"
     },
     {
         "plain_text": "Star Wars: Droid Repair Bay Prototype/Pre-Production",
@@ -153,7 +153,7 @@
         "src": "progames/droid_repair_bay_sm.jpg",
         "title": "Star Wars: Droid Repair Bay",
         "category": "product",
-        "subgroup":"disney"
+        "subgroup": "disney"
     },
     {
         "plain_text": "Star Wars: Secrets of the Empire (VOID experience) Prototype/Pre-Production",
@@ -162,7 +162,7 @@
         "src": "progames/swsote_still_2.jpg",
         "title": "Star Wars: Secrets of the Empire(VOID experience)",
         "category": "product",
-        "subgroup":"disney"
+        "subgroup": "disney"
     },
     {
         "plain_text": "Google Seurat Announce Prototype to Production",
@@ -171,7 +171,7 @@
         "src": "progames/google_seurat_thumb2_cropped.jpg",
         "title": "Google Seurat Announce",
         "category": "product",
-        "subgroup":"disney"
+        "subgroup": "disney"
     },
     {
         "plain_text": "CARNE y ARENA Prototype/Pre-Production",
@@ -180,7 +180,7 @@
         "src": "progames/carneyarena2.jpg",
         "title": "CARNE y ARENA",
         "category": "product",
-        "subgroup":"disney"
+        "subgroup": "disney"
     },
     {
         "plain_text": "Holographic MRI for Stanford Surgeons Lead on Prototype to Medical Pilot",
@@ -189,7 +189,7 @@
         "src": "progames/ProjectSerra_summary.jpg",
         "title": "Holographic MRI for Stanford Surgeons",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "Lowes HoloLens Experience AR Systems and Interfaces",
@@ -198,7 +198,7 @@
         "src": "progames/hololens_lowes3.jpg",
         "title": "Lowes HoloLens Experience",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "Windows 10 Holographic Showcases and Holo-Academy Teams",
@@ -207,7 +207,7 @@
         "src": "progames/hololens_windows3.jpg",
         "title": "Windows 10 Holographic",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "HoloLens Analog Prototype and Launch Teams",
@@ -216,7 +216,7 @@
         "src": "progames/hololens_device2.jpg",
         "title": "HoloLens",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "Excel 2016 - 3D Maps Team Graphics and GPU Lead",
@@ -225,7 +225,7 @@
         "src": "progames/Excel_3d_maps.jpg",
         "title": "Excel 2016 - 3D Maps Team",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "Fragments (HoloLens) Early Gestures and Systems",
@@ -234,7 +234,7 @@
         "src": "progames/fragments-4.jpg",
         "title": "Fragments (HoloLens)",
         "category": "product",
-        "subgroup":"microsoft-hololens"
+        "subgroup": "microsoft-hololens"
     },
     {
         "plain_text": "Zoo Tycoon (Xbox One) Gestures + Systems",
@@ -243,7 +243,7 @@
         "src": "progames/zoo_tycoon_player.jpg",
         "title": "Zoo Tycoon (Xbox One)",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect Star Wars Gestures + Systems",
@@ -252,7 +252,7 @@
         "src": "progames/kinect_star_wars_screen3.jpg",
         "title": "Kinect Star Wars",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect Pixar Rush Special Thanks",
@@ -261,7 +261,7 @@
         "src": "progames/pixar_rush_screen.jpg",
         "title": "Kinect Pixar Rush",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect Disneyland Adventures Gestures + Systems",
@@ -270,7 +270,7 @@
         "src": "progames/disneyland_screen2.jpg",
         "title": "Kinect Disneyland Adventures",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinectimals Gestures + Systems",
@@ -279,7 +279,7 @@
         "src": "progames/kinectimals_screen.jpg",
         "title": "Kinectimals",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect for Xbox 360 Special Thanks",
@@ -288,7 +288,7 @@
         "src": "progames/kinectimals_kid_logo2.jpg",
         "title": "Kinect for Xbox 360",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect Sports Special Thanks",
@@ -297,16 +297,16 @@
         "src": "progames/kinect-sports_screen.jpg",
         "title": "Kinect Sports",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Kinect Adventures! Special Thanks",
         "title": "Kinect Adventures!",
-        "subtitle": "Special Thanks",
+        "subtitle": "Kinect Adventures!Special Thanks",
         "href": "http://en.wikipedia.org/wiki/Kinect_Adventures!",
         "src": "progames/Kinect-Adventures-screen.jpg",
         "category": "product",
-        "subgroup":"microsoft-kinect"
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Alan Wake Special Thanks",
@@ -315,7 +315,7 @@
         "src": "progames/alan_wake_screen.JPG",
         "title": "Alan Wake",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "PIX for Windows DirectX/Xbox SDK Developer",
@@ -324,7 +324,7 @@
         "src": "progames/pix_intro.png",
         "title": "PIX for Windows",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "Full House Poker Special Thanks",
@@ -333,7 +333,7 @@
         "src": "progames/full_house_poker_xbox.jpg",
         "title": "Full House Poker",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "Fable II Performance Analysis",
@@ -342,7 +342,7 @@
         "src": "progames/fable2_house.jpg",
         "title": "Fable II",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "Viva Pinata PC Performance Engineer",
@@ -351,7 +351,7 @@
         "src": "progames/viva-pinata-1.jpg",
         "title": "Viva Pinata PC",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "Forza Motorsport 2 Graphics Engine and Pipeline Engineer",
@@ -360,14 +360,14 @@
         "src": "progames/forza_2_screen.jpg",
         "title": "Forza Motorsport 2",
         "category": "product",
-        "subgroup":"microsoft-xbox"
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "",
         "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
         "src": "progames/hyperchem_screen.jpg",
         "category": "product",
-        "subgroup":"hyperchem"
+        "subgroup": "hyperchem"
     },
     {
         "plain_text": "HyperChem 8.0 Graphics",
@@ -376,7 +376,7 @@
         "src": "progames/hyperchem_field_screen.jpg",
         "title": "HyperChem 8.0",
         "category": "product",
-        "subgroup":"hyperchem"
+        "subgroup": "hyperchem"
     },
     {
         "plain_text": "Windows Vista / WPF Performance Team Intern",
@@ -385,20 +385,7 @@
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
         "category": "product",
-        "subgroup":"microsoft-internship"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "personal"
-    },
-    {
-        "plain_text": "Friends [facebook] / Co-Workers [linkedin]",
-        "href": "https://www.linkedin.com/in/lewey-geselowitz-3346b05/",
-        "src": "leweyg_profile2.jpg",
-        "title": "Friends Co-Workers",
-        "subtitle": "[facebook] / [linkedin]",
-        "category": "personal"
+        "subgroup": "microsoft-internship"
     },
     {
         "plain_text": "Heroine Dawn [web/mobile]",
@@ -406,7 +393,8 @@
         "src": "progames/heroine_dawn.png",
         "title": "Heroine Dawn",
         "subtitle": "[web/mobile]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Carnival [web]",
@@ -414,7 +402,8 @@
         "src": "progames/carnival_intro.jpg",
         "title": "Carnival",
         "subtitle": "[web]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Project Field Hand",
@@ -422,7 +411,8 @@
         "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
         "title": "Project Field Hand",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Freed Go [web/mobile]",
@@ -430,7 +420,8 @@
         "src": "progames/freed_go_2.jpg",
         "title": "Freed Go",
         "subtitle": "[web/mobile]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Dice Walker [web]",
@@ -438,7 +429,8 @@
         "src": "progames/dice_walker_sm.jpg",
         "title": "Dice Walker",
         "subtitle": "[web]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Lewdo [web/mobile]",
@@ -446,7 +438,8 @@
         "src": "progames/lewdo_sm3.png",
         "title": "Lewdo",
         "subtitle": "[web/mobile]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "4D Process [web/mobile]",
@@ -454,7 +447,8 @@
         "src": "progames/viral_contacts_crop_sm.jpg",
         "title": "4D Process",
         "subtitle": "[web/mobile]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Healer Game Series [web/mobile]",
@@ -462,7 +456,8 @@
         "src": "progames/HealerGame.jpg",
         "title": "Healer Game Series",
         "subtitle": "[web/mobile]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "VR Biofield Meditation [web/vr]",
@@ -470,7 +465,8 @@
         "src": "progames/VRBiofield_HeartChakra.jpg",
         "title": "VR Biofield Meditation",
         "subtitle": "[web/vr]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "Energy Work Experiences",
@@ -478,7 +474,8 @@
         "src": "articles/lewcid_energy_work_sm.gif",
         "title": "Energy Work Experiences",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "3D UI Hand Gestures [video]",
@@ -486,7 +483,8 @@
         "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
         "title": "3D UI Hand Gestures",
         "subtitle": "[video]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "Sculptures",
@@ -494,7 +492,8 @@
         "src": "sculpture/07/hand_front_small.jpg",
         "title": "Sculptures",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "Second Good Idea",
@@ -502,7 +501,8 @@
         "src": "sculpture/06/headshot.jpg",
         "title": "Second Good Idea",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "Hoagie",
@@ -510,7 +510,8 @@
         "src": "sculpture/03/small.jpg",
         "title": "Hoagie",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "The Comet Space Story",
@@ -518,7 +519,8 @@
         "src": "related/the_comet_sm.jpg",
         "title": "The Comet Space Story",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "art-and-spirituality"
     },
     {
         "plain_text": "Motion Augmentation Key Techniques",
@@ -526,7 +528,8 @@
         "src": "articles/kinect/kinect_books.jpg",
         "title": "Motion AugmentationKey Techniques",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Kinect Gesture Development Videos and Articles [videos]",
@@ -534,7 +537,8 @@
         "title": "Kinect Gesture DevelopmentVideos and Articles [videos]",
         "src": "progames/kinect_sensor_me2.jpg",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
         "plain_text": "Augmented Walking Game Research",
@@ -542,7 +546,8 @@
         "src": "articles/kinect/Stomp_EarlyProto_screen.JPG",
         "title": "Augmented Walking Game Research",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
         "plain_text": "ESL Extensible Shading Language",
@@ -550,7 +555,8 @@
         "src": "lc/esl/examples/pic1_small.jpg",
         "title": "ESLExtensible Shading Language",
         "subtitle": "",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Evil Dice 2 Speedy Puzzle Game [win32]",
@@ -558,7 +564,8 @@
         "src": "lc/evildice2/EvilDice2_InGame_3_small.jpeg",
         "title": "Evil Dice 2Speedy Puzzle Game",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Shuzzle The Shadow Puzzle [win32]",
@@ -566,7 +573,8 @@
         "src": "lc/screens/Shuzzle_Mix_small.jpeg",
         "title": "ShuzzleThe Shadow Puzzle",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Freed Go Mobius and Layered Go [win32]",
@@ -574,7 +582,8 @@
         "src": "lc/screens/FreedGo_9_small.jpeg",
         "title": "Freed GoMobius and Layered Go",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Freed Invasion Quick Strategy Game [win32]",
@@ -582,7 +591,8 @@
         "src": "lc/screens/FreedInv_3_small.jpeg",
         "title": "Freed InvasionQuick Strategy Game",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "ImpView 3D Implicit Equations [win32]",
@@ -590,7 +600,8 @@
         "src": "download/Screens/ImpView_F_small.jpg",
         "title": "ImpView3D Implicit Equations",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "VSaber Voxel Carving Tool [win32]",
@@ -598,7 +609,8 @@
         "src": "vsaber/screens/VSaber_Q_small.jpg",
         "title": "VSaberVoxel Carving Tool",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Quake II AbSIRD Stereogram Engine Mod [win32]",
@@ -606,7 +618,8 @@
         "src": "progames/Quake_to_SIRDS.jpg",
         "title": "Quake II AbSIRDStereogram Engine Mod",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "AbSIRD Algorithm Realtime [win32]",
@@ -614,7 +627,8 @@
         "src": "download/SIRD/AbSIRD/SIRD2_small.jpg",
         "title": "AbSIRD AlgorithmRealtime",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "Ink AniEd Tablet PC Ink Animator [tablet pc]",
@@ -622,7 +636,8 @@
         "src": "anied/AniEd_remote_small.jpg",
         "title": "Ink AniEdTablet PC Ink Animator",
         "subtitle": "[tablet pc]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Lazy Ink Tablet PC Ink Effect [tablet pc]",
@@ -630,7 +645,8 @@
         "src": "other/LazyInk.gif",
         "title": "Lazy InkTablet PC Ink Effect",
         "subtitle": "[tablet pc]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Pocket PC Games and Tools [pocket pc]",
@@ -638,7 +654,8 @@
         "src": "pocketpc/Screen_MindSweeper.jpg",
         "title": "Pocket PCGames and Tools",
         "subtitle": "[pocket pc]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Evil Dice Puzzle Game Perfection [win32]",
@@ -646,7 +663,8 @@
         "src": "download/Screens/EvilDice_6s_small.jpg",
         "title": "Evil DicePuzzle Game Perfection",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "WirEd and ModEd 3D Modeling Kit [win32]",
@@ -654,7 +672,8 @@
         "src": "download/Screens/ModEd_Computer.jpg",
         "title": "WirEd and ModEd3D Modeling Kit",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Thinking Game 2 Connect 4 in 3D [win32]",
@@ -662,7 +681,8 @@
         "src": "download/Screens/TG2_Game1.jpg",
         "title": "Thinking Game 2Connect 4 in 3D",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Grapher 2D/3D Equations [win32]",
@@ -670,7 +690,8 @@
         "src": "download/Screens/Grapher_2DGraph.jpg",
         "title": "Grapher2D/3D Equations",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Crystal Math Visual Symbolic Calculator [win32]",
@@ -678,7 +699,8 @@
         "src": "download/Screens/Crystal_Calc.jpg",
         "title": "Crystal MathVisual Symbolic Calculator",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Alarm Clock T-Rex Sound Included [win32]",
@@ -686,7 +708,8 @@
         "src": "download/Screens/Alarm_One.jpg",
         "title": "Alarm ClockT-Rex Sound Included",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-active"
     },
     {
         "plain_text": "Teach Linked Lists Programming Education App [win32]",
@@ -694,7 +717,8 @@
         "src": "download/Screens/Teach_Tree.jpg",
         "title": "Teach Linked ListsProgramming Education App",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Towers of Hanoi Classic Recursion Example [win32]",
@@ -702,7 +726,8 @@
         "src": "download/Screens/Towers_Game.jpg",
         "title": "Towers of HanoiClassic Recursion Example",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Crystal Math Console Command Line Tool [win32]",
@@ -710,7 +735,8 @@
         "src": "download/Screens/CrystalMath_Console.jpg",
         "title": "Crystal Math ConsoleCommand Line Tool",
         "subtitle": "[win32]",
-        "category": "personal"
+        "category": "personal",
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Suzanne Astar",

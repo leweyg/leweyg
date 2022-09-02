@@ -200,6 +200,17 @@ function groupByCallback(ar,callback) {
     return ans;
 }
 
+function flattenGroups(groups) {
+    var ans = [];
+    for (var name in groups) {
+        var g = groups[name];
+        for (var i in g) {
+            ans.push(g[i]);
+        }
+    }
+    return ans;
+}
+
 function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var groups = groupByCallback(cells, (a) => a.category);
@@ -210,6 +221,9 @@ function updateCells() {
         lines += "<h2>" + groupName + "</h2>\n";
         lines += "<div><table><tr>\n";
         var cellList = groups[groupName];
+        if (cellList[0].subgroup) {
+            cellList = flattenGroups( groupByCallback(cellList, (c) => c.subgroup));
+        }
         for (var i in cellList) {
             var cell = cellList[i];
             if (cell.subgroup != subgroup) {
