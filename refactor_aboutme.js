@@ -119,6 +119,13 @@ function collectCells() {
         cell = null;
     }
     console.log(JSON.stringify(cells,null,2));
+
+    var lines = "";
+    for (var i in cells) {
+        var cell = cells[i];
+        lines += JSON.stringify(cell) + "\n";
+    }
+    fs.writeFileSync("timeline.json", lines);
     return cells;
 }
 
