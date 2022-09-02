@@ -406,6 +406,42 @@
         "subgroup": "interactive-active"
     },
     {
+        "plain_text": "Freed Go [web/mobile]",
+        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
+        "src": "progames/freed_go_2.jpg",
+        "title": "Freed Go",
+        "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+    {
+        "plain_text": "37th Birthday Portfolio Review [video]",
+        "href": "https://youtu.be/cPmYqzaDPV4",
+        "src": "related/portfolio_video_thumbnail_sm.jpg",
+        "title": "37th Birthday Portfolio Review",
+        "subtitle": "[video]",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
+    {
+        "plain_text": "Designing for VERSES and The Spatial Web [videos]",
+        "href": "https://leweyg.github.io/design_for_verses/",
+        "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
+        "title": "Designing for VERSES and The Spatial Web",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
+
+    {
+        "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
+        "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
+        "src": "progames/spatialweb_jobs.jpeg",
+        "title": "Spatial Web Economyand Blockchain (interview)",
+        "subtitle": "[video]",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
+    {
         "plain_text": "Project Field Hand",
         "href": "http://www.4dprocess.com/fieldhand/",
         "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
@@ -436,8 +472,8 @@
         "plain_text": "Augmented Reality Contextual Messaging UX",
         "href": "articles/ar-contextual-messaging-ux.html",
         "src": "articles/images/AR_UX_sm.jpg",
-        "title": "Augmented RealityContextual Messaging UX",
-        "subtitle": "",
+        "title": "Augmented Reality",
+        "subtitle": "Contextual Messaging UX",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -445,29 +481,21 @@
         "plain_text": "Augmented Reality Does Two Things",
         "href": "articles/augmented-reality-does-two-things.html",
         "src": "articles/ar-does-two-things-sm.jpeg",
-        "title": "Augmented RealityDoes Two Things",
-        "subtitle": "",
+        "title": "Augmented Reality",
+        "subtitle": "Does Two Things",
         "category": "personal",
         "subgroup": "article-images"
     },
     {
-        "plain_text": "Excel 3D Patent Chart and Query Shapes",
+        "plain_text": "Excel 3D",
         "href": "articles/excel3d_patent.pdf",
         "src": "progames/Excel3DPatentImage_sm.jpg",
-        "title": "*Excel 3D PatentChart and Query Shapes",
-        "subtitle": "",
+        "title": "Excel 3D",
+        "subtitle": "Patent Chart and Query Shapes",
         "category": "personal",
         "subgroup": "article-images"
     },
-    {
-        "plain_text": "Freed Go [web/mobile]",
-        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
-        "src": "progames/freed_go_2.jpg",
-        "title": "Freed Go",
-        "subtitle": "[web/mobile]",
-        "category": "personal",
-        "subgroup": "interactive-passive"
-    },
+
     {
         "plain_text": "Dice Walker [web]",
         "href": "https://leweyg.github.io/DiceWalker/",
@@ -496,7 +524,7 @@
         "subgroup": "interactive-passive"
     },
     {
-        "plain_text": "*Interactive History of Programming [web]",
+        "plain_text": "Interactive History of Programming [web]",
         "href": "cch/cch_ip_1.html",
         "src": "progames/cch_programming.jpg",
         "title": "*Interactive History of Programming",
@@ -506,10 +534,10 @@
     },
 
     {
-        "plain_text": "*Interval Arithmetic For Visualization [web]",
+        "plain_text": "Interval Arithmetic For Visualization [web]",
         "href": "math/index.html",
         "src": "math/images/interval_logo.png",
-        "title": "*Interval ArithmeticFor Visualization",
+        "title": "Interval ArithmeticFor Visualization",
         "subtitle": "[web]",
         "category": "personal",
         "subgroup": "interactive-passive"
@@ -555,8 +583,8 @@
         "plain_text": "The Comet Space Story",
         "href": "articles/sketches__the_comet.html",
         "src": "related/the_comet_sm.jpg",
-        "title": "The Comet Space Story",
-        "subtitle": "",
+        "title": "The Come",
+        "subtitle": "Space Story",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -602,8 +630,8 @@
         "plain_text": "Motion Augmentation Key Techniques",
         "href": "articles/Kinect_Augmentation_Principals_and_Practices.html",
         "src": "articles/kinect/kinect_books.jpg",
-        "title": "Motion AugmentationKey Techniques",
-        "subtitle": "",
+        "title": "Motion Augmentation",
+        "subtitle": "Key Techniques",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -629,8 +657,8 @@
         "plain_text": "ESL Extensible Shading Language",
         "href": "lc/esl/",
         "src": "lc/esl/examples/pic1_small.jpg",
-        "title": "ESLExtensible Shading Language",
-        "subtitle": "",
+        "title": "ESL",
+        "subtitle": "Extensible Shading Language",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -698,11 +726,11 @@
         "subgroup": "interactive-active"
     },
     {
-        "plain_text": "AbSIRD Algorithm Realtime [win32]",
+        "plain_text": "AbSIRD Realtime SIRDS",
         "href": "download/SIRD/index.html",
         "src": "download/SIRD/AbSIRD/SIRD2_small.jpg",
-        "title": "AbSIRD AlgorithmRealtime",
-        "subtitle": "[win32]",
+        "title": "AbSIRD",
+        "subtitle": "Realtime SIRDS",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -827,39 +855,13 @@
         "plain_text": "Using 3D to Optimize Computations --",
         "href": "articles/using-3d-to-optimize-computation.pdf",
         "src": "articles/optimization_figure_1_sm.png",
-        "title": "*Using 3D to Optimize Computations",
+        "title": "Using 3D to Optimize Computations",
         "subtitle": "--",
         "category": "personal",
         "subgroup": "article-theory"
     },
-    {
-        "plain_text": "*37th Birthday Portfolio Review [video]",
-        "href": "https://youtu.be/cPmYqzaDPV4",
-        "src": "related/portfolio_video_thumbnail_sm.jpg",
-        "title": "*37th Birthday Portfolio Review",
-        "subtitle": "[video]",
-        "category": "personal",
-        "subgroup": "video-article"
-    },
 
-    {
-        "plain_text": "*Designing for VERSES and The Spatial Web [videos]",
-        "href": "https://leweyg.github.io/design_for_verses/",
-        "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
-        "title": "*Designing for VERSES and The Spatial Web",
-        "category": "personal",
-        "subgroup": "video-article"
-    },
 
-    {
-        "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
-        "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
-        "src": "progames/spatialweb_jobs.jpeg",
-        "title": "Spatial Web Economyand Blockchain (interview)",
-        "subtitle": "[video]",
-        "category": "personal",
-        "subgroup": "video-article"
-    },
     {
         "plain_text": "Electromyography (image source)",
         "href": "http://iyashisource.com/shieldite/electro-magnetic-fields",
@@ -885,7 +887,7 @@
         "category": "interest"
     },
     {
-        "plain_text": "*Hand Gestures [video] (image source)",
+        "plain_text": "Hand Gestures [video] (image source)",
         "href": "http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094",
         "src": "related/mantis_kung_fu_slim.jpg",
         "title": "*Hand Gestures(image source)",
@@ -893,18 +895,18 @@
         "category": "interest"
     },
     {
-        "plain_text": "*Motion Augmentation [videos] (image source)",
+        "plain_text": "Motion Augmentation [videos] (image source)",
         "href": "http://www.cyberdyne.jp/english/products/HAL/index.html",
         "src": "related/exoskeleton.jpg",
-        "title": "*MotionAugmentation(image source)",
+        "title": "MotionAugmentation(image source)",
         "subtitle": "[videos]",
         "category": "interest"
     },
     {
-        "plain_text": "*Interactive Animation (image source)",
+        "plain_text": "Interactive Animation (image source)",
         "href": "http://theanimatorssurvivalkit.com/",
         "src": "related/walk_cycle.jpg",
-        "title": "*InteractiveAnimation(image source)",
+        "title": "InteractiveAnimation(image source)",
         "subtitle": "",
         "category": "interest"
     },
@@ -917,10 +919,10 @@
         "category": "interest"
     },
     {
-        "plain_text": "*Sculpture (image source)",
+        "plain_text": "Sculpture (image source)",
         "href": "http://www.rodinmuseum.org/",
         "src": "related/Rodin_Thinker.jpg",
-        "title": "*Sculpture(image source)",
+        "title": "Sculpture",
         "subtitle": "",
         "category": "interest"
     },
@@ -1107,11 +1109,11 @@
         "category": "interest"
     },
     {
-        "plain_text": "*Philosophy in Five Easy Pieces [pamphlet] (image source)",
+        "plain_text": "Philosophy in Five Easy Pieces",
         "href": "http://en.wikipedia.org/wiki/The_School_of_Athens",
         "src": "related/aristotle.jpg",
-        "title": "*Philosophy in Five Easy Pieces(image source)",
-        "subtitle": "[pamphlet]",
+        "title": "Philosophy in Five Easy Pieces",
+        "subtitle": "by Peter Geselowitz",
         "category": "personal",
         "subgroup": "article-images"
     },
