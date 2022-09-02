@@ -215,6 +215,10 @@ function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
+    lines += "<html>";
+    lines += "<head><title>About Me</title></head>";
+    lines += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+    lines += "\n<body><br/>\n";
     var subgroup = undefined;
     for (var groupName in groups)
     {

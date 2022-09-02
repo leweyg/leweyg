@@ -439,7 +439,7 @@
         "title": "Lewdo",
         "subtitle": "[web/mobile]",
         "category": "personal",
-        "subgroup": "interactive-active"
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "4D Process [web/mobile]",
@@ -451,41 +451,34 @@
         "subgroup": "interactive-passive"
     },
     {
-        "plain_text": "Healer Game Series [web/mobile]",
-        "href": "https://leweyg.github.io/HealerGame/demo/",
-        "src": "progames/HealerGame.jpg",
-        "title": "Healer Game Series",
-        "subtitle": "[web/mobile]",
+        "plain_text": "*Interactive History of Programming [web]",
+        "href": "cch/cch_ip_1.html",
+        "src": "progames/cch_programming.jpg",
+        "title": "*Interactive History of Programming",
+        "subtitle": "[web]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+
+    {
+        "plain_text": "*Interval Arithmetic For Visualization [web]",
+        "href": "math/index.html",
+        "src": "math/images/interval_logo.png",
+        "title": "*Interval ArithmeticFor Visualization",
+        "subtitle": "[web]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
     {
-        "plain_text": "VR Biofield Meditation [web/vr]",
-        "href": "https://leweyg.github.io/vrbiofield/index.html",
-        "src": "progames/VRBiofield_HeartChakra.jpg",
-        "title": "VR Biofield Meditation",
-        "subtitle": "[web/vr]",
+        "plain_text": "Classic Win32 Apps [win32]",
+        "href": "lc/win32/",
+        "src": "lc/win32/LewcidApps.png",
+        "title": "Classic Win32 Apps",
+        "subtitle": "[win32]",
         "category": "personal",
-        "subgroup": "art-and-spirituality"
+        "subgroup": "interactive-passive"
     },
-    {
-        "plain_text": "Energy Work Experiences",
-        "href": "articles/leweys_energy_work.html",
-        "src": "articles/lewcid_energy_work_sm.gif",
-        "title": "Energy Work Experiences",
-        "subtitle": "",
-        "category": "personal",
-        "subgroup": "art-and-spirituality"
-    },
-    {
-        "plain_text": "3D UI Hand Gestures [video]",
-        "href": "articles/vol/hand_poses.html",
-        "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
-        "title": "3D UI Hand Gestures",
-        "subtitle": "[video]",
-        "category": "personal",
-        "subgroup": "art-and-spirituality"
-    },
+
     {
         "plain_text": "Sculptures",
         "href": "sculpture/index.html",
@@ -493,7 +486,7 @@
         "title": "Sculptures",
         "subtitle": "",
         "category": "personal",
-        "subgroup": "art-and-spirituality"
+        "subgroup": "sculpture"
     },
     {
         "plain_text": "Second Good Idea",
@@ -502,7 +495,7 @@
         "title": "Second Good Idea",
         "subtitle": "",
         "category": "personal",
-        "subgroup": "art-and-spirituality"
+        "subgroup": "sculpture"
     },
     {
         "plain_text": "Hoagie",
@@ -511,7 +504,7 @@
         "title": "Hoagie",
         "subtitle": "",
         "category": "personal",
-        "subgroup": "art-and-spirituality"
+        "subgroup": "sculpture"
     },
     {
         "plain_text": "The Comet Space Story",
@@ -520,7 +513,45 @@
         "title": "The Comet Space Story",
         "subtitle": "",
         "category": "personal",
-        "subgroup": "art-and-spirituality"
+        "subgroup": "article-images"
+    },
+    {
+        "plain_text": "Energy Work Experiences",
+        "href": "articles/leweys_energy_work.html",
+        "src": "articles/lewcid_energy_work_sm.gif",
+        "title": "Energy Work Experiences",
+        "subtitle": "",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+
+    {
+        "plain_text": "VR Biofield Meditation [web/vr]",
+        "href": "https://leweyg.github.io/vrbiofield/index.html",
+        "src": "progames/VRBiofield_HeartChakra.jpg",
+        "title": "VR Biofield Meditation",
+        "subtitle": "[web/vr]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "plain_text": "Healer Game Series [web/mobile]",
+        "href": "https://leweyg.github.io/HealerGame/demo/",
+        "src": "progames/HealerGame.jpg",
+        "title": "Healer Game Series",
+        "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    
+    {
+        "plain_text": "3D UI Hand Gestures [video]",
+        "href": "articles/vol/hand_poses.html",
+        "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
+        "title": "3D UI Hand Gestures",
+        "subtitle": "[video]",
+        "category": "personal",
+        "subgroup": "video-article"
     },
     {
         "plain_text": "Motion Augmentation Key Techniques",
@@ -655,7 +686,7 @@
         "title": "Pocket PCGames and Tools",
         "subtitle": "[pocket pc]",
         "category": "personal",
-        "subgroup": "interactive-active"
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Evil Dice Puzzle Game Perfection [win32]",
@@ -682,7 +713,7 @@
         "title": "Thinking Game 2Connect 4 in 3D",
         "subtitle": "[win32]",
         "category": "personal",
-        "subgroup": "interactive-active"
+        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Grapher 2D/3D Equations [win32]",
@@ -790,15 +821,7 @@
         "category": "personal",
         "subgroup": "video-article"
     },
-    {
-        "plain_text": "Classic Win32 Apps [win32]",
-        "href": "lc/win32/",
-        "src": "lc/win32/LewcidApps.png",
-        "title": "Classic Win32 Apps",
-        "subtitle": "[win32]",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
+
     {
         "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
         "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
@@ -834,24 +857,6 @@
         "subtitle": "",
         "category": "personal",
         "subgroup": "article-images"
-    },
-    {
-        "plain_text": "*Interval Arithmetic For Visualization [web]",
-        "href": "math/index.html",
-        "src": "math/images/interval_logo.png",
-        "title": "*Interval ArithmeticFor Visualization",
-        "subtitle": "[web]",
-        "category": "personal",
-        "subgroup": "interactive-passive"
-    },
-    {
-        "plain_text": "*Interactive History of Programming [web]",
-        "href": "cch/cch_ip_1.html",
-        "src": "progames/cch_programming.jpg",
-        "title": "*Interactive History of Programming",
-        "subtitle": "[web]",
-        "category": "personal",
-        "subgroup": "interactive-passive"
     },
     {
         "plain_text": "Electromyography (image source)",
