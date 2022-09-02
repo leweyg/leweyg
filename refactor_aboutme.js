@@ -83,7 +83,7 @@ function cellToHtml(cell) {
     }
     if (cell.title || cell.subtitle) {
         ans += "<b>" + cell.title + ((cell.title && cell.subtitle)?"<br/>":"");
-        ans += "</b>" + cell.subtitle + "";
+        //ans += "</b>" + cell.subtitle + "";
     } else {
         ans += cell.plain_text;
     }
@@ -92,6 +92,9 @@ function cellToHtml(cell) {
     }
     if (cell.href) {
         ans += "</a>";
+    }
+    if (cell.subtitle) {
+        ans += cell.subtitle;
     }
     ans += "<br/><br/>\n";
     return ans;
@@ -201,13 +204,20 @@ function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
+    var subgroup = undefined;
     for (var groupName in groups)
     {
-        lines += "<h3>" + groupName + "</h3>\n";
+        lines += "<h2>" + groupName + "</h2>\n";
         lines += "<div><table><tr>\n";
         var cellList = groups[groupName];
         for (var i in cellList) {
             var cell = cellList[i];
+            if (cell.subgroup != subgroup) {
+                subgroup = cell.subgroup;
+                lines += "</tr>";
+                lines += "<tr><td><i>" + subgroup + "</i></td></tr>\n";
+                lines += "<tr>\n";
+            }
             var td = "<td>" + cellToHtml(cell) + "</td>";
             lines += td;
             

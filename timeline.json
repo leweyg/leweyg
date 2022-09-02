@@ -53,7 +53,8 @@
         "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
         "src": "progames/tesla_autopilot_10.69_sm.png",
         "title": "Tesla Autopilot 10.69",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "Tesla Software v11 (2021) UI Core and Autopilot Visualization",
@@ -61,7 +62,8 @@
         "href": "https://www.tesla.com/blog/introducing-software-v11-0",
         "src": "progames/tesla-update-2021.jpg",
         "title": "Tesla Software v11 (2021)",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "Tesla Model S Plaid (2021) UI Core Framework",
@@ -69,7 +71,8 @@
         "href": "https://www.tesla.com/models",
         "src": "progames/tesla-models-plaid-ui.jpeg",
         "title": "Tesla Model S Plaid (2021)",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "W&G: The Big Fix Up Technical Advisor (room solving by Unity MARS)",
@@ -77,7 +80,8 @@
         "href": "https://www.thebigfixup.co.uk/",
         "src": "progames/wallance_the_big_fixup.jpg",
         "title": "W&G: The Big Fix Up",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "Dr Seuss",
@@ -85,7 +89,8 @@
         "href": "https://www.sugarcs.com/project/seuss-abc",
         "src": "progames/drseuss_ar_room.jpg",
         "title": "Dr Seuss",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "Unity MARS Spatial App Studio Engineering Manager",
@@ -93,7 +98,8 @@
         "href": "https://unity.com/unity/features/mars",
         "src": "progames/unity_mars_blue.jpg",
         "title": "Unity MARS",
-        "category": "product"
+        "category": "product",
+        "subgroup":"recent"
     },
     {
         "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
@@ -101,7 +107,8 @@
         "href": "https://verses.io/",
         "src": "progames/verses_quicksilver_sm2.jpg",
         "title": "VERSES.IO",
-        "category": "product"
+        "category": "product",
+        "subgroup":"startups"
     },
     {
         "plain_text": "Karuna Labs VR Motion Therapy Engineering Lead",
@@ -109,7 +116,8 @@
         "href": "http://karunavr.com/",
         "src": "progames/karuna_elbow.jpg",
         "title": "Karuna Labs",
-        "category": "product"
+        "category": "product",
+        "subgroup":"startups"
     },
     {
         "plain_text": "4D Process Space-Time Visualization Founder",
@@ -117,7 +125,8 @@
         "href": "../4d/",
         "src": "progames/eco4d_image3_.jpg",
         "title": "4D Process",
-        "category": "product"
+        "category": "product",
+        "subgroup":"startups"
     },
     {
         "plain_text": "Lewcid Systems CEO/Founder --",
@@ -125,7 +134,8 @@
         "href": "../",
         "src": "../images/lewcid_systems.jpg",
         "title": "Lewcid Systems",
-        "category": "product"
+        "category": "product",
+        "subgroup":"startups"
     },
     {
         "plain_text": "Vader Immortal: A Star Wars VR Series Prototype/Pre-Production",
@@ -133,7 +143,8 @@
         "href": "https://www.oculus.com/vader-immortal/",
         "src": "progames/vader_vr_hand_sm.jpg",
         "title": "Vader Immortal: A Star Wars VR Series",
-        "category": "product"
+        "category": "product",
+        "subgroup":"disney"
     },
     {
         "plain_text": "Star Wars: Droid Repair Bay Prototype/Pre-Production",
@@ -141,7 +152,8 @@
         "href": "https://www.oculus.com/experiences/go/1769193356487183/",
         "src": "progames/droid_repair_bay_sm.jpg",
         "title": "Star Wars: Droid Repair Bay",
-        "category": "product"
+        "category": "product",
+        "subgroup":"disney"
     },
     {
         "plain_text": "Star Wars: Secrets of the Empire (VOID experience) Prototype/Pre-Production",
@@ -149,7 +161,8 @@
         "href": "https://www.thevoid.com/",
         "src": "progames/swsote_still_2.jpg",
         "title": "Star Wars: Secrets of the Empire(VOID experience)",
-        "category": "product"
+        "category": "product",
+        "subgroup":"disney"
     },
     {
         "plain_text": "Google Seurat Announce Prototype to Production",
@@ -157,7 +170,8 @@
         "href": "https://www.youtube.com/watch?v=_rAHM70jfzo",
         "src": "progames/google_seurat_thumb2_cropped.jpg",
         "title": "Google Seurat Announce",
-        "category": "product"
+        "category": "product",
+        "subgroup":"disney"
     },
     {
         "plain_text": "CARNE y ARENA Prototype/Pre-Production",
@@ -165,7 +179,8 @@
         "href": "https://en.wikipedia.org/wiki/Flesh_and_Sand",
         "src": "progames/carneyarena2.jpg",
         "title": "CARNE y ARENA",
-        "category": "product"
+        "category": "product",
+        "subgroup":"disney"
     },
     {
         "plain_text": "Holographic MRI for Stanford Surgeons Lead on Prototype to Medical Pilot",
@@ -173,7 +188,8 @@
         "href": "https://pubmed.ncbi.nlm.nih.gov/32145195/",
         "src": "progames/ProjectSerra_summary.jpg",
         "title": "Holographic MRI for Stanford Surgeons",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "Lowes HoloLens Experience AR Systems and Interfaces",
@@ -181,7 +197,8 @@
         "href": "https://blogs.windows.com/devices/2016/03/18/microsoft-hololens-and-lowes-working-to-redefine-your-next-home-renovation/",
         "src": "progames/hololens_lowes3.jpg",
         "title": "Lowes HoloLens Experience",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "Windows 10 Holographic Showcases and Holo-Academy Teams",
@@ -189,7 +206,8 @@
         "href": "https://en.wikipedia.org/wiki/Windows_Mixed_Reality",
         "src": "progames/hololens_windows3.jpg",
         "title": "Windows 10 Holographic",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "HoloLens Analog Prototype and Launch Teams",
@@ -197,7 +215,8 @@
         "href": "http://www.microsoft.com/microsoft-hololens",
         "src": "progames/hololens_device2.jpg",
         "title": "HoloLens",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "Excel 2016 - 3D Maps Team Graphics and GPU Lead",
@@ -205,7 +224,8 @@
         "href": "http://www.bing.com/videos/search?q=excel+3d+maps",
         "src": "progames/Excel_3d_maps.jpg",
         "title": "Excel 2016 - 3D Maps Team",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "Fragments (HoloLens) Early Gestures and Systems",
@@ -213,7 +233,8 @@
         "href": "https://www.asobostudio.com/games/fragments",
         "src": "progames/fragments-4.jpg",
         "title": "Fragments (HoloLens)",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-hololens"
     },
     {
         "plain_text": "Zoo Tycoon (Xbox One) Gestures + Systems",
@@ -221,7 +242,8 @@
         "href": "http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon",
         "src": "progames/zoo_tycoon_player.jpg",
         "title": "Zoo Tycoon (Xbox One)",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect Star Wars Gestures + Systems",
@@ -229,7 +251,8 @@
         "href": "http://www.amazon.com/Kinect-Star-Wars-Xbox-360/dp/B002I0HCNI",
         "src": "progames/kinect_star_wars_screen3.jpg",
         "title": "Kinect Star Wars",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect Pixar Rush Special Thanks",
@@ -237,7 +260,8 @@
         "href": "http://www.amazon.com/Kinect-Rush-Disney-Pixar-Adventure-Xbox/dp/B006ZPAYMI",
         "src": "progames/pixar_rush_screen.jpg",
         "title": "Kinect Pixar Rush",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect Disneyland Adventures Gestures + Systems",
@@ -245,7 +269,8 @@
         "href": "http://marketplace.xbox.com/en-US/Product/Disneyland-Adventures/66acd000-77fe-1000-9115-d8024d5309c1",
         "src": "progames/disneyland_screen2.jpg",
         "title": "Kinect Disneyland Adventures",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinectimals Gestures + Systems",
@@ -253,7 +278,8 @@
         "href": "http://www.xbox.com/Kinectimals",
         "src": "progames/kinectimals_screen.jpg",
         "title": "Kinectimals",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect for Xbox 360 Special Thanks",
@@ -261,7 +287,8 @@
         "href": "http://www.xbox.com/en-US/kinect",
         "src": "progames/kinectimals_kid_logo2.jpg",
         "title": "Kinect for Xbox 360",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect Sports Special Thanks",
@@ -269,14 +296,17 @@
         "href": "http://www.rareusa.com/games/kinect-sports",
         "src": "progames/kinect-sports_screen.jpg",
         "title": "Kinect Sports",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Kinect Adventures! Special Thanks",
-        "subtitle": "Kinect Adventures!Special Thanks",
+        "title": "Kinect Adventures!",
+        "subtitle": "Special Thanks",
         "href": "http://en.wikipedia.org/wiki/Kinect_Adventures!",
         "src": "progames/Kinect-Adventures-screen.jpg",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-kinect"
     },
     {
         "plain_text": "Alan Wake Special Thanks",
@@ -284,7 +314,8 @@
         "href": "http://www.alanwake.com/",
         "src": "progames/alan_wake_screen.JPG",
         "title": "Alan Wake",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "PIX for Windows DirectX/Xbox SDK Developer",
@@ -292,7 +323,8 @@
         "href": "http://en.wikipedia.org/wiki/PIX_(Microsoft)",
         "src": "progames/pix_intro.png",
         "title": "PIX for Windows",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "Full House Poker Special Thanks",
@@ -300,7 +332,8 @@
         "href": "http://marketplace.xbox.com/en-US/Product/Full-House-Poker/66acd000-77fe-1000-9115-d8025841098d",
         "src": "progames/full_house_poker_xbox.jpg",
         "title": "Full House Poker",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "Fable II Performance Analysis",
@@ -308,7 +341,8 @@
         "href": "http://en.wikipedia.org/wiki/Fable_II",
         "src": "progames/fable2_house.jpg",
         "title": "Fable II",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "Viva Pinata PC Performance Engineer",
@@ -316,7 +350,8 @@
         "href": "http://www.amazon.com/Viva-Pi%C3%B1ata-PC/dp/B000VBFWAG",
         "src": "progames/viva-pinata-1.jpg",
         "title": "Viva Pinata PC",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "Forza Motorsport 2 Graphics Engine and Pipeline Engineer",
@@ -324,13 +359,15 @@
         "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
         "src": "progames/forza_2_screen.jpg",
         "title": "Forza Motorsport 2",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-xbox"
     },
     {
         "plain_text": "",
         "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
         "src": "progames/hyperchem_screen.jpg",
-        "category": "product"
+        "category": "product",
+        "subgroup":"hyperchem"
     },
     {
         "plain_text": "HyperChem 8.0 Graphics",
@@ -338,7 +375,8 @@
         "href": "http://www.hyper.com/Products/HyperChemProfessional/75Overview/tabid/361/Default.aspx",
         "src": "progames/hyperchem_field_screen.jpg",
         "title": "HyperChem 8.0",
-        "category": "product"
+        "category": "product",
+        "subgroup":"hyperchem"
     },
     {
         "plain_text": "Windows Vista / WPF Performance Team Intern",
@@ -346,7 +384,8 @@
         "href": "http://en.wikipedia.org/wiki/Windows_Vista",
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
-        "category": "product"
+        "category": "product",
+        "subgroup":"microsoft-internship"
     },
     {
         "plain_text": "",
