@@ -69,6 +69,34 @@ function cleanWhiteSpace(str) {
     return ans;
 }
 
+function cellToHtml(cell) {
+    if ((!cell.plain_text) && (!cell.href) && (!cell.src)) return "";
+
+    var ans = "";
+   // ans += "<pre>" + JSON.stringify(cell) + ":</pre>";
+
+    if (cell.href) {
+        ans += "<a href=\"" + cell.href + "\">";
+    }
+    if (cell.src) {
+        ans += "<img style=\"height:120px\" src=\"" + cell.src + "\" /><br/>";
+    }
+    if (cell.title || cell.subtitle) {
+        ans += "<b>" + cell.title + ((cell.title && cell.subtitle)?"<br/>":"");
+        ans += "</b>" + cell.subtitle + "";
+    } else {
+        ans += cell.plain_text;
+    }
+    if (cell.href) {
+        //ans += " <br/>(" + cell.href + ")";
+    }
+    if (cell.href) {
+        ans += "</a>";
+    }
+    ans += "<br/><br/>\n";
+    return ans;
+}
+
 function collectCells() {
     var cells = [];
     var content = "" + fileReadWhole("lg/aboutme.html");
@@ -96,7 +124,7 @@ function collectCells() {
                 }
             } else {
                 if (p.text.startsWith("br")) {
-                    cell.plain_text += "\n";
+                    cell.plain_text += " ";
                 }
                 if (p.text.startsWith("a") && p.depth==1) {
                     isTitle = true;
@@ -120,15 +148,31 @@ function collectCells() {
     }
     console.log(JSON.stringify(cells,null,2));
 
-    var lines = "";
+    var rawJson = "[";
     for (var i in cells) {
-        var cell = cells[i];
-        lines += JSON.stringify(cell) + "\n";
+        rawJson += JSON.stringify(cells[i]) + ",\n";
     }
-    fs.writeFileSync("timeline.json", lines);
+    rawJson += "]";
+    fs.writeFileSync("timeline.json",rawJson);
+
     return cells;
 }
 
-collectCells();
+function updateCells() {
+    var cells = JSON.parse( fs.readFileSync("timeline.json") );
+    var lines = "";
+    for (var i in cells) {
+        var cell = cells[i];
+        lines += cellToHtml(cell);
+        
+    }
+    fs.writeFileSync("docs/lg/test.html", lines);
+}
+
+//collectCells();
+
+updateCells();
+
+
 
 console.log("Done.");

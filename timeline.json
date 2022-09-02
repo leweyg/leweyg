@@ -1,190 +1,1024 @@
-{"plain_text":"Lewey Geselowitz - Portfolio - Lewcid.com .firsts_link { color:white; text-decoration: underline; } .platform_target { color:lightgreen } .white_link { color:white }","subtitle":"Lewey Geselowitz - Portfolio - Lewcid.com .firsts_link { color:white; text-decoration: underline; } .platform_target { color:lightgreen } .white_link { color:white }","href":"lewcid_icon_icon.ico"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","href":"../","src":"lewcid_icon_white.png","subtitle":""}
-{"plain_text":"Lewcid.com","href":"../","title":"Lewcid.com","subtitle":""}
-{"plain_text":"(by Subject)","subtitle":"(by )","href":"cube/by_subject.html","title":"Subject"}
-{"plain_text":"(by Time)","subtitle":"(by )","href":"cube/by_time.html","title":"Time"}
-{"plain_text":"(by Folder)","subtitle":"(by )","href":"cube/by_place.html","title":"Folder"}
-{"plain_text":"(by Lewey Geselowitz) Lewey Geselowitz Specialist in spatial user interfaces. Resume, LinkedIn, and Portfolio... function scrollToFirstElement(el) { el.scrollIntoView({behavior:,inline:}); }","subtitle":"(by ) Lewey Geselowitz Specialist in spatial user interfaces. , , and Portfolio... function scrollToFirstElement(el) { el.scrollIntoView({behavior:,inline:}); }","href":"https://www.linkedin.com/in/lewey-geselowitz-3346b05/","title":"Lewey GeselowitzResumeLinkedIn"}
-{"plain_text":"COMPANIES","subtitle":"COMPANIES"}
-{"plain_text":"Tesla Staff","subtitle":"Staff","href":"https://www.tesla.com/","title":"Tesla","src":"../images/tesla_logo_icon.png"}
-{"plain_text":"Unity Manager","subtitle":"Manager","href":"https://unity.com/","title":"Unity","src":"../images/unity_logo_icon.jpeg"}
-{"plain_text":"Verses Director","subtitle":"Director","href":"https://verses.io/","title":"Verses","src":"../images/verses_logo_transparent.png"}
-{"plain_text":"Lucasfilm/Disney Senior UX","subtitle":"Senior UX","href":"https://www.lucasfilm.com/","title":"Lucasfilm/Disney","src":"../images/lucasfilm_icon.jpg"}
-{"plain_text":"Microsoft Senior UX","subtitle":"Senior UX","href":"https://www.microsoft.com/","title":"Microsoft","src":"../images/windows_vista.png"}
-{"plain_text":"Hypercube Lead","subtitle":"Lead","href":"http://www.hypercubeusa.com/","title":"Hypercube","src":"progames/hyperchem_field_screen.jpg"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","subtitle":""}
-{"plain_text":"PRODUCTS","subtitle":"PRODUCTS"}
-{"plain_text":"Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube","subtitle":"Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube"}
-{"plain_text":"@Tesla.com","href":"https://www.tesla.com/","title":"@Tesla.com","subtitle":""}
-{"plain_text":"@Unity3D.com","href":"https://unity.com/","title":"@Unity3D.com","subtitle":""}
-{"plain_text":"@Lewcid Systems (consulting)","href":"../","title":"@Lewcid Systems (consulting)","subtitle":""}
-{"plain_text":"@Lucasfilm.com","href":"https://www.lucasfilm.com/","title":"@Lucasfilm.com","subtitle":""}
-{"plain_text":"@Microsoft.com","href":"https://www.microsoft.com/","title":"@Microsoft.com","subtitle":""}
-{"plain_text":"@Hypercube","href":"http://www.hypercubeusa.com/","title":"@Hypercube","subtitle":""}
-{"plain_text":"@Microsoft.com","href":"https://www.microsoft.com/","title":"@Microsoft.com","subtitle":""}
-{"plain_text":"Tesla Autopilot 10.69 Autopilot Visualization Lead","subtitle":"Autopilot Visualization Lead","href":"https://www.youtube.com/watch?v=JjhA6mgyjtk","src":"progames/tesla_autopilot_10.69_sm.png","title":"Tesla Autopilot 10.69"}
-{"plain_text":"Tesla Software v11 (2021) UI Core and Autopilot Visualization","subtitle":"UI Core and Autopilot Visualization","href":"https://www.tesla.com/blog/introducing-software-v11-0","src":"progames/tesla-update-2021.jpg","title":"Tesla Software v11 (2021)"}
-{"plain_text":"Tesla Model S Plaid (2021) UI Core Framework","subtitle":"UI Core Framework","href":"https://www.tesla.com/models","src":"progames/tesla-models-plaid-ui.jpeg","title":"Tesla Model S Plaid (2021)"}
-{"plain_text":"W&G: The Big Fix Up Technical Advisor (room solving by Unity MARS)","subtitle":"Technical Advisor (room solving by Unity MARS)","href":"https://www.thebigfixup.co.uk/","src":"progames/wallance_the_big_fixup.jpg","title":"W&G: The Big Fix Up"}
-{"plain_text":"Dr Seuss","subtitle":"","href":"https://www.sugarcs.com/project/seuss-abc","src":"progames/drseuss_ar_room.jpg","title":"Dr Seuss"}
-{"plain_text":"Unity MARS Spatial App Studio Engineering Manager","subtitle":"Spatial App StudioEngineering Manager","href":"https://unity.com/unity/features/mars","src":"progames/unity_mars_blue.jpg","title":"Unity MARS"}
-{"plain_text":"VERSES.IO Cofounder and Director of Spatial Standards","subtitle":"Cofounder and Director of Spatial Standards","href":"https://verses.io/","src":"progames/verses_quicksilver_sm2.jpg","title":"VERSES.IO"}
-{"plain_text":"Karuna Labs VR Motion Therapy Engineering Lead","subtitle":"VR Motion TherapyEngineering Lead","href":"http://karunavr.com/","src":"progames/karuna_elbow.jpg","title":"Karuna Labs"}
-{"plain_text":"4D Process Space-Time Visualization Founder","subtitle":"Space-Time VisualizationFounder","href":"../4d/","src":"progames/eco4d_image3_.jpg","title":"4D Process"}
-{"plain_text":"Lewcid Systems CEO/Founder --","subtitle":"CEO/Founder --","href":"../","src":"../images/lewcid_systems.jpg","title":"Lewcid Systems"}
-{"plain_text":"Vader Immortal: A Star Wars VR Series Prototype/Pre-Production","subtitle":"Prototype/Pre-Production","href":"https://www.oculus.com/vader-immortal/","src":"progames/vader_vr_hand_sm.jpg","title":"Vader Immortal: A Star Wars VR Series"}
-{"plain_text":"Star Wars: Droid Repair Bay Prototype/Pre-Production","subtitle":"Prototype/Pre-Production","href":"https://www.oculus.com/experiences/go/1769193356487183/","src":"progames/droid_repair_bay_sm.jpg","title":"Star Wars: Droid Repair Bay"}
-{"plain_text":"Star Wars: Secrets of the Empire (VOID experience) Prototype/Pre-Production","subtitle":"Prototype/Pre-Production","href":"https://www.thevoid.com/","src":"progames/swsote_still_2.jpg","title":"Star Wars: Secrets of the Empire(VOID experience)"}
-{"plain_text":"Google Seurat Announce Prototype to Production","subtitle":"Prototype to Production","href":"https://www.youtube.com/watch?v=_rAHM70jfzo","src":"progames/google_seurat_thumb2_cropped.jpg","title":"Google Seurat Announce"}
-{"plain_text":"CARNE y ARENA Prototype/Pre-Production","subtitle":"Prototype/Pre-Production","href":"https://en.wikipedia.org/wiki/Flesh_and_Sand","src":"progames/carneyarena2.jpg","title":"CARNE y ARENA"}
-{"plain_text":"Holographic MRI for Stanford Surgeons Lead on Prototype to Medical Pilot","subtitle":"Lead on Prototype to Medical Pilot","href":"https://pubmed.ncbi.nlm.nih.gov/32145195/","src":"progames/ProjectSerra_summary.jpg","title":"Holographic MRI for Stanford Surgeons"}
-{"plain_text":"Lowes HoloLens Experience AR Systems and Interfaces","subtitle":"AR Systems and Interfaces","href":"https://blogs.windows.com/devices/2016/03/18/microsoft-hololens-and-lowes-working-to-redefine-your-next-home-renovation/","src":"progames/hololens_lowes3.jpg","title":"Lowes HoloLens Experience"}
-{"plain_text":"Windows 10 Holographic Showcases and Holo-Academy Teams","subtitle":"Showcases and Holo-Academy Teams","href":"https://en.wikipedia.org/wiki/Windows_Mixed_Reality","src":"progames/hololens_windows3.jpg","title":"Windows 10 Holographic"}
-{"plain_text":"HoloLens Analog Prototype and Launch Teams","subtitle":"Analog Prototype and Launch Teams","href":"http://www.microsoft.com/microsoft-hololens","src":"progames/hololens_device2.jpg","title":"HoloLens"}
-{"plain_text":"Excel 2016 - 3D Maps Team Graphics and GPU Lead","subtitle":"Graphics and GPU Lead","href":"http://www.bing.com/videos/search?q=excel+3d+maps","src":"progames/Excel_3d_maps.jpg","title":"Excel 2016 - 3D Maps Team"}
-{"plain_text":"Fragments (HoloLens) Early Gestures and Systems","subtitle":"Early Gestures and Systems","href":"https://www.asobostudio.com/games/fragments","src":"progames/fragments-4.jpg","title":"Fragments (HoloLens)"}
-{"plain_text":"Zoo Tycoon (Xbox One) Gestures + Systems","subtitle":"Gestures + Systems","href":"http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon","src":"progames/zoo_tycoon_player.jpg","title":"Zoo Tycoon (Xbox One)"}
-{"plain_text":"Kinect Star Wars Gestures + Systems","subtitle":"Gestures + Systems","href":"http://www.amazon.com/Kinect-Star-Wars-Xbox-360/dp/B002I0HCNI","src":"progames/kinect_star_wars_screen3.jpg","title":"Kinect Star Wars"}
-{"plain_text":"Kinect Pixar Rush Special Thanks","subtitle":"Special Thanks","href":"http://www.amazon.com/Kinect-Rush-Disney-Pixar-Adventure-Xbox/dp/B006ZPAYMI","src":"progames/pixar_rush_screen.jpg","title":"Kinect Pixar Rush"}
-{"plain_text":"Kinect Disneyland Adventures Gestures + Systems","subtitle":"Gestures + Systems","href":"http://marketplace.xbox.com/en-US/Product/Disneyland-Adventures/66acd000-77fe-1000-9115-d8024d5309c1","src":"progames/disneyland_screen2.jpg","title":"Kinect Disneyland Adventures"}
-{"plain_text":"Kinectimals Gestures + Systems","subtitle":"Gestures + Systems","href":"http://www.xbox.com/Kinectimals","src":"progames/kinectimals_screen.jpg","title":"Kinectimals"}
-{"plain_text":"Kinect for Xbox 360 Special Thanks","subtitle":"Special Thanks","href":"http://www.xbox.com/en-US/kinect","src":"progames/kinectimals_kid_logo2.jpg","title":"Kinect for Xbox 360"}
-{"plain_text":"Kinect Sports Special Thanks","subtitle":"Special Thanks","href":"http://www.rareusa.com/games/kinect-sports","src":"progames/kinect-sports_screen.jpg","title":"Kinect Sports"}
-{"plain_text":"Kinect Adventures! Special Thanks","subtitle":"Kinect Adventures!Special Thanks","href":"http://en.wikipedia.org/wiki/Kinect_Adventures!","src":"progames/Kinect-Adventures-screen.jpg"}
-{"plain_text":"Alan Wake Special Thanks","subtitle":"Special Thanks","href":"http://www.alanwake.com/","src":"progames/alan_wake_screen.JPG","title":"Alan Wake"}
-{"plain_text":"PIX for Windows DirectX/Xbox SDK Developer","subtitle":"DirectX/Xbox SDK Developer","href":"http://en.wikipedia.org/wiki/PIX_(Microsoft)","src":"progames/pix_intro.png","title":"PIX for Windows"}
-{"plain_text":"Full House Poker Special Thanks","subtitle":"Special Thanks","href":"http://marketplace.xbox.com/en-US/Product/Full-House-Poker/66acd000-77fe-1000-9115-d8025841098d","src":"progames/full_house_poker_xbox.jpg","title":"Full House Poker"}
-{"plain_text":"Fable II Performance Analysis","subtitle":"Performance Analysis","href":"http://en.wikipedia.org/wiki/Fable_II","src":"progames/fable2_house.jpg","title":"Fable II"}
-{"plain_text":"Viva Pinata PC Performance Engineer --","subtitle":"Performance Engineer --","href":"http://www.amazon.com/Viva-Pi%C3%B1ata-PC/dp/B000VBFWAG","src":"progames/viva-pinata-1.jpg","title":"Viva Pinata PC"}
-{"plain_text":"Forza Motorsport 2 Graphics Engine and Pipeline Engineer","subtitle":"Graphics Engine and Pipeline Engineer","href":"http://en.wikipedia.org/wiki/Forza_Motorsport_2","src":"progames/forza_2_screen.jpg","title":"Forza Motorsport 2"}
-{"plain_text":"","href":"http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx","src":"progames/hyperchem_screen.jpg"}
-{"plain_text":"HyperChem 8.0 Graphics","subtitle":"Graphics","href":"http://www.hyper.com/Products/HyperChemProfessional/75Overview/tabid/361/Default.aspx","src":"progames/hyperchem_field_screen.jpg","title":"HyperChem 8.0"}
-{"plain_text":"Windows Vista / WPF Performance Team Intern","subtitle":"Performance Team Intern","href":"http://en.wikipedia.org/wiki/Windows_Vista","src":"progames/windows-vista-screen.jpg","title":"Windows Vista / WPF"}
-{"plain_text":"Currently a Staff Software Engineer at Tesla on the vehicle dashboard team. Previously Engineering Lead at Unity 3D on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at VERSES.IO. Ran my own consulting and technology licensing business Lewcid Systems. Developed 3D Graphics and Interaction technologies at Microsoft, Lucasfilm and Unity headquaters. Worked with early hardware prototypes for Microsoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368","subtitle":"Currently a Staff Software Engineer at on the vehicle dashboard team. Previously Engineering Lead at on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at . Ran my own consulting and technology licensing business . Developed 3D Graphics and Interaction technologies at , and headquaters. Worked with early hardware prototypes for","href":"http://www.hyper.com/","title":"TeslaUnity 3DVERSES.IOLewcid SystemsMicrosoftLucasfilmUnityMicrosoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","subtitle":""}
-{"plain_text":""}
-{"plain_text":"PERSONAL PROJECTS","subtitle":"PERSONAL PROJECTS"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"Friends [facebook] / Co-Workers [linkedin]","href":"https://www.linkedin.com/in/lewey-geselowitz-3346b05/","src":"leweyg_profile2.jpg","title":"Friends Co-Workers","subtitle":"[facebook] / [linkedin]"}
-{"plain_text":"Heroine Dawn [web/mobile]","href":"https://leweyg.github.io/heroine_dawn/","src":"progames/heroine_dawn.png","title":"Heroine Dawn","subtitle":"[web/mobile]"}
-{"plain_text":"Carnival [web]","href":"https://leweyg.github.io/carnival/carnival/","src":"progames/carnival_intro.jpg","title":"Carnival","subtitle":"[web]"}
-{"plain_text":"Project Field Hand","href":"http://www.4dprocess.com/fieldhand/","src":"progames/FieldHand_Friday_Sep18th_2020_sm.jpg","title":"Project Field Hand","subtitle":""}
-{"plain_text":"Freed Go [web/mobile]","href":"https://leweyg.github.io/FreedGames/FreedGo/","src":"progames/freed_go_2.jpg","title":"Freed Go","subtitle":"[web/mobile]"}
-{"plain_text":"Dice Walker [web]","href":"https://leweyg.github.io/DiceWalker/","src":"progames/dice_walker_sm.jpg","title":"Dice Walker","subtitle":"[web]"}
-{"plain_text":"Lewdo [web/mobile]","href":"https://github.com/leweyg/lewdo","src":"progames/lewdo_sm3.png","title":"Lewdo","subtitle":"[web/mobile]"}
-{"plain_text":"4D Process [web/mobile]","href":"http://www.4dprocess.com/4d/index.html","src":"progames/viral_contacts_crop_sm.jpg","title":"4D Process","subtitle":"[web/mobile]"}
-{"plain_text":"Healer Game Series [web/mobile]","href":"https://leweyg.github.io/HealerGame/demo/","src":"progames/HealerGame.jpg","title":"Healer Game Series","subtitle":"[web/mobile]"}
-{"plain_text":"VR Biofield Meditation [web/vr]","href":"https://leweyg.github.io/vrbiofield/index.html","src":"progames/VRBiofield_HeartChakra.jpg","title":"VR Biofield Meditation","subtitle":"[web/vr]"}
-{"plain_text":"VR Biofield Framework --","href":"https://github.com/leweyg/vrbiofield","src":"progames/VRBiofields_Summary.jpg","title":"VR Biofield Framework","subtitle":"--"}
-{"plain_text":"Energy Work Experiences","href":"articles/leweys_energy_work.html","src":"articles/lewcid_energy_work_sm.gif","title":"Energy Work Experiences","subtitle":""}
-{"plain_text":"3D UI Hand Gestures [video]","href":"articles/vol/hand_poses.html","src":"articles/vol/Volumetrics_Scrolling_Early_screen.jpg","title":"3D UI Hand Gestures","subtitle":"[video]"}
-{"plain_text":"Sculptures","href":"sculpture/index.html","src":"sculpture/07/hand_front_small.jpg","title":"Sculptures","subtitle":""}
-{"plain_text":"","href":"sculpture/index.html#second_good_idea","src":"sculpture/06/headshot.jpg","subtitle":""}
-{"plain_text":"","href":"sculpture/index.html#hoagie","src":"sculpture/03/small.jpg","subtitle":""}
-{"plain_text":"Space Story","href":"articles/sketches__the_comet.html","src":"related/the_comet_sm.jpg","title":"Space Story","subtitle":""}
-{"plain_text":"Motion Augmentation Key Techniques --!-- http://www.lewcid.com/lg/articles/kinect/kinect_dev_videos.html http://www.lewcid.com/lg/articles/kinect/Voxel_Carving_screen.jpg http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_screen.JPG http://www.lewcid.com/lg/articles/kinect/Voxel_Carving_With_Kinect.mp4 http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4 --","href":"articles/Kinect_Augmentation_Principals_and_Practices.html","src":"articles/kinect/kinect_books.jpg","title":"Motion AugmentationKey Techniques","subtitle":"--!-- http://www.lewcid.com/lg/articles/kinect/kinect_dev_videos.html http://www.lewcid.com/lg/articles/kinect/Voxel_Carving_screen.jpg http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_screen.JPG http://www.lewcid.com/lg/articles/kinect/Voxel_Carving_With_Kinect.mp4 http://www.lewcid.com/lg/articles/kinect/BodyMountedCameras_intro.mp4 --"}
-{"plain_text":"Kinect Gesture Development Videos and Articles [videos]","href":"articles/kinect/kinect_dev_videos.html","title":"Kinect Gesture DevelopmentVideos and Articles [videos]","src":"articles/kinect/BodyMountedCameras_intro.mp4","subtitle":""}
-{"plain_text":"Augmented Walking Game Research --","href":"articles/kinect/kinect_dev_videos.html#walking","src":"articles/kinect/Stomp_EarlyProto_screen.JPG","title":"Augmented WalkingGame Research","subtitle":"--"}
-{"plain_text":"ESL Extensible Shading Language","href":"lc/esl/","src":"lc/esl/examples/pic1_small.jpg","title":"ESLExtensible Shading Language","subtitle":""}
-{"plain_text":"Evil Dice 2 Speedy Puzzle Game [win32]","href":"lc/evildice2/index.html","src":"lc/evildice2/EvilDice2_InGame_3_small.jpeg","title":"Evil Dice 2Speedy Puzzle Game","subtitle":"[win32]"}
-{"plain_text":"Shuzzle The Shadow Puzzle [win32]","href":"lc/shuzzle.html","src":"lc/screens/Shuzzle_Mix_small.jpeg","title":"ShuzzleThe Shadow Puzzle","subtitle":"[win32]"}
-{"plain_text":"Freed Go Mobius and Layered Go [win32]","href":"lc/freedgo.html","src":"lc/screens/FreedGo_9_small.jpeg","title":"Freed GoMobius and Layered Go","subtitle":"[win32]"}
-{"plain_text":"Freed Invasion Quick Strategy Game [win32]","href":"lc/freedinvasion.html","src":"lc/screens/FreedInv_3_small.jpeg","title":"Freed InvasionQuick Strategy Game","subtitle":"[win32]"}
-{"plain_text":"ImpView 3D Implicit Equations [win32]","href":"download/impview.html","src":"download/Screens/ImpView_F_small.jpg","title":"ImpView3D Implicit Equations","subtitle":"[win32]"}
-{"plain_text":"VSaber Voxel Carving Tool [win32]","href":"vsaber/index.html","src":"vsaber/screens/VSaber_Q_small.jpg","title":"VSaberVoxel Carving Tool","subtitle":"[win32]"}
-{"plain_text":"Quake II AbSIRD Stereogram Engine Mod [win32]","href":"download/SIRD/q2/index.html","src":"progames/Quake_to_SIRDS.jpg","title":"Quake II AbSIRDStereogram Engine Mod","subtitle":"[win32]"}
-{"plain_text":"AbSIRD Algorithm Realtime [win32]","href":"download/SIRD/index.html","src":"download/SIRD/AbSIRD/SIRD2_small.jpg","title":"AbSIRD AlgorithmRealtime","subtitle":"[win32]"}
-{"plain_text":"Ink AniEd Tablet PC Ink Animator [tablet pc]","href":"anied/index.html","src":"anied/AniEd_remote_small.jpg","title":"Ink AniEdTablet PC Ink Animator","subtitle":"[tablet pc]"}
-{"plain_text":"Lazy Ink Tablet PC Ink Effect [tablet pc]","href":"tabletpc.html","src":"other/LazyInk.gif","title":"Lazy InkTablet PC Ink Effect","subtitle":"[tablet pc]"}
-{"plain_text":"Pocket PC Games and Tools [pocket pc]","href":"pocketpc/index.html","src":"pocketpc/Screen_MindSweeper.jpg","title":"Pocket PCGames and Tools","subtitle":"[pocket pc]"}
-{"plain_text":"Evil Dice Puzzle Game Perfection [win32]","href":"download/EvilDice.html","src":"download/Screens/EvilDice_6s_small.jpg","title":"Evil DicePuzzle Game Perfection","subtitle":"[win32]"}
-{"plain_text":"WirEd and ModEd 3D Modeling Kit [win32]","href":"download/3DStuff.html","src":"download/Screens/ModEd_Computer.jpg","title":"WirEd and ModEd3D Modeling Kit","subtitle":"[win32]"}
-{"plain_text":"Thinking Game 2 Connect 4 in 3D [win32]","href":"download/TG2.html","src":"download/Screens/TG2_Game1.jpg","title":"Thinking Game 2Connect 4 in 3D","subtitle":"[win32]"}
-{"plain_text":"Grapher 2D/3D Equations [win32]","href":"download/Grapher.html","src":"download/Screens/Grapher_2DGraph.jpg","title":"Grapher2D/3D Equations","subtitle":"[win32]"}
-{"plain_text":"Crystal Math Visual Symbolic Calculator [win32]","href":"download/Crystal.html","src":"download/Screens/Crystal_Calc.jpg","title":"Crystal MathVisual Symbolic Calculator","subtitle":"[win32]"}
-{"plain_text":"Alarm Clock T-Rex Sound Included [win32]","href":"download/Alarm.html","src":"download/Screens/Alarm_One.jpg","title":"Alarm ClockT-Rex Sound Included","subtitle":"[win32]"}
-{"plain_text":"Teach Linked Lists Programming Education App [win32]","href":"download/Teach.html","src":"download/Screens/Teach_Tree.jpg","title":"Teach Linked ListsProgramming Education App","subtitle":"[win32]"}
-{"plain_text":"Towers of Hanoi Classic Recursion Example [win32]","href":"download/Towers.html","src":"download/Screens/Towers_Game.jpg","title":"Towers of HanoiClassic Recursion Example","subtitle":"[win32]"}
-{"plain_text":"Crystal Math Console Command Line Tool [win32]","href":"download/Crystal.html","src":"download/Screens/CrystalMath_Console.jpg","title":"Crystal Math ConsoleCommand Line Tool","subtitle":"[win32]"}
-{"plain_text":"Personal projects, from alarm clocks, to puzzle games, stories and sculptures. Pivoted by Subject, Time or Folder. Many available with source code. Classics: Kinect, ImpView, Quake II AbSIRD, Freed Go, Sculpture, Evil Dice and VSaber. --tr","subtitle":"Personal projects, from , to , and . Pivoted by , or . Many available with source code. Classics: , , , , , and . --tr","href":"vsaber/index.html","title":"alarm clockspuzzle gamesstoriessculpturesSubjectTimeFolderKinectImpViewQuake II AbSIRDFreed GoSculptureEvil DiceVSaber"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","subtitle":""}
-{"plain_text":""}
-{"plain_text":"ACTIVE INTERESTS and *articles","subtitle":"ACTIVE INTERESTS and *articles"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"Suzanne Astar","href":"http://suzanneastar.com/","src":"progames/suzanne_astar_at_work.jpg","title":"Suzanne Astar","subtitle":""}
-{"plain_text":"The Spatial Web Book/Patent/White-Paper Contributor","subtitle":"Book/Patent/White-Paper Contributor","href":"https://www.amazon.com/gp/aw/sitb/B07X1V8D58","src":"progames/VERSES_the_spatial_web_book.jpeg","title":"The Spatial Web"}
-{"plain_text":"*Using 3D to Optimize Computations --","href":"articles/using-3d-to-optimize-computation.pdf","src":"articles/optimization_figure_1_sm.png","title":"*Using 3D to Optimize Computations","subtitle":"--"}
-{"plain_text":"*37th Birthday Portfolio Review [video]","href":"https://youtu.be/cPmYqzaDPV4","src":"related/portfolio_video_thumbnail_sm.jpg","title":"*37th Birthday Portfolio Review","subtitle":"[video]"}
-{"plain_text":"*Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead","subtitle":"Adaptive Layout SystemEngineering Lead","href":"https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html","src":"progames/unity_mars_forces_adapt2.jpg","title":"*Unity MARS: Proxy Forces"}
-{"plain_text":"*Designing for VERSES and The Spatial Web [videos]","href":"https://leweyg.github.io/design_for_verses/","src":"progames/VERSES_Smart_Warehouse_sm.jpg","title":"*Designing for VERSES and The Spatial Web","subtitle":"[videos]"}
-{"plain_text":"Classic Win32 Apps [win32]","href":"lc/win32/","src":"lc/win32/LewcidApps.png","title":"Classic Win32 Apps","subtitle":"[win32]"}
-{"plain_text":"Spatial Web Economy and Blockchain (interview) [video]","href":"https://www.youtube.com/watch?v=IVV5ir_JX_A","src":"progames/spatialweb_jobs.jpeg","title":"Spatial Web Economyand Blockchain (interview)","subtitle":"[video]"}
-{"plain_text":"*Augmented Reality Contextual Messaging UX","href":"articles/ar-contextual-messaging-ux.html","src":"articles/images/AR_UX_sm.jpg","title":"*Augmented RealityContextual Messaging UX","subtitle":""}
-{"plain_text":"*Augmented Reality Does Two Things","href":"articles/augmented-reality-does-two-things.html","src":"articles/ar-does-two-things-sm.jpeg","title":"*Augmented RealityDoes Two Things","subtitle":""}
-{"plain_text":"*Excel 3D Patent Chart and Query Shapes","href":"articles/excel3d_patent.pdf","src":"progames/Excel3DPatentImage_sm.jpg","title":"*Excel 3D PatentChart and Query Shapes","subtitle":""}
-{"plain_text":"*Interval Arithmetic For Visualization [web]","href":"math/index.html","src":"math/images/interval_logo.png","title":"*Interval ArithmeticFor Visualization","subtitle":"[web]"}
-{"plain_text":"*Interactive History of Programming [web]","href":"cch/cch_ip_1.html","src":"progames/cch_programming.jpg","title":"*Interactive History of Programming","subtitle":"[web]"}
-{"plain_text":"Electromyography (image source)","href":"http://iyashisource.com/shieldite/electro-magnetic-fields","src":"related/human_magnetic_field.jpg","title":"Electromyography(image source)","subtitle":""}
-{"plain_text":"Holograms (image source)","href":"http://www.microsoft.com/microsoft-hololens/","src":"related/hololens_icons.jpg","title":"Holograms(image source)","subtitle":""}
-{"plain_text":"Volumetric Data Cubes (image source)","href":"https://www.edwardtufte.com/tufte/","src":"related/tufte_cloud_sm.jpg","title":"Volumetric Data Cubes(image source)","subtitle":""}
-{"plain_text":"*Hand Gestures [video] (image source)","href":"http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094","src":"related/mantis_kung_fu_slim.jpg","title":"*Hand Gestures(image source)","subtitle":"[video]"}
-{"plain_text":"*Motion Augmentation [videos] (image source)","href":"http://www.cyberdyne.jp/english/products/HAL/index.html","src":"related/exoskeleton.jpg","title":"*MotionAugmentation(image source)","subtitle":"[videos]"}
-{"plain_text":"*Interactive Animation (image source)","href":"http://theanimatorssurvivalkit.com/","src":"related/walk_cycle.jpg","title":"*InteractiveAnimation(image source)","subtitle":""}
-{"plain_text":"Plant Tropisms --","href":"http://www.bing.com/search?q=plant+tropisms","src":"related/greenhouse_farm.jpg","title":"Plant Tropisms","subtitle":"--"}
-{"plain_text":"*Sculpture (image source)","href":"http://www.rodinmuseum.org/","src":"related/Rodin_Thinker.jpg","title":"*Sculpture(image source)","subtitle":""}
-{"plain_text":"Acting --","href":"http://www.amazon.com/Dance-Composition-Production-Elizabeth-Hayes/dp/B000IQ6XL6","src":"related/isadora_duncan_2_sm.jpg","title":"Acting","subtitle":"--"}
-{"plain_text":"Ergonomics (image source)","href":"http://www.bing.com/search?q=The+Modulor+by+Le+Corbusier","src":"related/le_corbusier_modulo_3.jpg","title":"Ergonomics(image source)","subtitle":""}
-{"plain_text":"Kinesthetics","href":"http://en.wikipedia.org/wiki/Proprioception","src":"related/yoga_muscles.jpg","title":"Kinesthetics","subtitle":""}
-{"plain_text":"Gestures","href":"http://en.wikipedia.org/wiki/Gesture_recognition","src":"related/body_measurements_slim.jpg","title":"Gestures","subtitle":""}
-{"plain_text":"Image Processing","href":"http://research.microsoft.com/en-us/projects/vrkinect/default.aspx\r\n","src":"related/kinect_body_segments.JPG","title":"Image Processing","subtitle":""}
-{"plain_text":"Performance Analysis","href":"http://en.wikipedia.org/wiki/Profiling_(computer_programming)","src":"related/Stopwatch1.jpg","title":"Performance Analysis","subtitle":""}
-{"plain_text":"Architecture and CAD (image source)","href":"https://www.behance.net/gallery/23910915/Fern-Wood-House","src":"related/architecture_jp.jpg","title":"Architecture and CAD(image source)","subtitle":""}
-{"plain_text":"Game Development (image source)","href":"http://www.rare.co.uk/games/banjokazooie-nuts-bolts","src":"related/banjo-nuts-and-bolts.jpg","title":"Game Development(image source)","subtitle":""}
-{"plain_text":"Software Engineering (image source)","href":"http://www.microsoft.com/","src":"related/MicrosoftRedmondCampus_sm.jpg","title":"Software Engineering(image source)","subtitle":""}
-{"plain_text":"Seattle","href":"http://www.thestranger.com/","src":"related/seattle.jpg","title":"Seattle","subtitle":""}
-{"plain_text":"Chemistry","href":"http://www.hyper.com/","src":"related/chemistry.jpg","title":"Chemistry","subtitle":""}
-{"plain_text":"Computer Interaction (image source)","href":"http://www.dentsable.com/haptic-phantom-omni.htm","src":"related/haptic_device_omni.jpg","title":"Computer Interaction(image source)","subtitle":""}
-{"plain_text":"University of Florida","href":"http://www.cise.ufl.edu/~jorg/","src":"related/university-of-florida.jpg","title":"University of Florida","subtitle":""}
-{"plain_text":"Software (image source)","href":"http://en.wikipedia.org/wiki/The_Glass_Bead_Game","src":"related/glass_bead_game.jpg","title":"Software(image source)","subtitle":""}
-{"plain_text":"Programming (image source)","href":"http://www.amazon.com/Texas-Instruments-TI-82-Graphing-Calculator/dp/B00008OOW4","src":"related/texas_instruments_ti_82.jpg","title":"Programming(image source)","subtitle":""}
-{"plain_text":"Art / Literature (image source)","href":"https://www.youtube.com/watch?v=swOxKu80JpU","src":"related/the_fountainhead_roark_sm.jpg","title":"Art / Literature(image source)","subtitle":""}
-{"plain_text":"","href":"http://www.3d2dmurals.com/","src":"related/murals_sm.jpg"}
-{"plain_text":"Snakes (image source)","href":"http://en.wikipedia.org/wiki/Bitis_gabonica","src":"related/gaboon_viber.jpg","title":"Snakes(image source)","subtitle":""}
-{"plain_text":"Florida","href":"http://www.bing.com/search?q=florida","src":"related/florida_sm.jpg","title":"Florida","subtitle":""}
-{"plain_text":"Immigration","href":"http://www.bing.com/search?q=us+citizen","src":"related/immigration.jpg","title":"Immigration","subtitle":""}
-{"plain_text":"New South Africa","href":"http://www.bing.com/search?q=republic+of+south+africa","src":"related/new_south_africa.jpg","title":"New South Africa","subtitle":""}
-{"plain_text":"Revolution (image source)","href":"http://www.capegallery.co.za/patric_cordingley1.htm","src":"related/nelson_mandela_sm.jpg","title":"Revolution(image source)","subtitle":""}
-{"plain_text":"Video Games","href":"related/video_games_with_the_boys__full.jpg","src":"related/video_games_with_the_boys.jpg","title":"Video Games","subtitle":""}
-{"plain_text":"*Philosophy in Five Easy Pieces [pamphlet] (image source)","href":"http://en.wikipedia.org/wiki/The_School_of_Athens","src":"related/aristotle.jpg","title":"*Philosophy in Five Easy Pieces(image source)","subtitle":"[pamphlet]"}
-{"plain_text":"Family","href":"https://www.facebook.com/leweyg","src":"related/family_kira.jpg","title":"Family","subtitle":""}
-{"plain_text":"Farm Life","href":"http://www.bing.com/search?q=apple+orchids","src":"related/farm_life.jpg","title":"Farm Life","subtitle":""}
-{"plain_text":"African Bush","href":"http://www.bing.com/search?q=africa","src":"related/bush_south_african_sm.jpg","title":"African Bush","subtitle":""}
-{"plain_text":"","href":"articles/Kinect_Augmentation_Principals_and_Practices.html","title":""}
-{"plain_text":"","src":"other/article_icon.png"}
-{"plain_text":"Kinect Augmented Animation Principals","subtitle":"Kinect AugmentedAnimation Principals"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","href":"articles/turing_field.html","title":""}
-{"plain_text":"","src":"other/article_icon.png"}
-{"plain_text":"(in progress) Turing Field Inference Visualizing Any Computation","subtitle":"(in progress)Turing Field InferenceVisualizing Any Computation"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"","href":"articles/holographic_interval.pdf","title":""}
-{"plain_text":"","src":"other/article_icon.png"}
-{"plain_text":"(in progress) Interval Arithmetic Reference","subtitle":"(in progress)Interval ArithmeticReference"}
-{"plain_text":"--!--","subtitle":"--!--"}
-{"plain_text":"Semi-autobiographical series of articles and interests. --tr","subtitle":"Semi-autobiographical series of articles and interests. --tr"}
-{"plain_text":"Auto-Animate Timelines Professional Resume Contact: Email, Facebook or LinkedIn Moments Caught in Motion: ~mid 2022: My daughter Viveka is born. I m currently working on Office m currently the graphics lead on Power Map for Excel (a data visualization and mapping feature in Microsoft Excel), a team which I joined to focus on 3d data interaction after working on the interaction mechanics for the HoloLens during early production. ~early 2009: I ve had two internships at Microsoft (both as an SDE); first working on internal performance tools for the Windows Presentation Foundation in Windows Vista (then called Avalon for Windows Codename Longhorn), and second working on the shader pipeline for an Xbox 360 title. Recently I accepted a full-time position with the Microsoft Game Studios Tools and Technology team and should be starting sometime later this year. I also used to be the lead programmer for the HyperChem molecular modeling suite for HyperCube, Inc. here in Gainesville. Currently I m now living in the U.S. and finishing up a Computer Science degree at the University of Florida. My main interests are computer graphics (preferably real-time), games, programming languages, user interfaces, philosophy, art theory, and of course my girlfriend. Favorite Number: 20 centimeters per hour - the rate that water flows through a grape vine (see General Viticulture), useful to contemplate while in forests. This site is mostly a collection of the large and little products, ideas and prototypes Is early dynamic and fascinating evolution. -Lewey Geselowitz function SetupDivAnimation(divName,speed) { var initialProScrollValue = -10.0; var ProScrollDir = speed; var UserWaitTicks = 0; var divid = document.getElementById(divName); var isAnimate = document.getElementById(); var doTick = function() { if (isAnimate.checked == false) { return; } if (initialProScrollValue 0.0) { UserWaitTicks = UserWaitTicks - 1.0; } else { initialProScrollValue += ProScrollDir; divid.scrollLeft = initialProScrollValue; if (initialProScrollValue != divid.scrollLeft) { ProScrollDir *= -1.0; initialProScrollValue += ProScrollDir; divid.scrollLeft = initialProScrollValue; } } } setInterval( doTick, 33 ); } var hasSetupAnimations = false; function SetupAllAnimations() { if (hasSetupAnimations) return; hasSetupAnimations = true; SetupDivAnimation(, 1.0); SetupDivAnimation(, 2.0); SetupDivAnimation(, 1.0); } //SetupAllAnimations(); // do this on demand","subtitle":"Auto-Animate Timelines Contact: , or Moments Caught in Motion: ~mid 2022: My daughter Viveka is born. Im currently working on m currently the graphics lead on (a data visualization and mapping feature in ), a team which I joined to focus on 3d data interaction after working on the interaction mechanics for the during early production. ~early 2009: Ive had two internships at Microsoft (both as an ); first working on internal performance tools for the in Windows Vista (then called Avalon for Windows Codename Longhorn), and second working on the shader pipeline for an title. Recently I accepted a full-time position with the Microsoft Game Studios Tools and Technology team and should be starting sometime later this year. I also used to be the lead programmer for the molecular modeling suite for here in Gainesville. Currently Im now living in the U.S. and finishing up a Computer Science degree at the University of Florida. My main interests are computer graphics (preferably real-time), games, programming languages, user interfaces, philosophy, art theory, and of course my girlfriend. Favorite Number: 20 centimeters per hour - the rate that water flows through a grape vine (see ), useful to contemplate while in forests. This site is mostly a collection of the large and little products, ideas and prototypes Is early dynamic and fascinating evolution. function SetupDivAnimation(divName,speed) { var initialProScrollValue = -10.0; var ProScrollDir = speed; var UserWaitTicks = 0; var divid = document.getElementById(divName); var isAnimate = document.getElementById(); var doTick = function() { if (isAnimate.checked == false) { return; } if (initialProScrollValue 0.0) { UserWaitTicks = UserWaitTicks - 1.0; } else { initialProScrollValue += ProScrollDir; divid.scrollLeft = initialProScrollValue; if (initialProScrollValue != divid.scrollLeft) { ProScrollDir *= -1.0; initialProScrollValue += ProScrollDir; divid.scrollLeft = initialProScrollValue; } } } setInterval( doTick, 33 ); } var hasSetupAnimations = false; function SetupAllAnimations() { if (hasSetupAnimations) return; hasSetupAnimations = true; SetupDivAnimation(, 1.0); SetupDivAnimation(, 2.0); SetupDivAnimation(, 1.0); } //SetupAllAnimations(); // do this on demand","title":"Professional ResumeEmailFacebookLinkedInOfficePower Map for ExcelMicrosoft ExcelHoloLensSDEWindows Presentation FoundationXbox 360HyperChemHyperCube, Inc.General Viticulture-Lewey Geselowitz","href":"Resume.html"}
-{"plain_text":"Posing for the Microsoft Platform Next (HoloLens/Kinect) team photo day:","subtitle":"Posing for the Microsoft Platform Next (/) team photo day:","href":"http://www.xbox.com/en-US/kinect","title":"HoloLensKinect","src":"leweyg_profile_pic.jpg"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"At the Kinect Star Wars launch...","subtitle":"At the launch...","href":"http://en.wikipedia.org/wiki/Kinect_Star_Wars","title":"Kinect Star Wars","src":"progames/kinect_star_wars_launch.jpg"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"With the Kinect Disneyland Adventures team...","subtitle":"With the team...","href":"http://www.amazon.com/Kinect-Disneyland-Adventures-Xbox-360/dp/B0050SYYTK","title":"Kinect Disneyland Adventures","src":"progames/disneyland_team.jpg"}
-{"plain_text":"","subtitle":""}
-{"plain_text":"Visiting Paris while staying with Microsoft Research Cambridge...","subtitle":"Visiting Paris while staying with ...","href":"http://research.microsoft.com/en-us/labs/cambridge/","title":"Microsoft Research Cambridge","src":"progames/paris.jpg"}
-{"plain_text":"Lewey G.","subtitle":"Lewey G.","src":"Me.jpg"}
-{"plain_text":"NOT","subtitle":"NOT"}
-{"plain_text":"Luigi --!-- Pics of Spring Break in Puerto Rico 2003... --/td/tr/table/font/div!-- end page content --/div/font/body/html","subtitle":"Luigi --!-- --/td/tr/table/font/div!-- end page content --/div/font/body/html","src":"Luigi.jpg","href":"other/puerto_rico/index.htm/","title":"Pics of Spring Break in Puerto Rico 2003..."}
+[
+    {
+        "plain_text": "Tesla Staff",
+        "subtitle": "Staff",
+        "href": "https://www.tesla.com/",
+        "title": "Tesla",
+        "src": "../images/tesla_logo_icon.png"
+    },
+    {
+        "plain_text": "Unity Manager",
+        "subtitle": "Manager",
+        "href": "https://unity.com/",
+        "title": "Unity",
+        "src": "../images/unity_logo_icon.jpeg"
+    },
+    {
+        "plain_text": "Verses Director",
+        "subtitle": "Director",
+        "href": "https://verses.io/",
+        "title": "Verses",
+        "src": "../images/verses_logo_transparent.png"
+    },
+    {
+        "plain_text": "Lucasfilm/Disney Senior UX",
+        "subtitle": "Senior UX",
+        "href": "https://www.lucasfilm.com/",
+        "title": "Lucasfilm/Disney",
+        "src": "../images/lucasfilm_icon.jpg"
+    },
+    {
+        "plain_text": "Microsoft Senior UX",
+        "subtitle": "Senior UX",
+        "href": "https://www.microsoft.com/",
+        "title": "Microsoft",
+        "src": "../images/windows_vista.png"
+    },
+    {
+        "plain_text": "Hypercube Lead",
+        "subtitle": "Lead",
+        "href": "http://www.hypercubeusa.com/",
+        "title": "Hypercube",
+        "src": "progames/hyperchem_field_screen.jpg"
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "PRODUCTS",
+        "subtitle": "PRODUCTS"
+    },
+    {
+        "plain_text": "Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube",
+        "subtitle": "Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube"
+    },
+    {
+        "plain_text": "@Tesla.com",
+        "href": "https://www.tesla.com/",
+        "title": "@Tesla.com",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Unity3D.com",
+        "href": "https://unity.com/",
+        "title": "@Unity3D.com",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Lewcid Systems (consulting)",
+        "href": "../",
+        "title": "@Lewcid Systems (consulting)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Lucasfilm.com",
+        "href": "https://www.lucasfilm.com/",
+        "title": "@Lucasfilm.com",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Microsoft.com",
+        "href": "https://www.microsoft.com/",
+        "title": "@Microsoft.com",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Hypercube",
+        "href": "http://www.hypercubeusa.com/",
+        "title": "@Hypercube",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "@Microsoft.com",
+        "href": "https://www.microsoft.com/",
+        "title": "@Microsoft.com",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Tesla Autopilot 10.69 Autopilot Visualization Lead",
+        "subtitle": "Autopilot Visualization Lead",
+        "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
+        "src": "progames/tesla_autopilot_10.69_sm.png",
+        "title": "Tesla Autopilot 10.69"
+    },
+    {
+        "plain_text": "Tesla Software v11 (2021) UI Core and Autopilot Visualization",
+        "subtitle": "UI Core and Autopilot Visualization",
+        "href": "https://www.tesla.com/blog/introducing-software-v11-0",
+        "src": "progames/tesla-update-2021.jpg",
+        "title": "Tesla Software v11 (2021)"
+    },
+    {
+        "plain_text": "Tesla Model S Plaid (2021) UI Core Framework",
+        "subtitle": "UI Core Framework",
+        "href": "https://www.tesla.com/models",
+        "src": "progames/tesla-models-plaid-ui.jpeg",
+        "title": "Tesla Model S Plaid (2021)"
+    },
+    {
+        "plain_text": "W&G: The Big Fix Up Technical Advisor (room solving by Unity MARS)",
+        "subtitle": "Technical Advisor (room solving by Unity MARS)",
+        "href": "https://www.thebigfixup.co.uk/",
+        "src": "progames/wallance_the_big_fixup.jpg",
+        "title": "W&G: The Big Fix Up"
+    },
+    {
+        "plain_text": "Dr Seuss",
+        "subtitle": "",
+        "href": "https://www.sugarcs.com/project/seuss-abc",
+        "src": "progames/drseuss_ar_room.jpg",
+        "title": "Dr Seuss"
+    },
+    {
+        "plain_text": "Unity MARS Spatial App Studio Engineering Manager",
+        "subtitle": "Spatial App StudioEngineering Manager",
+        "href": "https://unity.com/unity/features/mars",
+        "src": "progames/unity_mars_blue.jpg",
+        "title": "Unity MARS"
+    },
+    {
+        "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
+        "subtitle": "Cofounder and Director of Spatial Standards",
+        "href": "https://verses.io/",
+        "src": "progames/verses_quicksilver_sm2.jpg",
+        "title": "VERSES.IO"
+    },
+    {
+        "plain_text": "Karuna Labs VR Motion Therapy Engineering Lead",
+        "subtitle": "VR Motion TherapyEngineering Lead",
+        "href": "http://karunavr.com/",
+        "src": "progames/karuna_elbow.jpg",
+        "title": "Karuna Labs"
+    },
+    {
+        "plain_text": "4D Process Space-Time Visualization Founder",
+        "subtitle": "Space-Time VisualizationFounder",
+        "href": "../4d/",
+        "src": "progames/eco4d_image3_.jpg",
+        "title": "4D Process"
+    },
+    {
+        "plain_text": "Lewcid Systems CEO/Founder --",
+        "subtitle": "CEO/Founder --",
+        "href": "../",
+        "src": "../images/lewcid_systems.jpg",
+        "title": "Lewcid Systems"
+    },
+    {
+        "plain_text": "Vader Immortal: A Star Wars VR Series Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production",
+        "href": "https://www.oculus.com/vader-immortal/",
+        "src": "progames/vader_vr_hand_sm.jpg",
+        "title": "Vader Immortal: A Star Wars VR Series"
+    },
+    {
+        "plain_text": "Star Wars: Droid Repair Bay Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production",
+        "href": "https://www.oculus.com/experiences/go/1769193356487183/",
+        "src": "progames/droid_repair_bay_sm.jpg",
+        "title": "Star Wars: Droid Repair Bay"
+    },
+    {
+        "plain_text": "Star Wars: Secrets of the Empire (VOID experience) Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production",
+        "href": "https://www.thevoid.com/",
+        "src": "progames/swsote_still_2.jpg",
+        "title": "Star Wars: Secrets of the Empire(VOID experience)"
+    },
+    {
+        "plain_text": "Google Seurat Announce Prototype to Production",
+        "subtitle": "Prototype to Production",
+        "href": "https://www.youtube.com/watch?v=_rAHM70jfzo",
+        "src": "progames/google_seurat_thumb2_cropped.jpg",
+        "title": "Google Seurat Announce"
+    },
+    {
+        "plain_text": "CARNE y ARENA Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production",
+        "href": "https://en.wikipedia.org/wiki/Flesh_and_Sand",
+        "src": "progames/carneyarena2.jpg",
+        "title": "CARNE y ARENA"
+    },
+    {
+        "plain_text": "Holographic MRI for Stanford Surgeons Lead on Prototype to Medical Pilot",
+        "subtitle": "Lead on Prototype to Medical Pilot",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/32145195/",
+        "src": "progames/ProjectSerra_summary.jpg",
+        "title": "Holographic MRI for Stanford Surgeons"
+    },
+    {
+        "plain_text": "Lowes HoloLens Experience AR Systems and Interfaces",
+        "subtitle": "AR Systems and Interfaces",
+        "href": "https://blogs.windows.com/devices/2016/03/18/microsoft-hololens-and-lowes-working-to-redefine-your-next-home-renovation/",
+        "src": "progames/hololens_lowes3.jpg",
+        "title": "Lowes HoloLens Experience"
+    },
+    {
+        "plain_text": "Windows 10 Holographic Showcases and Holo-Academy Teams",
+        "subtitle": "Showcases and Holo-Academy Teams",
+        "href": "https://en.wikipedia.org/wiki/Windows_Mixed_Reality",
+        "src": "progames/hololens_windows3.jpg",
+        "title": "Windows 10 Holographic"
+    },
+    {
+        "plain_text": "HoloLens Analog Prototype and Launch Teams",
+        "subtitle": "Analog Prototype and Launch Teams",
+        "href": "http://www.microsoft.com/microsoft-hololens",
+        "src": "progames/hololens_device2.jpg",
+        "title": "HoloLens"
+    },
+    {
+        "plain_text": "Excel 2016 - 3D Maps Team Graphics and GPU Lead",
+        "subtitle": "Graphics and GPU Lead",
+        "href": "http://www.bing.com/videos/search?q=excel+3d+maps",
+        "src": "progames/Excel_3d_maps.jpg",
+        "title": "Excel 2016 - 3D Maps Team"
+    },
+    {
+        "plain_text": "Fragments (HoloLens) Early Gestures and Systems",
+        "subtitle": "Early Gestures and Systems",
+        "href": "https://www.asobostudio.com/games/fragments",
+        "src": "progames/fragments-4.jpg",
+        "title": "Fragments (HoloLens)"
+    },
+    {
+        "plain_text": "Zoo Tycoon (Xbox One) Gestures + Systems",
+        "subtitle": "Gestures + Systems",
+        "href": "http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon",
+        "src": "progames/zoo_tycoon_player.jpg",
+        "title": "Zoo Tycoon (Xbox One)"
+    },
+    {
+        "plain_text": "Kinect Star Wars Gestures + Systems",
+        "subtitle": "Gestures + Systems",
+        "href": "http://www.amazon.com/Kinect-Star-Wars-Xbox-360/dp/B002I0HCNI",
+        "src": "progames/kinect_star_wars_screen3.jpg",
+        "title": "Kinect Star Wars"
+    },
+    {
+        "plain_text": "Kinect Pixar Rush Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://www.amazon.com/Kinect-Rush-Disney-Pixar-Adventure-Xbox/dp/B006ZPAYMI",
+        "src": "progames/pixar_rush_screen.jpg",
+        "title": "Kinect Pixar Rush"
+    },
+    {
+        "plain_text": "Kinect Disneyland Adventures Gestures + Systems",
+        "subtitle": "Gestures + Systems",
+        "href": "http://marketplace.xbox.com/en-US/Product/Disneyland-Adventures/66acd000-77fe-1000-9115-d8024d5309c1",
+        "src": "progames/disneyland_screen2.jpg",
+        "title": "Kinect Disneyland Adventures"
+    },
+    {
+        "plain_text": "Kinectimals Gestures + Systems",
+        "subtitle": "Gestures + Systems",
+        "href": "http://www.xbox.com/Kinectimals",
+        "src": "progames/kinectimals_screen.jpg",
+        "title": "Kinectimals"
+    },
+    {
+        "plain_text": "Kinect for Xbox 360 Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://www.xbox.com/en-US/kinect",
+        "src": "progames/kinectimals_kid_logo2.jpg",
+        "title": "Kinect for Xbox 360"
+    },
+    {
+        "plain_text": "Kinect Sports Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://www.rareusa.com/games/kinect-sports",
+        "src": "progames/kinect-sports_screen.jpg",
+        "title": "Kinect Sports"
+    },
+    {
+        "plain_text": "Kinect Adventures! Special Thanks",
+        "subtitle": "Kinect Adventures!Special Thanks",
+        "href": "http://en.wikipedia.org/wiki/Kinect_Adventures!",
+        "src": "progames/Kinect-Adventures-screen.jpg"
+    },
+    {
+        "plain_text": "Alan Wake Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://www.alanwake.com/",
+        "src": "progames/alan_wake_screen.JPG",
+        "title": "Alan Wake"
+    },
+    {
+        "plain_text": "PIX for Windows DirectX/Xbox SDK Developer",
+        "subtitle": "DirectX/Xbox SDK Developer",
+        "href": "http://en.wikipedia.org/wiki/PIX_(Microsoft)",
+        "src": "progames/pix_intro.png",
+        "title": "PIX for Windows"
+    },
+    {
+        "plain_text": "Full House Poker Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://marketplace.xbox.com/en-US/Product/Full-House-Poker/66acd000-77fe-1000-9115-d8025841098d",
+        "src": "progames/full_house_poker_xbox.jpg",
+        "title": "Full House Poker"
+    },
+    {
+        "plain_text": "Fable II Performance Analysis",
+        "subtitle": "Performance Analysis",
+        "href": "http://en.wikipedia.org/wiki/Fable_II",
+        "src": "progames/fable2_house.jpg",
+        "title": "Fable II"
+    },
+    {
+        "plain_text": "Viva Pinata PC Performance Engineer",
+        "subtitle": "Performance Engineer",
+        "href": "http://www.amazon.com/Viva-Pi%C3%B1ata-PC/dp/B000VBFWAG",
+        "src": "progames/viva-pinata-1.jpg",
+        "title": "Viva Pinata PC"
+    },
+    {
+        "plain_text": "Forza Motorsport 2 Graphics Engine and Pipeline Engineer",
+        "subtitle": "Graphics Engine and Pipeline Engineer",
+        "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
+        "src": "progames/forza_2_screen.jpg",
+        "title": "Forza Motorsport 2"
+    },
+    {
+        "plain_text": "",
+        "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
+        "src": "progames/hyperchem_screen.jpg"
+    },
+    {
+        "plain_text": "HyperChem 8.0 Graphics",
+        "subtitle": "Graphics",
+        "href": "http://www.hyper.com/Products/HyperChemProfessional/75Overview/tabid/361/Default.aspx",
+        "src": "progames/hyperchem_field_screen.jpg",
+        "title": "HyperChem 8.0"
+    },
+    {
+        "plain_text": "Windows Vista / WPF Performance Team Intern",
+        "subtitle": "Performance Team Intern",
+        "href": "http://en.wikipedia.org/wiki/Windows_Vista",
+        "src": "progames/windows-vista-screen.jpg",
+        "title": "Windows Vista / WPF"
+    },
+    {
+        "plain_text": "Currently a Staff Software Engineer at Tesla on the vehicle dashboard team. Previously Engineering Lead at Unity 3D on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at VERSES.IO. Ran my own consulting and technology licensing business Lewcid Systems. Developed 3D Graphics and Interaction technologies at Microsoft, Lucasfilm and Unity headquaters. Worked with early hardware prototypes for Microsoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368",
+        "subtitle": "Currently a Staff Software Engineer at on the vehicle dashboard team. Previously Engineering Lead at on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at . Ran my own consulting and technology licensing business . Developed 3D Graphics and Interaction technologies at , and headquaters. Worked with early hardware prototypes for",
+        "href": "http://www.hyper.com/",
+        "title": "TeslaUnity 3DVERSES.IOLewcid SystemsMicrosoftLucasfilmUnityMicrosoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368"
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": ""
+    },
+    {
+        "plain_text": "PERSONAL PROJECTS",
+        "subtitle": "PERSONAL PROJECTS"
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Friends [facebook] / Co-Workers [linkedin]",
+        "href": "https://www.linkedin.com/in/lewey-geselowitz-3346b05/",
+        "src": "leweyg_profile2.jpg",
+        "title": "Friends Co-Workers",
+        "subtitle": "[facebook] / [linkedin]"
+    },
+    {
+        "plain_text": "Heroine Dawn [web/mobile]",
+        "href": "https://leweyg.github.io/heroine_dawn/",
+        "src": "progames/heroine_dawn.png",
+        "title": "Heroine Dawn",
+        "subtitle": "[web/mobile]"
+    },
+    {
+        "plain_text": "Carnival [web]",
+        "href": "https://leweyg.github.io/carnival/carnival/",
+        "src": "progames/carnival_intro.jpg",
+        "title": "Carnival",
+        "subtitle": "[web]"
+    },
+    {
+        "plain_text": "Project Field Hand",
+        "href": "http://www.4dprocess.com/fieldhand/",
+        "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
+        "title": "Project Field Hand",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Freed Go [web/mobile]",
+        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
+        "src": "progames/freed_go_2.jpg",
+        "title": "Freed Go",
+        "subtitle": "[web/mobile]"
+    },
+    {
+        "plain_text": "Dice Walker [web]",
+        "href": "https://leweyg.github.io/DiceWalker/",
+        "src": "progames/dice_walker_sm.jpg",
+        "title": "Dice Walker",
+        "subtitle": "[web]"
+    },
+    {
+        "plain_text": "Lewdo [web/mobile]",
+        "href": "https://github.com/leweyg/lewdo",
+        "src": "progames/lewdo_sm3.png",
+        "title": "Lewdo",
+        "subtitle": "[web/mobile]"
+    },
+    {
+        "plain_text": "4D Process [web/mobile]",
+        "href": "http://www.4dprocess.com/4d/index.html",
+        "src": "progames/viral_contacts_crop_sm.jpg",
+        "title": "4D Process",
+        "subtitle": "[web/mobile]"
+    },
+    {
+        "plain_text": "Healer Game Series [web/mobile]",
+        "href": "https://leweyg.github.io/HealerGame/demo/",
+        "src": "progames/HealerGame.jpg",
+        "title": "Healer Game Series",
+        "subtitle": "[web/mobile]"
+    },
+    {
+        "plain_text": "VR Biofield Meditation [web/vr]",
+        "href": "https://leweyg.github.io/vrbiofield/index.html",
+        "src": "progames/VRBiofield_HeartChakra.jpg",
+        "title": "VR Biofield Meditation",
+        "subtitle": "[web/vr]"
+    },
+    {
+        "plain_text": "Energy Work Experiences",
+        "href": "articles/leweys_energy_work.html",
+        "src": "articles/lewcid_energy_work_sm.gif",
+        "title": "Energy Work Experiences",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "3D UI Hand Gestures [video]",
+        "href": "articles/vol/hand_poses.html",
+        "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
+        "title": "3D UI Hand Gestures",
+        "subtitle": "[video]"
+    },
+    {
+        "plain_text": "Sculptures",
+        "href": "sculpture/index.html",
+        "src": "sculpture/07/hand_front_small.jpg",
+        "title": "Sculptures",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Second Good Idea",
+        "href": "sculpture/index.html#second_good_idea",
+        "src": "sculpture/06/headshot.jpg",
+        "title": "Second Good Idea",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Hoagie",
+        "href": "sculpture/index.html#hoagie",
+        "src": "sculpture/03/small.jpg",
+        "title": "Hoagie",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "The Comet Space Story",
+        "href": "articles/sketches__the_comet.html",
+        "src": "related/the_comet_sm.jpg",
+        "title": "The Comet Space Story",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Motion Augmentation Key Techniques",
+        "href": "articles/Kinect_Augmentation_Principals_and_Practices.html",
+        "src": "articles/kinect/kinect_books.jpg",
+        "title": "Motion AugmentationKey Techniques",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Kinect Gesture Development Videos and Articles [videos]",
+        "href": "articles/kinect/kinect_dev_videos.html",
+        "title": "Kinect Gesture DevelopmentVideos and Articles [videos]",
+        "src": "progames/kinect_sensor_me2.jpg",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Augmented Walking Game Research",
+        "href": "articles/kinect/kinect_dev_videos.html#walking",
+        "src": "articles/kinect/Stomp_EarlyProto_screen.JPG",
+        "title": "Augmented Walking Game Research",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "ESL Extensible Shading Language",
+        "href": "lc/esl/",
+        "src": "lc/esl/examples/pic1_small.jpg",
+        "title": "ESLExtensible Shading Language",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Evil Dice 2 Speedy Puzzle Game [win32]",
+        "href": "lc/evildice2/index.html",
+        "src": "lc/evildice2/EvilDice2_InGame_3_small.jpeg",
+        "title": "Evil Dice 2Speedy Puzzle Game",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Shuzzle The Shadow Puzzle [win32]",
+        "href": "lc/shuzzle.html",
+        "src": "lc/screens/Shuzzle_Mix_small.jpeg",
+        "title": "ShuzzleThe Shadow Puzzle",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Freed Go Mobius and Layered Go [win32]",
+        "href": "lc/freedgo.html",
+        "src": "lc/screens/FreedGo_9_small.jpeg",
+        "title": "Freed GoMobius and Layered Go",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Freed Invasion Quick Strategy Game [win32]",
+        "href": "lc/freedinvasion.html",
+        "src": "lc/screens/FreedInv_3_small.jpeg",
+        "title": "Freed InvasionQuick Strategy Game",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "ImpView 3D Implicit Equations [win32]",
+        "href": "download/impview.html",
+        "src": "download/Screens/ImpView_F_small.jpg",
+        "title": "ImpView3D Implicit Equations",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "VSaber Voxel Carving Tool [win32]",
+        "href": "vsaber/index.html",
+        "src": "vsaber/screens/VSaber_Q_small.jpg",
+        "title": "VSaberVoxel Carving Tool",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Quake II AbSIRD Stereogram Engine Mod [win32]",
+        "href": "download/SIRD/q2/index.html",
+        "src": "progames/Quake_to_SIRDS.jpg",
+        "title": "Quake II AbSIRDStereogram Engine Mod",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "AbSIRD Algorithm Realtime [win32]",
+        "href": "download/SIRD/index.html",
+        "src": "download/SIRD/AbSIRD/SIRD2_small.jpg",
+        "title": "AbSIRD AlgorithmRealtime",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Ink AniEd Tablet PC Ink Animator [tablet pc]",
+        "href": "anied/index.html",
+        "src": "anied/AniEd_remote_small.jpg",
+        "title": "Ink AniEdTablet PC Ink Animator",
+        "subtitle": "[tablet pc]"
+    },
+    {
+        "plain_text": "Lazy Ink Tablet PC Ink Effect [tablet pc]",
+        "href": "tabletpc.html",
+        "src": "other/LazyInk.gif",
+        "title": "Lazy InkTablet PC Ink Effect",
+        "subtitle": "[tablet pc]"
+    },
+    {
+        "plain_text": "Pocket PC Games and Tools [pocket pc]",
+        "href": "pocketpc/index.html",
+        "src": "pocketpc/Screen_MindSweeper.jpg",
+        "title": "Pocket PCGames and Tools",
+        "subtitle": "[pocket pc]"
+    },
+    {
+        "plain_text": "Evil Dice Puzzle Game Perfection [win32]",
+        "href": "download/EvilDice.html",
+        "src": "download/Screens/EvilDice_6s_small.jpg",
+        "title": "Evil DicePuzzle Game Perfection",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "WirEd and ModEd 3D Modeling Kit [win32]",
+        "href": "download/3DStuff.html",
+        "src": "download/Screens/ModEd_Computer.jpg",
+        "title": "WirEd and ModEd3D Modeling Kit",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Thinking Game 2 Connect 4 in 3D [win32]",
+        "href": "download/TG2.html",
+        "src": "download/Screens/TG2_Game1.jpg",
+        "title": "Thinking Game 2Connect 4 in 3D",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Grapher 2D/3D Equations [win32]",
+        "href": "download/Grapher.html",
+        "src": "download/Screens/Grapher_2DGraph.jpg",
+        "title": "Grapher2D/3D Equations",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Crystal Math Visual Symbolic Calculator [win32]",
+        "href": "download/Crystal.html",
+        "src": "download/Screens/Crystal_Calc.jpg",
+        "title": "Crystal MathVisual Symbolic Calculator",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Alarm Clock T-Rex Sound Included [win32]",
+        "href": "download/Alarm.html",
+        "src": "download/Screens/Alarm_One.jpg",
+        "title": "Alarm ClockT-Rex Sound Included",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Teach Linked Lists Programming Education App [win32]",
+        "href": "download/Teach.html",
+        "src": "download/Screens/Teach_Tree.jpg",
+        "title": "Teach Linked ListsProgramming Education App",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Towers of Hanoi Classic Recursion Example [win32]",
+        "href": "download/Towers.html",
+        "src": "download/Screens/Towers_Game.jpg",
+        "title": "Towers of HanoiClassic Recursion Example",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Crystal Math Console Command Line Tool [win32]",
+        "href": "download/Crystal.html",
+        "src": "download/Screens/CrystalMath_Console.jpg",
+        "title": "Crystal Math ConsoleCommand Line Tool",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "ACTIVE INTERESTS and *articles",
+        "subtitle": "ACTIVE INTERESTS and *articles"
+    },
+    {
+        "plain_text": "",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Suzanne Astar",
+        "href": "http://suzanneastar.com/",
+        "src": "progames/suzanne_astar_at_work.jpg",
+        "title": "Suzanne Astar",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "The Spatial Web Book/Patent/White-Paper Contributor",
+        "subtitle": "Book/Patent/White-Paper Contributor",
+        "href": "https://www.amazon.com/gp/aw/sitb/B07X1V8D58",
+        "src": "progames/VERSES_the_spatial_web_book.jpeg",
+        "title": "The Spatial Web"
+    },
+    {
+        "plain_text": "*Using 3D to Optimize Computations --",
+        "href": "articles/using-3d-to-optimize-computation.pdf",
+        "src": "articles/optimization_figure_1_sm.png",
+        "title": "*Using 3D to Optimize Computations",
+        "subtitle": "--"
+    },
+    {
+        "plain_text": "*37th Birthday Portfolio Review [video]",
+        "href": "https://youtu.be/cPmYqzaDPV4",
+        "src": "related/portfolio_video_thumbnail_sm.jpg",
+        "title": "*37th Birthday Portfolio Review",
+        "subtitle": "[video]"
+    },
+    {
+        "plain_text": "*Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead",
+        "subtitle": "Adaptive Layout SystemEngineering Lead",
+        "href": "https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html",
+        "src": "progames/unity_mars_forces_adapt2.jpg",
+        "title": "*Unity MARS: Proxy Forces"
+    },
+    {
+        "plain_text": "*Designing for VERSES and The Spatial Web [videos]",
+        "href": "https://leweyg.github.io/design_for_verses/",
+        "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
+        "title": "*Designing for VERSES and The Spatial Web",
+        "subtitle": "[videos]"
+    },
+    {
+        "plain_text": "Classic Win32 Apps [win32]",
+        "href": "lc/win32/",
+        "src": "lc/win32/LewcidApps.png",
+        "title": "Classic Win32 Apps",
+        "subtitle": "[win32]"
+    },
+    {
+        "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
+        "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
+        "src": "progames/spatialweb_jobs.jpeg",
+        "title": "Spatial Web Economyand Blockchain (interview)",
+        "subtitle": "[video]"
+    },
+    {
+        "plain_text": "*Augmented Reality Contextual Messaging UX",
+        "href": "articles/ar-contextual-messaging-ux.html",
+        "src": "articles/images/AR_UX_sm.jpg",
+        "title": "*Augmented RealityContextual Messaging UX",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "*Augmented Reality Does Two Things",
+        "href": "articles/augmented-reality-does-two-things.html",
+        "src": "articles/ar-does-two-things-sm.jpeg",
+        "title": "*Augmented RealityDoes Two Things",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "*Excel 3D Patent Chart and Query Shapes",
+        "href": "articles/excel3d_patent.pdf",
+        "src": "progames/Excel3DPatentImage_sm.jpg",
+        "title": "*Excel 3D PatentChart and Query Shapes",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "*Interval Arithmetic For Visualization [web]",
+        "href": "math/index.html",
+        "src": "math/images/interval_logo.png",
+        "title": "*Interval ArithmeticFor Visualization",
+        "subtitle": "[web]"
+    },
+    {
+        "plain_text": "*Interactive History of Programming [web]",
+        "href": "cch/cch_ip_1.html",
+        "src": "progames/cch_programming.jpg",
+        "title": "*Interactive History of Programming",
+        "subtitle": "[web]"
+    },
+    {
+        "plain_text": "Electromyography (image source)",
+        "href": "http://iyashisource.com/shieldite/electro-magnetic-fields",
+        "src": "related/human_magnetic_field.jpg",
+        "title": "Electromyography(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Holograms (image source)",
+        "href": "http://www.microsoft.com/microsoft-hololens/",
+        "src": "related/hololens_icons.jpg",
+        "title": "Holograms(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Volumetric Data Cubes (image source)",
+        "href": "https://www.edwardtufte.com/tufte/",
+        "src": "related/tufte_cloud_sm.jpg",
+        "title": "Volumetric Data Cubes(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "*Hand Gestures [video] (image source)",
+        "href": "http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094",
+        "src": "related/mantis_kung_fu_slim.jpg",
+        "title": "*Hand Gestures(image source)",
+        "subtitle": "[video]"
+    },
+    {
+        "plain_text": "*Motion Augmentation [videos] (image source)",
+        "href": "http://www.cyberdyne.jp/english/products/HAL/index.html",
+        "src": "related/exoskeleton.jpg",
+        "title": "*MotionAugmentation(image source)",
+        "subtitle": "[videos]"
+    },
+    {
+        "plain_text": "*Interactive Animation (image source)",
+        "href": "http://theanimatorssurvivalkit.com/",
+        "src": "related/walk_cycle.jpg",
+        "title": "*InteractiveAnimation(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Plant Tropisms --",
+        "href": "http://www.bing.com/search?q=plant+tropisms",
+        "src": "related/greenhouse_farm.jpg",
+        "title": "Plant Tropisms",
+        "subtitle": "--"
+    },
+    {
+        "plain_text": "*Sculpture (image source)",
+        "href": "http://www.rodinmuseum.org/",
+        "src": "related/Rodin_Thinker.jpg",
+        "title": "*Sculpture(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Acting --",
+        "href": "http://www.amazon.com/Dance-Composition-Production-Elizabeth-Hayes/dp/B000IQ6XL6",
+        "src": "related/isadora_duncan_2_sm.jpg",
+        "title": "Acting",
+        "subtitle": "--"
+    },
+    {
+        "plain_text": "Ergonomics (image source)",
+        "href": "http://www.bing.com/search?q=The+Modulor+by+Le+Corbusier",
+        "src": "related/le_corbusier_modulo_3.jpg",
+        "title": "Ergonomics(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Kinesthetics",
+        "href": "http://en.wikipedia.org/wiki/Proprioception",
+        "src": "related/yoga_muscles.jpg",
+        "title": "Kinesthetics",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Gestures",
+        "href": "http://en.wikipedia.org/wiki/Gesture_recognition",
+        "src": "related/body_measurements_slim.jpg",
+        "title": "Gestures",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Image Processing",
+        "href": "http://research.microsoft.com/en-us/projects/vrkinect/default.aspx\r\n",
+        "src": "related/kinect_body_segments.JPG",
+        "title": "Image Processing",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Performance Analysis",
+        "href": "http://en.wikipedia.org/wiki/Profiling_(computer_programming)",
+        "src": "related/Stopwatch1.jpg",
+        "title": "Performance Analysis",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Architecture and CAD (image source)",
+        "href": "https://www.behance.net/gallery/23910915/Fern-Wood-House",
+        "src": "related/architecture_jp.jpg",
+        "title": "Architecture and CAD(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Game Development (image source)",
+        "href": "http://www.rare.co.uk/games/banjokazooie-nuts-bolts",
+        "src": "related/banjo-nuts-and-bolts.jpg",
+        "title": "Game Development(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Software Engineering (image source)",
+        "href": "http://www.microsoft.com/",
+        "src": "related/MicrosoftRedmondCampus_sm.jpg",
+        "title": "Software Engineering(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Seattle",
+        "href": "http://www.thestranger.com/",
+        "src": "related/seattle.jpg",
+        "title": "Seattle",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Chemistry",
+        "href": "http://www.hyper.com/",
+        "src": "related/chemistry.jpg",
+        "title": "Chemistry",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Computer Interaction (image source)",
+        "href": "http://www.dentsable.com/haptic-phantom-omni.htm",
+        "src": "related/haptic_device_omni.jpg",
+        "title": "Computer Interaction(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "University of Florida",
+        "href": "http://www.cise.ufl.edu/~jorg/",
+        "src": "related/university-of-florida.jpg",
+        "title": "University of Florida",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Software (image source)",
+        "href": "http://en.wikipedia.org/wiki/The_Glass_Bead_Game",
+        "src": "related/glass_bead_game.jpg",
+        "title": "Software(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Programming (image source)",
+        "href": "http://www.amazon.com/Texas-Instruments-TI-82-Graphing-Calculator/dp/B00008OOW4",
+        "src": "related/texas_instruments_ti_82.jpg",
+        "title": "Programming(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Art / Literature (image source)",
+        "href": "https://www.youtube.com/watch?v=swOxKu80JpU",
+        "src": "related/the_fountainhead_roark_sm.jpg",
+        "title": "Art / Literature(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "",
+        "href": "http://www.3d2dmurals.com/",
+        "src": "related/murals_sm.jpg"
+    },
+    {
+        "plain_text": "Snakes (image source)",
+        "href": "http://en.wikipedia.org/wiki/Bitis_gabonica",
+        "src": "related/gaboon_viber.jpg",
+        "title": "Snakes(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Florida",
+        "href": "http://www.bing.com/search?q=florida",
+        "src": "related/florida_sm.jpg",
+        "title": "Florida",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Immigration",
+        "href": "http://www.bing.com/search?q=us+citizen",
+        "src": "related/immigration.jpg",
+        "title": "Immigration",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "New South Africa",
+        "href": "http://www.bing.com/search?q=republic+of+south+africa",
+        "src": "related/new_south_africa.jpg",
+        "title": "New South Africa",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Revolution (image source)",
+        "href": "http://www.capegallery.co.za/patric_cordingley1.htm",
+        "src": "related/nelson_mandela_sm.jpg",
+        "title": "Revolution(image source)",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Video Games",
+        "href": "related/video_games_with_the_boys__full.jpg",
+        "src": "related/video_games_with_the_boys.jpg",
+        "title": "Video Games",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "*Philosophy in Five Easy Pieces [pamphlet] (image source)",
+        "href": "http://en.wikipedia.org/wiki/The_School_of_Athens",
+        "src": "related/aristotle.jpg",
+        "title": "*Philosophy in Five Easy Pieces(image source)",
+        "subtitle": "[pamphlet]"
+    },
+    {
+        "plain_text": "Family",
+        "href": "https://www.facebook.com/leweyg",
+        "src": "related/family_kira.jpg",
+        "title": "Family",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "Farm Life",
+        "href": "http://www.bing.com/search?q=apple+orchids",
+        "src": "related/farm_life.jpg",
+        "title": "Farm Life",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "African Bush",
+        "href": "http://www.bing.com/search?q=africa",
+        "src": "related/bush_south_african_sm.jpg",
+        "title": "African Bush",
+        "subtitle": ""
+    },
+    {
+        "plain_text": "",
+        "src": "other/article_icon.png",
+        "href": "articles/turing_field.html",
+        "title": "Turing Field"
+    },
+    {
+        "plain_text": "",
+        "src": "other/article_icon.png",
+        "href": "articles/holographic_interval.pdf",
+        "title": "Holographic Interval"
+    }
+]
