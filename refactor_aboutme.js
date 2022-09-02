@@ -158,6 +158,31 @@ function collectCells() {
     return cells;
 }
 
+function categorizeCells() {
+    var cells = JSON.parse( fs.readFileSync("timeline.json") );
+
+    var category = "team";
+    var knownCategories = {
+        "PRODUCTS":"product",
+        "PERSONAL PROJECTS":"personal",
+        "ACTIVE INTERESTS and *articles":"interest",
+    }
+    for (var i in cells) {
+        var cell = cells[i];
+        if (cell.subtitle in knownCategories) {
+            category = knownCategories[cell.subtitle];
+        }
+        cell.category = category;
+    }
+
+    var rawJson = "[";
+    for (var i in cells) {
+        rawJson += JSON.stringify(cells[i]) + ",\n";
+    }
+    rawJson += "]";
+    fs.writeFileSync("timeline.json",rawJson);
+}
+
 function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var lines = "";
@@ -170,8 +195,8 @@ function updateCells() {
 }
 
 //collectCells();
-
-updateCells();
+categorizeCells();
+//updateCells();
 
 
 
