@@ -32,8 +32,8 @@
         "category": "team"
     },
     {
-        "plain_text": "Microsoft Senior UX",
-        "subtitle": "Senior UX",
+        "plain_text": "Microsoft Senior",
+        "subtitle": "Senior",
         "href": "https://www.microsoft.com/",
         "title": "Microsoft",
         "src": "../images/windows_vista.png",
@@ -46,75 +46,6 @@
         "title": "Hypercube",
         "src": "progames/hyperchem_field_screen.jpg",
         "category": "team"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "team"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "team"
-    },
-    {
-        "plain_text": "PRODUCTS",
-        "subtitle": "PRODUCTS",
-        "category": "product"
-    },
-    {
-        "plain_text": "Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube",
-        "subtitle": "Scroll to prodcuts by Tesla, Unity, Consulting, Lucasfilm, Microsoft and HyperCube",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Tesla.com",
-        "href": "https://www.tesla.com/",
-        "title": "@Tesla.com",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Unity3D.com",
-        "href": "https://unity.com/",
-        "title": "@Unity3D.com",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Lewcid Systems (consulting)",
-        "href": "../",
-        "title": "@Lewcid Systems (consulting)",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Lucasfilm.com",
-        "href": "https://www.lucasfilm.com/",
-        "title": "@Lucasfilm.com",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Microsoft.com",
-        "href": "https://www.microsoft.com/",
-        "title": "@Microsoft.com",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Hypercube",
-        "href": "http://www.hypercubeusa.com/",
-        "title": "@Hypercube",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "@Microsoft.com",
-        "href": "https://www.microsoft.com/",
-        "title": "@Microsoft.com",
-        "subtitle": "",
-        "category": "product"
     },
     {
         "plain_text": "Tesla Autopilot 10.69 Autopilot Visualization Lead",
@@ -416,32 +347,6 @@
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
         "category": "product"
-    },
-    {
-        "plain_text": "Currently a Staff Software Engineer at Tesla on the vehicle dashboard team. Previously Engineering Lead at Unity 3D on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at VERSES.IO. Ran my own consulting and technology licensing business Lewcid Systems. Developed 3D Graphics and Interaction technologies at Microsoft, Lucasfilm and Unity headquaters. Worked with early hardware prototypes for Microsoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368",
-        "subtitle": "Currently a Staff Software Engineer at on the vehicle dashboard team. Previously Engineering Lead at on Unity MARS their Mixed and Augmented Reality Studio. Director of Technology and later Spatial Standards at . Ran my own consulting and technology licensing business . Developed 3D Graphics and Interaction technologies at , and headquaters. Worked with early hardware prototypes for",
-        "href": "http://www.hyper.com/",
-        "title": "TeslaUnity 3DVERSES.IOLewcid SystemsMicrosoftLucasfilmUnityMicrosoft overflow-y:hidden;overflow-x:scroll; color:white;personal 100%#68b368",
-        "category": "product"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "",
-        "category": "product"
-    },
-    {
-        "plain_text": "PERSONAL PROJECTS",
-        "subtitle": "PERSONAL PROJECTS",
-        "category": "personal"
     },
     {
         "plain_text": "",
@@ -767,16 +672,6 @@
         "title": "Crystal Math ConsoleCommand Line Tool",
         "subtitle": "[win32]",
         "category": "personal"
-    },
-    {
-        "plain_text": "ACTIVE INTERESTS and *articles",
-        "subtitle": "ACTIVE INTERESTS and *articles",
-        "category": "interest"
-    },
-    {
-        "plain_text": "",
-        "subtitle": "",
-        "category": "interest"
     },
     {
         "plain_text": "Suzanne Astar",
@@ -1165,6 +1060,7 @@
         "src": "other/article_icon.png",
         "href": "articles/turing_field.html",
         "title": "Turing Field",
+        "subtitle": "",
         "category": "interest"
     },
     {
@@ -1172,6 +1068,7 @@
         "src": "other/article_icon.png",
         "href": "articles/holographic_interval.pdf",
         "title": "Holographic Interval",
+        "subtitle": "",
         "category": "interest"
     }
 ]

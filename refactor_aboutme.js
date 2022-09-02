@@ -203,16 +203,20 @@ function updateCells() {
     var lines = "";
     for (var groupName in groups)
     {
-        lines += "<h3>" + groupName + "</h3>";
+        lines += "<h3>" + groupName + "</h3>\n";
+        lines += "<div><table><tr>\n";
         var cellList = groups[groupName];
         for (var i in cellList) {
             var cell = cellList[i];
-            lines += cellToHtml(cell);
+            var td = "<td>" + cellToHtml(cell) + "</td>";
+            lines += td;
             
         }
+        lines += "</tr></table></div>\n"
+        
     }
 
-    fs.writeFileSync("docs/lg/test.html", lines);
+    fs.writeFileSync("docs/lg/aboutme_test.html", lines);
 }
 
 //collectCells();
