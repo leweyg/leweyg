@@ -76,13 +76,13 @@ function cellToHtml(cell) {
    // ans += "<pre>" + JSON.stringify(cell) + ":</pre>";
 
     if (cell.href) {
-        ans += "<a href=\"" + cell.href + "\" class='pcell_link'>";
+        ans += "<a \n href=\"" + cell.href + "\" class='pcell_link'>";
     }
     if (cell.src) {
-        ans += "<img class='pcell_image' src=\"" + cell.src + "\" /><br/>";
+        ans += "<img class='pcell_image' \n src=\"" + cell.src + "\" /><br/>";
     }
     if (cell.title) {
-        ans += "" + cell.title + "";
+        ans += "\n " + cell.title + "";
         //ans += "</b>" + cell.subtitle + "";
     } else {
         ans += cell.plain_text;
@@ -94,9 +94,9 @@ function cellToHtml(cell) {
         ans += "</a>";
     }
     if (cell.subtitle) {
-        ans += "<br/><span class='pcell_white' >" + cell.subtitle + "</span>";
+        ans += "<br/><span class='pcell_white' >\n " + cell.subtitle + "</span>";
     }
-    ans += "<br/><br/>\n";
+    ans += "<br/>";
     return ans;
 }
 
@@ -216,7 +216,9 @@ function cleanUpString(str) {
         "video-article":"Articles - Videos",
         "article-images":"Articles - Images",
         "sculpture":"Sculpture & Lit",
+        "undefined":"Related Links"
     };
+    if (str === undefined) str = "undefined";
     if (str in replacements) {
         return replacements[str];
     }
@@ -278,7 +280,7 @@ function updateCells() {
                 //lines += "<tr><td colspan='3'><i>" + subgroup + "</i></td></tr>\n";
                 //lines += "<tr>\n";
             }
-            var td = "<td class='pcell_td' valign='top' >" + cellToHtml(cell) + "</td>";
+            var td = "\n<td class='pcell_td' valign='top' >" + cellToHtml(cell) + "</td>\n";
             lines += td;
             
         }
