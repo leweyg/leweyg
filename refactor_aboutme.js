@@ -76,10 +76,10 @@ function cellToHtml(cell) {
    // ans += "<pre>" + JSON.stringify(cell) + ":</pre>";
 
     if (cell.href) {
-        ans += "<a href=\"" + cell.href + "\">";
+        ans += "<a href=\"" + cell.href + "\" class='pcell_link'>";
     }
     if (cell.src) {
-        ans += "<img style=\"height:120px\" src=\"" + cell.src + "\" /><br/>";
+        ans += "<img class='pcell_image' src=\"" + cell.src + "\" /><br/>";
     }
     if (cell.title) {
         ans += "" + cell.title + "";
@@ -94,7 +94,7 @@ function cellToHtml(cell) {
         ans += "</a>";
     }
     if (cell.subtitle) {
-        ans += "<br/>" + cell.subtitle;
+        ans += "<br/><span class='pcell_white' >" + cell.subtitle + "</span>";
     }
     ans += "<br/><br/>\n";
     return ans;
@@ -218,12 +218,29 @@ function updateCells() {
     lines += "<html>";
     lines += "<head><title>About Me</title></head>";
     lines += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+    lines += "\n<style>\n";
+    lines += ".pcell_image{height:120px}\n";
+    lines += ".pcell_td{valign:top;}\n"
+    lines += ".pcell_td_team{align:center;}\n"
+    lines += ".pcell_link{color:white}\n";
+    lines += ".pcell_white{color:white}\n";
+    lines += "\n</style>\n";
     lines += "\n<body><br/>\n";
     var subgroup = undefined;
+    var groupInfos = {
+        "team":{title:"Teams",color:"black"},
+        "product":{title:"Product",color:"#6898b3"},
+        "personal":{title:"Self Published",color:"#68b368"},
+        "interest":{title:"Interests",color:"#a19a5c"}
+    }
+
     for (var groupName in groups)
     {
-        lines += "<h2>" + groupName + "</h2>\n";
+        var info = groupInfos[groupName];
+        lines += "<div style='width:100%;background-color:" + info.color + "' >";
+        lines += "<h2 class='pcell_white'>" + info.title + "</h2>\n";
         lines += "<div><table><tr>\n";
+
         var cellList = groups[groupName];
         if (cellList[0].subgroup) {
             cellList = flattenGroups( groupByCallback(cellList, (c) => c.subgroup));
@@ -233,18 +250,18 @@ function updateCells() {
             if (cell.subgroup != subgroup) {
                 subgroup = cell.subgroup;
                 lines += "\n</tr></table></div>\n";
-                lines += "<h3 style='margin:0px'>" + subgroup + "</h3>";
-                lines += "<div style='overflow-y:hidden;overflow-x:scroll;' >";
-                lines += "<table><tr>\n";
+                lines += "<h3 style='margin:0px; color:white;'>" + subgroup + "</h3>";
+                lines += "<div style='overflow-x:scroll;' >";
+                lines += "<table style='width:min-content;' ><tr>\n";
                 //lines += "<tr><td colspan='3'><i>" + subgroup + "</i></td></tr>\n";
                 //lines += "<tr>\n";
             }
-            var td = "<td valign='top' >" + cellToHtml(cell) + "</td>";
+            var td = "<td class='pcell_td' valign='top' >" + cellToHtml(cell) + "</td>";
             lines += td;
             
         }
         lines += "</tr></table></div>\n"
-        
+        lines += "</div>";
     }
 
     fs.writeFileSync("docs/lg/aboutme_test.html", lines);

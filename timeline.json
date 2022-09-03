@@ -103,7 +103,7 @@
     },
     {
         "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
-        "subtitle": "Cofounder and Director of Spatial Standards",
+        "subtitle": "Cofounder and Director",
         "href": "https://verses.io/",
         "src": "progames/verses_quicksilver_sm2.jpg",
         "title": "VERSES.IO",
@@ -112,7 +112,7 @@
     },
     {
         "plain_text": "Karuna Labs VR Motion Therapy Engineering Lead",
-        "subtitle": "VR Motion TherapyEngineering Lead",
+        "subtitle": "VR Motion Therapy",
         "href": "http://karunavr.com/",
         "src": "progames/karuna_elbow.jpg",
         "title": "Karuna Labs",
@@ -120,8 +120,8 @@
         "subgroup": "startups"
     },
     {
-        "plain_text": "4D Process Space-Time Visualization Founder",
-        "subtitle": "Space-Time VisualizationFounder",
+        "plain_text": "4D Process SDK",
+        "subtitle": "Space-Time Visualization",
         "href": "../4d/",
         "src": "progames/eco4d_image3_.jpg",
         "title": "4D Process",
@@ -129,8 +129,8 @@
         "subgroup": "startups"
     },
     {
-        "plain_text": "Lewcid Systems CEO/Founder --",
-        "subtitle": "CEO/Founder --",
+        "plain_text": "Lewcid Systems CEO/Founder ",
+        "subtitle": "CEO/Founder ",
         "href": "../",
         "src": "../images/lewcid_systems.jpg",
         "title": "Lewcid Systems",
@@ -243,7 +243,7 @@
         "subtitle": "Special Thanks",
         "href": "http://www.xbox.com/en-US/kinect",
         "src": "progames/kinectimals_kid_logo2.jpg",
-        "title": "Kinect for Xbox 360",
+        "title": "Kinect for Xbox 360/One",
         "category": "product",
         "subgroup": "microsoft-kinect"
     },
@@ -252,7 +252,7 @@
         "subtitle": "Gestures + Systems",
         "href": "http://www.xbox.com/en-US/xbox-one/games/zoo-tycoon",
         "src": "progames/zoo_tycoon_player.jpg",
-        "title": "Zoo Tycoon (Xbox One)",
+        "title": "Zoo Tycoon",
         "category": "product",
         "subgroup": "microsoft-kinect"
     },
@@ -863,7 +863,7 @@
     },
 
     {
-        "plain_text": "Using 3D to Optimize Computations --",
+        "plain_text": "Using 3D to Optimize Computations ",
         "href": "articles/using-3d-to-optimize-computation.pdf",
         "src": "articles/optimization_figure_1_sm.png",
         "title": "Optimizing Computations",
@@ -922,11 +922,11 @@
         "category": "interest"
     },
     {
-        "plain_text": "Plant Tropisms --",
+        "plain_text": "Plant Tropisms ",
         "href": "http://www.bing.com/search?q=plant+tropisms",
         "src": "related/greenhouse_farm.jpg",
         "title": "Plant Tropisms",
-        "subtitle": "--",
+        "subtitle": "",
         "category": "interest"
     },
     {
@@ -938,11 +938,11 @@
         "category": "interest"
     },
     {
-        "plain_text": "Acting --",
+        "plain_text": "Acting",
         "href": "http://www.amazon.com/Dance-Composition-Production-Elizabeth-Hayes/dp/B000IQ6XL6",
         "src": "related/isadora_duncan_2_sm.jpg",
         "title": "Acting",
-        "subtitle": "--",
+        "subtitle": "",
         "category": "interest"
     },
     {
