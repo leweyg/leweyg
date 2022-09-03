@@ -211,6 +211,19 @@ function flattenGroups(groups) {
     return ans;
 }
 
+function cleanUpString(str) {
+    var parts = ("" + str).split("-");
+    var ans = "";
+    for (var i in parts) {
+        if (i != 0) {
+            ans += " - ";
+        }
+        var part = parts[i];
+        ans += part.substr(0,1).toUpperCase() + part.substr(1);
+    }
+    return ans;
+}
+
 function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var groups = groupByCallback(cells, (a) => a.category);
@@ -250,7 +263,7 @@ function updateCells() {
             if (cell.subgroup != subgroup) {
                 subgroup = cell.subgroup;
                 lines += "\n</tr></table></div>\n";
-                lines += "<h3 style='margin:0px; color:white;'>" + subgroup + "</h3>";
+                lines += "<h3 style='margin:0px; color:white;'><i>" + cleanUpString(subgroup) + "</i></h3>";
                 lines += "<div style='overflow-x:scroll;' >";
                 lines += "<table style='width:min-content;' ><tr>\n";
                 //lines += "<tr><td colspan='3'><i>" + subgroup + "</i></td></tr>\n";
