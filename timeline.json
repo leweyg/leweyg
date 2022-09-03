@@ -431,7 +431,6 @@
         "subgroup": "video-article"
     },
     {
-        "plain_text": "Designing for VERSES and The Spatial Web [videos]",
         "href": "https://leweyg.github.io/design_for_verses/",
         "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
         "title": "Designing for VERSES and The Spatial Web",
@@ -459,29 +458,12 @@
     {
         "href": "articles/excel3d_patent.pdf",
         "src": "progames/Excel3DPatentImage_sm.jpg",
-        "title": "Excel 3D",
-        "subtitle": "Patent Chart and Query Shapes",
+        "title": "Excel 3D Patent",
+        "subtitle": "Data Shaping Interface",
         "category": "personal",
         "subgroup": "article-images"
     },
-    {
-        "plain_text": "Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead",
-        "subtitle": "Proxy Forces",
-        "href": "https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html",
-        "src": "progames/unity_mars_blue.jpg",
-        "title": "Unity MARS",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
-    {
-        "plain_text": "The Spatial Web Book/Patent/White-Paper Contributor",
-        "subtitle": "Book, Patent, White-Paper Contributor",
-        "href": "https://www.amazon.com/gp/aw/sitb/B07X1V8D58",
-        "src": "progames/VERSES_the_spatial_web_book.jpeg",
-        "title": "The Spatial Web",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
+
     {
         "plain_text": "Augmented Reality Contextual Messaging UX",
         "href": "articles/ar-contextual-messaging-ux.html",
@@ -598,7 +580,7 @@
         "href": "articles/sketches__the_comet.html",
         "src": "related/the_comet_sm.jpg",
         "title": "The Comet",
-        "subtitle": "Space Story",
+        "subtitle": "",
         "category": "personal",
         "subgroup": "sculpture"
     },
@@ -911,7 +893,7 @@
         "href": "http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094",
         "src": "related/mantis_kung_fu_slim.jpg",
         "title": "Hand Gestures",
-        "subtitle": "[video]",
+        "subtitle": "",
         "category": "interest"
     },
     {
@@ -919,7 +901,7 @@
         "href": "http://www.cyberdyne.jp/english/products/HAL/index.html",
         "src": "related/exoskeleton.jpg",
         "title": "Motion Augmentation",
-        "subtitle": "[videos]",
+        "subtitle": "",
         "category": "interest"
     },
     {
