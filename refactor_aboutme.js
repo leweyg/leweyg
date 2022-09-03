@@ -242,7 +242,7 @@ function updateCells() {
     var subgroup = undefined;
     var groupInfos = {
         "team":{title:"Teams",color:"black"},
-        "product":{title:"Product",color:"#6898b3"},
+        "product":{title:"Products",color:"#6898b3"},
         "personal":{title:"Self Published",color:"#68b368"},
         "interest":{title:"Interests",color:"#a19a5c"}
     }
