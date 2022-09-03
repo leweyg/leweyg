@@ -212,6 +212,15 @@ function flattenGroups(groups) {
 }
 
 function cleanUpString(str) {
+    var replacements = {
+        "video-article":"Articles - Videos",
+        "article-images":"Articles - Images",
+        "sculpture":"Sculpture & Lit",
+    };
+    if (str in replacements) {
+        return replacements[str];
+    }
+
     var parts = ("" + str).split("-");
     var ans = "";
     for (var i in parts) {

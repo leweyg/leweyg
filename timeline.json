@@ -119,6 +119,7 @@
         "category": "product",
         "subgroup": "startups"
     },
+
     {
         "plain_text": "4D Process SDK",
         "subtitle": "Space-Time Visualization",
@@ -474,7 +475,7 @@
     },
     {
         "plain_text": "The Spatial Web Book/Patent/White-Paper Contributor",
-        "subtitle": "Book/Patent/White-Paper Contributor",
+        "subtitle": "Book, Patent, White-Paper Contributor",
         "href": "https://www.amazon.com/gp/aw/sitb/B07X1V8D58",
         "src": "progames/VERSES_the_spatial_web_book.jpeg",
         "title": "The Spatial Web",
@@ -516,6 +517,14 @@
         "src": "progames/lewdo_sm3.png",
         "title": "Lewdo",
         "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+    {
+        "title": "San Francisco Home",
+        "subtitle": "[verses/web/mobile]",
+        "href": "https://leweyg.github.io/design_for_verses/4d-demo/",
+        "src": "progames/verses_home_sf.jpg",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -598,15 +607,23 @@
         "href": "articles/leweys_energy_work.html",
         "src": "articles/lewcid_energy_work_sm.gif",
         "title": "Energy Work Experiences",
-        "subtitle": "",
+        "subtitle": "[true-story]",
         "category": "personal",
         "subgroup": "spirituality"
     },
     {
         "href": "https://leweyg.github.io/vrbiofield/index.html",
         "src": "progames/VRBiofield_HeartChakra.jpg",
-        "title": "VR Biofield Meditation",
+        "title": "Biofield Meditation",
         "subtitle": "[web/vr]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "href": "https://github.com/leweyg/vrbiofield/tree/master/UnityProject/VRBiofield/Assets/BiofieldCore",
+        "src": "progames/biofield_hand_sim.jpg",
+        "title": "Biofield Simulation",
+        "subtitle": "[source_code]",
         "category": "personal",
         "subgroup": "spirituality"
     },
@@ -619,15 +636,7 @@
         "category": "personal",
         "subgroup": "spirituality"
     },
-    {
-        "plain_text": "VR Biofield Simulation",
-        "href": "https://github.com/leweyg/vrbiofield",
-        "src": "../fieldhand/images/HandEnergy_progress_7.jpg",
-        "title": "Biofield Simulation",
-        "subtitle": "[source_code]",
-        "category": "personal",
-        "subgroup": "spirituality"
-    },
+
     {
         "plain_text": "3D UI Hand Gestures [video]",
         "href": "articles/vol/hand_poses.html",
