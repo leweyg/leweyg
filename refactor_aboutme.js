@@ -81,8 +81,8 @@ function cellToHtml(cell) {
     if (cell.src) {
         ans += "<img style=\"height:120px\" src=\"" + cell.src + "\" /><br/>";
     }
-    if (cell.title || cell.subtitle) {
-        ans += "<b>" + cell.title + ((cell.title && cell.subtitle)?"<br/>":"");
+    if (cell.title) {
+        ans += "" + cell.title + "";
         //ans += "</b>" + cell.subtitle + "";
     } else {
         ans += cell.plain_text;
@@ -94,7 +94,7 @@ function cellToHtml(cell) {
         ans += "</a>";
     }
     if (cell.subtitle) {
-        ans += cell.subtitle;
+        ans += "<br/>" + cell.subtitle;
     }
     ans += "<br/><br/>\n";
     return ans;
@@ -232,11 +232,14 @@ function updateCells() {
             var cell = cellList[i];
             if (cell.subgroup != subgroup) {
                 subgroup = cell.subgroup;
-                lines += "</tr>";
-                lines += "<tr><td><i>" + subgroup + "</i></td></tr>\n";
-                lines += "<tr>\n";
+                lines += "\n</tr></table></div>\n";
+                lines += "<h3 style='margin:0px'>" + subgroup + "</h3>";
+                lines += "<div style='overflow-y:hidden;overflow-x:scroll;' >";
+                lines += "<table><tr>\n";
+                //lines += "<tr><td colspan='3'><i>" + subgroup + "</i></td></tr>\n";
+                //lines += "<tr>\n";
             }
-            var td = "<td>" + cellToHtml(cell) + "</td>";
+            var td = "<td valign='top' >" + cellToHtml(cell) + "</td>";
             lines += td;
             
         }

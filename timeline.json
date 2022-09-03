@@ -183,6 +183,25 @@
         "subgroup": "disney"
     },
     {
+        "plain_text": "HoloLens Analog Prototype and Launch Teams",
+        "subtitle": "Analog Prototype and Launch Teams",
+        "href": "http://www.microsoft.com/microsoft-hololens",
+        "src": "progames/hololens_device2.jpg",
+        "title": "HoloLens",
+        "category": "product",
+        "subgroup": "microsoft-hololens"
+    },
+    {
+        "plain_text": "Windows 10 Holographic Showcases and Holo-Academy Teams",
+        "subtitle": "Showcases and Holo-Academy Teams",
+        "href": "https://en.wikipedia.org/wiki/Windows_Mixed_Reality",
+        "src": "progames/hololens_windows3.jpg",
+        "title": "Windows 10 Holographic",
+        "category": "product",
+        "subgroup": "microsoft-hololens"
+    },
+
+    {
         "plain_text": "Holographic MRI for Stanford Surgeons Lead on Prototype to Medical Pilot",
         "subtitle": "Lead on Prototype to Medical Pilot",
         "href": "https://pubmed.ncbi.nlm.nih.gov/32145195/",
@@ -200,24 +219,7 @@
         "category": "product",
         "subgroup": "microsoft-hololens"
     },
-    {
-        "plain_text": "Windows 10 Holographic Showcases and Holo-Academy Teams",
-        "subtitle": "Showcases and Holo-Academy Teams",
-        "href": "https://en.wikipedia.org/wiki/Windows_Mixed_Reality",
-        "src": "progames/hololens_windows3.jpg",
-        "title": "Windows 10 Holographic",
-        "category": "product",
-        "subgroup": "microsoft-hololens"
-    },
-    {
-        "plain_text": "HoloLens Analog Prototype and Launch Teams",
-        "subtitle": "Analog Prototype and Launch Teams",
-        "href": "http://www.microsoft.com/microsoft-hololens",
-        "src": "progames/hololens_device2.jpg",
-        "title": "HoloLens",
-        "category": "product",
-        "subgroup": "microsoft-hololens"
-    },
+
     {
         "plain_text": "Excel 2016 - 3D Maps Team Graphics and GPU Lead",
         "subtitle": "Graphics and GPU Lead",
@@ -235,6 +237,15 @@
         "title": "Fragments (HoloLens)",
         "category": "product",
         "subgroup": "microsoft-hololens"
+    },
+    {
+        "plain_text": "Kinect for Xbox 360 Special Thanks",
+        "subtitle": "Special Thanks",
+        "href": "http://www.xbox.com/en-US/kinect",
+        "src": "progames/kinectimals_kid_logo2.jpg",
+        "title": "Kinect for Xbox 360",
+        "category": "product",
+        "subgroup": "microsoft-kinect"
     },
     {
         "plain_text": "Zoo Tycoon (Xbox One) Gestures + Systems",
@@ -281,15 +292,7 @@
         "category": "product",
         "subgroup": "microsoft-kinect"
     },
-    {
-        "plain_text": "Kinect for Xbox 360 Special Thanks",
-        "subtitle": "Special Thanks",
-        "href": "http://www.xbox.com/en-US/kinect",
-        "src": "progames/kinectimals_kid_logo2.jpg",
-        "title": "Kinect for Xbox 360",
-        "category": "product",
-        "subgroup": "microsoft-kinect"
-    },
+
     {
         "plain_text": "Kinect Sports Special Thanks",
         "subtitle": "Special Thanks",
@@ -307,6 +310,15 @@
         "src": "progames/Kinect-Adventures-screen.jpg",
         "category": "product",
         "subgroup": "microsoft-kinect"
+    },
+    {
+        "plain_text": "Forza Motorsport 2 Graphics Engine and Pipeline Engineer",
+        "subtitle": "Graphics Engine and Pipeline Engineer",
+        "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
+        "src": "progames/forza_2_screen.jpg",
+        "title": "Forza Motorsport 2",
+        "category": "product",
+        "subgroup": "microsoft-xbox"
     },
     {
         "plain_text": "Alan Wake Special Thanks",
@@ -353,17 +365,11 @@
         "category": "product",
         "subgroup": "microsoft-xbox"
     },
-    {
-        "plain_text": "Forza Motorsport 2 Graphics Engine and Pipeline Engineer",
-        "subtitle": "Graphics Engine and Pipeline Engineer",
-        "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
-        "src": "progames/forza_2_screen.jpg",
-        "title": "Forza Motorsport 2",
-        "category": "product",
-        "subgroup": "microsoft-xbox"
-    },
+
     {
         "plain_text": "",
+        "title": "Hyper Protein",
+        "subtitle": "Graphics/Bioinformatics Lead",
         "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
         "src": "progames/hyperchem_screen.jpg",
         "category": "product",
@@ -379,8 +385,8 @@
         "subgroup": "hyperchem"
     },
     {
-        "plain_text": "Windows Vista / WPF Performance Team Intern",
-        "subtitle": "Performance Team Intern",
+        "plain_text": "Windows Vista",
+        "subtitle": "WPF Performance Team Intern",
         "href": "http://en.wikipedia.org/wiki/Windows_Vista",
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
@@ -442,20 +448,27 @@
         "subgroup": "video-article"
     },
     {
-        "plain_text": "Project Field Hand",
         "href": "http://www.4dprocess.com/fieldhand/",
         "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
-        "title": "Project Field Hand",
+        "title": "Field Hand",
         "subtitle": "",
         "category": "personal",
         "subgroup": "article-images"
     },
     {
+        "href": "articles/excel3d_patent.pdf",
+        "src": "progames/Excel3DPatentImage_sm.jpg",
+        "title": "Excel 3D",
+        "subtitle": "Patent Chart and Query Shapes",
+        "category": "personal",
+        "subgroup": "article-images"
+    },
+    {
         "plain_text": "Unity MARS: Proxy Forces Adaptive Layout System Engineering Lead",
-        "subtitle": "Adaptive Layout SystemEngineering Lead",
+        "subtitle": "Proxy Forces",
         "href": "https://docs.unity3d.com/Packages/com.unity.mars@1.0/manual/Forces.html",
         "src": "progames/unity_mars_blue.jpg",
-        "title": "Unity MARS: Proxy Forces",
+        "title": "Unity MARS",
         "category": "personal",
         "subgroup": "article-images"
     },
@@ -486,15 +499,7 @@
         "category": "personal",
         "subgroup": "article-images"
     },
-    {
-        "plain_text": "Excel 3D",
-        "href": "articles/excel3d_patent.pdf",
-        "src": "progames/Excel3DPatentImage_sm.jpg",
-        "title": "Excel 3D",
-        "subtitle": "Patent Chart and Query Shapes",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
+
 
     {
         "plain_text": "Dice Walker [web]",
@@ -527,7 +532,7 @@
         "plain_text": "Interactive History of Programming [web]",
         "href": "cch/cch_ip_1.html",
         "src": "progames/cch_programming.jpg",
-        "title": "*Interactive History of Programming",
+        "title": "Interactive History of Programming",
         "subtitle": "[web]",
         "category": "personal",
         "subgroup": "interactive-passive"
@@ -537,8 +542,8 @@
         "plain_text": "Interval Arithmetic For Visualization [web]",
         "href": "math/index.html",
         "src": "math/images/interval_logo.png",
-        "title": "Interval ArithmeticFor Visualization",
-        "subtitle": "[web]",
+        "title": "Interval Arithmetic",
+        "subtitle": "For Visualization [web]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -583,10 +588,10 @@
         "plain_text": "The Comet Space Story",
         "href": "articles/sketches__the_comet.html",
         "src": "related/the_comet_sm.jpg",
-        "title": "The Come",
+        "title": "The Comet",
         "subtitle": "Space Story",
         "category": "personal",
-        "subgroup": "article-images"
+        "subgroup": "sculpture"
     },
     {
         "plain_text": "Energy Work Experiences",
@@ -597,9 +602,7 @@
         "category": "personal",
         "subgroup": "spirituality"
     },
-
     {
-        "plain_text": "VR Biofield Meditation [web/vr]",
         "href": "https://leweyg.github.io/vrbiofield/index.html",
         "src": "progames/VRBiofield_HeartChakra.jpg",
         "title": "VR Biofield Meditation",
@@ -616,7 +619,15 @@
         "category": "personal",
         "subgroup": "spirituality"
     },
-    
+    {
+        "plain_text": "VR Biofield Simulation",
+        "href": "https://github.com/leweyg/vrbiofield",
+        "src": "../fieldhand/images/HandEnergy_progress_7.jpg",
+        "title": "Biofield Simulation",
+        "subtitle": "[source_code]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
     {
         "plain_text": "3D UI Hand Gestures [video]",
         "href": "articles/vol/hand_poses.html",
@@ -666,8 +677,8 @@
         "plain_text": "Evil Dice 2 Speedy Puzzle Game [win32]",
         "href": "lc/evildice2/index.html",
         "src": "lc/evildice2/EvilDice2_InGame_3_small.jpeg",
-        "title": "Evil Dice 2Speedy Puzzle Game",
-        "subtitle": "[win32]",
+        "title": "Evil Dice 2",
+        "subtitle": "Speedy Puzzle Game [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
     },
@@ -675,8 +686,8 @@
         "plain_text": "Shuzzle The Shadow Puzzle [win32]",
         "href": "lc/shuzzle.html",
         "src": "lc/screens/Shuzzle_Mix_small.jpeg",
-        "title": "ShuzzleThe Shadow Puzzle",
-        "subtitle": "[win32]",
+        "title": "Shuzzle",
+        "subtitle": "The Shadow Puzzle [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -684,8 +695,8 @@
         "plain_text": "Freed Go Mobius and Layered Go [win32]",
         "href": "lc/freedgo.html",
         "src": "lc/screens/FreedGo_9_small.jpeg",
-        "title": "Freed GoMobius and Layered Go",
-        "subtitle": "[win32]",
+        "title": "Freed Go",
+        "subtitle": "Mobius and Layered Go [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -693,8 +704,8 @@
         "plain_text": "Freed Invasion Quick Strategy Game [win32]",
         "href": "lc/freedinvasion.html",
         "src": "lc/screens/FreedInv_3_small.jpeg",
-        "title": "Freed InvasionQuick Strategy Game",
-        "subtitle": "[win32]",
+        "title": "Freed Invasion",
+        "subtitle": "Quick Strategy Game [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
     },
@@ -702,8 +713,8 @@
         "plain_text": "ImpView 3D Implicit Equations [win32]",
         "href": "download/impview.html",
         "src": "download/Screens/ImpView_F_small.jpg",
-        "title": "ImpView3D Implicit Equations",
-        "subtitle": "[win32]",
+        "title": "ImpView",
+        "subtitle": "3D Implicit Equations [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -711,8 +722,8 @@
         "plain_text": "VSaber Voxel Carving Tool [win32]",
         "href": "vsaber/index.html",
         "src": "vsaber/screens/VSaber_Q_small.jpg",
-        "title": "VSaberVoxel Carving Tool",
-        "subtitle": "[win32]",
+        "title": "VSaber",
+        "subtitle": "Voxel Carving Tool [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -720,8 +731,8 @@
         "plain_text": "Quake II AbSIRD Stereogram Engine Mod [win32]",
         "href": "download/SIRD/q2/index.html",
         "src": "progames/Quake_to_SIRDS.jpg",
-        "title": "Quake II AbSIRDStereogram Engine Mod",
-        "subtitle": "[win32]",
+        "title": "Quake II AbSIRD",
+        "subtitle": "Stereogram Engine Mod [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
     },
@@ -738,8 +749,8 @@
         "plain_text": "Ink AniEd Tablet PC Ink Animator [tablet pc]",
         "href": "anied/index.html",
         "src": "anied/AniEd_remote_small.jpg",
-        "title": "Ink AniEdTablet PC Ink Animator",
-        "subtitle": "[tablet pc]",
+        "title": "Ink AniEdTablet",
+        "subtitle": "PC Ink Animator [tablet pc]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -747,8 +758,8 @@
         "plain_text": "Lazy Ink Tablet PC Ink Effect [tablet pc]",
         "href": "tabletpc.html",
         "src": "other/LazyInk.gif",
-        "title": "Lazy InkTablet PC Ink Effect",
-        "subtitle": "[tablet pc]",
+        "title": "Lazy Ink",
+        "subtitle": "Tablet PC Ink Effect [tablet pc]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -756,8 +767,8 @@
         "plain_text": "Pocket PC Games and Tools [pocket pc]",
         "href": "pocketpc/index.html",
         "src": "pocketpc/Screen_MindSweeper.jpg",
-        "title": "Pocket PCGames and Tools",
-        "subtitle": "[pocket pc]",
+        "title": "Pocket PC",
+        "subtitle": "Games and Tools [pocket pc]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -765,8 +776,8 @@
         "plain_text": "Evil Dice Puzzle Game Perfection [win32]",
         "href": "download/EvilDice.html",
         "src": "download/Screens/EvilDice_6s_small.jpg",
-        "title": "Evil DicePuzzle Game Perfection",
-        "subtitle": "[win32]",
+        "title": "Evil Dice",
+        "subtitle": "Puzzle Game Perfection [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
     },
@@ -774,8 +785,8 @@
         "plain_text": "WirEd and ModEd 3D Modeling Kit [win32]",
         "href": "download/3DStuff.html",
         "src": "download/Screens/ModEd_Computer.jpg",
-        "title": "WirEd and ModEd3D Modeling Kit",
-        "subtitle": "[win32]",
+        "title": "WirEd and ModEd",
+        "subtitle": "3D Modeling Kit [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -783,8 +794,8 @@
         "plain_text": "Thinking Game 2 Connect 4 in 3D [win32]",
         "href": "download/TG2.html",
         "src": "download/Screens/TG2_Game1.jpg",
-        "title": "Thinking Game 2Connect 4 in 3D",
-        "subtitle": "[win32]",
+        "title": "Thinking Game 2",
+        "subtitle": "Connect 4 in 3D [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -792,8 +803,8 @@
         "plain_text": "Grapher 2D/3D Equations [win32]",
         "href": "download/Grapher.html",
         "src": "download/Screens/Grapher_2DGraph.jpg",
-        "title": "Grapher2D/3D Equations",
-        "subtitle": "[win32]",
+        "title": "Grapher",
+        "subtitle": "2D/3D Equations [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -801,8 +812,8 @@
         "plain_text": "Crystal Math Visual Symbolic Calculator [win32]",
         "href": "download/Crystal.html",
         "src": "download/Screens/Crystal_Calc.jpg",
-        "title": "Crystal MathVisual Symbolic Calculator",
-        "subtitle": "[win32]",
+        "title": "Crystal Math",
+        "subtitle": "Visual Symbolic Calculator [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -810,8 +821,8 @@
         "plain_text": "Alarm Clock T-Rex Sound Included [win32]",
         "href": "download/Alarm.html",
         "src": "download/Screens/Alarm_One.jpg",
-        "title": "Alarm ClockT-Rex Sound Included",
-        "subtitle": "[win32]",
+        "title": "Alarm Clock",
+        "subtitle": "T-Rex Sound Included [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
     },
@@ -819,8 +830,8 @@
         "plain_text": "Teach Linked Lists Programming Education App [win32]",
         "href": "download/Teach.html",
         "src": "download/Screens/Teach_Tree.jpg",
-        "title": "Teach Linked ListsProgramming Education App",
-        "subtitle": "[win32]",
+        "title": "Teach Linked Lists",
+        "subtitle": "Programming Education App [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -828,8 +839,8 @@
         "plain_text": "Towers of Hanoi Classic Recursion Example [win32]",
         "href": "download/Towers.html",
         "src": "download/Screens/Towers_Game.jpg",
-        "title": "Towers of HanoiClassic Recursion Example",
-        "subtitle": "[win32]",
+        "title": "Towers of Hanoi",
+        "subtitle": "Classic Recursion Example [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -837,8 +848,8 @@
         "plain_text": "Crystal Math Console Command Line Tool [win32]",
         "href": "download/Crystal.html",
         "src": "download/Screens/CrystalMath_Console.jpg",
-        "title": "Crystal Math ConsoleCommand Line Tool",
-        "subtitle": "[win32]",
+        "title": "Crystal Math Console",
+        "subtitle": "Command Line Tool [win32]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -847,7 +858,7 @@
         "href": "http://suzanneastar.com/",
         "src": "progames/suzanne_astar_at_work.jpg",
         "title": "Suzanne Astar",
-        "subtitle": "",
+        "subtitle": "Partner",
         "category": "interest"
     },
 
@@ -855,58 +866,58 @@
         "plain_text": "Using 3D to Optimize Computations --",
         "href": "articles/using-3d-to-optimize-computation.pdf",
         "src": "articles/optimization_figure_1_sm.png",
-        "title": "Using 3D to Optimize Computations",
-        "subtitle": "--",
+        "title": "Optimizing Computations",
+        "subtitle": "Using 3D",
         "category": "personal",
         "subgroup": "article-theory"
     },
 
 
     {
-        "plain_text": "Electromyography (image source)",
+        "plain_text": "Electromyography ",
         "href": "http://iyashisource.com/shieldite/electro-magnetic-fields",
         "src": "related/human_magnetic_field.jpg",
-        "title": "Electromyography(image source)",
+        "title": "Electromyography",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Holograms (image source)",
+        "plain_text": "Holograms ",
         "href": "http://www.microsoft.com/microsoft-hololens/",
         "src": "related/hololens_icons.jpg",
-        "title": "Holograms(image source)",
+        "title": "Holograms",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Volumetric Data Cubes (image source)",
+        "plain_text": "Volumetric Data Cubes ",
         "href": "https://www.edwardtufte.com/tufte/",
         "src": "related/tufte_cloud_sm.jpg",
-        "title": "Volumetric Data Cubes(image source)",
+        "title": "Volumetric Data Cubes",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Hand Gestures [video] (image source)",
+        "plain_text": "Hand Gestures [video] ",
         "href": "http://www.amazon.com/Praying-Mantis-Kung-Fu-H/dp/0901764094",
         "src": "related/mantis_kung_fu_slim.jpg",
-        "title": "*Hand Gestures(image source)",
+        "title": "Hand Gestures",
         "subtitle": "[video]",
         "category": "interest"
     },
     {
-        "plain_text": "Motion Augmentation [videos] (image source)",
+        "plain_text": "Motion Augmentation [videos] ",
         "href": "http://www.cyberdyne.jp/english/products/HAL/index.html",
         "src": "related/exoskeleton.jpg",
-        "title": "MotionAugmentation(image source)",
+        "title": "Motion Augmentation",
         "subtitle": "[videos]",
         "category": "interest"
     },
     {
-        "plain_text": "Interactive Animation (image source)",
+        "plain_text": "Interactive Animation ",
         "href": "http://theanimatorssurvivalkit.com/",
         "src": "related/walk_cycle.jpg",
-        "title": "InteractiveAnimation(image source)",
+        "title": "Interactive Animation",
         "subtitle": "",
         "category": "interest"
     },
@@ -919,7 +930,7 @@
         "category": "interest"
     },
     {
-        "plain_text": "Sculpture (image source)",
+        "plain_text": "Sculpture ",
         "href": "http://www.rodinmuseum.org/",
         "src": "related/Rodin_Thinker.jpg",
         "title": "Sculpture",
@@ -935,10 +946,10 @@
         "category": "interest"
     },
     {
-        "plain_text": "Ergonomics (image source)",
+        "plain_text": "Ergonomics ",
         "href": "http://www.bing.com/search?q=The+Modulor+by+Le+Corbusier",
         "src": "related/le_corbusier_modulo_3.jpg",
-        "title": "Ergonomics(image source)",
+        "title": "Ergonomics",
         "subtitle": "",
         "category": "interest"
     },
@@ -975,26 +986,26 @@
         "category": "interest"
     },
     {
-        "plain_text": "Architecture and CAD (image source)",
+        "plain_text": "Architecture and CAD ",
         "href": "https://www.behance.net/gallery/23910915/Fern-Wood-House",
         "src": "related/architecture_jp.jpg",
-        "title": "Architecture and CAD(image source)",
+        "title": "Architecture and CAD",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Game Development (image source)",
+        "plain_text": "Game Development ",
         "href": "http://www.rare.co.uk/games/banjokazooie-nuts-bolts",
         "src": "related/banjo-nuts-and-bolts.jpg",
-        "title": "Game Development(image source)",
+        "title": "Game Development",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Software Engineering (image source)",
+        "plain_text": "Software Engineering ",
         "href": "http://www.microsoft.com/",
         "src": "related/MicrosoftRedmondCampus_sm.jpg",
-        "title": "Software Engineering(image source)",
+        "title": "Software Engineering",
         "subtitle": "",
         "category": "interest"
     },
@@ -1015,10 +1026,10 @@
         "category": "interest"
     },
     {
-        "plain_text": "Computer Interaction (image source)",
+        "plain_text": "Computer Interaction ",
         "href": "http://www.dentsable.com/haptic-phantom-omni.htm",
         "src": "related/haptic_device_omni.jpg",
-        "title": "Computer Interaction(image source)",
+        "title": "Computer Interaction",
         "subtitle": "",
         "category": "interest"
     },
@@ -1031,26 +1042,26 @@
         "category": "interest"
     },
     {
-        "plain_text": "Software (image source)",
+        "plain_text": "Software ",
         "href": "http://en.wikipedia.org/wiki/The_Glass_Bead_Game",
         "src": "related/glass_bead_game.jpg",
-        "title": "Software(image source)",
+        "title": "Software",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Programming (image source)",
+        "plain_text": "Programming ",
         "href": "http://www.amazon.com/Texas-Instruments-TI-82-Graphing-Calculator/dp/B00008OOW4",
         "src": "related/texas_instruments_ti_82.jpg",
-        "title": "Programming(image source)",
+        "title": "Programming",
         "subtitle": "",
         "category": "interest"
     },
     {
-        "plain_text": "Art / Literature (image source)",
+        "plain_text": "Art / Literature ",
         "href": "https://www.youtube.com/watch?v=swOxKu80JpU",
         "src": "related/the_fountainhead_roark_sm.jpg",
-        "title": "Art / Literature(image source)",
+        "title": "Art / Literature",
         "subtitle": "",
         "category": "interest"
     },
@@ -1061,10 +1072,10 @@
         "category": "interest"
     },
     {
-        "plain_text": "Snakes (image source)",
+        "plain_text": "Snakes ",
         "href": "http://en.wikipedia.org/wiki/Bitis_gabonica",
         "src": "related/gaboon_viber.jpg",
-        "title": "Snakes(image source)",
+        "title": "Snakes",
         "subtitle": "",
         "category": "interest"
     },
@@ -1093,10 +1104,10 @@
         "category": "interest"
     },
     {
-        "plain_text": "Revolution (image source)",
+        "plain_text": "Revolution ",
         "href": "http://www.capegallery.co.za/patric_cordingley1.htm",
         "src": "related/nelson_mandela_sm.jpg",
-        "title": "Revolution(image source)",
+        "title": "Revolution",
         "subtitle": "",
         "category": "interest"
     },
