@@ -69,6 +69,18 @@ function cleanWhiteSpace(str) {
     return ans;
 }
 
+function replaceSquares(subtitle) {
+    if (subtitle.trim() == "") return "";
+    if (subtitle.includes("[")) {
+        var ans = "";
+        var index = subtitle.indexOf("[");
+        var left = subtitle.substr(0,index);
+        var right = subtitle.substr(index+1).replace("]","");
+        return "\n " + left + "<span class='pcell_cat'>\n [" + right + "]</span>";
+    }
+    return "\n " + subtitle;
+}
+
 function cellToHtml(cell) {
     if ((!cell.plain_text) && (!cell.href) && (!cell.src)) return "";
 
@@ -94,7 +106,7 @@ function cellToHtml(cell) {
         ans += "</a>";
     }
     if (cell.subtitle) {
-        ans += "<br/><span class='pcell_white' >\n " + cell.subtitle + "</span>";
+        ans += "<br/><span class='pcell_white pcell_subtitle' > " + replaceSquares(cell.subtitle) + "</span>";
     }
     ans += "<br/>";
     return ans;
@@ -215,7 +227,7 @@ function cleanUpString(str) {
     var replacements = {
         "video-article":"Articles - Videos",
         "article-images":"Articles - Images",
-        "sculpture":"Sculpture & Lit",
+        "sculpture":"Sculpture & Literature",
         "undefined":"Related Links"
     };
     if (str === undefined) str = "undefined";
@@ -248,6 +260,9 @@ function updateCells() {
     lines += ".pcell_td_team{align:center;}\n"
     lines += ".pcell_link{color:white}\n";
     lines += ".pcell_white{color:white}\n";
+    lines += ".pcell_group_major{color:white;padding-top:15px;}"
+    lines += ".pcell_subtitle{color:white;opacity:39%}\n";
+    lines += ".pcell_cat{color:white;opacity:50%}\n"
     lines += "\n</style>\n";
     lines += "\n<body><br/>\n";
     var subgroup = undefined;
@@ -262,7 +277,7 @@ function updateCells() {
     {
         var info = groupInfos[groupName];
         lines += "<div style='width:100%;background-color:" + info.color + "' >";
-        lines += "<h2 class='pcell_white'>" + info.title + "</h2>\n";
+        lines += "<h2 class='pcell_group_major'>\n" + info.title + "</h2>\n";
         lines += "<div><table><tr>\n";
 
         var cellList = groups[groupName];
@@ -274,13 +289,17 @@ function updateCells() {
             if (cell.subgroup != subgroup) {
                 subgroup = cell.subgroup;
                 lines += "\n</tr></table></div>\n";
-                lines += "<h3 style='margin:0px; color:white;'><i>" + cleanUpString(subgroup) + "</i></h3>";
+                lines += "<h3 style='margin:0px; padding-top:20px; color:white;'><i>" + cleanUpString(subgroup) + "</i></h3>";
                 lines += "<div style='overflow-x:scroll;' >";
                 lines += "<table style='width:min-content;' ><tr>\n";
                 //lines += "<tr><td colspan='3'><i>" + subgroup + "</i></td></tr>\n";
                 //lines += "<tr>\n";
             }
-            var td = "\n<td class='pcell_td' valign='top' >" + cellToHtml(cell) + "</td>\n";
+            var tdProps = " valign='top' ";
+            if (cell.category == "team") {
+                tdProps += " align='center' ";
+            }
+            var td = "\n<td class='pcell_td' " + tdProps + " >" + cellToHtml(cell) + "</td>\n";
             lines += td;
             
         }

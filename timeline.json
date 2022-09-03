@@ -24,10 +24,9 @@
         "category": "team"
     },
     {
-        "plain_text": "Lucasfilm/Disney Senior UX",
         "subtitle": "Senior UX",
         "href": "https://www.lucasfilm.com/",
-        "title": "Lucasfilm/Disney",
+        "title": "Disney/Lucasfilm",
         "src": "../images/lucasfilm_icon.jpg",
         "category": "team"
     },
@@ -140,7 +139,7 @@
     },
     {
         "plain_text": "Vader Immortal: A Star Wars VR Series Prototype/Pre-Production",
-        "subtitle": "Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production [vr]",
         "href": "https://www.oculus.com/vader-immortal/",
         "src": "progames/vader_vr_hand_sm.jpg",
         "title": "Vader Immortal: A Star Wars VR Series",
@@ -149,7 +148,7 @@
     },
     {
         "plain_text": "Star Wars: Droid Repair Bay Prototype/Pre-Production",
-        "subtitle": "Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production [vr]",
         "href": "https://www.oculus.com/experiences/go/1769193356487183/",
         "src": "progames/droid_repair_bay_sm.jpg",
         "title": "Star Wars: Droid Repair Bay",
@@ -157,11 +156,10 @@
         "subgroup": "disney"
     },
     {
-        "plain_text": "Star Wars: Secrets of the Empire (VOID experience) Prototype/Pre-Production",
-        "subtitle": "Prototype/Pre-Production",
+        "subtitle": "Prototype/Pre-Production [void]",
         "href": "https://www.thevoid.com/",
         "src": "progames/swsote_still_2.jpg",
-        "title": "Star Wars: Secrets of the Empire(VOID experience)",
+        "title": "Star Wars: Secrets of the Empire",
         "category": "product",
         "subgroup": "disney"
     },
@@ -374,7 +372,7 @@
         "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
         "src": "progames/hyperchem_screen.jpg",
         "category": "product",
-        "subgroup": "hyperchem"
+        "subgroup": "collage"
     },
     {
         "plain_text": "HyperChem 8.0 Graphics",
@@ -383,7 +381,7 @@
         "src": "progames/hyperchem_field_screen.jpg",
         "title": "HyperChem 8.0",
         "category": "product",
-        "subgroup": "hyperchem"
+        "subgroup": "collage"
     },
     {
         "plain_text": "Windows Vista",
@@ -392,7 +390,7 @@
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
         "category": "product",
-        "subgroup": "microsoft-internship"
+        "subgroup": "collage"
     },
     {
         "plain_text": "Heroine Dawn [web/mobile]",
@@ -873,11 +871,10 @@
     },
 
     {
-        "plain_text": "Using 3D to Optimize Computations ",
         "href": "articles/using-3d-to-optimize-computation.pdf",
         "src": "articles/optimization_figure_1_sm.png",
         "title": "Optimizing Computations",
-        "subtitle": "Using 3D",
+        "subtitle": "",
         "category": "personal",
         "subgroup": "article-theory"
     },
