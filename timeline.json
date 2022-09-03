@@ -585,6 +585,15 @@
         "subgroup": "sculpture"
     },
     {
+        "plain_text": "Philosophy in Five Easy Pieces",
+        "href": "articles/PeterG_Philosophy_in_Five_Easy_Pieces.html",
+        "src": "related/aristotle.jpg",
+        "title": "Philosophy in Five Easy Pieces",
+        "subtitle": "by Peter Geselowitz",
+        "category": "personal",
+        "subgroup": "sculpture"
+    },
+    {
         "plain_text": "Energy Work Experiences",
         "href": "articles/leweys_energy_work.html",
         "src": "articles/lewcid_energy_work_sm.gif",
@@ -601,20 +610,30 @@
         "category": "personal",
         "subgroup": "spirituality"
     },
-    {
-        "href": "https://github.com/leweyg/vrbiofield/tree/master/UnityProject/VRBiofield/Assets/BiofieldCore",
-        "src": "progames/biofield_hand_sim.jpg",
-        "title": "Biofield Simulation",
-        "subtitle": "[source_code]",
-        "category": "personal",
-        "subgroup": "spirituality"
-    },
+
+    
     {
         "plain_text": "Healer Game Series [web/mobile]",
         "href": "https://leweyg.github.io/HealerGame/demo/",
         "src": "progames/HealerGame.jpg",
         "title": "Healer Game Series",
         "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "href": "articles/leweys_energy_work_references.html",
+        "src": "articles/leweys_energy_work_references_files/image039.jpg",
+        "title": "Energy Work References",
+        "subtitle": "[book-links]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "href": "https://github.com/leweyg/vrbiofield/tree/master/UnityProject/VRBiofield/Assets/BiofieldCore",
+        "src": "progames/biofield_hand_sim.jpg",
+        "title": "Biofield Simulation",
+        "subtitle": "[source_code]",
         "category": "personal",
         "subgroup": "spirituality"
     },
@@ -740,8 +759,8 @@
         "plain_text": "Ink AniEd Tablet PC Ink Animator [tablet pc]",
         "href": "anied/index.html",
         "src": "anied/AniEd_remote_small.jpg",
-        "title": "Ink AniEdTablet",
-        "subtitle": "PC Ink Animator [tablet pc]",
+        "title": "Ink AniEd",
+        "subtitle": "Ink Animator [tablet pc]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
@@ -1110,15 +1129,7 @@
         "subtitle": "",
         "category": "interest"
     },
-    {
-        "plain_text": "Philosophy in Five Easy Pieces",
-        "href": "http://en.wikipedia.org/wiki/The_School_of_Athens",
-        "src": "related/aristotle.jpg",
-        "title": "Philosophy in Five Easy Pieces",
-        "subtitle": "by Peter Geselowitz",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
+
     {
         "plain_text": "Family",
         "href": "https://www.facebook.com/leweyg",
