@@ -230,6 +230,7 @@ function cleanUpString(str) {
         "sculpture":"Sculpture & Literature",
         "undefined":"Related Links",
         "collage":"University Years",
+        "article-theory":"Articles - Theory"
     };
     if (str === undefined) str = "undefined";
     if (str in replacements) {

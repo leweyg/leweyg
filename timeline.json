@@ -419,12 +419,12 @@
         "category": "personal",
         "subgroup": "interactive-passive"
     },
+
     {
-        "plain_text": "37th Birthday Portfolio Review [video]",
-        "href": "https://youtu.be/cPmYqzaDPV4",
-        "src": "related/portfolio_video_thumbnail_sm.jpg",
-        "title": "37th Birthday Portfolio Review",
-        "subtitle": "[video]",
+        "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
+        "src": "articles/spatial_web_interview.jpg",
+        "title": "Spatial Web, Gig-Economy & Blockchain",
+        "subtitle": "Interview on Metaverse",
         "category": "personal",
         "subgroup": "video-article"
     },
@@ -435,31 +435,25 @@
         "category": "personal",
         "subgroup": "video-article"
     },
-
     {
-        "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
-        "src": "progames/spatialweb_jobs.jpeg",
-        "title": "Spatial Web, Gig-Economy & Blockchain",
-        "subtitle": "Interview on Metaverse",
+        "plain_text": "37th Birthday Portfolio Review [video]",
+        "href": "https://youtu.be/cPmYqzaDPV4",
+        "src": "related/portfolio_video_thumbnail_sm.jpg",
+        "title": "37th Birthday Portfolio Review",
+        "subtitle": "[video]",
         "category": "personal",
         "subgroup": "video-article"
     },
+
     {
         "href": "http://www.4dprocess.com/fieldhand/",
         "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
         "title": "Field Hand",
-        "subtitle": "",
+        "subtitle": "AR/3D Interface Project",
         "category": "personal",
         "subgroup": "article-images"
     },
-    {
-        "href": "articles/excel3d_patent.pdf",
-        "src": "progames/Excel3DPatentImage_sm.jpg",
-        "title": "Excel 3D Patent",
-        "subtitle": "Data Shaping Interface",
-        "category": "personal",
-        "subgroup": "article-images"
-    },
+
 
     {
         "plain_text": "Augmented Reality Contextual Messaging UX",
@@ -634,7 +628,14 @@
         "category": "personal",
         "subgroup": "spirituality"
     },
-
+    {
+        "href": "https://www.4dprocess.com/4d/index.html#initial_concept",
+        "src": "articles/ecovoxel_v1.jpg",
+        "title": "4D Process",
+        "subtitle": "Concept Videos",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
     {
         "plain_text": "3D UI Hand Gestures [video]",
         "href": "articles/vol/hand_poses.html",
@@ -868,15 +869,16 @@
         "subtitle": "Partner",
         "category": "interest"
     },
-
     {
-        "href": "articles/using-3d-to-optimize-computation.pdf",
-        "src": "articles/optimization_figure_1_sm.png",
-        "title": "Optimizing Computations",
-        "subtitle": "",
+        "href": "articles/excel3d_patent.pdf",
+        "src": "progames/Excel3DPatentImage_sm.jpg",
+        "title": "Excel 3D Patent",
+        "subtitle": "Data Shaping Interface",
         "category": "personal",
         "subgroup": "article-theory"
     },
+
+
 
 
     {
@@ -1150,6 +1152,16 @@
         "subtitle": "",
         "category": "interest"
     },
+    
+
+    {
+        "href": "articles/using-3d-to-optimize-computation.pdf",
+        "src": "articles/optimization_figure_1_sm.png",
+        "title": "Optimizing Computations",
+        "subtitle": "",
+        "category": "personal",
+        "subgroup": "article-theory"
+    },
     {
         "plain_text": "",
         "src": "articles/turing_field.png",
@@ -1167,5 +1179,22 @@
         "subtitle": "",
         "category": "personal",
         "subgroup": "article-theory"
+    },
+    {
+        "href": "https://youtu.be/qdUR41i6w9M",
+        "src": "articles/json_vr.jpg",
+        "title": "JSON in 3D",
+        "subtitle": "Experiment-Video",
+        "category": "personal",
+        "subgroup": "article-theory"
+    },
+    {
+        "href": "http://www.4dprocess.com/4d/subject/lcb/index.html",
+        "src": "articles/facets.jpg",
+        "title": "Facet-Count Interpolation",
+        "subtitle": "Experiment-Passive",
+        "category": "personal",
+        "subgroup": "article-theory"
     }
+
 ]
