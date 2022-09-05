@@ -122,7 +122,7 @@
     {
         "plain_text": "4D Process SDK",
         "subtitle": "Space-Time Visualization",
-        "href": "../4d/",
+        "href": "http://www.4dprocess.com/4d/",
         "src": "progames/eco4d_image3_.jpg",
         "title": "4D Process",
         "category": "product",
@@ -437,11 +437,10 @@
     },
 
     {
-        "plain_text": "Spatial Web Economy and Blockchain (interview) [video]",
         "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
         "src": "progames/spatialweb_jobs.jpeg",
-        "title": "Spatial Web Economyand Blockchain (interview)",
-        "subtitle": "[video]",
+        "title": "Spatial Web, Gig-Economy & Blockchain",
+        "subtitle": "Interview on Metaverse",
         "category": "personal",
         "subgroup": "video-article"
     },
@@ -1153,7 +1152,7 @@
     },
     {
         "plain_text": "",
-        "src": "other/article_icon.png",
+        "src": "articles/turing_field.png",
         "href": "articles/turing_field.html",
         "title": "Turing Field",
         "subtitle": "",
@@ -1162,7 +1161,7 @@
     },
     {
         "plain_text": "",
-        "src": "other/article_icon.png",
+        "src": "articles/holon_interval.png",
         "href": "articles/holographic_interval.pdf",
         "title": "Holographic Interval",
         "subtitle": "",

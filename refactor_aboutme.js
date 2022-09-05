@@ -228,7 +228,8 @@ function cleanUpString(str) {
         "video-article":"Articles - Videos",
         "article-images":"Articles - Images",
         "sculpture":"Sculpture & Literature",
-        "undefined":"Related Links"
+        "undefined":"Related Links",
+        "collage":"University Years",
     };
     if (str === undefined) str = "undefined";
     if (str in replacements) {
@@ -251,6 +252,8 @@ function updateCells() {
     var cells = JSON.parse( fs.readFileSync("timeline.json") );
     var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
+    var isHtmlPrefix = false;
+    if (isHtmlPrefix) {
     lines += "<html>";
     lines += "<head><title>About Me</title></head>";
     lines += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
@@ -265,6 +268,8 @@ function updateCells() {
     lines += ".pcell_cat{color:white;opacity:50%}\n"
     lines += "\n</style>\n";
     lines += "\n<body><br/>\n";
+    }
+
     var subgroup = undefined;
     var groupInfos = {
         "team":{title:"Teams",color:"black"},
@@ -308,6 +313,12 @@ function updateCells() {
     }
 
     fs.writeFileSync("docs/lg/aboutme_test.html", lines);
+
+    var wholeTemplate = "" + fs.readFileSync("aboutme_template.html");
+    var wholeCore = "" + fs.readFileSync("docs/lg/aboutme_test.html");
+    var replaceMarker = "<!--INSERT_PROFOLIO_HERE-->";
+    var wholeFinal = wholeTemplate.replace(replaceMarker, wholeCore);
+    fs.writeFileSync("docs/lg/aboutme.html", wholeFinal);
 }
 
 //collectCells();
