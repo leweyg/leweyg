@@ -228,7 +228,7 @@ function cleanUpString(str) {
         "video-article":"Articles - Videos",
         "article-images":"Articles - Images",
         "sculpture":"Sculpture & Literature",
-        "undefined":"Related Links",
+        "undefined":"Links",
         "collage":"University Years",
         "article-theory":"Articles - Theory"
     };
@@ -313,10 +313,11 @@ function updateCells() {
         lines += "</div>";
     }
 
-    fs.writeFileSync("docs/lg/aboutme_test.html", lines);
+    var tempPath = "tmp_about_me.html"
+    fs.writeFileSync(tempPath, lines);
 
     var wholeTemplate = "" + fs.readFileSync("aboutme_template.html");
-    var wholeCore = "" + fs.readFileSync("docs/lg/aboutme_test.html");
+    var wholeCore = "" + fs.readFileSync(tempPath);
     var replaceMarker = "<!--INSERT_PROFOLIO_HERE-->";
     var wholeFinal = wholeTemplate.replace(replaceMarker, wholeCore);
     fs.writeFileSync("docs/lg/aboutme.html", wholeFinal);

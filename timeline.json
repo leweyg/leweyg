@@ -5,7 +5,8 @@
         "href": "https://www.tesla.com/",
         "title": "Tesla",
         "src": "../images/tesla_logo_icon.png",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "plain_text": "Unity Manager",
@@ -13,7 +14,8 @@
         "href": "https://unity.com/",
         "title": "Unity",
         "src": "../images/unity_logo_icon.jpeg",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "plain_text": "Verses Director",
@@ -21,14 +23,16 @@
         "href": "https://verses.io/",
         "title": "Verses",
         "src": "../images/verses_logo_transparent.png",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "subtitle": "Senior UX",
         "href": "https://www.lucasfilm.com/",
         "title": "Disney/Lucasfilm",
         "src": "../images/lucasfilm_icon.jpg",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "plain_text": "Microsoft Senior",
@@ -36,7 +40,8 @@
         "href": "https://www.microsoft.com/",
         "title": "Microsoft",
         "src": "../images/windows_vista.png",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "plain_text": "Hypercube Lead",
@@ -44,7 +49,8 @@
         "href": "http://www.hypercubeusa.com/",
         "title": "Hypercube",
         "src": "progames/hyperchem_field_screen.jpg",
-        "category": "team"
+        "category": "team",
+        "subgroup": "career"
     },
     {
         "plain_text": "Tesla Autopilot 10.69 Autopilot Visualization Lead",
@@ -411,11 +417,10 @@
         "subgroup": "interactive-active"
     },
     {
-        "plain_text": "Freed Go [web/mobile]",
         "href": "https://leweyg.github.io/FreedGames/FreedGo/",
         "src": "progames/freed_go_2.jpg",
         "title": "Freed Go",
-        "subtitle": "[web/mobile]",
+        "subtitle": "[web/mobile/multiplayer]",
         "category": "personal",
         "subgroup": "interactive-passive"
     },
