@@ -80,29 +80,26 @@
         "subgroup": "recent"
     },
     {
-        "plain_text": "W&G: The Big Fix Up Technical Advisor (room solving by Unity MARS)",
-        "subtitle": "Technical Advisor (room solving by Unity MARS)",
         "href": "https://www.thebigfixup.co.uk/",
         "src": "progames/wallance_the_big_fixup.jpg",
-        "title": "W&G: The Big Fix Up",
+        "title": "Wallace & Gromit: The Big Fix Up",
+        "subtitle": "Unity MARS Technical Advisor [phone AR]",
         "category": "product",
         "subgroup": "recent"
     },
     {
-        "plain_text": "Dr Seuss",
-        "subtitle": "",
-        "href": "https://www.sugarcs.com/project/seuss-abc",
+        "href": "https://www.sugar.agency/projects/dr-seuss-abc",
         "src": "progames/drseuss_ar_room.jpg",
-        "title": "Dr Seuss",
+        "title": "Dr Seuss's ABC in AR",
+        "subtitle": "Unity MARS Technical Advisor [phone AR]",
         "category": "product",
         "subgroup": "recent"
     },
     {
-        "plain_text": "Unity MARS Spatial App Studio Engineering Manager",
-        "subtitle": "Spatial App StudioEngineering Manager",
         "href": "https://unity.com/unity/features/mars",
         "src": "progames/unity_mars_forces_adapt2.jpg",
         "title": "Unity MARS",
+        "subtitle": "Engineering Manager",
         "category": "product",
         "subgroup": "recent"
     },
@@ -373,28 +370,26 @@
 
     {
         "plain_text": "",
-        "title": "Hyper Protein",
+        "title": "HyperProtein 1.0",
         "subtitle": "Graphics/Bioinformatics Lead",
-        "href": "http://www.hyper.com/Products/HyperProtein/tabid/504/Default.aspx",
+        "href": "http://www.hypercubeusa.com/Products/HyperProtein/tabid/504/Default.aspx",
         "src": "progames/hyperchem_screen.jpg",
         "category": "product",
         "subgroup": "collage"
     },
     {
-        "plain_text": "HyperChem 8.0 Graphics",
-        "subtitle": "Graphics",
-        "href": "http://www.hyper.com/Products/HyperChemProfessional/75Overview/tabid/361/Default.aspx",
+        "href": "http://www.hypercubeusa.com/?tabid=360",
         "src": "progames/hyperchem_field_screen.jpg",
         "title": "HyperChem 8.0",
+        "subtitle": "Graphics Lead",
         "category": "product",
         "subgroup": "collage"
     },
     {
-        "plain_text": "Windows Vista",
-        "subtitle": "WPF Performance Team Intern",
         "href": "http://en.wikipedia.org/wiki/Windows_Vista",
         "src": "progames/windows-vista-screen.jpg",
         "title": "Windows Vista / WPF",
+        "subtitle": "Performance Team Intern",
         "category": "product",
         "subgroup": "collage"
     },
@@ -525,15 +520,7 @@
         "subgroup": "interactive-passive"
     },
 
-    {
-        "plain_text": "Interval Arithmetic For Visualization [web]",
-        "href": "math/index.html",
-        "src": "math/images/interval_logo.png",
-        "title": "Interval Arithmetic",
-        "subtitle": "For Visualization [web]",
-        "category": "personal",
-        "subgroup": "interactive-passive"
-    },
+
     {
         "plain_text": "Classic Win32 Apps [win32]",
         "href": "lc/win32/",
@@ -1182,6 +1169,14 @@
         "href": "articles/holographic_interval.pdf",
         "title": "Holographic Interval",
         "subtitle": "",
+        "category": "personal",
+        "subgroup": "article-theory"
+    },
+    {
+        "href": "math/index.html",
+        "src": "math/images/interval_logo.png",
+        "title": "Interval Arithmetic",
+        "subtitle": "Interactive-Passive",
         "category": "personal",
         "subgroup": "article-theory"
     },
