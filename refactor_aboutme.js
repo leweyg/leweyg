@@ -276,7 +276,8 @@ function updateCells() {
         "team":{title:"Teams",color:"black"},
         "product":{title:"Products",color:"#6898b3"},
         "personal":{title:"Self Published",color:"#68b368"},
-        "interest":{title:"Interests",color:"#a19a5c"}
+        "interest":{title:"Interests",color:"#a19a5c"},
+        "unfinished":{title:"Unfinished",color:"#a19a5c"}
     }
 
     for (var groupName in groups)

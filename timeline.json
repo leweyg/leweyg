@@ -511,6 +511,14 @@
         "subgroup": "interactive-passive"
     },
     {
+        "href": "https://leweyg.github.io/FreedGames/Shuzzle/",
+        "src": "progames/shuzzle_web.jpg",
+        "title": "Shuzzle 2 Beta",
+        "subtitle": "Invisible Block Shadow Puzzle [web/mobile]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+    {
         "plain_text": "Interactive History of Programming [web]",
         "href": "cch/cch_ip_1.html",
         "src": "progames/cch_programming.jpg",
@@ -554,6 +562,14 @@
         "href": "sculpture/index.html#hoagie",
         "src": "sculpture/03/small.jpg",
         "title": "Hoagie",
+        "subtitle": "",
+        "category": "personal",
+        "subgroup": "sculpture"
+    },
+    {
+        "href": "sculpture/index.html#yma",
+        "src": "sculpture/02/yma.jpg",
+        "title": "Yma",
         "subtitle": "",
         "category": "personal",
         "subgroup": "sculpture"
@@ -735,6 +751,14 @@
         "subtitle": "Stereogram Engine Mod [win32]",
         "category": "personal",
         "subgroup": "interactive-active"
+    },
+    {
+        "href": "nq/branching.html",
+        "src": "nq/jsb_3d_small.jpeg",
+        "title": "Branching",
+        "subtitle": "JavaScript with Animation Support [.net]",
+        "category": "personal",
+        "subgroup": "article-images"
     },
     {
         "plain_text": "AbSIRD Realtime SIRDS",
@@ -1196,5 +1220,4 @@
         "category": "personal",
         "subgroup": "article-theory"
     }
-
 ]
