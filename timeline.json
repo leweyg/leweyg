@@ -323,6 +323,24 @@
         "subgroup": "microsoft-xbox"
     },
     {
+        "plain_text": "Fable II Performance Analysis",
+        "subtitle": "Performance Analysis",
+        "href": "http://en.wikipedia.org/wiki/Fable_II",
+        "src": "progames/fable2_house.jpg",
+        "title": "Fable II",
+        "category": "product",
+        "subgroup": "microsoft-xbox"
+    },
+    {
+        "plain_text": "Viva Pinata PC Performance Engineer",
+        "subtitle": "Performance Engineer",
+        "href": "http://www.amazon.com/Viva-Pi%C3%B1ata-PC/dp/B000VBFWAG",
+        "src": "progames/viva-pinata-1.jpg",
+        "title": "Viva Pinata PC",
+        "category": "product",
+        "subgroup": "microsoft-xbox"
+    },
+    {
         "plain_text": "Alan Wake Special Thanks",
         "subtitle": "Special Thanks",
         "href": "http://www.alanwake.com/",
@@ -349,24 +367,7 @@
         "category": "product",
         "subgroup": "microsoft-xbox"
     },
-    {
-        "plain_text": "Fable II Performance Analysis",
-        "subtitle": "Performance Analysis",
-        "href": "http://en.wikipedia.org/wiki/Fable_II",
-        "src": "progames/fable2_house.jpg",
-        "title": "Fable II",
-        "category": "product",
-        "subgroup": "microsoft-xbox"
-    },
-    {
-        "plain_text": "Viva Pinata PC Performance Engineer",
-        "subtitle": "Performance Engineer",
-        "href": "http://www.amazon.com/Viva-Pi%C3%B1ata-PC/dp/B000VBFWAG",
-        "src": "progames/viva-pinata-1.jpg",
-        "title": "Viva Pinata PC",
-        "category": "product",
-        "subgroup": "microsoft-xbox"
-    },
+
 
     {
         "plain_text": "",
