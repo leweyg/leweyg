@@ -413,6 +413,14 @@
         "subgroup": "interactive-active"
     },
     {
+        "href": "https://leweyg.github.io/lewcid_editor/",
+        "src": "progames/lewcid_editor_spacekit_scene.jpg",
+        "title": "Lewcid Editor",
+        "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+    {
         "href": "https://leweyg.github.io/FreedGames/FreedGo/",
         "src": "progames/freed_go_2.jpg",
         "title": "Freed Go",
