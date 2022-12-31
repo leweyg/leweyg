@@ -53,26 +53,25 @@
         "subgroup": "career"
     },
     {
-        "plain_text": "Tesla Autopilot 10.69 Autopilot Visualization Lead",
-        "subtitle": "Autopilot Visualization Lead",
+        "title": "Tesla Autopilot (2022 - FSD Wide Release)",
+        "subtitle": "In-Vehicle Visualization Lead",
         "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
         "src": "progames/tesla_autopilot_10.69_sm.png",
-        "title": "Tesla Autopilot 10.69",
         "category": "product",
         "subgroup": "recent"
     },
     {
-        "plain_text": "Tesla Software v11 (2021) UI Core and Autopilot Visualization",
-        "subtitle": "UI Core and Autopilot Visualization",
+        "title": "Tesla Vehicle Software (2021-22)",
+        "subtitle": "UI Core Framework Lead",
         "href": "https://www.tesla.com/blog/introducing-software-v11-0",
         "src": "progames/tesla-update-2021.jpg",
-        "title": "Tesla Software v11 (2021)",
+        
         "category": "product",
         "subgroup": "recent"
     },
     {
         "plain_text": "Tesla Model S Plaid (2021) UI Core Framework",
-        "subtitle": "UI Core Framework",
+        "subtitle": "UI Core Framework Lead",
         "href": "https://www.tesla.com/models",
         "src": "progames/tesla-models-plaid-ui.jpeg",
         "title": "Tesla Model S Plaid (2021)",
@@ -429,6 +428,14 @@
         "subgroup": "interactive-passive"
     },
 
+    {
+        "href": "https://www.youtube.com/watch?v=9Ehr452mBlI",
+        "src": "progames/unity_mars_valentimes.jpg",
+        "title": "Unity MARS Valentine's Day",
+        "subtitle": "Spatial Dinner App Prototype",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
     {
         "href": "https://www.youtube.com/watch?v=IVV5ir_JX_A",
         "src": "articles/spatial_web_interview.jpg",
