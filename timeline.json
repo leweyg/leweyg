@@ -394,6 +394,14 @@
         "subgroup": "collage"
     },
     {
+        "href": "https://leweyg.github.io/lewcid_editor/",
+        "src": "progames/lewcid_editor_spacekit_scene.jpg",
+        "title": "Lewcid Editor",
+        "subtitle": "[web/mobile]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
+    {
         "plain_text": "Heroine Dawn [web/mobile]",
         "href": "https://leweyg.github.io/heroine_dawn/",
         "src": "progames/heroine_dawn.jpg",
@@ -410,14 +418,6 @@
         "subtitle": "[web]",
         "category": "personal",
         "subgroup": "interactive-active"
-    },
-    {
-        "href": "https://leweyg.github.io/lewcid_editor/",
-        "src": "progames/lewcid_editor_spacekit_scene.jpg",
-        "title": "Lewcid Editor",
-        "subtitle": "[web/mobile]",
-        "category": "personal",
-        "subgroup": "interactive-passive"
     },
     {
         "href": "https://leweyg.github.io/FreedGames/FreedGo/",
