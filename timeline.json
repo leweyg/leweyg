@@ -646,18 +646,27 @@
         "subgroup": "spirituality"
     },
     {
-        "href": "articles/leweys_energy_work_references.html",
-        "src": "articles/leweys_energy_work_references_files/image039.jpg",
-        "title": "Energy Work References",
-        "subtitle": "[book-links]",
-        "category": "personal",
-        "subgroup": "spirituality"
-    },
-    {
         "href": "https://github.com/leweyg/vrbiofield/tree/master/UnityProject/VRBiofield/Assets/BiofieldCore",
         "src": "progames/biofield_hand_sim.jpg",
         "title": "Biofield Simulation",
         "subtitle": "[source_code]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "plain_text": "Kaballah Correspondences",
+        "href": "https://leweyg.github.io/kabbalah/",
+        "src": "related/kbl_etch_lewey.jpg",
+        "title": "Kaballah Correspondences",
+        "subtitle": "[notes]",
+        "category": "personal",
+        "subgroup": "spirituality"
+    },
+    {
+        "href": "articles/leweys_energy_work_references.html",
+        "src": "articles/leweys_energy_work_references_files/image039.jpg",
+        "title": "Energy Work References",
+        "subtitle": "[book-links]",
         "category": "personal",
         "subgroup": "spirituality"
     },
