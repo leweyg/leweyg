@@ -249,8 +249,19 @@ function cleanUpString(str) {
     return ans;
 }
 
+function filterCells(allCells) {
+    var cells = [];
+    for (var ci in allCells) {
+        var c = allCells[ci];
+        if (c.hide) continue;
+        cells.push(c);
+    }
+    return cells;
+}
+
 function updateCells() {
-    var cells = JSON.parse( fs.readFileSync("timeline.json") );
+    var allCells = JSON.parse( fs.readFileSync("timeline.json") );
+    var cells = filterCells(allCells);
     var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
     var isHtmlPrefix = false;

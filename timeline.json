@@ -53,30 +53,38 @@
         "subgroup": "career"
     },
     {
-        "title": "Tesla Autopilot (2022 - FSD Wide Release)",
-        "subtitle": "In-Vehicle Visualization Lead",
+        "title": "Autopilot UI (2022-23)",
+        "subtitle": "UI - Autopilot - Component Owner, Staff",
         "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
         "src": "progames/tesla_autopilot_10.69_sm.png",
         "category": "product",
-        "subgroup": "recent"
+        "subgroup": "tesla"
     },
     {
-        "title": "Tesla Vehicle Software (2021-22)",
-        "subtitle": "UI Core Framework Lead",
+        "title": "Vehicle Software (2021-23)",
+        "subtitle": "UI - Core Framework - Component Owner, Staff",
         "href": "https://youtu.be/q0KqLkhWtCE",
         "src": "progames/tesla_holiday_2022.jpg",
         
         "category": "product",
-        "subgroup": "recent"
+        "subgroup": "tesla"
     },
     {
-        "plain_text": "Tesla Model S Plaid (2021) UI Core Framework",
-        "subtitle": "UI Core Framework Lead",
+        "plain_text": "Tesla Model S Plaid (2021)",
+        "subtitle": "UI - Core Framework - Component Owner, Staff",
         "href": "https://www.tesla.com/models",
         "src": "progames/tesla-models-plaid-ui.jpeg",
         "title": "Tesla Model S Plaid (2021)",
         "category": "product",
-        "subgroup": "recent"
+        "subgroup": "tesla"
+    },
+    {
+        "href": "https://unity.com/unity/features/mars",
+        "src": "progames/unity_mars_blue.jpg",
+        "title": "Unity",
+        "subtitle": "Engineering Manager (during IPO)",
+        "category": "product",
+        "subgroup": "startups"
     },
     {
         "href": "https://www.thebigfixup.co.uk/",
@@ -84,7 +92,8 @@
         "title": "Wallace & Gromit: The Big Fix Up",
         "subtitle": "Unity MARS Technical Advisor [phone AR]",
         "category": "product",
-        "subgroup": "recent"
+        "hide":true,
+        "subgroup": "unity"
     },
     {
         "href": "https://www.sugar.agency/projects/dr-seuss-abc",
@@ -92,19 +101,13 @@
         "title": "Dr Seuss's ABC in AR",
         "subtitle": "Unity MARS Technical Advisor [phone AR]",
         "category": "product",
-        "subgroup": "recent"
+        "hide":true,
+        "subgroup": "unity"
     },
-    {
-        "href": "https://unity.com/unity/features/mars",
-        "src": "progames/unity_mars_forces_adapt2.jpg",
-        "title": "Unity MARS",
-        "subtitle": "Engineering Manager",
-        "category": "product",
-        "subgroup": "recent"
-    },
+
     {
         "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
-        "subtitle": "Cofounder and Director",
+        "subtitle": "Cofounder and Director (pre-IPO)",
         "href": "https://verses.io/",
         "src": "progames/verses_quicksilver_sm2.jpg",
         "title": "VERSES.IO",
@@ -113,8 +116,8 @@
     },
     {
         "plain_text": "Karuna Labs VR Motion Therapy Engineering Lead",
-        "subtitle": "VR Motion Therapy",
-        "href": "http://karunavr.com/",
+        "subtitle": "VR Motion Therapy, Engineering Lead",
+        "href": "https://karunalabs.com/",
         "src": "progames/karuna_elbow.jpg",
         "title": "Karuna Labs",
         "category": "product",
@@ -123,8 +126,8 @@
 
     {
         "plain_text": "4D Process SDK",
-        "subtitle": "Space-Time Visualization",
-        "href": "http://www.4dprocess.com/4d/",
+        "subtitle": "Web Visualization, Founder",
+        "href": "../../4d/",
         "src": "progames/eco4d_image3_.jpg",
         "title": "4D Process",
         "category": "product",
@@ -471,7 +474,7 @@
     },
 
     {
-        "href": "http://www.4dprocess.com/fieldhand/",
+        "href": "../../fieldhand/",
         "src": "progames/FieldHand_Friday_Sep18th_2020_sm.jpg",
         "title": "Field Hand",
         "subtitle": "AR/3D Interface Project",
@@ -528,7 +531,7 @@
     },
     {
         "plain_text": "4D Process [web/mobile]",
-        "href": "http://www.4dprocess.com/4d/index.html",
+        "href": "../../4d/index.html",
         "src": "progames/viral_contacts_crop_sm.jpg",
         "title": "4D Process",
         "subtitle": "[web/mobile]",
