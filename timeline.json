@@ -21,7 +21,7 @@
         "plain_text": "Verses Director",
         "subtitle": "Director",
         "href": "https://verses.io/",
-        "title": "Verses",
+        "title": "Verses.ai",
         "src": "../images/verses_logo_transparent.png",
         "category": "team",
         "subgroup": "career"
@@ -53,6 +53,95 @@
         "subgroup": "career"
     },
     {
+        "title": "Full Self-Driving goes public beta",
+        "subtitle": "Autopilot Visualization Owner",
+        "href": "https://www.tesla.com/autopilot",
+        "src": "progames/tesla_fsd_v11.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Model S Plaid",
+        "subtitle": "UI Framework (and Gear Strip)",
+        "href": "https://www.tesla.com/models",
+        "src": "progames/tesla-model-s-plaid.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "href": "https://unity.com/unity/features/mars",
+        "src": "progames/unity-mars-info.jpg",
+        "title": "Unity IPO",
+        "subtitle": "Engineering Manager",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Verses.ai IPO",
+        "subtitle": "Engineering Director",
+        "href": "https://www.verses.ai/",
+        "src": "progames/verses_quicksilver_sm2.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Special Oscar for VR installation",
+        "subtitle": "Editorial and Motion Tools",
+        "href": "https://www.oscars.org/news/academys-board-governors-awards-oscarr-alejandro-g-inarritus-carne-y-arena-virtual-reality",
+        "src": "progames/carneyarena2.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Star Wars goes XR",
+        "subtitle": "Rendering/UX for Quest/VOID/Magic-Leap/Stagecraft",
+        "href": "https://www.youtube.com/watch?v=_rAHM70jfzo",
+        "src": "progames/swsote_still_2.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "HoloLens",
+        "subtitle": "Platform and Games Teams",
+        "href": "http://www.microsoft.com/microsoft-hololens",
+        "src": "progames/hololens_device2.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Kinect for Xbox",
+        "subtitle": "Graphics and Gesture Engineering",
+        "href": "https://en.wikipedia.org/wiki/Kinect",
+        "src": "progames/kinectimals_kid_logo2.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Forza Motorsport 2",
+        "subtitle": "Graphics Engine Programmer",
+        "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
+        "src": "progames/forza_2_screen.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "href": "http://www.hypercubeusa.com/?tabid=360",
+        "src": "progames/hyperchem_field_screen.jpg",
+        "title": "HyperChem 8.0",
+        "subtitle": "Graphics Lead",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "href": "http://en.wikipedia.org/wiki/Windows_Vista",
+        "src": "progames/windows-vista-screen.jpg",
+        "title": "Windows Vista",
+        "subtitle": "Graphics Intern (before Windows 7)",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+
+    {
         "title": "Autopilot UI (2022-23)",
         "subtitle": "UI - Autopilot - Component Owner, Staff",
         "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
@@ -65,7 +154,6 @@
         "subtitle": "UI - Core Framework - Component Owner, Staff",
         "href": "https://youtu.be/q0KqLkhWtCE",
         "src": "progames/tesla_holiday_2022.jpg",
-        
         "category": "product",
         "subgroup": "tesla"
     },
@@ -104,13 +192,12 @@
         "hide":true,
         "subgroup": "unity"
     },
-
     {
-        "plain_text": "VERSES.IO Cofounder and Director of Spatial Standards",
+        "plain_text": "Verses.ai Cofounder and Director of Spatial Standards",
         "subtitle": "Cofounder and Director (pre-IPO)",
-        "href": "https://verses.io/",
+        "href": "https://www.verses.ai/",
         "src": "progames/verses_quicksilver_sm2.jpg",
-        "title": "VERSES.IO",
+        "title": "Verses.ai",
         "category": "product",
         "subgroup": "startups"
     },

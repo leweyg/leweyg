@@ -230,6 +230,7 @@ function cleanUpString(str) {
         "sculpture":"Sculpture & Literature",
         "undefined":"Links",
         "collage":"University Years",
+        "keyproduct":"Key Moments / Products",
         "article-theory":"Articles - Theory"
     };
     if (str === undefined) str = "undefined";
