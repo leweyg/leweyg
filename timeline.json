@@ -53,7 +53,7 @@
         "subgroup": "career"
     },
     {
-        "title": "Full Self-Driving goes public beta",
+        "title": "Full Self-Driving reaches public beta",
         "subtitle": "Autopilot Visualization Owner",
         "href": "https://www.tesla.com/autopilot",
         "src": "progames/tesla_fsd_v11.jpg",
@@ -61,7 +61,7 @@
         "subgroup": "keyproduct"
     },
     {
-        "title": "Model S Plaid",
+        "title": "Model S goes Plaid",
         "subtitle": "UI Framework (and Gear Strip)",
         "href": "https://www.tesla.com/models",
         "src": "progames/tesla-model-s-plaid.jpg",
@@ -93,7 +93,7 @@
         "subgroup": "keyproduct"
     },
     {
-        "title": "Star Wars goes XR",
+        "title": "Star Wars enters XR",
         "subtitle": "Rendering/UX for Quest/VOID/Magic-Leap/Stagecraft",
         "href": "https://www.youtube.com/watch?v=_rAHM70jfzo",
         "src": "progames/swsote_still_2.jpg",
@@ -101,15 +101,15 @@
         "subgroup": "keyproduct"
     },
     {
-        "title": "HoloLens",
-        "subtitle": "Platform and Games Teams",
+        "title": "HoloLens makes smart-glasses practical",
+        "subtitle": "Platform and Showcases Teams",
         "href": "http://www.microsoft.com/microsoft-hololens",
         "src": "progames/hololens_device2.jpg",
         "category": "team",
         "subgroup": "keyproduct"
     },
     {
-        "title": "Kinect for Xbox",
+        "title": "Kinect brings gesture recognition home",
         "subtitle": "Graphics and Gesture Engineering",
         "href": "https://en.wikipedia.org/wiki/Kinect",
         "src": "progames/kinectimals_kid_logo2.jpg",
@@ -117,7 +117,7 @@
         "subgroup": "keyproduct"
     },
     {
-        "title": "Forza Motorsport 2",
+        "title": "Forza Motorsport 2 shows AAA at 60Hz",
         "subtitle": "Graphics Engine Programmer",
         "href": "http://en.wikipedia.org/wiki/Forza_Motorsport_2",
         "src": "progames/forza_2_screen.jpg",
@@ -127,7 +127,7 @@
     {
         "href": "http://www.hypercubeusa.com/?tabid=360",
         "src": "progames/hyperchem_field_screen.jpg",
-        "title": "HyperChem 8.0",
+        "title": "HyperChem 8.0 molecular analysis at protein scale",
         "subtitle": "Graphics Lead",
         "category": "team",
         "subgroup": "keyproduct"
@@ -135,7 +135,7 @@
     {
         "href": "http://en.wikipedia.org/wiki/Windows_Vista",
         "src": "progames/windows-vista-screen.jpg",
-        "title": "Windows Vista",
+        "title": "Windows Vista provides GPU accelerated UI",
         "subtitle": "Graphics Intern (before Windows 7)",
         "category": "team",
         "subgroup": "keyproduct"
@@ -761,7 +761,7 @@
         "subgroup": "spirituality"
     },
     {
-        "href": "https://www.4dprocess.com/4d/index.html#initial_concept",
+        "href": "../../4d/index.html#initial_concept",
         "src": "articles/ecovoxel_v1.jpg",
         "title": "4D Process",
         "subtitle": "Concept Videos",
@@ -1337,7 +1337,7 @@
         "subgroup": "article-theory"
     },
     {
-        "href": "http://www.4dprocess.com/4d/subject/lcb/index.html",
+        "href": "../../4d/subject/lcb/index.html",
         "src": "articles/facets.jpg",
         "title": "Facet-Count Interpolation",
         "subtitle": "Experiment-Passive",
