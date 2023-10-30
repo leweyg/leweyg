@@ -3,6 +3,10 @@ console.log("Starting...");
 const http = require('http'); // or 'https' for https:// URLs
 const fs = require('fs');
 
+var input_timeline = "timeline.json";
+var input_template = "aboutme_template.html";
+var output_path = "docs/lg/aboutme.html";
+
 function pathToLocalPath(path) {
     return "docs/" + path;
 }
@@ -168,13 +172,13 @@ function collectCells() {
         rawJson += JSON.stringify(cells[i]) + ",\n";
     }
     rawJson += "]";
-    fs.writeFileSync("timeline.json",rawJson);
+    fs.writeFileSync(input_timeline,rawJson);
 
     return cells;
 }
 
 function categorizeCells() {
-    var cells = JSON.parse( fs.readFileSync("timeline.json") );
+    var cells = JSON.parse( fs.readFileSync(input_timeline) );
 
     var category = "team";
     var knownCategories = {
@@ -195,7 +199,7 @@ function categorizeCells() {
         rawJson += JSON.stringify(cells[i]) + ",\n";
     }
     rawJson += "]";
-    fs.writeFileSync("timeline.json",rawJson);
+    fs.writeFileSync(input_timeline,rawJson);
 }
 
 function groupByCallback(ar,callback) {
@@ -261,7 +265,7 @@ function filterCells(allCells) {
 }
 
 function updateCells() {
-    var allCells = JSON.parse( fs.readFileSync("timeline.json") );
+    var allCells = JSON.parse( fs.readFileSync(input_timeline) );
     var cells = filterCells(allCells);
     var groups = groupByCallback(cells, (a) => a.category);
     var lines = "";
@@ -329,11 +333,11 @@ function updateCells() {
     var tempPath = "tmp_about_me.html"
     fs.writeFileSync(tempPath, lines);
 
-    var wholeTemplate = "" + fs.readFileSync("aboutme_template.html");
+    var wholeTemplate = "" + fs.readFileSync(input_template);
     var wholeCore = "" + fs.readFileSync(tempPath);
     var replaceMarker = "<!--INSERT_PROFOLIO_HERE-->";
     var wholeFinal = wholeTemplate.replace(replaceMarker, wholeCore);
-    fs.writeFileSync("docs/lg/aboutme.html", wholeFinal);
+    fs.writeFileSync(output_path, wholeFinal);
 }
 
 //collectCells();
