@@ -53,7 +53,15 @@
         "subgroup": "career"
     },
     {
-        "title": "Full Self-Driving reaches public beta",
+        "title": "High Fidelity Park Assist",
+        "subtitle": "Graphics and UI Component Owner",
+        "href": "https://twitter.com/Tesla/status/1732980835740242194",
+        "src": "progames/tesla_3d_park_assist.jpeg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "title": "Autopilot FSD reaches public beta",
         "subtitle": "Autopilot Visualization Owner",
         "href": "https://www.tesla.com/autopilot",
         "src": "progames/tesla_fsd_v11.jpg",
@@ -142,6 +150,14 @@
     },
 
     {
+        "title": "High Fidelity Park Assist",
+        "subtitle": "Graphics and UI Component Owner, Staff",
+        "href": "https://twitter.com/Tesla/status/1732980835740242194",
+        "src": "progames/tesla_3d_park_assist.jpeg",
+        "category": "product",
+        "subgroup": "tesla"
+    },
+    {
         "title": "Autopilot UI (2022-23)",
         "subtitle": "UI - Autopilot - Component Owner, Staff",
         "href": "https://www.youtube.com/watch?v=JjhA6mgyjtk",
@@ -154,6 +170,22 @@
         "subtitle": "UI - Core Framework - Component Owner, Staff",
         "href": "https://youtu.be/q0KqLkhWtCE",
         "src": "progames/tesla_holiday_2022.jpg",
+        "category": "product",
+        "subgroup": "tesla"
+    },
+    {
+        "title": "Cybertruck",
+        "subtitle": "Contributed to Autopilot and UI Framework Improvements, Staff",
+        "href": "https://www.tesla.com/cybertruck",
+        "src": "progames/tesla_cybertruck.jpg",
+        "category": "product",
+        "subgroup": "tesla"
+    },
+    {
+        "title": "Tesla Semi",
+        "subtitle": "Camera Viz and UI Framework, Staff",
+        "href": "https://www.tesla.com/semi",
+        "src": "progames/tesla_semi.jpg",
         "category": "product",
         "subgroup": "tesla"
     },
