@@ -183,8 +183,9 @@
     },
     {
         "href": "https://leweyg.github.io/design_for_verses/",
-        "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
-        "title": "Designing for Verses and The Spatial Web",
+        "src": "progames/verses_quicksilver_sm.jpg",
+        "title": "Spatial Smart-Contracts",
+        "subtitle": "[verses/videos]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -192,7 +193,7 @@
         "href": "../../4d/index.html#initial_concept",
         "src": "articles/ecovoxel_v1.jpg",
         "title": "4D Process",
-        "subtitle": "Concept Videos/Demos",
+        "subtitle": "[videos/demos]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -209,8 +210,9 @@
         "plain_text": "Sculptures",
         "href": "sculpture/index.html",
         "src": "sculpture/07/hand_front_small.jpg",
+        "img2": "sculpture/03/small.jpg",
         "title": "Sculptures",
-        "subtitle": "",
+        "subtitle": "[clay/wax]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -224,11 +226,10 @@
         "subgroup": "keyart"
     },
     {
-        "plain_text": "Kinect Gesture Development Videos and Articles [videos]",
         "href": "articles/kinect/kinect_dev_videos.html",
-        "title": "Kinect Gesture DevelopmentVideos and Articles [videos]",
+        "title": "Kinect Gesture Development",
         "src": "progames/kinect_sensor_me2.jpg",
-        "subtitle": "",
+        "subtitle": "[videos]",
         "category": "team",
         "subgroup": "keyart"
     },

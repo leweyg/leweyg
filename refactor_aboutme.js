@@ -95,7 +95,17 @@ function cellToHtml(cell) {
         ans += "<a \n href=\"" + cell.href + "\" class='pcell_link'>";
     }
     if (cell.src) {
-        ans += "<img class='pcell_image' \n src=\"" + cell.src + "\" /><br/>";
+        if (cell.img2) {
+            ans += "<table style='border-spacing:0; padding:0;' ><tr><td style='padding:0;'>";
+        }
+        ans += "<img class='pcell_image' \n src=\"" + cell.src + "\" />";
+        if (cell.img2) {
+            ans += "</td><td style='padding:0;'>";
+            ans += "<img class='pcell_image' \n src=\"" + cell.img2 + "\" />";
+            ans += "</td></tr></table>"
+        } else {
+            ans += "<br/>";
+        }
     }
     if (cell.title) {
         ans += "\n " + cell.title + "";
