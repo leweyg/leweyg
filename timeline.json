@@ -150,6 +150,135 @@
     },
 
     {
+        "href": "https://leweyg.github.io/lewcid_editor/",
+        "src": "progames/lewcid_editor_spacekit_scene.jpg",
+        "title": "Lewcid Editor",
+        "subtitle": "[web/mobile]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/heroine_dawn/",
+        "src": "progames/heroine_dawn.jpg",
+        "title": "Heroine Dawn",
+        "subtitle": "[web/mobile]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/HealerGame/demo/",
+        "src": "progames/HealerGame.jpg",
+        "title": "Healer Game",
+        "subtitle": "[web/mobile]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "title": "San Francisco Home",
+        "subtitle": "[verses/web/mobile]",
+        "href": "https://leweyg.github.io/design_for_verses/4d-demo/",
+        "src": "progames/verses_home_sf.jpg",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/design_for_verses/",
+        "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
+        "title": "Designing for Verses and The Spatial Web",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "../../4d/index.html#initial_concept",
+        "src": "articles/ecovoxel_v1.jpg",
+        "title": "4D Process",
+        "subtitle": "Concept Videos/Demos",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Energy Work",
+        "href": "articles/leweys_energy_work.html",
+        "src": "articles/lewcid_energy_work_sm.gif",
+        "title": "Energy Work Experiences",
+        "subtitle": "[personal-story]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Sculptures",
+        "href": "sculpture/index.html",
+        "src": "sculpture/07/hand_front_small.jpg",
+        "title": "Sculptures",
+        "subtitle": "",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "3D UI Hand Gestures [video]",
+        "href": "articles/vol/hand_poses.html",
+        "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
+        "title": "3D UI Hand Gestures",
+        "subtitle": "[video]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Kinect Gesture Development Videos and Articles [videos]",
+        "href": "articles/kinect/kinect_dev_videos.html",
+        "title": "Kinect Gesture DevelopmentVideos and Articles [videos]",
+        "src": "progames/kinect_sensor_me2.jpg",
+        "subtitle": "",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Quake II AbSIRD Stereogram Engine Mod [win32]",
+        "href": "download/SIRD/q2/index.html",
+        "src": "progames/Quake_to_SIRDS.jpg",
+        "title": "Quake II AbSIRD",
+        "subtitle": "Stereogram Engine Mod [win32]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Dice Walker [web]",
+        "href": "https://leweyg.github.io/DiceWalker/",
+        "src": "progames/dice_walker_sm.jpg",
+        "title": "Dice Walker",
+        "subtitle": "[web]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "ImpView 3D Implicit Equations [win32]",
+        "href": "download/impview.html",
+        "src": "download/Screens/ImpView_F_small.jpg",
+        "title": "ImpView",
+        "subtitle": "3D Implicit Equations [win32]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Thinking Game 2 Connect 4 in 3D [win32]",
+        "href": "download/TG2.html",
+        "src": "download/Screens/TG2_Game1.jpg",
+        "title": "Thinking Game 2",
+        "subtitle": "Connect 4 in 3D [win32]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "plain_text": "Crystal Math Console Command Line Tool [win32]",
+        "href": "download/Crystal.html",
+        "src": "download/Screens/CrystalMath_Console.jpg",
+        "title": "Crystal Math Console",
+        "subtitle": "Command Line Tool [win32]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+
+    {
         "title": "High Fidelity Park Assist",
         "subtitle": "Graphics and UI Component Owner, Staff",
         "href": "https://twitter.com/Tesla/status/1732980835740242194",
@@ -524,7 +653,6 @@
         "subgroup": "interactive-passive"
     },
     {
-        "plain_text": "Heroine Dawn [web/mobile]",
         "href": "https://leweyg.github.io/heroine_dawn/",
         "src": "progames/heroine_dawn.jpg",
         "title": "Heroine Dawn",
@@ -759,7 +887,6 @@
 
     
     {
-        "plain_text": "Healer Game Series [web/mobile]",
         "href": "https://leweyg.github.io/HealerGame/demo/",
         "src": "progames/HealerGame.jpg",
         "title": "Healer Game Series",

@@ -234,7 +234,8 @@ function cleanUpString(str) {
         "sculpture":"Sculpture & Literature",
         "undefined":"Links",
         "collage":"University Years",
-        "keyproduct":"Key Moments / Products",
+        "keyproduct":"Key <a href=\"#products\" class='pcell_white' >Products</a>",
+        "keyart":"Key <a href=\"#art\" class='pcell_white' >Articles / Demos</a>",
         "article-theory":"Articles - Theory"
     };
     if (str === undefined) str = "undefined";
@@ -290,8 +291,8 @@ function updateCells() {
     var subgroup = undefined;
     var groupInfos = {
         "team":{title:"Teams",color:"black"},
-        "product":{title:"Products",color:"#6898b3"},
-        "personal":{title:"Self Published",color:"#68b368"},
+        "product":{title:"Products",color:"#6898b3",hashlink:"products"},
+        "personal":{title:"Articles / Demos",color:"#68b368",hashlink:"art"},
         "interest":{title:"Interests",color:"#a19a5c"},
         "unfinished":{title:"Unfinished",color:"#a19a5c"}
     }
@@ -300,7 +301,11 @@ function updateCells() {
     {
         var info = groupInfos[groupName];
         lines += "<div style='width:100%;background-color:" + info.color + "' >";
-        lines += "<h2 class='pcell_group_major'>\n" + info.title + "</h2>\n";
+        lines += "<h2 class='pcell_group_major' ";
+        if (info.hashlink) {
+            lines += " id=\'" + info.hashlink + "\' ";
+        }
+        lines += " >\n" + info.title + "</h2>\n";
         lines += "<div><table><tr>\n";
 
         var cellList = groups[groupName];
