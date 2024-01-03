@@ -193,13 +193,13 @@
     {
         "href": "https://leweyg.github.io/design_for_verses/",
         "src": "progames/VERSES_Smart_Warehouse_sm.jpg",
-        "title": "3D Warehouse Smart-contracts on HyperLedger",
+        "title": "3D warehouse smart-contracts on HyperLedger",
         "subtitle": "[verses/videos]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "title": "Home Asset Tokenization for Web/Unity",
+        "title": "Home asset tokenization for Web/Unity",
         "subtitle": "[verses/web/mobile]",
         "href": "https://leweyg.github.io/design_for_verses/4d-demo/",
         "src": "progames/verses_home_sf.jpg",
@@ -209,7 +209,7 @@
     {
         "href": "../../4d/index.html#initial_concept",
         "src": "articles/ecovoxel_v1.jpg",
-        "title": "4D Spatial Visualization",
+        "title": "Data manipulation in VR",
         "subtitle": "[videos/demos]",
         "category": "team",
         "subgroup": "keyart"
@@ -223,46 +223,42 @@
         "subgroup": "keyart"
     },
     {
-        "plain_text": "Sculptures",
         "href": "sculpture/index.html",
         "src": "sculpture/07/hand_front_small.jpg",
         "img2": "sculpture/03/small.jpg",
-        "title": "Sculptures",
+        "title": "Sculptures in Clay/Wax",
         "subtitle": "at Gage Academy of Art night classes",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "plain_text": "3D UI Hand Gestures [video]",
         "href": "articles/vol/hand_poses.html",
         "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
-        "title": "3D UI Hand Gestures",
+        "title": "3D UI Hand Gestures for Excel",
         "subtitle": "[video]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
         "href": "articles/kinect/kinect_dev_videos.html",
-        "title": "Kinect Gesture Development",
+        "title": "Gesture Development for Kinect",
         "src": "progames/kinect_sensor_me2.jpg",
         "subtitle": "[videos]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "plain_text": "Quake II AbSIRD Stereogram Engine Mod [win32]",
         "href": "download/SIRD/q2/index.html",
         "src": "progames/Quake_to_SIRDS.jpg",
-        "title": "Quake II AbSIRD",
-        "subtitle": "Stereogram Engine Mod [win32]",
+        "title": "Stereogram engine mod for Quake II",
+        "subtitle": "[q2src]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "plain_text": "Dice Walker [web]",
         "href": "https://leweyg.github.io/DiceWalker/",
         "src": "progames/dice_walker_sm.jpg",
-        "title": "Dice Walker",
+        "title": "Real-time dice strategy/puzzle game",
         "subtitle": "[web]",
         "category": "team",
         "subgroup": "keyart"
