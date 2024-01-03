@@ -152,7 +152,7 @@
     {
         "href": "https://leweyg.github.io/lewcid_editor/",
         "src": "progames/lewcid_editor_spacekit_scene.jpg",
-        "title": "Lewcid Editor",
+        "title": "Extending the Three.js editor",
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
@@ -160,7 +160,7 @@
     {
         "href": "https://leweyg.github.io/heroine_dawn/",
         "src": "progames/heroine_dawn.jpg",
-        "title": "Heroine Dawn",
+        "title": "2D to 3D game conversation using Three.js editor",
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
@@ -168,13 +168,21 @@
     {
         "href": "https://leweyg.github.io/HealerGame/demo/",
         "src": "progames/HealerGame.jpg",
-        "title": "Healer Game",
+        "title": "Energetic interactive fiction in Unity",
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "title": "San Francisco Home",
+        "href": "https://leweyg.github.io/design_for_verses/",
+        "src": "progames/verses_quicksilver_sm.jpg",
+        "title": "Spatial smart-contracts on blockchain in XR",
+        "subtitle": "[verses/videos]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "title": "Home Asset Tokenization",
         "subtitle": "[verses/web/mobile]",
         "href": "https://leweyg.github.io/design_for_verses/4d-demo/",
         "src": "progames/verses_home_sf.jpg",
@@ -182,26 +190,17 @@
         "subgroup": "keyart"
     },
     {
-        "href": "https://leweyg.github.io/design_for_verses/",
-        "src": "progames/verses_quicksilver_sm.jpg",
-        "title": "Spatial Smart-Contracts",
-        "subtitle": "[verses/videos]",
-        "category": "team",
-        "subgroup": "keyart"
-    },
-    {
         "href": "../../4d/index.html#initial_concept",
         "src": "articles/ecovoxel_v1.jpg",
-        "title": "4D Process",
+        "title": "4D Process Visualization",
         "subtitle": "[videos/demos]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
-        "plain_text": "Energy Work",
         "href": "articles/leweys_energy_work.html",
         "src": "articles/lewcid_energy_work_sm.gif",
-        "title": "Energy Work Experiences",
+        "title": "Studies in Energy Work",
         "subtitle": "[personal-story]",
         "category": "team",
         "subgroup": "keyart"
@@ -212,7 +211,7 @@
         "src": "sculpture/07/hand_front_small.jpg",
         "img2": "sculpture/03/small.jpg",
         "title": "Sculptures",
-        "subtitle": "[clay/wax]",
+        "subtitle": "at Gage Academy of Art night classes",
         "category": "team",
         "subgroup": "keyart"
     },
