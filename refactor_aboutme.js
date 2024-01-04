@@ -244,8 +244,8 @@ function cleanUpString(str) {
         "sculpture":"Sculpture & Literature",
         "undefined":"Links",
         "collage":"University Years",
-        "keyproduct":"Key <a href=\"#products\" class='pcell_white' >Products</a> by time...",
-        "keyart":"Key <a href=\"#art\" class='pcell_white' >Articles / Demos</a> by time...",
+        "keyproduct":"Key <a href=\"#products\" class='pcell_white' >Products</a>...",
+        "keyart":"<a href=\"#art\" class='pcell_white' >Side projects / demos</a>...",
         "article-theory":"Articles - Theory"
     };
     if (str === undefined) str = "undefined";
