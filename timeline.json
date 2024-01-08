@@ -161,7 +161,8 @@
         "plain_text": "Lewdo [web/mobile]",
         "href": "https://github.com/leweyg/lewdo",
         "src": "progames/lewdo_sm3.png",
-        "title": "3D Terminal in CSS",
+        "title": "Text-based 3D interface",
+        "hide":true,
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
@@ -169,7 +170,7 @@
     {
         "href": "https://leweyg.github.io/carnival/carnival/",
         "src": "progames/carnival_intro.jpg",
-        "title": "Touch Games for Tesla Browser",
+        "title": "Touch games for Tesla Browser",
         "subtitle": "[web]",
         "category": "team",
         "subgroup": "keyart"
@@ -177,7 +178,7 @@
     {
         "href": "https://leweyg.github.io/heroine_dawn/",
         "src": "progames/heroine_dawn.jpg",
-        "title": "2D to 3D game conversation using Three.js editor",
+        "title": "2D RPG ported to Web3D",
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
@@ -187,6 +188,22 @@
         "src": "progames/HealerGame.jpg",
         "title": "Energetic interactive fiction in Unity",
         "subtitle": "[web/mobile]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
+        "src": "progames/freed_go_2.jpg",
+        "title": "Game of 'Go' on 3D Boards",
+        "subtitle": "[web/mobile/ multiplayer]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/DiceWalker/",
+        "src": "progames/dice_walker_sm.jpg",
+        "title": "Real-time dice strategy/puzzle game",
+        "subtitle": "[web]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -234,14 +251,14 @@
     {
         "href": "articles/vol/hand_poses.html",
         "src": "articles/vol/Volumetrics_Scrolling_Early_screen.jpg",
-        "title": "3D UI Hand Gestures for Excel",
+        "title": "3D UI hand gestures",
         "subtitle": "[video]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
         "href": "articles/kinect/kinect_dev_videos.html",
-        "title": "Gesture Development for Kinect",
+        "title": "Gesture development for Kinect",
         "src": "progames/kinect_sensor_me2.jpg",
         "subtitle": "[videos]",
         "category": "team",
@@ -252,14 +269,6 @@
         "src": "progames/Quake_to_SIRDS.jpg",
         "title": "Stereogram engine mod for Quake II",
         "subtitle": "[q2src]",
-        "category": "team",
-        "subgroup": "keyart"
-    },
-    {
-        "href": "https://leweyg.github.io/DiceWalker/",
-        "src": "progames/dice_walker_sm.jpg",
-        "title": "Real-time dice strategy/puzzle game",
-        "subtitle": "[web]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -294,7 +303,7 @@
     {
         "title": "High Fidelity Park Assist",
         "subtitle": "Graphics and UI Component Owner, Staff",
-        "href": "https://twitter.com/Tesla/status/1732980835740242194",
+        "href": "https://x.com/Tesla/status/1743701415208403092",
         "src": "progames/tesla_3d_park_assist.jpeg",
         "category": "product",
         "subgroup": "tesla"
