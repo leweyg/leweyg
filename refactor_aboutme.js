@@ -98,7 +98,13 @@ function cellToHtml(cell) {
         if (cell.img2) {
             ans += "<table style='border-spacing:0; padding:0;' ><tr><td style='padding:0;'>";
         }
+        if (cell.is_key_picture) {
+            ans += "<picture>";
+        }
         ans += "<img class='pcell_image' \n src=\"" + cell.src + "\" />";
+        if (cell.is_key_picture) {
+            ans += "</picture>";
+        }
         if (cell.img2) {
             ans += "</td><td style='padding:0;'>";
             ans += "<img class='pcell_image' \n src=\"" + cell.img2 + "\" />";
