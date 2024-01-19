@@ -1,6 +1,5 @@
 [
     {
-        "plain_text": "Tesla Staff",
         "subtitle": "Staff",
         "href": "https://www.tesla.com/",
         "title": "Tesla",
@@ -151,9 +150,17 @@
     },
 
     {
+        "href": "lewcid_next.jpg",
+        "src": "lewcid_next_logo.jpg",
+        "title": "Coming Soon: UI+AI+3D",
+        "subtitle": "[image]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
         "href": "https://leweyg.github.io/lewcid_editor/",
         "src": "progames/lewcid_editor_spacekit_scene.jpg",
-        "title": "Scaling up the Three.js Web3D editor",
+        "title": "Extending the Three.js Editor",
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
