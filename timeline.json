@@ -150,7 +150,7 @@
     },
 
     {
-        "href": "lewcid_next.jpg",
+        "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
         "src": "lewcid_next_logo.jpg",
         "title": "Coming Soon: UI+AI+3D",
         "subtitle": "[image]",
@@ -170,7 +170,6 @@
         "href": "https://github.com/leweyg/lewdo",
         "src": "progames/lewdo_sm3.png",
         "title": "Text-based 3D interface",
-        "hide":true,
         "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
