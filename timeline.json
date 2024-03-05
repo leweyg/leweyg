@@ -1,8 +1,16 @@
 [
     {
-        "subtitle": "Staff",
+        "href": "https://www.magicleap.com/",
+        "title": "Magic Leap",
+        "subtitle": "Principal",
+        "src": "../images/Magic_Leap_color.png",
+        "category": "team",
+        "subgroup": "career"
+    },
+    {
         "href": "https://www.tesla.com/",
         "title": "Tesla",
+        "subtitle": "Staff",
         "src": "../images/tesla_logo_icon.png",
         "category": "team",
         "subgroup": "career"
