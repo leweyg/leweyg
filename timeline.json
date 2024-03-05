@@ -160,7 +160,7 @@
     {
         "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
         "src": "lewcid_next_logo.jpg",
-        "title": "Coming Soon: UI+AI+3D",
+        "title": "Hand Gestures for XR Browsers",
         "subtitle": "[image]",
         "category": "team",
         "subgroup": "keyart"
@@ -177,6 +177,7 @@
         "plain_text": "Lewdo [web/mobile]",
         "href": "https://github.com/leweyg/lewdo",
         "src": "progames/lewdo_sm3.png",
+        "hide":true,
         "title": "Text-based 3D interface",
         "subtitle": "[web/mobile]",
         "category": "team",
