@@ -159,9 +159,9 @@
 
     {
         "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
-        "src": "lewcid_next_logo.jpg",
+        "src": "progames/hands_xr_scrolling.jpg",
         "title": "Hand Gestures for XR Browsers",
-        "subtitle": "[image]",
+        "subtitle": "[web/xr]",
         "category": "team",
         "subgroup": "keyart"
     },
