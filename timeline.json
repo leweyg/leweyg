@@ -158,6 +158,14 @@
     },
 
     {
+        "href": "https://leweyg.github.io/vrbiofield/index.html",
+        "src": "progames/BiofieldVR_Left.jpg",
+        "title": "Biofield Meditation",
+        "subtitle": "[web/vr]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
         "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
         "src": "progames/hands_xr_scrolling.jpg",
         "title": "Hand Gestures for XR Browsers",
@@ -924,7 +932,7 @@
     },
     {
         "href": "https://leweyg.github.io/vrbiofield/index.html",
-        "src": "progames/VRBiofield_HeartChakra.jpg",
+        "src": "progames/BiofieldVR_Left.jpg",
         "title": "Biofield Meditation",
         "subtitle": "[web/vr]",
         "category": "personal",
@@ -941,7 +949,7 @@
         "subgroup": "spirituality"
     },
     {
-        "href": "https://github.com/leweyg/vrbiofield/tree/master/UnityProject/VRBiofield/Assets/BiofieldCore",
+        "href": "https://github.com/leweyg/vrbiofield/",
         "src": "progames/biofield_hand_sim.jpg",
         "title": "Biofield Simulation",
         "subtitle": "[source_code]",
