@@ -1215,11 +1215,24 @@
         "subgroup": "interactive-passive"
     },
     {
-        "plain_text": "Suzanne Astar",
         "href": "http://suzanneastar.com/",
         "src": "progames/suzanne_astar_at_work.jpg",
         "title": "Suzanne Astar",
-        "subtitle": "Partner",
+        "subtitle": "Fiance",
+        "category": "interest"
+    },
+    {
+        "href": "http://vivekaastar.com/",
+        "src": "progames/viveka_astar_logo_sm.png",
+        "title": "Viveka Astar",
+        "subtitle": "Daughter",
+        "category": "interest"
+    },
+    {
+        "href": "http://raastar.com/",
+        "src": "progames/ra_astar_logo_sm.jpg",
+        "title": "Ra Astar",
+        "subtitle": "Son",
         "category": "interest"
     },
     {
