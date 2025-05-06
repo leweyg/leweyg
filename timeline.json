@@ -158,17 +158,33 @@
     },
 
     {
-        "href": "https://leweyg.github.io/vrbiofield/index.html",
-        "src": "progames/BiofieldVR_Left.jpg",
-        "title": "Biofield Meditation",
-        "subtitle": "[web/vr]",
+        "href": "https://leweyg.github.io/temple_world/",
+        "src": "progames/temple_world_preview_sm.jpg",
+        "title": "Temple World (in-dev)",
+        "subtitle": "[web]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/carnival/carnival/",
+        "src": "progames/carnival_intro.jpg",
+        "title": "Car-nival Games (for Tesla Browser)",
+        "subtitle": "[web]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
+        "href": "https://leweyg.github.io/heroine_dawn/",
+        "src": "progames/heroine_dawn.jpg",
+        "title": "Fantasy RPG (for Tesla Browser)",
+        "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
     },
     {
         "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
         "src": "progames/hands_xr_scrolling.jpg",
-        "title": "Hand Gestures for XR Browsers",
+        "title": "Hand Gestures for 3D Scrolling",
         "subtitle": "[web/xr]",
         "category": "team",
         "subgroup": "keyart"
@@ -192,18 +208,10 @@
         "subgroup": "keyart"
     },
     {
-        "href": "https://leweyg.github.io/carnival/carnival/",
-        "src": "progames/carnival_intro.jpg",
-        "title": "Touch games for Tesla Browser",
-        "subtitle": "[web]",
-        "category": "team",
-        "subgroup": "keyart"
-    },
-    {
-        "href": "https://leweyg.github.io/heroine_dawn/",
-        "src": "progames/heroine_dawn.jpg",
-        "title": "2D RPG ported to Web3D",
-        "subtitle": "[web/mobile]",
+        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
+        "src": "progames/freed_go_2.jpg",
+        "title": "Game of 'Go' on 3D Boards",
+        "subtitle": "[web/mobile/ multiplayer]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -216,10 +224,10 @@
         "subgroup": "keyart"
     },
     {
-        "href": "https://leweyg.github.io/FreedGames/FreedGo/",
-        "src": "progames/freed_go_2.jpg",
-        "title": "Game of 'Go' on 3D Boards",
-        "subtitle": "[web/mobile/ multiplayer]",
+        "href": "https://leweyg.github.io/vrbiofield/index.html",
+        "src": "progames/BiofieldVR_Left.jpg",
+        "title": "Biofield Meditation",
+        "subtitle": "[web/vr]",
         "category": "team",
         "subgroup": "keyart"
     },
