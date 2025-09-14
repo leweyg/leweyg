@@ -65,7 +65,6 @@
         "subtitle": "Indoor Mapping Service Lead",
         "href": "https://mapsplatform.google.com/maps-products/3d-maps/",
         "src": "progames/maps_indoors_filling.jpg",
-        "photo-credit": "https://www.tomsguide.com/computing/vr-ar/android-xr-everything-you-need-to-know",
         "category": "team",
         "subgroup": "keyproduct"
     },
@@ -75,6 +74,8 @@
         "subtitle": "Graphics/Compositor Engineering",
         "href": "https://www.android.com/xr/",
         "src": "progames/android_xr_glasses.jpg",
+        "photo_credit_link": "https://www.tomsguide.com/computing/vr-ar/android-xr-everything-you-need-to-know",
+        "photo_credit": "image credit",
         "category": "team",
         "subgroup": "keyproduct"
     },
@@ -176,6 +177,18 @@
         "subgroup": "keyproduct"
     },
 
+    {
+        "title": "Personal Website",
+        "subtitle": "Est. 2001",
+        "href": "aboutme.html",
+        "photo_credit_link": "https://www.youtube.com/watch?v=cPQum_be9wk&t=56s",
+        "photo_credit": "video credit: Lucasfilm",
+        "src_OTHER": "leweyg_profile_pic.jpg",
+        "src_OTHER2":"progames/tesla_always_rainbows.jpg",
+        "src":"progames/leweyg_ilm_seurat_interview.jpg",
+        "category": "team",
+        "subgroup": "keyart"
+    },
     {
         "href": "https://leweyg.github.io/temple_world/",
         "src": "progames/temple_world_preview_sm.jpg",

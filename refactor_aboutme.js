@@ -128,6 +128,11 @@ function cellToHtml(cell) {
     if (cell.subtitle) {
         ans += "<br/><span class='pcell_white pcell_subtitle' > " + replaceSquares(cell.subtitle) + "</span>";
     }
+    if (cell.photo_credit_link) {
+        ans += "<br/><a href='" + cell.photo_credit_link + "' class='pcell_subtitle' >";
+        ans += "(" + ( cell.photo_credit || "photo credit" ) + ")";
+        ans += "</a>";
+    }
     ans += "<br/>";
     return ans;
 }
