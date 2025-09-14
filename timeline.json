@@ -61,6 +61,25 @@
     },
     {
         "is_key_picture":true,
+        "title": "Google Maps Immersive View",
+        "subtitle": "Indoor Mapping Service Lead",
+        "href": "https://mapsplatform.google.com/maps-products/3d-maps/",
+        "src": "progames/maps_indoors_filling.jpg",
+        "photo-credit": "https://www.tomsguide.com/computing/vr-ar/android-xr-everything-you-need-to-know",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "is_key_picture":true,
+        "title": "AndroidXR",
+        "subtitle": "Graphics/Compositor Engineering",
+        "href": "https://www.android.com/xr/",
+        "src": "progames/android_xr_glasses.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
+        "is_key_picture":true,
         "title": "High Fidelity Park Assist",
         "subtitle": "Graphics and UI Component Owner",
         "href": "https://x.com/Tesla/status/1743701415208403092",
