@@ -1,5 +1,13 @@
 [
     {
+        "href": "https://aim.vision/",
+        "title": "AIM.vision",
+        "subtitle": "Principal",
+        "src": "../images/aim_icon.png",
+        "category": "team",
+        "subgroup": "career"
+    },
+    {
         "href": "https://www.magicleap.com/",
         "title": "Magic Leap",
         "subtitle": "Principal",
