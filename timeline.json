@@ -68,6 +68,14 @@
         "subgroup": "career"
     },
     {
+        "title": "AIM Earthformer",
+        "subtitle": "Principal Simulation Engineer",
+        "href": "https://aim.vision/",
+        "src": "progames/aim_autonomy.jpg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
         "title": "Google Maps Immersive View",
         "subtitle": "Indoor Mapping Service Lead",
         "href": "https://mapsplatform.google.com/maps-products/3d-maps/",
