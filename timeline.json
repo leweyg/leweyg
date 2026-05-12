@@ -773,6 +773,15 @@
         "category": "product",
         "subgroup": "collage"
     },
+
+    {
+        "href": "https://leweyg.github.io/lewcid_editor/examples/webxr_vr_handinput_scrolling.html",
+        "src": "progames/hands_xr_scrolling.jpg",
+        "title": "Hand Gestures for 3D Scrolling",
+        "subtitle": "[web/xr]",
+        "category": "personal",
+        "subgroup": "interactive-passive"
+    },
     {
         "href": "https://leweyg.github.io/lewcid_editor/",
         "src": "progames/lewcid_editor_spacekit_scene.jpg",
@@ -806,7 +815,14 @@
         "category": "personal",
         "subgroup": "interactive-passive"
     },
-
+{
+        "href": "https://youtu.be/ON_UUFOysn0",
+        "src": "articles/ai_interview.jpg",
+        "title": "AI Alignment Interview",
+        "subtitle": "Interview about AI",
+        "category": "personal",
+        "subgroup": "video-article"
+    },
     {
         "href": "https://www.youtube.com/watch?v=9Ehr452mBlI",
         "src": "progames/unity_mars_valentimes.jpg",
