@@ -384,6 +384,30 @@
     },
 
     {
+        "title": "Earthformer @ AIM",
+        "subtitle": "Principal Simulation Engineer",
+        "href": "https://aim.vision/",
+        "src": "progames/aim_autonomy.jpg",
+        "category": "product",
+        "subgroup": "startups-2"
+    },
+    {
+        "title": "Google Maps @ Magic Leap",
+        "subtitle": "Indoor Mapping Service Lead",
+        "href": "https://mapsplatform.google.com/maps-products/3d-maps/",
+        "src": "progames/maps_indoors_filling.jpg",
+        "category": "product",
+        "subgroup": "startups-2"
+    },
+    {
+        "title": "AndroidXR @ MagicLeap",
+        "subtitle": "Graphics/Compositor Engineering",
+        "href": "https://www.android.com/xr/",
+        "src": "progames/android_xr_glasses.jpg",
+        "category": "product",
+        "subgroup": "startups-2"
+    },
+    {
         "title": "High Fidelity Park Assist",
         "subtitle": "Graphics and UI Component Owner, Staff",
         "href": "https://x.com/Tesla/status/1743701415208403092",
