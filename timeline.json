@@ -1,8 +1,17 @@
 [
     {
+        "href": "https://foxglove.dev/home",
+        "title": "Foxglove",
+        "subtitle": "Engineering",
+        "src": "../images/foxglove-scaled.png",
+        "category": "team",
+        "subgroup": "career"
+    },
+    {
         "href": "https://aim.vision/",
         "title": "AIM.vision",
         "subtitle": "Principal",
+        "hide": true,
         "src": "../images/aim_icon.png",
         "category": "team",
         "subgroup": "career"
@@ -35,7 +44,7 @@
     {
         "plain_text": "Verses Director",
         "subtitle": "Director",
-        "href": "https://verses.io/",
+        "href": "https://www.verses.ai/",
         "title": "Verses.ai",
         "src": "../images/verses_logo_transparent.png",
         "category": "team",
