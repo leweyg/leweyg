@@ -210,10 +210,10 @@
         "subgroup": "keyart"
     },
     {
-        "href": "https://leweyg.github.io/temple_world/",
-        "src": "progames/temple_world_preview_sm.jpg",
-        "title": "Temple World (in-dev)",
-        "subtitle": "[web]",
+        "href": "https://leweyg.github.io/heroine_dawn/",
+        "src": "progames/heroine_dawn.jpg",
+        "title": "Heroine Dawn (3D RPG)",
+        "subtitle": "[web/mobile]",
         "category": "team",
         "subgroup": "keyart"
     },
@@ -226,10 +226,10 @@
         "subgroup": "keyart"
     },
     {
-        "href": "https://leweyg.github.io/heroine_dawn/",
-        "src": "progames/heroine_dawn.jpg",
-        "title": "Fantasy RPG (for Tesla Browser)",
-        "subtitle": "[web/mobile]",
+        "href": "https://leweyg.github.io/temple_world/",
+        "src": "progames/temple_world_preview_sm.jpg",
+        "title": "Temple World (in-dev)",
+        "subtitle": "[web]",
         "category": "team",
         "subgroup": "keyart"
     },
