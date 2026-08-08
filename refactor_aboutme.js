@@ -311,7 +311,7 @@ function updateCells() {
 
     var subgroup = undefined;
     var groupInfos = {
-        "team":{title:"Teams",color:"black"},
+        "team":{title:"Teams",color:"black",hideTitle:true},
         "product":{title:"Products",color:"#6898b3",hashlink:"products"},
         "personal":{title:"Articles / Demos",color:"#68b368",hashlink:"art"},
         "interest":{title:"Interests",color:"#a19a5c"},
@@ -322,11 +322,13 @@ function updateCells() {
     {
         var info = groupInfos[groupName];
         lines += "<div style='width:100%;background-color:" + info.color + "' >";
-        lines += "<h2 class='pcell_group_major' ";
-        if (info.hashlink) {
-            lines += " id=\'" + info.hashlink + "\' ";
+        if (!info.hideTitle) {
+            lines += "<h2 class='pcell_group_major' ";
+            if (info.hashlink) {
+                lines += " id=\'" + info.hashlink + "\' ";
+            }
+            lines += " >\n" + info.title + "</h2>\n";
         }
-        lines += " >\n" + info.title + "</h2>\n";
         lines += "<div><table><tr>\n";
 
         var cellList = groups[groupName];
