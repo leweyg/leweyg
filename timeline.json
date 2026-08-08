@@ -218,6 +218,14 @@
         "subgroup": "keyart"
     },
     {
+        "href": "https://leweyg.github.io/three_js_editor_small/",
+        "src": "progames/three_js_editor_small.png",
+        "title": "3d editor in 20mb",
+        "subtitle": "[web/mobile]",
+        "category": "team",
+        "subgroup": "keyart"
+    },
+    {
         "href": "https://leweyg.github.io/carnival/carnival/",
         "src": "progames/carnival_intro.jpg",
         "title": "Car-nival Games (for Tesla Browser)",
