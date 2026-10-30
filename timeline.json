@@ -77,6 +77,14 @@
         "subgroup": "career"
     },
     {
+        "title": "Foxglove 3.0",
+        "subtitle": "Visualization Engineer",
+        "href": "https://foxglove.dev/blog/introducing-3d-maps-in-foxglove",
+        "src": "progames/foxglove_3d_maps.jpeg",
+        "category": "team",
+        "subgroup": "keyproduct"
+    },
+    {
         "title": "AIM Earthformer",
         "subtitle": "Principal Simulation Engineer",
         "href": "https://aim.vision/",
