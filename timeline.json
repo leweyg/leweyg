@@ -231,7 +231,8 @@
         "title": "Spiral Grid: Equinox",
         "subtitle": "[visual-story]",
         "category": "team",
-        "subgroup": "keyart"
+        "subgroup": "keyart",
+        "hide": true
     },
     {
         "href": "https://leweyg.github.io/jclassicrpg/",
